@@ -5,21 +5,27 @@ import PricingPage from './pages/PricingPage'
 import DemoPage from './pages/DemoPage'
 import ContactPage from './pages/ContactPage'
 import PillarPage from './pages/PillarPage'
+import ClusterPage from './pages/ClusterPage'
 import NotFoundPage from './pages/NotFoundPage'
 import { PILLARS } from './content/pillars'
+import { CLUSTERS } from './content/clusters'
 
 /**
  * Route table consumed by both react-router-dom and vite-react-ssg.
  *
- * vite-react-ssg uses the `entry()` function on dynamic routes (or static paths
- * via getStaticPaths) to know which URLs to pre-render at build time. We export
- * a static array because every route is enumerable from PILLARS.
+ * Every route is enumerated as a static path so vite-react-ssg pre-renders
+ * each one as its own HTML file. PILLARS and CLUSTERS drive the dynamic
+ * portions — adding a new pillar or cluster automatically adds a new route.
  */
 
 const pillarRoutes = PILLARS.map((p) => ({
   path: p.slug,
   element: <PillarPage slug={p.slug} />,
-  // Hint for SSG: this route maps to /<slug>
+}))
+
+const clusterRoutes = CLUSTERS.map((c) => ({
+  path: `${c.pillar}/${c.slug}`,
+  element: <ClusterPage pillar={c.pillar} cluster={c.slug} />,
 }))
 
 export const routes = [
@@ -33,6 +39,7 @@ export const routes = [
       { path: 'demo', element: <DemoPage /> },
       { path: 'contact', element: <ContactPage /> },
       ...pillarRoutes,
+      ...clusterRoutes,
       { path: '*', element: <NotFoundPage /> },
     ],
   },
@@ -50,4 +57,5 @@ export const STATIC_PATHS = [
   '/demo',
   '/contact',
   ...PILLARS.map((p) => `/${p.slug}`),
+  ...CLUSTERS.map((c) => `/${c.pillar}/${c.slug}`),
 ]

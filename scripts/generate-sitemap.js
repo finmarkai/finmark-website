@@ -14,6 +14,7 @@ import { writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { PILLARS } from '../src/content/pillars.js'
+import { CLUSTERS } from '../src/content/clusters.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -35,19 +36,14 @@ const PILLAR_PAGES = PILLARS.map((p) => ({
   changefreq: 'weekly',
 }))
 
-// Cluster pages are declared inside each pillar but only get added to the
-// sitemap once you've actually built ClusterPage.jsx in a future sprint.
-// Until then, leaving them out keeps Google from getting 404s.
-const INCLUDE_CLUSTERS = false
-const CLUSTER_PAGES = INCLUDE_CLUSTERS
-  ? PILLARS.flatMap((p) =>
-      (p.clusters || []).map((c) => ({
-        path: `/${p.slug}/${c.slug}`,
-        priority: 0.7,
-        changefreq: 'monthly',
-      }))
-    )
-  : []
+// Cluster pages — only the ones with actual content in clusters.js make it
+// into the sitemap. Clusters declared in pillars.js but not yet implemented
+// stay out so Google doesn't crawl URLs that 404.
+const CLUSTER_PAGES = CLUSTERS.map((c) => ({
+  path: `/${c.pillar}/${c.slug}`,
+  priority: 0.7,
+  changefreq: 'monthly',
+}))
 
 const urls = [...STATIC_PAGES, ...PILLAR_PAGES, ...CLUSTER_PAGES]
 
