@@ -1,0 +1,39 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"01 - Pillars\"",
+      "color": { "a": 1, "rgb": 16737380 }
+    },
+    {
+      "query": "path:\"02 - Clusters\"",
+      "color": { "a": 1, "rgb": 5294200 }
+    },
+    {
+      "query": "path:\"03 - Supporting Content\"",
+      "color": { "a": 1, "rgb": 14725458 }
+    },
+    {
+      "query": "path:\"04 - Keywords\"",
+      "color": { "a": 1, "rgb": 9920716 }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.4,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.5,
+  "repelStrength": 12,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.5,
+  "close": false
+}

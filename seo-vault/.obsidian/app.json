@@ -1,0 +1,12 @@
+{
+  "showLineNumber": true,
+  "useTab": false,
+  "tabSize": 2,
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "showUnsupportedFiles": false,
+  "promptDelete": true,
+  "trashOption": "system",
+  "attachmentFolderPath": "attachments"
+}

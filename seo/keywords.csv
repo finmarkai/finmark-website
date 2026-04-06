@@ -1,0 +1,134 @@
+keyword,pillar,tier,intent,est_volume,difficulty,target_url,priority
+ai financial automation,P1 - AI Financial Automation,Pillar,Commercial,H,High,/ai-financial-automation,P0
+ai for finance,P1 - AI Financial Automation,Cluster,Informational,VH,High,/ai-financial-automation/ai-for-finance,P0
+financial automation software,P1 - AI Financial Automation,Cluster,Commercial,H,High,/ai-financial-automation/financial-automation-software,P0
+ai finance platform,P1 - AI Financial Automation,Cluster,Commercial,M,Med,/ai-financial-automation/ai-finance-platform,P1
+intelligent finance automation,P1 - AI Financial Automation,Cluster,Commercial,M,Med,/ai-financial-automation/intelligent-finance-automation,P1
+ai for cfo,P1 - AI Financial Automation,Cluster,Commercial,M,Med,/solutions/ai-for-cfo,P1
+ai accounting automation,P1 - AI Financial Automation,Cluster,Commercial,M,Med,/ai-financial-automation/ai-accounting-automation,P1
+ai finance tools,P1 - AI Financial Automation,Cluster,Commercial,M,Med,/ai-financial-automation/ai-finance-tools,P2
+benefits of ai in finance,P1 - AI Financial Automation,Supporting,Informational,M,Low,/blog/benefits-of-ai-in-finance,P1
+how ai is transforming finance,P1 - AI Financial Automation,Supporting,Informational,M,Low,/blog/how-ai-is-transforming-finance,P1
+ai vs rpa in finance,P1 - AI Financial Automation,Supporting,Informational,M,Low,/blog/ai-vs-rpa-in-finance,P2
+best ai financial automation tools,P1 - AI Financial Automation,Supporting,Commercial,M,Med,/blog/best-ai-financial-automation-tools,P1
+ai automation in finance examples,P1 - AI Financial Automation,Supporting,Informational,M,Low,/blog/ai-automation-in-finance-examples,P2
+future of ai in finance,P1 - AI Financial Automation,Supporting,Informational,M,Low,/blog/future-of-ai-in-finance,P2
+ai finance use cases,P1 - AI Financial Automation,Supporting,Informational,M,Low,/blog/ai-finance-use-cases,P1
+compliance automation software,P2 - Compliance Automation,Pillar,Commercial,H,High,/compliance-automation,P0
+regulatory compliance automation,P2 - Compliance Automation,Cluster,Commercial,H,High,/compliance-automation/regulatory-compliance-automation,P0
+regtech platform,P2 - Compliance Automation,Cluster,Commercial,H,High,/compliance-automation/regtech-platform,P1
+kyc automation,P2 - Compliance Automation,Cluster,Commercial,H,High,/compliance-automation/kyc-automation,P0
+aml compliance software,P2 - Compliance Automation,Cluster,Commercial,H,High,/compliance-automation/aml-compliance-software,P0
+automated kyc aml,P2 - Compliance Automation,Cluster,Commercial,M,Med,/compliance-automation/automated-kyc-aml,P1
+continuous compliance monitoring,P2 - Compliance Automation,Cluster,Commercial,M,Med,/compliance-automation/continuous-compliance-monitoring,P1
+regulatory reporting automation,P2 - Compliance Automation,Cluster,Commercial,M,Med,/compliance-automation/regulatory-reporting-automation,P1
+audit automation,P2 - Compliance Automation,Cluster,Commercial,M,Med,/compliance-automation/audit-automation,P2
+compliance management system,P2 - Compliance Automation,Cluster,Commercial,H,High,/compliance-automation/compliance-management-system,P1
+what is regtech,P2 - Compliance Automation,Supporting,Informational,H,Low,/blog/what-is-regtech,P1
+kyc vs aml explained,P2 - Compliance Automation,Supporting,Informational,M,Low,/blog/kyc-vs-aml,P1
+how to automate compliance,P2 - Compliance Automation,Supporting,Informational,M,Low,/blog/how-to-automate-compliance,P1
+top regtech trends,P2 - Compliance Automation,Supporting,Informational,M,Low,/blog/regtech-trends,P2
+compliance automation benefits,P2 - Compliance Automation,Supporting,Informational,M,Low,/blog/compliance-automation-benefits,P2
+regulatory reporting requirements,P2 - Compliance Automation,Supporting,Informational,M,Low,/blog/regulatory-reporting-requirements,P2
+aml red flags,P2 - Compliance Automation,Supporting,Informational,M,Low,/blog/aml-red-flags,P2
+ai fraud detection,P3 - Fraud & Risk,Pillar,Commercial,H,High,/ai-fraud-detection,P0
+fraud detection software,P3 - Fraud & Risk,Cluster,Commercial,H,High,/ai-fraud-detection/fraud-detection-software,P0
+machine learning fraud detection,P3 - Fraud & Risk,Cluster,Informational,H,High,/ai-fraud-detection/machine-learning-fraud-detection,P0
+real time fraud detection,P3 - Fraud & Risk,Cluster,Commercial,M,Med,/ai-fraud-detection/real-time-fraud-detection,P1
+transaction monitoring software,P3 - Fraud & Risk,Cluster,Commercial,M,Med,/ai-fraud-detection/transaction-monitoring-software,P1
+payment fraud prevention,P3 - Fraud & Risk,Cluster,Commercial,M,Med,/ai-fraud-detection/payment-fraud-prevention,P1
+ai risk management,P3 - Fraud & Risk,Cluster,Commercial,M,Med,/ai-fraud-detection/ai-risk-management,P1
+risk management software,P3 - Fraud & Risk,Cluster,Commercial,H,High,/ai-fraud-detection/risk-management-software,P1
+credit risk modeling,P3 - Fraud & Risk,Cluster,Informational,M,Med,/ai-fraud-detection/credit-risk-modeling,P2
+enterprise risk management software,P3 - Fraud & Risk,Cluster,Commercial,M,Med,/ai-fraud-detection/enterprise-risk-management-software,P2
+how machine learning detects fraud,P3 - Fraud & Risk,Supporting,Informational,M,Low,/blog/how-machine-learning-detects-fraud,P1
+how to prevent payment fraud,P3 - Fraud & Risk,Supporting,Informational,H,Low,/blog/how-to-prevent-payment-fraud,P1
+types of payment fraud,P3 - Fraud & Risk,Supporting,Informational,M,Low,/blog/types-of-payment-fraud,P2
+fraud detection use cases,P3 - Fraud & Risk,Supporting,Informational,M,Low,/blog/fraud-detection-use-cases,P2
+ai risk management examples,P3 - Fraud & Risk,Supporting,Informational,M,Low,/blog/ai-risk-management-examples,P2
+anomaly detection in finance,P3 - Fraud & Risk,Supporting,Informational,M,Low,/blog/anomaly-detection-in-finance,P2
+payment processing automation,P4 - Payments,Pillar,Commercial,H,High,/payment-processing-automation,P0
+automated payment processing,P4 - Payments,Cluster,Commercial,H,High,/payment-processing-automation/automated-payment-processing,P0
+payment orchestration platform,P4 - Payments,Cluster,Commercial,M,Med,/payment-processing-automation/payment-orchestration-platform,P1
+multi currency payment processing,P4 - Payments,Cluster,Commercial,M,Med,/payment-processing-automation/multi-currency-payment-processing,P1
+accounts payable automation,P4 - Payments,Cluster,Commercial,H,High,/payment-processing-automation/accounts-payable-automation,P0
+accounts receivable automation,P4 - Payments,Cluster,Commercial,M,Med,/payment-processing-automation/accounts-receivable-automation,P1
+ap automation software,P4 - Payments,Cluster,Commercial,H,High,/payment-processing-automation/ap-automation-software,P1
+ar automation software,P4 - Payments,Cluster,Commercial,M,Med,/payment-processing-automation/ar-automation-software,P2
+global payment infrastructure,P4 - Payments,Cluster,Commercial,M,Med,/payment-processing-automation/global-payment-infrastructure,P2
+intelligent payment routing,P4 - Payments,Cluster,Commercial,L,Low,/payment-processing-automation/intelligent-payment-routing,P2
+what is payment orchestration,P4 - Payments,Supporting,Informational,M,Low,/blog/what-is-payment-orchestration,P1
+best ap automation software,P4 - Payments,Supporting,Commercial,M,Med,/blog/best-ap-automation-software,P1
+accounts payable workflow,P4 - Payments,Supporting,Informational,M,Low,/blog/accounts-payable-workflow,P2
+payment routing optimization,P4 - Payments,Supporting,Informational,L,Low,/blog/payment-routing-optimization,P2
+cross border payments,P4 - Payments,Supporting,Informational,M,Low,/blog/cross-border-payments-guide,P2
+ai financial reporting,P5 - Reporting & Analytics,Pillar,Commercial,M,Med,/ai-financial-reporting,P0
+automated financial reporting,P5 - Reporting & Analytics,Cluster,Commercial,H,High,/ai-financial-reporting/automated-financial-reporting,P0
+real time financial analytics,P5 - Reporting & Analytics,Cluster,Commercial,M,Med,/ai-financial-reporting/real-time-financial-analytics,P1
+financial analytics software,P5 - Reporting & Analytics,Cluster,Commercial,H,High,/ai-financial-reporting/financial-analytics-software,P1
+financial dashboard software,P5 - Reporting & Analytics,Cluster,Commercial,H,High,/ai-financial-reporting/financial-dashboard-software,P1
+ai powered analytics,P5 - Reporting & Analytics,Cluster,Informational,H,High,/ai-financial-reporting/ai-powered-analytics,P1
+self service finance analytics,P5 - Reporting & Analytics,Cluster,Commercial,L,Med,/ai-financial-reporting/self-service-finance-analytics,P2
+natural language financial reporting,P5 - Reporting & Analytics,Cluster,Commercial,L,Low,/ai-financial-reporting/natural-language-reporting,P2
+financial close automation,P5 - Reporting & Analytics,Cluster,Commercial,M,Med,/ai-financial-reporting/financial-close-automation,P1
+management reporting automation,P5 - Reporting & Analytics,Cluster,Commercial,M,Med,/ai-financial-reporting/management-reporting-automation,P2
+how to automate financial reports,P5 - Reporting & Analytics,Supporting,Informational,M,Low,/blog/how-to-automate-financial-reports,P1
+financial kpi dashboard,P5 - Reporting & Analytics,Supporting,Informational,M,Low,/blog/financial-kpi-dashboard,P2
+best financial reporting software,P5 - Reporting & Analytics,Supporting,Commercial,H,High,/blog/best-financial-reporting-software,P1
+monthly close best practices,P5 - Reporting & Analytics,Supporting,Informational,M,Low,/blog/monthly-close-best-practices,P2
+finance kpis to track,P5 - Reporting & Analytics,Supporting,Informational,M,Low,/blog/finance-kpis-to-track,P2
+unified data platform for finance,P6 - Data Integration,Pillar,Commercial,M,Med,/unified-financial-data-platform,P0
+financial data integration,P6 - Data Integration,Cluster,Commercial,H,High,/unified-financial-data-platform/financial-data-integration,P0
+finance data platform,P6 - Data Integration,Cluster,Commercial,M,Med,/unified-financial-data-platform/finance-data-platform,P1
+single source of truth finance,P6 - Data Integration,Cluster,Informational,M,Low,/unified-financial-data-platform/single-source-of-truth,P1
+etl for financial data,P6 - Data Integration,Cluster,Commercial,M,Med,/unified-financial-data-platform/etl-financial-data,P2
+financial data warehouse,P6 - Data Integration,Cluster,Commercial,M,Med,/unified-financial-data-platform/financial-data-warehouse,P2
+erp data integration,P6 - Data Integration,Cluster,Commercial,M,Med,/unified-financial-data-platform/erp-data-integration,P1
+finance api integration,P6 - Data Integration,Cluster,Commercial,M,Med,/unified-financial-data-platform/finance-api-integration,P2
+master data management finance,P6 - Data Integration,Cluster,Commercial,M,Med,/unified-financial-data-platform/master-data-management,P2
+what is a financial data platform,P6 - Data Integration,Supporting,Informational,M,Low,/blog/what-is-financial-data-platform,P1
+data silos in finance,P6 - Data Integration,Supporting,Informational,M,Low,/blog/data-silos-in-finance,P2
+how to integrate financial data,P6 - Data Integration,Supporting,Informational,M,Low,/blog/how-to-integrate-financial-data,P2
+predictive financial forecasting,P7 - Predictive Forecasting,Pillar,Commercial,M,Med,/predictive-financial-forecasting,P0
+ai cash flow forecasting,P7 - Predictive Forecasting,Cluster,Commercial,M,Med,/predictive-financial-forecasting/ai-cash-flow-forecasting,P0
+ml forecasting finance,P7 - Predictive Forecasting,Cluster,Informational,L,Med,/predictive-financial-forecasting/machine-learning-forecasting,P2
+revenue forecasting ai,P7 - Predictive Forecasting,Cluster,Commercial,M,Med,/predictive-financial-forecasting/ai-revenue-forecasting,P1
+demand forecasting software,P7 - Predictive Forecasting,Cluster,Commercial,H,High,/predictive-financial-forecasting/demand-forecasting-software,P1
+scenario planning software,P7 - Predictive Forecasting,Cluster,Commercial,M,Med,/predictive-financial-forecasting/scenario-planning-software,P1
+fp&a automation,P7 - Predictive Forecasting,Cluster,Commercial,M,Med,/predictive-financial-forecasting/fpa-automation,P1
+financial planning and analysis software,P7 - Predictive Forecasting,Cluster,Commercial,H,High,/predictive-financial-forecasting/fpa-software,P0
+driver based forecasting,P7 - Predictive Forecasting,Cluster,Informational,M,Med,/predictive-financial-forecasting/driver-based-forecasting,P2
+rolling forecast software,P7 - Predictive Forecasting,Cluster,Commercial,M,Med,/predictive-financial-forecasting/rolling-forecast-software,P2
+how to forecast cash flow,P7 - Predictive Forecasting,Supporting,Informational,H,Low,/blog/how-to-forecast-cash-flow,P1
+ai forecasting models,P7 - Predictive Forecasting,Supporting,Informational,M,Low,/blog/ai-forecasting-models,P2
+best fp&a tools,P7 - Predictive Forecasting,Supporting,Commercial,M,Med,/blog/best-fpa-tools,P1
+budget vs forecast,P7 - Predictive Forecasting,Supporting,Informational,M,Low,/blog/budget-vs-forecast,P2
+cash flow forecast template,P7 - Predictive Forecasting,Supporting,Informational,H,Low,/blog/cash-flow-forecast-template,P2
+financial workflow automation,P8 - Workflow Automation,Pillar,Commercial,M,Med,/financial-workflow-automation,P0
+finance process automation,P8 - Workflow Automation,Cluster,Commercial,M,Med,/financial-workflow-automation/finance-process-automation,P1
+rpa in finance,P8 - Workflow Automation,Cluster,Informational,H,High,/financial-workflow-automation/rpa-in-finance,P0
+intelligent process automation,P8 - Workflow Automation,Cluster,Informational,H,High,/financial-workflow-automation/intelligent-process-automation,P1
+back office automation,P8 - Workflow Automation,Cluster,Commercial,M,Med,/financial-workflow-automation/back-office-automation,P2
+operations automation software,P8 - Workflow Automation,Cluster,Commercial,M,Med,/financial-workflow-automation/operations-automation-software,P2
+procure to pay automation,P8 - Workflow Automation,Cluster,Commercial,M,Med,/financial-workflow-automation/procure-to-pay-automation,P1
+order to cash automation,P8 - Workflow Automation,Cluster,Commercial,M,Med,/financial-workflow-automation/order-to-cash-automation,P1
+record to report automation,P8 - Workflow Automation,Cluster,Commercial,M,Med,/financial-workflow-automation/record-to-report-automation,P1
+finance automation benefits,P8 - Workflow Automation,Supporting,Informational,M,Low,/blog/finance-automation-benefits,P1
+how to automate finance workflows,P8 - Workflow Automation,Supporting,Informational,M,Low,/blog/how-to-automate-finance-workflows,P1
+rpa vs ai in finance,P8 - Workflow Automation,Supporting,Informational,M,Low,/blog/rpa-vs-ai-in-finance,P2
+finance automation roi,P8 - Workflow Automation,Supporting,Informational,M,Low,/blog/finance-automation-roi,P2
+ai finance for fintech startups,Solutions,Solution,Commercial,M,Med,/solutions/fintech-startups,P1
+ai finance for banks,Solutions,Solution,Commercial,M,Med,/solutions/banks,P1
+ai finance for enterprises,Solutions,Solution,Commercial,M,Med,/solutions/enterprises,P1
+ai finance for ecommerce,Solutions,Solution,Commercial,M,Med,/solutions/ecommerce,P2
+ai finance for saas companies,Solutions,Solution,Commercial,M,Med,/solutions/saas,P1
+ai finance for cfo,Solutions,Persona,Commercial,M,Med,/solutions/for-cfo,P0
+ai finance for controllers,Solutions,Persona,Commercial,M,Med,/solutions/for-controllers,P1
+ai finance for finance teams,Solutions,Persona,Commercial,M,Med,/solutions/for-finance-teams,P1
+finance automation for small business,Solutions,Solution,Commercial,M,Med,/solutions/small-business,P2
+finmark ai,Brand,Brand,Navigational,L,Low,/,P0
+finmark.ai,Brand,Brand,Navigational,L,Low,/,P0
+what is finmark ai,Brand,Brand,Informational,L,Low,/about,P0
+finmark ai pricing,Brand,Brand,Commercial,L,Low,/pricing,P0
+finmark ai reviews,Brand,Brand,Commercial,L,Low,/reviews,P1
+finmark ai alternatives,Brand,Brand,Commercial,L,Low,/alternatives,P2
