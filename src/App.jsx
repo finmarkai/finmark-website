@@ -1,16 +1,9 @@
 import { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import FeatureTicker from './components/FeatureTicker'
-import Features from './components/Features'
-import HowItWorks from './components/HowItWorks'
-import Services from './components/Services'
-import Stats from './components/Stats'
-import CTA from './components/CTA'
-import About from './components/About'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -20,6 +13,7 @@ export default function App() {
     damping: 30,
     restDelta: 0.001,
   })
+  const location = useLocation()
 
   useEffect(() => {
     // Disable Lenis on mobile/touch devices — it fights native scrolling and causes lag
@@ -42,12 +36,16 @@ export default function App() {
     return () => lenis.destroy()
   }, [])
 
+  // Scroll to top on route change so each new page starts at the top
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   return (
     <>
       <Cursor />
 
       <div className="min-h-screen bg-dark noise-overlay">
-
         {/* Scroll progress bar */}
         <motion.div
           className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-electric via-purple to-electric-light z-[100] origin-left"
@@ -55,14 +53,9 @@ export default function App() {
         />
 
         <Navbar />
-        <Hero />
-        <FeatureTicker />
-        <Features />
-        <HowItWorks />
-        <Services />
-        <Stats />
-        <CTA />
-        <About />
+        <main>
+          <Outlet />
+        </main>
         <Footer />
       </div>
     </>

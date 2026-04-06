@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useCallback, lazy, Suspense } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { ArrowRight, Sparkles, Brain, Shield, TrendingUp } from 'lucide-react'
 import GradientButton from './ui/GradientButton'
@@ -141,9 +142,11 @@ function MobileHero() {
         </p>
 
         <div className="mt-6 flex flex-col items-center gap-3">
-          <GradientButton className="text-sm px-7 py-3 flex items-center gap-2">
-            Get Started Free <ArrowRight size={16} />
-          </GradientButton>
+          <Link to="/demo">
+            <GradientButton className="text-sm px-7 py-3 flex items-center gap-2">
+              Get Started Free <ArrowRight size={16} />
+            </GradientButton>
+          </Link>
         </div>
 
         {/* Logo */}
@@ -278,9 +281,11 @@ function DesktopHero() {
             transition={{ duration: 0.8, delay: 1.4 }}
             className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5"
           >
-            <GradientButton className="text-sm sm:text-base px-7 py-3 sm:px-10 sm:py-4 flex items-center gap-2">
-              Get Started Free <ArrowRight size={16} />
-            </GradientButton>
+            <Link to="/demo">
+              <GradientButton className="text-sm sm:text-base px-7 py-3 sm:px-10 sm:py-4 flex items-center gap-2">
+                Get Started Free <ArrowRight size={16} />
+              </GradientButton>
+            </Link>
           </motion.div>
         </motion.div>
 

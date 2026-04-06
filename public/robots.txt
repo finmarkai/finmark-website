@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block search-only routes (none yet, future-proof)
+Disallow: /api/
+Disallow: /404
+
+Sitemap: https://finmark.ai/sitemap.xml

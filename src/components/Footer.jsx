@@ -1,10 +1,18 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { Send } from 'lucide-react'
+import { PLATFORM_LINKS } from '../lib/constants'
 
-const SECTION_LINKS = [
-  { label: 'Features', href: '#features' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Services', href: '#services' },
+const COMPANY_LINKS = [
+  { label: 'About', to: '/about' },
+  { label: 'Pricing', to: '/pricing' },
+  { label: 'Contact', to: '/contact' },
+  { label: 'Get a demo', to: '/demo' },
+]
+
+const LEGAL_LINKS = [
+  { label: 'Privacy Policy', to: '/privacy' },
+  { label: 'Terms of Service', to: '/terms' },
 ]
 
 export default function Footer() {
@@ -15,21 +23,22 @@ export default function Footer() {
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple/5 rounded-full blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand */}
           <motion.div
-            className="col-span-1 sm:col-span-2"
+            className="col-span-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center mb-4">
+            <Link to="/" className="flex items-center mb-4">
               <img src="/logo-full.png" alt="FinMark.ai" className="h-8 w-auto" />
-            </div>
+            </Link>
             <p className="text-sm text-gray-500 max-w-xs leading-relaxed">
-              AI-powered financial automation for the modern enterprise.
-              Compliance, forecasting, and fraud detection — all in one platform.
+              AI-powered financial and operational automation for modern finance teams.
+              Compliance, fraud detection, forecasting, payments, and reporting in one
+              unified platform.
             </p>
 
             {/* Newsletter */}
@@ -48,23 +57,47 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Navigation */}
+          {/* Platform */}
           <motion.div
+            className="col-span-1"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+          >
+            <h4 className="text-sm font-semibold text-white mb-4">Platform</h4>
+            <ul className="space-y-2">
+              {PLATFORM_LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Company */}
+          <motion.div
+            className="col-span-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-sm font-semibold text-white mb-4">Product</h4>
+            <h4 className="text-sm font-semibold text-white mb-4">Company</h4>
             <ul className="space-y-2">
-              {SECTION_LINKS.map((link) => (
+              {COMPANY_LINKS.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -72,30 +105,31 @@ export default function Footer() {
 
           {/* Legal */}
           <motion.div
+            className="col-span-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
           >
             <h4 className="text-sm font-semibold text-white mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
-                  Terms of Service
-                </a>
-              </li>
+              {LEGAL_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-600">
-            &copy; {new Date().getFullYear()} Finmark. All rights reserved.
+            &copy; {new Date().getFullYear()} FinMark.ai. All rights reserved.
           </p>
         </div>
       </div>

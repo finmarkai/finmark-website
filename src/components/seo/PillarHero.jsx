@@ -1,0 +1,82 @@
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Sparkles } from 'lucide-react'
+import GradientButton from '../ui/GradientButton'
+import GlowBadge from '../ui/GlowBadge'
+
+/**
+ * Hero used at the top of every pillar page.
+ * Big H1, subhead, optional badge, primary + secondary CTAs.
+ */
+export default function PillarHero({ badge, h1, subhead, primaryCta, secondaryCta }) {
+  return (
+    <section className="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-28">
+      {/* Background ambience */}
+      <div className="absolute inset-0 bg-grid opacity-15" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,rgba(0,102,255,0.08)_0%,transparent_70%)]" />
+      <div className="glow-orb w-[700px] h-[700px] bg-electric/8 -top-40 -right-40" />
+      <div className="glow-orb w-[500px] h-[500px] bg-purple/8 -bottom-32 -left-32" />
+
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+        {badge && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 inline-flex"
+          >
+            <GlowBadge>
+              <span className="inline-flex items-center gap-2">
+                <Sparkles size={12} />
+                {badge}
+              </span>
+            </GlowBadge>
+          </motion.div>
+        )}
+
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.05 }}
+          className="font-display text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.02em] leading-[1.05]"
+        >
+          {h1}
+        </motion.h1>
+
+        {subhead && (
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed"
+          >
+            {subhead}
+          </motion.p>
+        )}
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+        >
+          {primaryCta && (
+            <Link to={primaryCta.href}>
+              <GradientButton className="text-sm sm:text-base px-7 py-3 sm:px-9 sm:py-4 flex items-center gap-2">
+                {primaryCta.label} <ArrowRight size={16} />
+              </GradientButton>
+            </Link>
+          )}
+          {secondaryCta && (
+            <Link
+              to={secondaryCta.href}
+              className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors px-2 py-3 underline underline-offset-4 decoration-white/20 hover:decoration-electric"
+            >
+              {secondaryCta.label}
+            </Link>
+          )}
+        </motion.div>
+      </div>
+    </section>
+  )
+}

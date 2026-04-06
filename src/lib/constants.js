@@ -14,10 +14,54 @@ import {
 } from 'lucide-react'
 
 export const NAV_LINKS = [
-  { label: 'Features', href: '#features' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Services', href: '#services' },
-  { label: 'About Us', href: '#about' },
+  { label: 'About', to: '/about' },
+  { label: 'Pricing', to: '/pricing' },
+  { label: 'Contact', to: '/contact' },
+]
+
+// Pillar dropdown for the Platform menu in the navbar.
+// Order matters — this is roughly the order they appear in the dropdown.
+export const PLATFORM_LINKS = [
+  {
+    label: 'AI Financial Automation',
+    to: '/ai-financial-automation',
+    description: 'The unified AI finance platform.',
+  },
+  {
+    label: 'Compliance Automation',
+    to: '/compliance-automation',
+    description: 'KYC, AML, regulatory reporting.',
+  },
+  {
+    label: 'AI Fraud Detection',
+    to: '/ai-fraud-detection',
+    description: 'Real-time ML fraud detection.',
+  },
+  {
+    label: 'Payment Processing',
+    to: '/payment-processing-automation',
+    description: 'AP, AR, and payment orchestration.',
+  },
+  {
+    label: 'AI Financial Reporting',
+    to: '/ai-financial-reporting',
+    description: 'Automated reports and analytics.',
+  },
+  {
+    label: 'Unified Data Platform',
+    to: '/unified-financial-data-platform',
+    description: 'One data layer for all of finance.',
+  },
+  {
+    label: 'Predictive Forecasting',
+    to: '/predictive-financial-forecasting',
+    description: 'AI cash flow and FP&A.',
+  },
+  {
+    label: 'Workflow Automation',
+    to: '/financial-workflow-automation',
+    description: 'P2P, O2C, R2R end-to-end.',
+  },
 ]
 
 export const FEATURES = [

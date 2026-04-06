@@ -5,8 +5,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FinMark.ai — AI-Powered Financial Automation</title>
-    <meta name="description" content="Transform your financial operations with AI-powered automation. Compliance, forecasting, fraud detection, and more." />
+    <!--
+      title + meta description are intentionally omitted here.
+      Per-route metadata is injected by vite-react-ssg's <Head> component
+      via src/components/seo/SEO.jsx — see that file and src/content/pillars.js.
+      Adding static fallbacks here would create duplicates in pre-rendered HTML.
+    -->
   </head>
   <body>
     <div id="root"></div>

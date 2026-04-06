@@ -1,4 +1,5 @@
 import { useRef, lazy, Suspense } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Zap } from 'lucide-react'
 import GradientButton from './ui/GradientButton'
@@ -65,12 +66,16 @@ export default function CTA() {
             </p>
 
             <div className="relative mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <GradientButton className="text-base px-8 py-4 flex items-center gap-2">
-                Get Started Free <ArrowRight size={18} />
-              </GradientButton>
-              <GradientButton variant="outline" className="text-base px-8 py-4">
-                Schedule a Demo
-              </GradientButton>
+              <Link to="/demo">
+                <GradientButton className="text-base px-8 py-4 flex items-center gap-2">
+                  Get Started Free <ArrowRight size={18} />
+                </GradientButton>
+              </Link>
+              <Link to="/pricing">
+                <GradientButton variant="outline" className="text-base px-8 py-4">
+                  See Pricing
+                </GradientButton>
+              </Link>
             </div>
           </div>
         </ReifyCard>
