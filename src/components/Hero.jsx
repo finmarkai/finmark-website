@@ -101,17 +101,17 @@ function MobileHero() {
       <div className="relative z-10 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 text-xs font-medium text-electric-light mb-6">
           <Sparkles size={12} />
-          Financial Automation for African Enterprise
+          Live in Production at TGI Group
         </span>
 
         <h1 className="font-display text-[2rem] font-bold leading-[0.95] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-          AP Automation for
+          Financial Automation for
           <br />
-          <span className="gradient-text">Microsoft Dynamics NAV</span>
+          <span className="gradient-text">African Enterprise</span>
         </h1>
 
         <p className="mt-5 max-w-2xl mx-auto text-base text-gray-400 leading-relaxed">
-          Live in production at TGI Group. Nigerian Withholding Tax computed automatically. Approved invoices pushed straight into NAV.
+          Today: AI Accounts Payable for Microsoft Dynamics NAV. Nigerian Withholding Tax computed automatically. Live in production at TGI Group.
         </p>
 
         <div className="mt-6 flex flex-col items-center gap-3">
@@ -225,14 +225,14 @@ function DesktopHero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-electric-light mb-6 sm:mb-8 backdrop-blur-sm">
               <Sparkles size={14} />
-              Financial Automation for African Enterprise
+              Live in Production at TGI Group
             </span>
           </motion.div>
 
           <h1 className="font-display text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] font-bold leading-[0.9] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-            AP Automation for
+            Financial Automation for
             <br />
-            <span className="gradient-text">Microsoft Dynamics NAV</span>
+            <span className="gradient-text">African Enterprise</span>
           </h1>
 
           <motion.p
@@ -241,7 +241,7 @@ function DesktopHero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-5 sm:mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed"
           >
-            Live in production at TGI Group. Nigerian Withholding Tax computed automatically. Approved invoices pushed straight into NAV.
+            Today: AI Accounts Payable for Microsoft Dynamics NAV. Nigerian Withholding Tax computed automatically. Live in production at TGI Group.
           </motion.p>
 
           <motion.div
