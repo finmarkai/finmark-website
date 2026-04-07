@@ -2,14 +2,13 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 const KEYWORDS = [
-  'Claude AI Extraction',
-  '98% Confidence',
+  'AI Invoice Capture',
+  'Built for African Enterprise',
   'Microsoft Dynamics NAV',
   'Nigerian WHT',
   '3-Way Matching',
-  'SharePoint',
-  'Multi-Tenant',
-  'Built for Africa',
+  'Group Companies',
+  'Live in Production',
   'Audit-Ready',
 ]
 

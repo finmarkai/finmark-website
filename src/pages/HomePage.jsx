@@ -12,8 +12,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="FinMark.ai — AI Accounts Payable Automation for African Enterprise"
-        description="AI-powered AP automation built for African enterprise. Microsoft Dynamics NAV integration, Nigerian Withholding Tax computation, and Claude-powered invoice extraction at 98% confidence. Live with TGI Group."
+        title="FinMark.ai — AP Automation for Microsoft Dynamics NAV"
+        description="AI-powered accounts payable automation for Nigerian enterprise running Microsoft Dynamics NAV. Live in production at TGI Group. Nigerian Withholding Tax computed automatically."
         path="/"
         schema={[organizationSchema(), websiteSchema()]}
       />

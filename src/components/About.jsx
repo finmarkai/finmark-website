@@ -7,12 +7,14 @@ const FOUNDERS = [
   {
     name: 'Arin Soni',
     initials: 'AS',
-    bio: 'Arin is a technology-driven problem solver with a strong focus on building intelligent, scalable systems. With a vision to leverage automation and AI at the core of business workflows, he is dedicated to creating seamless, high-performance solutions that enhance productivity and decision-making across organizations.',
+    role: 'Co-founder & CTO',
+    bio: 'Builds the product. Wrote most of the code FinMark.ai runs on, including the AI invoice extraction pipeline, the NAV middleware integration, and the multi-tenant architecture that runs TGI Group\'s subsidiaries on isolated subdomains. Spends his weeks split between Lagos and his laptop.',
   },
   {
     name: 'Aditi Agarwal',
     initials: 'AA',
-    bio: 'Aditi brings a sharp strategic mindset and a deep understanding of business operations, with a focus on identifying inefficiencies and transforming them into scalable, high-impact solutions. She is passionate about building structured systems that bring clarity, control, and efficiency to organizations, enabling them to operate at their full potential.',
+    role: 'Co-founder',
+    bio: 'Runs operations and customer relationships. Identifies the workflows worth automating, designs the engagement structure, and makes sure what gets shipped actually solves the AP team\'s real problem rather than the problem the founders imagined.',
   },
 ]
 
@@ -45,36 +47,36 @@ export default function About() {
           </Wrapper>
           <Wrapper {...delayMotion(0.1)}>
             <h2 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
-              About <span className="gradient-text">FinMark.ai</span>
+              Why <span className="gradient-text">FinMark.ai</span> exists
             </h2>
           </Wrapper>
         </div>
 
-        {/* About Content */}
+        {/* Founder story */}
         <div className="space-y-6 text-gray-400 leading-relaxed text-base sm:text-lg">
           <Wrapper {...delayMotion(0.15)}>
             <p>
-              At FinMark.ai, we are building intelligent tools that simplify and optimize both financial and operational workflows for modern businesses.
+              We started building FinMark.ai when TGI Group's CFO told us no AP automation tool on the market handled Nigerian Withholding Tax inside Microsoft Dynamics NAV. The Bill.coms and Tipaltis of the world were built for US sales tax and cloud accounting systems. None of them spoke NAV. None of them computed Nigerian WHT. The Nigerian conglomerates running NAV were stuck either doing AP entirely by hand or bending US-built tools into shapes they were never designed for.
             </p>
           </Wrapper>
           <Wrapper {...delayMotion(0.2)}>
             <p>
-              Our mission is to empower organizations with technology that brings structure, visibility, and efficiency across their core processes. By leveraging advanced artificial intelligence, we transform complex, manual operations into streamlined, automated systems—helping teams save time, reduce errors, and operate with greater precision.
+              So we built it for them. We spent months in TGI's finance team understanding the actual workflow — how invoices arrive, how PO and GRN matching breaks down for telecom and marketing categories, how WHT certificates get filed, how the AP team actually uses NAV day to day. The result is a platform that now runs across two TGI subsidiaries in production, processing real vendor invoices through a pipeline that knows what Nigerian AP teams actually need.
             </p>
           </Wrapper>
           <Wrapper {...delayMotion(0.25)}>
             <p>
-              FinMark.ai is designed as a flexible platform that supports a wide range of business functions, from financial management to general operations. Whether it's handling data, automating workflows, or enabling smarter decision-making, our solutions adapt to the unique needs of each organization.
+              Today FinMark.ai handles the full invoice-to-NAV workflow: AI captures invoices in any format, PO and GRN matching happens against live data from NAV, sanity checks catch what AI alone would miss, Nigerian WHT is computed automatically per the 2024 regulations, and approved invoices push back into NAV ready to post. What used to take days takes minutes.
             </p>
           </Wrapper>
           <Wrapper {...delayMotion(0.3)}>
             <p>
-              We believe that both finance and operations should work seamlessly together—not in silos. That's why we focus on building tools that are intuitive, scalable, and aligned with real-world business challenges, enabling companies to run more efficiently and grow with confidence.
+              FinMark.ai is the start of a broader Financial Automation platform built for African enterprise. AP automation is the first product because AP is where the pain is loudest. More products will follow as the company grows — but only after each one is real, shipping, and proven at a paying customer.
             </p>
           </Wrapper>
           <Wrapper {...delayMotion(0.35)}>
             <p>
-              Driven by innovation and a deep understanding of business processes, FinMark.ai is committed to helping organizations move toward a more automated, transparent, and technology-driven future.
+              If you run Microsoft Dynamics NAV at a Nigerian or African enterprise and any of the above sounds like your AP team's life, we should talk.
             </p>
           </Wrapper>
         </div>
@@ -89,7 +91,7 @@ export default function About() {
             </Wrapper>
             <Wrapper {...delayMotion(0.15)}>
               <p className="mt-4 text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-                Meet the founding team—driven, visionary leaders committed to redefining how businesses manage finance and operations through intelligent technology.
+                Two founders. One product. One paying customer who runs it in production every day.
               </p>
             </Wrapper>
           </div>
@@ -103,9 +105,14 @@ export default function About() {
                       <div className="w-14 h-14 rounded-full bg-gradient-to-br from-electric to-purple flex items-center justify-center text-lg font-bold text-white flex-shrink-0">
                         {founder.initials}
                       </div>
-                      <h4 className="font-display text-xl font-semibold text-white">
-                        {founder.name}
-                      </h4>
+                      <div>
+                        <h4 className="font-display text-xl font-semibold text-white">
+                          {founder.name}
+                        </h4>
+                        <p className="text-electric-light text-xs uppercase tracking-[0.15em] mt-1">
+                          {founder.role}
+                        </p>
+                      </div>
                     </div>
                     <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
                       {founder.bio}
@@ -115,13 +122,6 @@ export default function About() {
               </Wrapper>
             ))}
           </div>
-
-          {/* Together statement */}
-          <Wrapper {...delayMotion(0.4)}>
-            <p className="mt-10 text-center text-gray-400 leading-relaxed text-base sm:text-lg max-w-3xl mx-auto">
-              Together, they are building FinMark.ai with a clear ambition—to create a unified platform that not only simplifies finance and operations but also empowers businesses to scale with speed, precision, and confidence in an increasingly digital world.
-            </p>
-          </Wrapper>
         </div>
       </div>
     </section>

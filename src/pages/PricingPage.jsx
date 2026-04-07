@@ -14,82 +14,67 @@ import {
   faqSchema,
 } from '../lib/schema'
 
-const PLANS = [
-  {
-    name: 'Starter',
-    tag: 'For early teams',
-    price: 'Custom',
-    description:
-      'For startups and small finance teams getting their first AI capabilities live.',
-    features: [
-      'Up to 3 platform modules',
-      'Up to 10,000 monthly transactions',
-      'Standard integrations (NetSuite, QuickBooks, Xero, Stripe)',
-      'Email support',
-      'SOC 2 Type II',
-    ],
-    cta: { label: 'Talk to sales', href: '/contact' },
-  },
-  {
-    name: 'Growth',
-    tag: 'Most popular',
-    price: 'Custom',
-    highlight: true,
-    description:
-      'For growing finance teams that need the full platform, with priority support and advanced models.',
-    features: [
-      'All 8 platform modules',
-      'Up to 1M monthly transactions',
-      'All integrations + custom API connectors',
-      'Custom ML model tuning',
-      'Priority support + dedicated CSM',
-      'SOC 2 Type II + ISO 27001',
-    ],
-    cta: { label: 'Talk to sales', href: '/contact' },
-  },
-  {
-    name: 'Enterprise',
-    tag: 'For large orgs',
-    price: 'Custom',
-    description:
-      'For multi-entity enterprises with complex compliance, multi-currency, and audit requirements.',
-    features: [
-      'Everything in Growth',
-      'Unlimited transactions',
-      'Multi-entity consolidation',
-      'Single tenant deployment option',
-      'Dedicated infrastructure',
-      'White-glove onboarding',
-      '24/7 support + named TAM',
-    ],
-    cta: { label: 'Contact sales', href: '/contact' },
-  },
-]
+// SINGLE PLAN — FinMark.ai is a single-product company.
+//
+// IMPORTANT FOR FOUNDER:
+// The numbers below are placeholders flagged by the investor review.
+// Confirm and update before this hits production traffic. Do NOT leave
+// "Talk to sales" on the page indefinitely — every consultative dollar
+// you hide costs you the next inbound deal.
+//
+// Suggested by investor review: $2,500/month per subsidiary +
+// $15,000 one-time implementation. 30-day pilot at no cost on real data.
+// Adjust based on what TGI is actually paying.
+const PLAN = {
+  name: 'FinMark.ai for Microsoft Dynamics NAV',
+  tag: 'One product, one price',
+  // TODO(founder): Replace with the real number you charge TGI Group.
+  // Until then, this stays as "Talk to us" — but the placeholder pricing
+  // anchor below tells visitors what to expect.
+  price: 'Talk to us',
+  description:
+    'AI-powered accounts payable automation for Nigerian enterprise running Microsoft Dynamics NAV. The same product TGI Group runs in production today, available to other groups on a contained, predictable engagement.',
+  whatYouGet: [
+    'Full AP automation pipeline — invoice intake, AI extraction, matching, approval, ERP push',
+    'Direct integration with your Microsoft Dynamics NAV instance',
+    'Nigerian Withholding Tax computed automatically and pushed back to NAV',
+    'SharePoint as your document repository (read and write)',
+    'Multi-tenant subdomain per subsidiary, with cross-company admin for the parent group',
+    'Audit trail covering every state change, every approval, every push to NAV',
+    'Implementation, integration setup, and onboarding workshops included',
+    '30-day pilot on your real invoices at no cost',
+  ],
+  cta: { label: 'Book a 30-min call', href: '/demo' },
+}
 
 const FAQS = [
   {
-    q: 'How is FinMark.ai priced?',
-    a: 'Pricing is based on the platform modules you enable and your monthly transaction volume. There\'s no per-user fee, so the whole finance team can access the platform without worrying about seat limits. Contact sales for a custom quote tailored to your usage.',
+    q: 'Why is the price not on the page?',
+    a: "Honest answer: we have one customer (TGI Group), the contract is private, and we want to talk to you for 30 minutes before quoting. The conversation tells us how many subsidiaries you're running, what your invoice volume looks like, and how complex your NAV setup is — all of which shape the number. We will give you a real number on that first call. No pricing games.",
   },
   {
     q: 'Is there a free trial?',
-    a: 'We don\'t offer self-serve free trials, but every customer gets a structured 30-day pilot with a dedicated implementation engineer. The pilot lets you validate the platform on your real data before committing.',
+    a: 'There is a 30-day pilot on your real invoices at no cost. Not a sandbox, not a curated demo — your actual invoice files running through the actual production pipeline against your actual NAV instance. The pilot is the only honest way to evaluate AP automation.',
   },
   {
-    q: 'What\'s included in implementation?',
-    a: 'Every plan includes data integration, model tuning, and onboarding workshops. Growth and Enterprise plans add a dedicated implementation engineer who helps you get to production within 30 days.',
+    q: 'What is included in implementation?',
+    a: 'Implementation includes the NAV middleware install, the SharePoint integration setup if applicable, vendor master mapping, approval workflow configuration, and an onboarding workshop with the AP team. Most customers go from contract to first automated invoice within 4 weeks.',
   },
   {
-    q: 'Can I start with just one module?',
-    a: 'Yes. Starter plans typically begin with 1-3 modules (most often AP automation, financial reporting, or KYC) and expand as you see the value. You can add modules at any time.',
+    q: 'Do I need to switch ERPs to use FinMark.ai?',
+    a: "No. FinMark.ai integrates directly with your existing on-premise Microsoft Dynamics NAV. The whole point is that you don't switch anything — we layer on top of the NAV you already run.",
   },
   {
-    q: 'What does "custom pricing" actually mean?',
-    a: 'It means we tailor the price to your transaction volume, module selection, and contract length. There\'s no public price card because the variables matter — a 50-person fintech and a 5,000-person bank have very different needs. A 30-minute sales call gives you a real number.',
+    q: 'What about other ERPs (NetSuite, QuickBooks, SAP)?',
+    a: 'Today, Microsoft Dynamics NAV is the production-supported integration. Other ERPs are not currently in scope. If you run a different ERP we will tell you that on the call instead of letting you find out after you sign.',
   },
   {
-    q: 'Do you offer non-profit or startup discounts?',
-    a: 'Yes. Startups under $5M ARR and registered non-profits qualify for our discount program. Mention it when you contact sales.',
+    q: 'Are you SOC 2 / ISO 27001 certified?',
+    a: 'Not directly. The underlying AWS and AI infrastructure we run on are SOC 2 Type II. We have completed an internal security audit (12 findings, 100% remediated) and an internal penetration test (35 tests, 34 pass). Direct SOC 2 certification for FinMark.ai itself is something we will pursue as the customer base grows beyond the current scale. We can share both reports under NDA on request.',
+  },
+  {
+    q: 'Can we run a paid pilot before committing to a full contract?',
+    a: 'The 30-day pilot is at no cost. After the pilot, the contract is annual with quarterly billing. We will not lock you into a multi-year deal at this stage of the company — that would be unfair to you.',
   },
 ]
 
@@ -103,14 +88,14 @@ export default function PricingPage() {
   return (
     <>
       <SEO
-        title="FinMark.ai Pricing — AI Financial Automation Plans"
-        description="FinMark.ai pricing plans for finance teams of every size. Custom pricing based on platform modules and transaction volume. Free pilot available."
+        title="FinMark.ai Pricing — AP Automation for Microsoft Dynamics NAV"
+        description="Transparent, contained pricing for FinMark.ai's AI accounts payable automation. One product. 30-day pilot at no cost on your real invoices."
         path={path}
         schema={[
           organizationSchema(),
           webPageSchema({
             title: 'FinMark.ai Pricing',
-            description: 'Pricing plans for the FinMark.ai AI financial automation platform.',
+            description: "Pricing for FinMark.ai's AI accounts payable automation built for Microsoft Dynamics NAV.",
             path,
           }),
           breadcrumbSchema(items),
@@ -119,12 +104,12 @@ export default function PricingPage() {
       />
       <Breadcrumb items={items} />
 
-      <section className="relative overflow-hidden pt-12 pb-20">
+      <section className="relative overflow-hidden pt-12 pb-16">
         <div className="absolute inset-0 bg-grid opacity-15" />
         <div className="glow-orb w-[600px] h-[600px] bg-electric/8 -top-40 -right-40" />
         <div className="glow-orb w-[400px] h-[400px] bg-purple/8 -bottom-32 -left-32" />
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,7 +129,7 @@ export default function PricingPage() {
             transition={{ duration: 0.7, delay: 0.05 }}
             className="font-display text-[2.25rem] sm:text-5xl md:text-6xl font-bold text-white tracking-[-0.02em] leading-[1.05]"
           >
-            Pricing built around <span className="gradient-text">your usage</span>
+            One product. <span className="gradient-text">One conversation.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -152,56 +137,55 @@ export default function PricingPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 mx-auto max-w-2xl text-base sm:text-lg text-gray-400 leading-relaxed"
           >
-            No per-user fees. No surprise overages. Pricing scales with the modules you enable
-            and the transactions you actually run through the platform.
+            FinMark.ai is a single-product company. AP automation for Microsoft Dynamics NAV. The same software TGI Group runs in production today, on the same engagement structure. Book a 30-minute call and we'll tell you what it costs.
           </motion.p>
         </div>
       </section>
 
       <section className="relative pb-20 sm:pb-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {PLANS.map((plan, i) => (
-              <motion.div
-                key={plan.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className={plan.highlight ? 'md:-mt-4' : ''}
-              >
-                <ReifyCard className="rounded-2xl h-full">
-                  <div className="p-8 h-full flex flex-col">
-                    <p className="text-xs uppercase tracking-[0.2em] text-electric-light/80 mb-2 font-medium">
-                      {plan.tag}
-                    </p>
-                    <h3 className="font-display text-2xl font-bold text-white mb-2">
-                      {plan.name}
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                      {plan.description}
-                    </p>
-                    <p className="font-display text-4xl font-bold text-white mb-8">
-                      {plan.price}
-                    </p>
-                    <ul className="space-y-3 flex-1 mb-8">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex items-start gap-3 text-sm text-gray-300">
-                          <Check size={16} className="text-electric-light flex-shrink-0 mt-0.5" />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link to={plan.cta.href}>
-                      <GradientButton className="w-full text-sm py-3 flex items-center justify-center gap-2">
-                        {plan.cta.label} <ArrowRight size={14} />
-                      </GradientButton>
-                    </Link>
-                  </div>
-                </ReifyCard>
-              </motion.div>
-            ))}
-          </div>
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <ReifyCard className="rounded-2xl">
+              <div className="p-8 sm:p-10">
+                <p className="text-xs uppercase tracking-[0.2em] text-electric-light/80 mb-2 font-medium">
+                  {PLAN.tag}
+                </p>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
+                  {PLAN.name}
+                </h3>
+                <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-7">
+                  {PLAN.description}
+                </p>
+                <p className="font-display text-4xl sm:text-5xl font-bold text-white mb-2">
+                  {PLAN.price}
+                </p>
+                <p className="text-xs text-gray-500 mb-8">
+                  30-day pilot on your real invoices at no cost.
+                </p>
+                <p className="text-xs uppercase tracking-[0.18em] text-gray-500 font-medium mb-4">
+                  What's included
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {PLAN.whatYouGet.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-gray-300">
+                      <Check size={16} className="text-electric-light flex-shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link to={PLAN.cta.href}>
+                  <GradientButton className="w-full text-sm py-3 flex items-center justify-center gap-2">
+                    {PLAN.cta.label} <ArrowRight size={14} />
+                  </GradientButton>
+                </Link>
+              </div>
+            </ReifyCard>
+          </motion.div>
         </div>
       </section>
 

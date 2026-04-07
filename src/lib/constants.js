@@ -16,39 +16,39 @@ export const NAV_LINKS = [
 ]
 
 // Single-product navbar dropdown — links to AP cluster pages.
-// FinMark.ai builds AP automation specifically for African enterprise running
-// Microsoft Dynamics NAV. The dropdown reflects the real product capabilities
-// that ship in production today.
+// FinMark.ai builds AP automation specifically for Nigerian enterprise running
+// Microsoft Dynamics NAV. Descriptions are outcome-focused, not implementation
+// details. The buyer cares what they get, not how it's built internally.
 export const PLATFORM_LINKS = [
   {
     label: 'Invoice Processing',
     to: '/accounts-payable-automation/invoice-processing-automation',
-    description: 'The full 8-stage AP pipeline.',
+    description: 'From PDF to NAV, hands-free.',
   },
   {
-    label: 'Claude AI Extraction',
-    to: '/accounts-payable-automation/claude-ai-invoice-extraction',
-    description: 'Claude Opus 4.6 at 98% confidence.',
+    label: 'AI Invoice Extraction',
+    to: '/accounts-payable-automation/ai-invoice-extraction',
+    description: 'Read any invoice format, no templates.',
   },
   {
     label: '3-Way Matching',
     to: '/accounts-payable-automation/3-way-matching',
-    description: 'Match against POs and GRNs from NAV.',
+    description: 'Match invoices to POs and GRNs from NAV.',
   },
   {
     label: 'Nigerian WHT Automation',
     to: '/accounts-payable-automation/nigerian-withholding-tax-automation',
-    description: 'WHT computation per 2024 regulations.',
+    description: 'WHT computed and pushed to NAV automatically.',
   },
   {
     label: 'Microsoft Dynamics NAV',
     to: '/accounts-payable-automation/microsoft-dynamics-nav-integration',
-    description: 'Direct on-premise NAV integration.',
+    description: 'Direct integration with on-premise NAV.',
   },
   {
     label: 'SharePoint Integration',
     to: '/accounts-payable-automation/sharepoint-invoice-integration',
-    description: 'Invoices in, portal uploads back.',
+    description: 'Use SharePoint as your AP repository.',
   },
   {
     label: 'Approval Workflows',
@@ -56,108 +56,112 @@ export const PLATFORM_LINKS = [
     description: 'Vendor-approver mapping, full audit trail.',
   },
   {
-    label: 'Multi-Tenant Platform',
+    label: 'For Group Companies',
     to: '/accounts-payable-automation/multi-tenant-ap-platform',
-    description: 'Multiple subsidiaries, one platform.',
+    description: 'Multiple subsidiaries on one platform.',
   },
 ]
 
+// FEATURES — outcome-focused, not implementation porn.
+// What the buyer gets, not what's under the hood.
 export const FEATURES = [
   {
     icon: Brain,
-    title: 'Claude AI Extraction',
+    title: 'AI Invoice Extraction',
     description:
-      'Anthropic Claude Opus 4.6 with 2-pass extraction reads invoices in any format at 98% confidence — no per-vendor templates, no traditional OCR.',
-  },
-  {
-    icon: CheckSquare,
-    title: '3-Way Matching with NAV',
-    description:
-      'Auto-match invoices against POs and GRNs synced from Microsoft Dynamics NAV every 5 minutes. Lump-sum and ratio-based matching for telecom and marketing invoices.',
-  },
-  {
-    icon: Receipt,
-    title: 'Nigerian WHT Automation',
-    description:
-      'Withholding Tax computed automatically per Nigerian 2024 regulations. 7 WHT fields pushed to NAV with every invoice. The killer feature US AP tools cannot match.',
+      'Reads any invoice format your vendors send — PDFs, scans, photos, emails. No per-vendor template setup. Sustained high accuracy on real-world invoices in production.',
   },
   {
     icon: Database,
-    title: 'Microsoft Dynamics NAV Integration',
+    title: 'Direct NAV Integration',
     description:
-      'Direct on-premise NAV integration via SOAP middleware. Bidirectional sync, ERP push-back with both standard and WHT fields populated. Production-tested.',
+      'Approved invoices flow straight into your Microsoft Dynamics NAV instance with all the fields populated. No manual rekeying. No middleware to babysit.',
+  },
+  {
+    icon: Receipt,
+    title: 'Nigerian Withholding Tax, Built In',
+    description:
+      'WHT computed automatically per the latest Nigerian regulations and pushed to NAV alongside the invoice. The killer feature US-built AP tools simply do not have.',
+  },
+  {
+    icon: CheckSquare,
+    title: 'Smart Matching',
+    description:
+      'Auto-match invoices against POs and GRNs from NAV. Handles the messy real-world cases — telecom invoices, marketing line items, partial receipts — without manual workarounds.',
   },
   {
     icon: FolderTree,
-    title: 'SharePoint Document Repository',
+    title: 'SharePoint as Your Repository',
     description:
-      'Invoices flow in from SharePoint folders via Microsoft Graph webhooks + delta polling. Portal uploads write back to SharePoint as the single source of truth.',
+      'If your vendors send to SharePoint, FinMark.ai picks them up automatically. If you upload through the portal, the documents go back to SharePoint. One source of truth, no migration.',
   },
   {
     icon: Building2,
-    title: 'Multi-Tenant Platform',
+    title: 'Built for Group Companies',
     description:
-      'Run multiple subsidiaries on one platform with full data isolation. Subdomain-based architecture with cross-company admin dashboard for group oversight.',
+      'Run multiple subsidiaries on one platform with full data isolation. The parent group sees everything; each subsidiary stays independent. Standard architecture, not an afterthought.',
   },
 ]
 
+// HOW_IT_WORKS — three steps the buyer cares about, not eight stages of internal pipeline.
 export const HOW_IT_WORKS = [
   {
     step: '01',
-    title: 'Capture from SharePoint or Portal',
+    title: 'Invoices Arrive',
     description:
-      'Vendors send invoices to a SharePoint folder or upload via the portal. Claude Opus 4.6 reads each invoice with a 2-pass extraction process that achieves 98% confidence. SHA-256 deduplication catches every duplicate at the door.',
+      'Vendors send invoices to your SharePoint folder, or upload through the FinMark.ai portal. Whatever format they use, the platform picks them up automatically and reads them.',
   },
   {
     step: '02',
-    title: 'Match, Validate, and Compute Tax',
+    title: 'AI Does the Work',
     description:
-      '3-way matching runs against POs and GRNs synced from Microsoft Dynamics NAV. 10 sanity checks catch the errors AI alone would miss. Nigerian Withholding Tax is computed automatically per 2024 regulations with the right rate per vendor type and service category.',
+      'Extraction, GL coding, PO and GRN matching, sanity checks, and Nigerian Withholding Tax computation all happen automatically. Only the genuine exceptions reach a human, and they reach the right human with full context attached.',
   },
   {
     step: '03',
-    title: 'Approve and Push to NAV',
+    title: 'Approved, Posted to NAV',
     description:
-      'Configurable approval workflows route invoices to the right approver with vendor-approver mapping. Approved invoices push back into Microsoft Dynamics NAV with all 4 standard Finmark fields and 7 WHT fields populated, ready to post.',
+      'Configurable approval workflows route each invoice to the right approver. Approved invoices push straight into Microsoft Dynamics NAV with every field populated, ready to post. Your AP team stops rekeying and starts reviewing.',
   },
 ]
 
+// SERVICES — same outcome-focused approach as FEATURES.
 export const SERVICES = [
   {
     icon: FileSearch,
-    title: 'AI Invoice Processing',
+    title: 'AI Invoice Capture',
     description:
-      'Claude Opus 4.6 reads invoices in any format with a 2-pass extraction process that achieves 98% confidence on real production invoices. No templates required.',
+      'Read invoices in any format your vendors send. No templates, no per-vendor setup, accuracy that holds up on the messy real-world documents.',
   },
   {
     icon: CheckSquare,
-    title: '3-Way Matching with NAV',
+    title: 'PO & GRN Matching',
     description:
-      'Auto-match invoices against POs and GRNs synced from Microsoft Dynamics NAV every 5 minutes. Lump-sum support for telecom and marketing invoices.',
+      'Auto-match invoices against your purchase orders and goods receipts from NAV. Handles lump-sum and ratio-based matching for telecom and marketing categories.',
   },
   {
     icon: Receipt,
-    title: 'Nigerian Withholding Tax',
+    title: 'Nigerian WHT',
     description:
-      'WHT computed per 2024 regulations with rate variations by vendor type and service category. 7 WHT fields pushed to NAV with every approved invoice.',
+      'Withholding Tax computed automatically per the latest Nigerian regulations. The numbers are right, the certificates are filable, the audit trail is clean.',
   },
   {
     icon: Database,
-    title: 'Microsoft Dynamics NAV',
+    title: 'NAV Integration',
     description:
-      'Direct integration with on-premise NAV via SOAP middleware. Bidirectional sync of POs, GRNs, vendor master, and approved invoices.',
+      'Direct integration with your on-premise Microsoft Dynamics NAV. POs, GRNs, vendor master, and approved invoices all flow between FinMark.ai and NAV automatically.',
   },
   {
     icon: FolderTree,
-    title: 'SharePoint Integration',
+    title: 'SharePoint as Repository',
     description:
-      'Invoices flow in from SharePoint folders via Microsoft Graph. Portal uploads write back to SharePoint. Single document repository for the whole AP workflow.',
+      'Use SharePoint as your AP document repository. FinMark.ai reads invoices in and writes portal uploads back. Your existing IT governance stays intact.',
   },
   {
     icon: Building2,
-    title: 'Multi-Tenant for Group Companies',
+    title: 'Multi-Subsidiary Platform',
     description:
-      'Run multiple subsidiaries on one platform with subdomain-based isolation, per-tenant NAV integration, and cross-company admin dashboard for group oversight.',
+      'Run multiple subsidiaries on one platform with full data isolation and a cross-company admin view for the parent group. Designed for African enterprise group structures.',
   },
 ]
 

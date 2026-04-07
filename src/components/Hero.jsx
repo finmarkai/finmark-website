@@ -5,7 +5,6 @@ import { ArrowRight, Sparkles, Brain, Receipt, Database } from 'lucide-react'
 import GradientButton from './ui/GradientButton'
 import ReifyCard from './ui/ReifyCard'
 import FloatingElement from './ui/FloatingElement'
-import TypewriterCycle from './ui/TypewriterCycle'
 import useIsMobile from '../lib/useIsMobile'
 
 const HeroScene = lazy(() => import('./3d/HeroScene'))
@@ -71,18 +70,18 @@ function GearBrainSVG() {
 const CARDS = [
   {
     icon: Brain,
-    title: 'Claude AI Extraction',
-    desc: 'Claude Opus 4.6 reads any invoice format at 98% confidence. No templates required.',
+    title: 'AI Invoice Extraction',
+    desc: 'Reads any invoice format your vendors send. No per-vendor templates.',
   },
   {
     icon: Receipt,
     title: 'Nigerian WHT Built In',
-    desc: 'Withholding Tax computed automatically per 2024 regulations. 7 fields pushed to NAV.',
+    desc: 'Withholding Tax computed and pushed to NAV automatically. The killer feature.',
   },
   {
     icon: Database,
     title: 'Microsoft Dynamics NAV',
-    desc: 'Direct on-premise NAV integration. PO/GRN sync every 5 minutes.',
+    desc: 'Direct integration with your on-premise NAV. Built for the African enterprise reality.',
   },
 ]
 
@@ -127,24 +126,23 @@ function MobileHero() {
       <div className="relative z-10 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 text-xs font-medium text-electric-light mb-6">
           <Sparkles size={12} />
-          AP Automation for African Enterprise
+          Financial Automation for African Enterprise
         </span>
 
         <h1 className="font-display text-[2rem] font-bold leading-[0.95] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-          AI Accounts Payable
+          AP Automation for
           <br />
-          <span className="gradient-text">Built for</span>{' '}
-          <TypewriterCycle words={['NAV', 'Nigerian WHT', 'African Enterprise', 'Group Companies']} />
+          <span className="gradient-text">Microsoft Dynamics NAV</span>
         </h1>
 
         <p className="mt-5 max-w-2xl mx-auto text-base text-gray-400 leading-relaxed">
-          Claude AI extraction. Microsoft Dynamics NAV integration. Nigerian Withholding Tax automation. Live with TGI Group.
+          Live in production at TGI Group. Nigerian Withholding Tax computed automatically. Approved invoices pushed straight into NAV.
         </p>
 
         <div className="mt-6 flex flex-col items-center gap-3">
           <Link to="/demo">
             <GradientButton className="text-sm px-7 py-3 flex items-center gap-2">
-              Get Started Free <ArrowRight size={16} />
+              Book a 30-min call <ArrowRight size={16} />
             </GradientButton>
           </Link>
         </div>
@@ -252,17 +250,16 @@ function DesktopHero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-electric-light mb-6 sm:mb-8 backdrop-blur-sm">
               <Sparkles size={14} />
-              AP Automation for African Enterprise
+              Financial Automation for African Enterprise
             </span>
           </motion.div>
 
           <h1 className="font-display text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] font-bold leading-[0.9] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-            <AnimatedWords delay={0.4}>AI Accounts Payable</AnimatedWords>
+            <AnimatedWords delay={0.4}>AP Automation for</AnimatedWords>
             <br />
             <span className="gradient-text">
-              <AnimatedWords delay={0.7}>Built for</AnimatedWords>
-            </span>{' '}
-            <TypewriterCycle words={['NAV', 'Nigerian WHT', 'African Enterprise', 'Group Companies']} />
+              <AnimatedWords delay={0.7}>Microsoft Dynamics NAV</AnimatedWords>
+            </span>
           </h1>
 
           <motion.p
@@ -271,7 +268,7 @@ function DesktopHero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-5 sm:mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed"
           >
-            Claude AI extraction. Microsoft Dynamics NAV integration. Nigerian Withholding Tax automation. Live with TGI Group.
+            Live in production at TGI Group. Nigerian Withholding Tax computed automatically. Approved invoices pushed straight into NAV.
           </motion.p>
 
           <motion.div
@@ -282,7 +279,7 @@ function DesktopHero() {
           >
             <Link to="/demo">
               <GradientButton className="text-sm sm:text-base px-7 py-3 sm:px-10 sm:py-4 flex items-center gap-2">
-                Get Started Free <ArrowRight size={16} />
+                Book a 30-min call <ArrowRight size={16} />
               </GradientButton>
             </Link>
           </motion.div>

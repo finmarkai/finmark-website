@@ -1,100 +1,87 @@
 ---
 type: strategy
+last_updated: 2026-04-07
 ---
 
 # 📅 Phasing & Rollout
 
-> Don't ship 137 pages on day one. Follow this sequence.
+> What got built, in what order, and what's next.
 
-## Phase 0 — Foundation (Week 1-2)
+## Where we are today
 
-**Goal:** Establish the hub structure. No clusters yet.
+**Phase 5: Vault sync** — currently in progress. Real product content is shipped on the website (Phase 4 done). The vault is being updated to match.
 
-**Pages:**
-- Homepage refactor (move existing landing into `HomePage.jsx`)
-- All 8 pillar pages
-- `/about`, `/pricing`, `/demo`, `/contact`
+## Phase history
 
-**Engineering:**
-- Install vite-react-ssg + react-router-dom + react-helmet-async
-- Build `<SEO>` component
-- Build `<Breadcrumb>`, `<PillarHubList>`, `<FAQ>`
-- Generate `sitemap.xml`, `robots.txt`
-- Submit sitemap to Google Search Console
+### Phase 0 — Engineering Foundation ✅ Complete
+**Goal:** Convert the single-page React landing into a multi-page, SSG-rendered, SEO-ready architecture.
+**Pages:** 13 (homepage refactor + 8 fake pillars + 4 static)
+**Outcome:** vite-react-ssg working, sitemap.xml, robots.txt, per-route metadata, JSON-LD schema. Engineering infrastructure is reusable for everything since.
 
-**Total:** 13 pages
+### Phase 1 — Multi-Pillar Cluster Pages ✅ Complete then deleted
+**Goal:** Build out cluster depth across the 8 fake pillars to demonstrate topical authority.
+**Pages:** 14 cluster pages
+**Outcome:** Built and deployed. Site reached 27 pages.
+**Why deleted:** The 8 pillars were aspirational. FinMark.ai only builds AP automation. The multi-pillar structure was misleading and strategically wrong.
 
-## Phase 1 — P0 Clusters (Week 3-6)
+### Phase 3 — First Refocus to AP-Only ✅ Complete
+**Goal:** Drop the 7 fake pillars and consolidate around accounts-payable-automation as the only pillar.
+**Pages:** 16 (homepage + about + pricing + demo + contact + 1 AP pillar + 10 clusters)
+**Outcome:** Site dropped from 27 to 16 pages, all honest and AP-focused. 1,247 lines of fake content removed.
 
-**Goal:** Begin earning rankings for high-intent commercial keywords.
+### Phase 4 — Real Product Refocus ✅ Complete
+**Goal:** Replace generic AP copy with the actual product reality from the internal Obsidian vault. Microsoft Dynamics NAV instead of NetSuite/QuickBooks. Nigerian WHT as a first-class feature. Claude Opus 4.6 as the named AI engine. TGI Group as the production customer.
+**Pages:** 16 (same count, totally different content)
+**Outcome:** Live on production. Every page now describes what FinMark.ai actually ships.
 
-**Pages (24 P0 clusters):**
-- [[02 - Clusters/ai-for-finance]]
-- [[02 - Clusters/financial-automation-software]]
-- [[02 - Clusters/regulatory-compliance-automation]]
-- [[02 - Clusters/kyc-automation]]
-- [[02 - Clusters/aml-compliance-software]]
-- [[02 - Clusters/fraud-detection-software]]
-- [[02 - Clusters/machine-learning-fraud-detection]]
-- [[02 - Clusters/automated-payment-processing]]
-- [[02 - Clusters/accounts-payable-automation]]
-- [[02 - Clusters/automated-financial-reporting]]
-- [[02 - Clusters/financial-data-integration]]
-- [[02 - Clusters/ai-cash-flow-forecasting]]
-- [[02 - Clusters/financial-planning-and-analysis-software]]
-- [[02 - Clusters/rpa-in-finance]]
-- ... (10 more — see Master Keyword List filtered by `priority: p0`)
+### Phase 5 — Vault Sync 🔄 In Progress
+**Goal:** Update the seo-vault to match the real product. Delete obsolete pillar/cluster notes. Write new ones reflecting the real product. Update keyword list, linking matrix, canvas.
+**Outcome (target):** Vault and website fully aligned. Single source of truth for SEO planning.
 
-**Solution pages (Phase 1):**
-- `/solutions/for-cfo`
-- `/solutions/banks` OR `/solutions/fintech-startups` (pick one to start)
+## Phase 6 — First Indexed by Google ⏳ Pending
 
-**Total:** ~26 pages
+**Goal:** Get the new content into Google's index and submitted to Search Console.
 
-## Phase 2 — P1 Clusters (Week 7-12)
+**Steps:**
+- [ ] Wait for Netlify deploy to complete (post-Phase 4 push)
+- [ ] Verify all 16 pages load correctly on production
+- [ ] Submit https://finmark.ai/sitemap.xml to Google Search Console
+- [ ] Submit to Bing Webmaster Tools
+- [ ] Verify `site:finmark.ai` shows pages in Google within 7 days
+- [ ] Set up GSC weekly email alerts
 
-**Goal:** Expand surface area. Capture mid-priority commercial keywords.
+## Phase 7 — First Rankings + Iteration ⏳ Pending
 
-**Pages:** ~30 P1 cluster pages + remaining persona/industry pages
+**Goal:** Track the first rankings and iterate on the cluster set based on what works.
 
-**Total:** ~38 pages
+**Expected timeline:**
+- Week 1-2 after indexing: pages start appearing for long-tail queries
+- Week 4-8: "nigerian withholding tax automation" reaches top 50
+- Week 8-12: Top 5 for the killer query if expectations hold
+- Month 3-6: Cluster pages earning long-tail traffic across the AP topic
 
-## Phase 3 — P2 Clusters + Supporting Blog (Week 13-20)
+**Iteration triggers:**
+- A cluster page with high impressions but low CTR → rewrite the title/meta
+- A cluster page ranking outside top 50 after 8 weeks → expand content depth
+- A query in GSC where FinMark.ai is appearing for unrelated content → add a cluster targeting that query
 
-**Goal:** Earn long-tail traffic. Build link equity feeders.
+## Phase 8+ — Future Expansion (NOT YET PLANNED)
 
-**Pages:**
-- All P2 cluster pages (~19)
-- 20 highest-priority supporting blog posts
+These phases come AFTER the first ranking results validate the strategy. Don't plan them in advance.
 
-**Total:** ~39 pages
+**Possible next moves once Phase 7 has data:**
+- Blog content (long-tail informational queries)
+- Customer case studies (TGI Group + others as they come on board)
+- Comparison pages (FinMark.ai vs Bill.com, vs Tipalti, etc.)
+- Glossary of AP / NAV / WHT terminology
+- Free WHT calculator tool (lead magnet)
 
-## Phase 4 — Saturation (Week 21+)
+## Cadence
 
-**Goal:** Lock in topical authority across the full keyword space.
-
-**Pages:**
-- Remaining supporting blog posts (~19)
-- Comparison pages (`/finmark-ai-vs-[competitor]`)
-- Alternative pages (`/[competitor]-alternatives`)
-- `/glossary` with 30+ term definitions
-
-## Cumulative timeline
-
-| End of week | Total pages live | Phase |
-|---|---|---|
-| 2 | 13 | 0 |
-| 6 | 39 | 1 |
-| 12 | 77 | 2 |
-| 20 | 116 | 3 |
-| 28 | 137+ | 4 |
-
-## Cadence rules
-
-- **Pillars:** Don't write more than 2 pillars per week. They're long, dense, and easy to phone in if rushed.
-- **Clusters:** 4-6 per week max. Quality over quantity.
-- **Blog posts:** 2-3 per week.
-- **Refresh:** Every 6 months, audit the top 10 pages for content freshness.
+- **No new content while waiting for indexing.** Adding pages before Google has a chance to index existing pages dilutes the signal.
+- **Weekly GSC check** for new queries and crawl errors.
+- **Monthly content audit** of top 10 pages for freshness.
+- **Quarterly strategy review** to decide whether the niche reframe is working.
 
 ## Linked notes
 - [[Map of Content]]

@@ -1,98 +1,143 @@
 ---
 type: linking-matrix
+last_updated: 2026-04-07
 ---
 
-# 🔗 Internal Linking Matrix
+# 🔗 Internal Linking Matrix (Single Pillar)
 
-> The page-to-page link plan. The full version with anchor text rules lives in `/seo/internal-linking-plan.md`. This vault note is the visual / queryable version.
+> The page-to-page link plan. Much simpler than the previous 8-pillar version because the site is now narrow + deep around one pillar.
 
-## The 5 Commandments of Internal Linking
+## The 4 commandments of internal linking (single-pillar version)
 
-1. **Cluster pages MUST link UP to their pillar** — twice, with anchor text variation
-2. **Pillar pages link DOWN to clusters via a hub list** — and 3 sibling pillars contextually
-3. **Pillars cross-link to RELATED pillars only** — not all
-4. **Blog posts link UP to their parent cluster** — NOT directly to the pillar
-5. **Solution pages link to ALL relevant pillars** — solution pages are hubs, not destinations
+1. **Every cluster MUST link UP to the AP pillar twice** — once in the intro link block, once in the closing CTA. Anchor text variation matters.
+2. **Every cluster MUST link to 2-3 sibling clusters** within the same pillar via the "Related capabilities" section.
+3. **The pillar MUST link DOWN to all 10 clusters** via the cluster hub list section.
+4. **Homepage MUST link to the pillar** prominently (Hero CTA, Navbar Product dropdown, Footer Product column).
 
-## Pillar Cross-Link Map
+## The link graph (10 clusters → 1 pillar → homepage)
 
 ```
-P1 (AI Fin Automation) ──→ P2, P5, P8
-P2 (Compliance)        ──→ P3, P4, P5
-P3 (Fraud)             ──→ P2, P4, P6
-P4 (Payments)          ──→ P3, P2, P8
-P5 (Reporting)         ──→ P7, P6, P1
-P6 (Data Platform)     ──→ P5, P7, P3
-P7 (Forecasting)       ──→ P5, P6, P1
-P8 (Workflow)          ──→ P1, P4, P5
+                       ┌──────────────────────────┐
+                       │      Homepage (/)         │
+                       │                          │
+                       │  Hero CTA → AP Pillar    │
+                       │  Nav dropdown → Pillar   │
+                       │  Footer → Pillar         │
+                       └────────────┬─────────────┘
+                                    │
+                                    ▼
+                       ┌──────────────────────────┐
+                       │  AP Automation Pillar    │
+                       │  /accounts-payable-      │
+                       │   automation             │
+                       │                          │
+                       │  Hub list → 10 clusters  │
+                       └─┬──┬──┬──┬──┬──┬──┬──┬──┬─┬──┘
+                         │  │  │  │  │  │  │  │  │ │
+        ┌────────────────┘  │  │  │  │  │  │  │  │ └──────────────┐
+        │      ┌────────────┘  │  │  │  │  │  │  └───────────┐    │
+        │      │      ┌────────┘  │  │  │  │  └────────┐    │    │
+        ▼      ▼      ▼           ▼  ▼  ▼  ▼           ▼    ▼    ▼
+       C1     C2     C3          C4 C5 C6 C7          C8   C9   C10
+       │      │      │           │  │  │  │           │    │    │
+       └──────┴──────┴───────────┴──┴──┴──┴───────────┴────┴────┘
+                         all 10 link UP to pillar
+                         + 2-3 sibling links each
 ```
 
-Each pillar has 3 inbound + 3 outbound sibling links → balanced ring topology.
+Where C1-C10 are:
+1. invoice-processing-automation
+2. ai-invoice-extraction
+3. 3-way-matching
+4. nigerian-withholding-tax-automation
+5. microsoft-dynamics-nav-integration
+6. sharepoint-invoice-integration
+7. multi-tenant-ap-platform
+8. ap-approval-workflows
+9. duplicate-invoice-detection
+10. ap-automation-software
 
-## Per-Pillar Linking Detail
+## Sibling cluster relationships (programmatically rendered)
 
-### P1 — AI Financial Automation
-- **Outbound clusters:** [[ai-for-finance]], [[financial-automation-software]], [[ai-finance-platform]], [[intelligent-finance-automation]], [[ai-accounting-automation]], [[ai-finance-tools]]
-- **Outbound siblings:** [[P2 - Compliance Automation]], [[P5 - AI Financial Reporting]], [[P8 - Workflow Automation]]
-- **Inbound clusters:** all 6 above (2× each)
-- **Inbound siblings:** P2, P5, P7, P8
-- **Other inbound:** Homepage, About, Top nav, all P1 blog posts, [[03 - Solutions/for-cfo]]
+Each cluster's `relatedSiblings` array in `src/content/clusters.js` defines its sibling links. Below is the canonical mapping:
 
-### P2 — Compliance Automation
-- **Outbound clusters:** [[regulatory-compliance-automation]], [[regtech-platform]], [[kyc-automation]], [[aml-compliance-software]], [[automated-kyc-aml]], [[continuous-compliance-monitoring]], [[regulatory-reporting-automation]], [[audit-automation]], [[compliance-management-system]]
-- **Outbound siblings:** [[P3 - AI Fraud Detection]], [[P4 - Payment Processing Automation]], [[P5 - AI Financial Reporting]]
-- **Inbound:** Homepage, all 9 clusters, P1 + P3 + P4 (sibling), P2 blog posts, [[03 - Solutions/banks]]
+| Cluster | Sibling 1 | Sibling 2 | Sibling 3 |
+|---|---|---|---|
+| invoice-processing-automation | ai-invoice-extraction | 3-way-matching | duplicate-invoice-detection |
+| ai-invoice-extraction | invoice-processing-automation | duplicate-invoice-detection | — |
+| 3-way-matching | microsoft-dynamics-nav-integration | ap-approval-workflows | invoice-processing-automation |
+| nigerian-withholding-tax-automation | microsoft-dynamics-nav-integration | invoice-processing-automation | — |
+| microsoft-dynamics-nav-integration | nigerian-withholding-tax-automation | 3-way-matching | multi-tenant-ap-platform |
+| sharepoint-invoice-integration | invoice-processing-automation | multi-tenant-ap-platform | — |
+| multi-tenant-ap-platform | microsoft-dynamics-nav-integration | sharepoint-invoice-integration | — |
+| ap-approval-workflows | invoice-processing-automation | 3-way-matching | multi-tenant-ap-platform |
+| duplicate-invoice-detection | invoice-processing-automation | ai-invoice-extraction | ap-approval-workflows |
+| ap-automation-software | invoice-processing-automation | microsoft-dynamics-nav-integration | nigerian-withholding-tax-automation |
 
-### P3 — AI Fraud Detection
-- **Outbound clusters:** [[fraud-detection-software]], [[machine-learning-fraud-detection]], [[real-time-fraud-detection]], [[transaction-monitoring-software]], [[payment-fraud-prevention]], [[ai-risk-management]], [[risk-management-software]], [[credit-risk-modeling]], [[enterprise-risk-management-software]]
-- **Outbound siblings:** [[P2 - Compliance Automation]], [[P4 - Payment Processing Automation]], [[P6 - Unified Financial Data Platform]]
-- **Inbound:** Homepage, all 9 clusters, P2 + P4 + P6 (sibling), P3 blogs, banks/fintech solutions
+## Inbound link counts (post Phase 4 deploy)
 
-### P4 — Payment Processing
-- **Outbound clusters:** [[automated-payment-processing]], [[payment-orchestration-platform]], [[multi-currency-payment-processing]], [[accounts-payable-automation]], [[accounts-receivable-automation]], [[ap-automation-software]], [[ar-automation-software]], [[global-payment-infrastructure]], [[intelligent-payment-routing]]
-- **Outbound siblings:** [[P3 - AI Fraud Detection]], [[P2 - Compliance Automation]], [[P8 - Workflow Automation]]
+| Page | Inbound from clusters | Inbound from nav/footer | Inbound from homepage | Total |
+|---|---|---|---|---|
+| AP Automation Pillar | 20 (10 clusters × 2 contextual links) | 2 (nav dropdown + footer column) | 3 (Hero, About, Services CTA) | **25+** |
+| invoice-processing-automation | 5 (sibling refs) | 1 (footer) | 0 | 6 |
+| nigerian-withholding-tax-automation | 4 (sibling refs) | 1 (footer) | 0 | 5 |
+| microsoft-dynamics-nav-integration | 5 (sibling refs) | 1 (footer) | 0 | 6 |
+| ... other clusters | ~3-5 | 1 | 0 | 4-6 |
 
-### P5 — AI Financial Reporting
-- **Outbound clusters:** [[automated-financial-reporting]], [[real-time-financial-analytics]], [[financial-analytics-software]], [[financial-dashboard-software]], [[ai-powered-analytics]], [[self-service-finance-analytics]], [[natural-language-financial-reporting]], [[financial-close-automation]], [[management-reporting-automation]]
-- **Outbound siblings:** [[P7 - Predictive Financial Forecasting]], [[P6 - Unified Financial Data Platform]], [[P1 - AI Financial Automation]]
+The pillar gets the most inbound link equity, which is exactly what we want. The pillar should rank for the highest-volume terms; clusters rank for their long-tail.
 
-### P6 — Unified Financial Data Platform
-- **Outbound clusters:** [[financial-data-integration]], [[finance-data-platform]], [[single-source-of-truth-finance]], [[etl-for-financial-data]], [[financial-data-warehouse]], [[erp-data-integration]], [[finance-api-integration]], [[master-data-management-finance]]
-- **Outbound siblings:** [[P5 - AI Financial Reporting]], [[P7 - Predictive Financial Forecasting]], [[P3 - AI Fraud Detection]]
+## Anchor text rules (60/20/20)
 
-### P7 — Predictive Financial Forecasting
-- **Outbound clusters:** [[ai-cash-flow-forecasting]], [[ml-forecasting-finance]], [[revenue-forecasting-ai]], [[demand-forecasting-software]], [[scenario-planning-software]], [[fpa-automation]], [[financial-planning-and-analysis-software]], [[driver-based-forecasting]], [[rolling-forecast-software]]
-- **Outbound siblings:** [[P5 - AI Financial Reporting]], [[P6 - Unified Financial Data Platform]], [[P1 - AI Financial Automation]]
+For each target page, distribute anchor text roughly:
 
-### P8 — Workflow Automation
-- **Outbound clusters:** [[finance-process-automation]], [[rpa-in-finance]], [[intelligent-process-automation]], [[back-office-automation]], [[operations-automation-software]], [[procure-to-pay-automation]], [[order-to-cash-automation]], [[record-to-report-automation]]
-- **Outbound siblings:** [[P1 - AI Financial Automation]], [[P4 - Payment Processing Automation]], [[P5 - AI Financial Reporting]]
+| Anchor type | Share | Example for AP pillar |
+|---|---|---|
+| Exact match | 20% | "accounts payable automation" |
+| Variation | 60% | "AP automation", "AI accounts payable", "the AP pillar", "FinMark.ai's AP platform" |
+| Branded + descriptive | 15% | "FinMark.ai's accounts payable platform" |
+| Generic | 5% | "see how it works" |
 
-## Cluster linking pattern (template)
+For the killer page ([[nigerian-withholding-tax-automation]]):
+- Exact match: "Nigerian withholding tax automation"
+- Variations: "WHT automation", "Nigerian WHT compliance", "automated WHT computation"
+- Branded: "FinMark.ai's WHT engine"
+- Generic: "explore WHT capabilities"
+
+## Cluster page link checklist (template)
 
 Every cluster page MUST contain:
 
-1. Breadcrumb → pillar
-2. Intro paragraph: contextual link to parent pillar (1st link)
-3. Body section: contextual link to sibling cluster #1
-4. Body section: contextual link to sibling cluster #2
-5. Body section: cross-pillar link (where relevant)
-6. Conclusion: contextual link to parent pillar (2nd link)
-7. Sidebar: 2-3 sibling cluster cards
-8. CTA at end: 1-2 supporting blog posts
+- [x] Breadcrumb (Home > AP Automation > [Cluster])
+- [x] Intro paragraph or PillarLinkBlock — 1st contextual link to AP pillar
+- [x] Body section with 2-3 sibling cluster links
+- [x] Related Capabilities section (sibling cards) — 2-3 sibling links
+- [x] Conclusion / PillarCTA — 2nd contextual link to AP pillar
+- [x] FAQ schema (FAQPage JSON-LD)
 
-**Total: 8-12 internal links per cluster.**
+This pattern is enforced by `src/pages/ClusterPage.jsx` — it renders the layout from data, so as long as `relatedSiblings` is populated correctly in `clusters.js`, the linking is automatic.
 
-## Anchor text diversity (per target page)
+## Cross-pillar links (none)
 
-| Anchor type | Share |
-|---|---|
-| Exact match | 20% |
-| Partial match / variation | 60% |
-| Branded + descriptive | 15% |
-| Generic | 5% |
+The `crossPillarLink` field on every cluster is `null` because the site has only one pillar. When more pillars ship in the future (likely never since FinMark.ai is single-product), this field will activate.
 
-## Related notes
-- [[Anchor Text Diversity Rules]]
-- [[Pillar Cross-Link Map]]
+## Auditing internal links
+
+To verify the link structure is intact:
+
+```bash
+cd "/Users/arinsoni/Library/Mobile Documents/com~apple~CloudDocs/Finmark/website/dist"
+grep -o 'href="/accounts-payable-automation[^"]*"' accounts-payable-automation.html | sort -u | wc -l
+# Should show ~10 unique cluster links
+```
+
+For each cluster page:
+```bash
+grep -o 'href="/accounts-payable-automation[^"]*"' accounts-payable-automation/<cluster>.html | sort -u
+# Should show: pillar (twice), 2-3 siblings, plus the breadcrumb
+```
+
+## Linked notes
 - [[Map of Content]]
+- [[SEO Strategy]]
+- [[Master Keyword List]]
+- [[Accounts Payable Automation]]

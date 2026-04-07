@@ -1,31 +1,38 @@
 ---
 type: cluster
-pillar: payment-processing-automation
+pillar: accounts-payable-automation
 keyword: ap automation software
 intent: commercial
 volume: H
 difficulty: high
-priority: p1
-status: idea
-url: /payment-processing-automation/ap-automation-software
-word_count_target: 1500-2000
+priority: p0
+status: published
+url: /accounts-payable-automation/ap-automation-software
+word_count_current: 1080
 ---
 
-# AP Automation Software
+# AP Automation Software (Buyer's Guide for African Enterprise)
 
-> **Parent pillar:** [[P4 - Payment Processing Automation]]
+> **Parent pillar:** [[Accounts Payable Automation]]
 > **Primary keyword:** `ap automation software`
+> **URL:** `/accounts-payable-automation/ap-automation-software`
 
-## Outline
-1. **H1:** AP Automation Software That Fits Your Stack
-2. **Intro** — link UP to [[P4 - Payment Processing Automation]]
-3. **What modern AP automation software does**
-4. **Buying criteria** (integrations, OCR accuracy, approval flexibility, audit trail)
-5. **How FinMark.ai approaches AP**
-6. **FAQ**
+## Page intent
+Buyer's guide page that captures the high-volume "ap automation software" search query. Reframed for African enterprise context — covers why US-built tools fall short and what to evaluate instead. Differentiates FinMark.ai without naming competitors directly.
 
-## Internal links
-- [[P4 - Payment Processing Automation]] (2×)
-- [[accounts-payable-automation]] (sibling)
-- [[ar-automation-software]] (sibling)
-- [[03 - Supporting Content/best-ap-automation-software]]
+## Real product specifics referenced
+- Microsoft Dynamics NAV (vs the cloud ERPs US tools target)
+- Nigerian WHT (vs US sales tax models)
+- Multi-tenant for group companies (vs single-entity bias)
+- Claude Opus 4.6 (vs generic "AI-powered OCR")
+- SharePoint integration (vs proprietary document storage)
+
+## Strategy
+This cluster fights for the highest-volume keyword in the set. It's also the highest-competition. The angle that makes it winnable: **reframe as African enterprise**. US AP buyers don't search "AP automation software" with African enterprise context. Nigerian/African buyers absolutely do.
+
+## Sibling clusters
+- [[invoice-processing-automation]] — capability detail
+- [[microsoft-dynamics-nav-integration]] — the ERP differentiator
+- [[nigerian-withholding-tax-automation]] — the tax differentiator
+
+## Status: Published
