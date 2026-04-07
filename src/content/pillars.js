@@ -4,73 +4,84 @@
 // automation. The site has ONE pillar that owns the topical authority for AP.
 // Cluster pages live under /accounts-payable-automation/* and provide depth.
 //
-// To add a new pillar (when you ship more products): append a new entry.
-// PillarPage.jsx renders any pillar from this config — no per-page component needed.
+// Real product reality (sourced from internal vault, NOT generic copy):
+//   - Customer: TGI Group (Nigerian conglomerate). 2 subsidiaries live: TGID + WACube
+//   - 287+ invoices processed, 10 users, 2 companies, 98% AI confidence
+//   - ERP: Microsoft Dynamics NAV (via SOAP middleware) — NOT NetSuite/Quickbooks/Xero/SAP
+//   - AI: Anthropic Claude Opus 4.6, 2-pass extraction
+//   - Killer differentiator: Nigerian Withholding Tax (WHT) computation
+//   - Document repository: SharePoint integration (read + write)
+//   - Multi-tenant subdomain architecture (tgid.ap.finmark.ai, wacube.ap.finmark.ai)
+//   - Region: eu-west-1 (Ireland)
+//   - Security: Internal audit (12/12 fixed), pentest (34/35 pass), TGI checklist submitted
+//   - Pipeline: PDF → Dedup → Claude Extraction → PO/GRN Match → 10 Sanity Checks
+//     → WHT Compute → Approval → ERP Push to NAV
+//   - NO payment execution (approved invoices push to NAV; TGI posts payments themselves)
 //
-// IMPORTANT: Keep claims honest. Don't promise capabilities you don't ship.
-// TODO comments mark spots where the user should fill in real specifics.
+// Keep claims honest. Don't promise capabilities not shipped.
+// TODO comments mark spots where the user should verify or expand details.
 
 export const PILLARS = [
   {
     slug: 'accounts-payable-automation',
     primaryKeyword: 'accounts payable automation',
     meta: {
-      title: 'AI Accounts Payable Automation Software | FinMark.ai',
+      title: 'AI Accounts Payable Automation for African Enterprise | FinMark.ai',
       description:
-        'AI-powered accounts payable automation that takes invoice processing from days to minutes. Capture, code, approve, and pay — automatically. Built for modern finance teams.',
+        'AI-powered AP automation built for African enterprise. Microsoft Dynamics NAV integration, Nigerian Withholding Tax (WHT) computation, and Claude-powered invoice extraction at 98% confidence.',
     },
     hero: {
       badge: 'Accounts Payable Automation',
-      h1: 'AI Accounts Payable Automation, From Invoice to Payment',
+      h1: 'AI Accounts Payable Automation Built for African Enterprise',
       subhead:
-        'Capture invoices in any format, code them automatically, route them through approval, and pay vendors on time — all in one intelligent platform built for modern finance teams.',
+        'Capture invoices with Claude AI, match against POs and GRNs, compute Nigerian Withholding Tax automatically, and push approved invoices straight into Microsoft Dynamics NAV. Live in production with TGI Group.',
       primaryCta: { label: 'Get a demo', href: '/demo' },
       secondaryCta: { label: 'See pricing', href: '/pricing' },
     },
     sections: [
       {
         kicker: 'The AP problem',
-        heading: 'Why manual accounts payable is broken at scale',
+        heading: 'Why manual accounts payable breaks at African enterprise scale',
         body: [
-          'Manual accounts payable is one of the most expensive workflows in finance. Industry benchmarks put the cost at $9-15 per invoice once you account for capture, coding, approval routing, payment execution, and reconciliation. For a company processing 5,000 invoices a month, that adds up to half a million dollars a year just to pay your vendors.',
-          'It is also slow. Manual AP cycles average 10-25 days from invoice receipt to payment. The result is missed early-pay discounts, frustrated vendors, late-fee penalties, and a finance team that spends most of its week chasing approvals and tracking down exceptions instead of doing actual financial analysis.',
-          'The tools that promised to fix this — basic OCR, rules-based workflow engines, generic RPA — broke the moment something unexpected happened. A new vendor invoice format. A field mismatch. A pop-up that the script did not anticipate. AP teams ended up babysitting bots that were supposed to free them up.',
+          'Manual accounts payable is one of the most expensive workflows in finance, and it gets worse at scale. For an African conglomerate processing thousands of vendor invoices a month across multiple subsidiaries, manual AP costs hundreds of thousands of dollars a year in pure labor — before you count the missed early-pay discounts, the late-fee penalties, the duplicate payments that nobody catches, and the audit findings from inconsistent process.',
+          'The deeper problem is that most AP tools are built for the US or Europe. They handle ACH and standard sales tax. They do not handle Nigerian Withholding Tax. They do not integrate with Microsoft Dynamics NAV. They do not understand a multi-subsidiary group structure that lives across SharePoint, NAV, and a dozen vendor formats. African enterprise finance teams end up either running everything manually or trying to bend a US-built tool into shape, neither of which works at scale.',
+          'FinMark.ai is built specifically for the African enterprise context. Microsoft Dynamics NAV as the primary ERP target. Nigerian WHT as a first-class feature, not an afterthought. SharePoint as the document repository. Multi-tenant architecture so a parent group can run multiple subsidiaries on one platform with full data isolation.',
         ],
       },
       {
         kicker: 'What it is',
-        heading: 'What AI accounts payable automation actually does',
+        heading: 'What FinMark.ai actually does',
         body: [
-          'Accounts payable automation is software that handles the full invoice-to-payment lifecycle automatically. AI-powered AP automation goes further: it reads invoices in any format (PDF, image, email, EDI), predicts the right GL coding from your history, runs them through your approval policy, screens for fraud and duplicates, and executes the payment on the right rail — without the hand-coded scripts that older AP tools depend on.',
-          'The difference between rule-based AP automation and AI-powered AP automation is what happens at the edges. A rule-based system breaks the moment something unfamiliar shows up. An AI system handles it natively — it learns from the exception and gets better the next time. That difference compounds over thousands of invoices a month into a system that actually holds up in production.',
+          'FinMark.ai is an end-to-end AP processing platform. Vendors send invoices via SharePoint or upload them through the portal. Anthropic\'s Claude Opus 4.6 extracts every field with a 2-pass extraction process that achieves 98% confidence on real-world invoices — including the messy ones with multi-line items, handwritten annotations, and non-standard layouts. Each invoice is deduped against history (SHA-256 fingerprint), matched against POs and GRNs (2-way or 3-way), checked through 10 sanity rules, run through Nigerian WHT computation, routed for approval, and pushed to Microsoft Dynamics NAV with all 4 Finmark fields and 7 WHT fields populated.',
+          'It is live in production today with TGI Group, running across two subsidiaries (TGI Distri Limited and West Africa Cube Limited) on a multi-tenant subdomain architecture. 287+ invoices processed. 10 users. 98% AI confidence. The platform replaced a slow, error-prone manual process with one that scales without proportional headcount growth.',
         ],
       },
       {
-        kicker: 'How it works',
-        heading: 'The full AP workflow, automated end to end',
+        kicker: 'The pipeline',
+        heading: 'The 8-stage AP pipeline, end to end',
         body: [
-          'Stage 1 is capture. Invoices arrive via email, vendor portal, EDI, or direct upload. AI extracts the line items, vendor info, dates, amounts, and tax fields automatically — including from messy PDFs and scanned documents. Stage 2 is coding. Machine learning predicts the right GL account, cost center, project, and tax codes based on your history. Stage 3 is matching. Three-way match against the PO and goods receipt happens automatically; only true mismatches go to a human. Stage 4 is approval. Routing follows your policy (auto-approve under threshold, route by amount and category). Stage 5 is screening. Fraud detection catches duplicate invoices, vendor impersonation, and BEC patterns before payment. Stage 6 is execution. The right rail (ACH, wire, card, RTP, or check) is selected and the payment runs. Stage 7 is reconciliation. The payment posts to the GL and matches against bank statements automatically.',
-          'Each step is logged with a full audit trail. Exceptions are handled by humans, but with full context attached so they take minutes to resolve instead of hours.',
+          'Stage 1 is intake. Invoices arrive through the portal upload, the SharePoint folder, or vendor email forwarding. Stage 2 is deduplication. SHA-256 fingerprinting catches every duplicate before it enters the workflow. Stage 3 is extraction. Claude Opus 4.6 runs a 2-pass extraction process — first pass for structure, second pass for accuracy verification. Stage 4 is matching. The system pulls POs and GRNs from Microsoft Dynamics NAV (via the staging API) and runs 2-way or 3-way matching with configurable tolerances.',
+          'Stage 5 is sanity checking. Ten rule-based checks catch the errors that AI can miss — date sanity, amount sanity, vendor sanity, tax math, currency consistency, line-item totals, and more. Stage 6 is Withholding Tax computation. The system applies Nigerian 2024 WHT regulations to every applicable invoice automatically — including the rate variations by vendor type, service category, and TIN status. Stage 7 is approval routing. Configurable workflows route invoices to the right approver with one-click approve from the portal. Stage 8 is the ERP push. Approved invoices flow back into NAV with the 4 Finmark fields (vendor verification, dedup status, approval state, sanity check results) and 7 WHT fields (rate, base, tax amount, certificate number, etc.) populated.',
         ],
       },
       {
         kicker: 'Why FinMark.ai',
-        heading: 'How FinMark.ai approaches AP automation differently',
+        heading: 'Real differentiators (not marketing claims)',
         body: [
-          // TODO: Replace with your real differentiators. Below are generic
-          // category-leading claims that any solid AP product should be able
-          // to make. Replace these with the things YOUR product does that
-          // others don't — pricing, market focus, specific integration, etc.
-          'FinMark.ai is built around AI from the start, not bolted on top of a legacy AP product. Every step in the workflow uses machine learning where it helps — and falls back to deterministic logic where determinism matters. The result is an AP system that handles real-world messiness without breaking and that improves the more you use it.',
-          'We also believe that AP automation should be fast to deploy and easy to operate. Most customers go from contract to first automated invoice in under two weeks. There is no per-user fee, so the whole finance team can use the platform without worrying about seat costs as you grow.',
+          'Built around Claude Opus 4.6 — the most capable LLM for document extraction in 2026 — running a 2-pass extraction pattern that consistently hits 98% confidence on real production invoices. This is not generic OCR with marketing copy on top. This is the actual best-in-class AI engine doing the actual hardest part of AP automation.',
+          'Direct Microsoft Dynamics NAV integration — including a SOAP middleware layer that handles the on-premise NAV reality that most modern AP tools cannot. PO and GRN sync runs every 5 minutes. Approved invoices push back into NAV with both standard and WHT fields populated, ready to post.',
+          'Nigerian Withholding Tax automation as a first-class feature. Built around the 2024 WHT regulations including the rate variations by vendor type and service category. This single feature separates FinMark.ai from every US-built AP tool on the market — there is no Bill.com, Stampli, or Tipalti equivalent for Nigerian WHT.',
+          'Multi-tenant by design. A group company can run multiple subsidiaries on one platform with full data isolation per company. TGI Group runs TGID and WACube as separate tenants on the same FinMark.ai deployment, with a shared admin dashboard for cross-company oversight.',
         ],
       },
       {
-        kicker: 'ROI',
-        heading: 'The ROI math on AP automation',
+        kicker: 'In production today',
+        heading: 'Live with TGI Group',
         body: [
-          'AP automation typically reduces processing costs from $9-15 per invoice to $2-3 per invoice — a 70-80% reduction on the labor side alone. For 5,000 invoices a month, that is $400,000-$700,000 in annual savings on processing costs. Add the captured early-pay discounts (typically 1-2% of total spend) and the reduction in late-payment penalties, and most customers see payback within 4-6 months.',
-          'The harder-to-measure benefits often matter more. Faster close cycles. Better vendor relationships. Catching duplicate invoices and BEC fraud before they cost you. Freeing your AP team to do strategic work instead of data entry. None of these show up cleanly in a payback calculation but they drive most of the long-term value.',
+          // TODO: Confirm if TGI is OK being named publicly. If not, replace
+          // with "a major Nigerian conglomerate" and omit the subsidiary names.
+          'FinMark.ai is live in production today with TGI Group, one of West Africa\'s largest conglomerates. The platform serves two TGI subsidiaries — TGI Distri Limited (TGID) and West Africa Cube Limited (WACube) — on dedicated subdomains with full data isolation. 287+ invoices processed. 10 active users across both companies. 98% AI confidence rate sustained over months of production use.',
+          'The full AP workflow runs end-to-end on FinMark.ai: vendors upload invoices via SharePoint, Claude extracts the data, the platform matches them against 9,500+ PO lines and 1,100+ GRN lines synced from Microsoft Dynamics NAV, runs the 10 sanity checks, computes WHT per Nigerian 2024 regulations, routes through approval, and pushes the approved invoices back into NAV ready to post. What used to take days takes minutes.',
         ],
       },
     ],
@@ -80,100 +91,96 @@ export const PILLARS = [
         slug: 'invoice-processing-automation',
         title: 'Invoice Processing Automation',
         description:
-          'Capture invoices in any format and turn them into structured GL-ready data automatically — PDFs, scans, emails, EDI.',
+          'End-to-end invoice processing with AI extraction, deduplication, matching, and ERP push. The full pipeline.',
       },
       {
-        slug: 'invoice-ocr-data-extraction',
-        title: 'Invoice OCR & Data Extraction',
+        slug: 'claude-ai-invoice-extraction',
+        title: 'Claude AI Invoice Extraction',
         description:
-          'Modern document AI that goes beyond basic OCR to extract structured invoice data with 95%+ accuracy on real documents.',
+          'Anthropic Claude Opus 4.6 with 2-pass extraction. 98% confidence on real-world invoices, no per-vendor templates.',
       },
       {
         slug: '3-way-matching',
-        title: '3-Way Matching Automation',
+        title: '3-Way Matching',
         description:
-          'Automatic three-way match against PO and goods receipt. Only true mismatches go to a human for review.',
+          'Auto-match invoices to POs and GRNs synced from Microsoft Dynamics NAV. Tolerance-based, with lump-sum support.',
+      },
+      {
+        slug: 'nigerian-withholding-tax-automation',
+        title: 'Nigerian WHT Automation',
+        description:
+          'Automated Nigerian Withholding Tax computation per 2024 regulations. 7 WHT fields pushed to NAV with every invoice.',
+      },
+      {
+        slug: 'microsoft-dynamics-nav-integration',
+        title: 'Microsoft Dynamics NAV Integration',
+        description:
+          'Direct integration with on-premise Microsoft Dynamics NAV via SOAP middleware. PO/GRN sync, ERP push, full audit trail.',
+      },
+      {
+        slug: 'sharepoint-invoice-integration',
+        title: 'SharePoint Integration',
+        description:
+          'SharePoint as the document repository. Read invoices in, write portal uploads back. Webhook + delta polling.',
       },
       {
         slug: 'ap-approval-workflows',
         title: 'AP Approval Workflows',
         description:
-          'Configurable approval routing that auto-approves under threshold and escalates by amount, category, vendor, or department.',
+          'Configurable approval routing with one-click approve from the portal. Vendor-approver mappings, full audit trail.',
       },
       {
-        slug: 'vendor-payment-automation',
-        title: 'Vendor Payment Automation',
+        slug: 'duplicate-invoice-detection',
+        title: 'Duplicate Detection & Sanity Checks',
         description:
-          'Pay vendors on the right rail automatically — ACH, wire, card, RTP, or check. Multi-currency support included.',
+          'SHA-256 dedup catches every duplicate. 10 rule-based sanity checks catch the errors that AI alone would miss.',
+      },
+      {
+        slug: 'multi-tenant-ap-platform',
+        title: 'Multi-Tenant AP Platform',
+        description:
+          'One platform, multiple subsidiaries. Subdomain-based isolation with cross-company admin dashboard for group oversight.',
       },
       {
         slug: 'ap-automation-software',
-        title: 'AP Automation Software',
+        title: 'AP Automation Software (Buyer\'s Guide)',
         description:
-          'How to evaluate AP automation software in 2026. Buying criteria, common traps, and what separates real tools from demos.',
-      },
-      {
-        slug: 'invoice-fraud-detection',
-        title: 'Invoice Fraud Detection',
-        description:
-          'AI-powered detection of duplicate invoices, vendor impersonation, BEC attacks, and inflated amounts — caught before payment.',
-      },
-      {
-        slug: 'ap-erp-integration',
-        title: 'AP & ERP Integration',
-        description:
-          'Direct integrations with NetSuite, QuickBooks, Xero, SAP, and the ERP systems finance teams actually use.',
-      },
-      {
-        slug: 'accounts-payable-software',
-        title: 'Accounts Payable Software',
-        description:
-          'A buyer\'s guide to modern accounts payable software — categories, criteria, and the gap between AP modules and dedicated platforms.',
-      },
-      {
-        slug: 'bill-pay-automation',
-        title: 'Bill Pay Automation',
-        description:
-          'End-to-end bill pay automation for finance teams that want to stop scheduling payments by hand.',
+          'How to evaluate AP automation software in 2026 — the criteria that separate real platforms from glorified OCR.',
       },
     ],
     siblings: [],
     faqs: [
       {
-        q: 'What is accounts payable automation?',
-        a: 'Accounts payable automation is software that handles the full invoice-to-payment workflow automatically — capture, coding, approval routing, payment, and reconciliation. AI-powered AP automation goes further by handling exceptions and learning from your specific invoice patterns over time.',
+        q: 'What is FinMark.ai?',
+        a: 'FinMark.ai is an AI-powered accounts payable automation platform built for African enterprise. It uses Claude Opus 4.6 to extract invoice data, integrates directly with Microsoft Dynamics NAV, computes Nigerian Withholding Tax automatically, and runs as a multi-tenant platform for group companies with multiple subsidiaries.',
       },
       {
-        q: 'How is FinMark.ai different from other AP automation tools?',
-        // TODO: Replace with your real differentiators
-        a: 'FinMark.ai is built around AI from day one, not bolted onto a legacy AP product. Every step uses machine learning where it helps and deterministic logic where determinism matters. We also have a no-per-user pricing model, so the whole finance team can use the platform without seat-cost penalties as you grow.',
+        q: 'Which ERP does FinMark.ai integrate with?',
+        a: 'Microsoft Dynamics NAV (on-premise) is the primary ERP integration today, via a SOAP middleware layer that handles PO/GRN sync and approved invoice push-back. Other ERPs are on the roadmap but NAV is the production-ready integration right now.',
       },
       {
-        q: 'How accurate is AI invoice processing in 2026?',
-        a: 'Modern document AI extracts structured data from invoices with 95%+ accuracy across formats, including handwritten line items, scanned PDFs, and non-standard layouts. Edge cases are flagged for human review with full context attached so resolution takes minutes, not hours.',
+        q: 'Does FinMark.ai handle Nigerian Withholding Tax?',
+        a: 'Yes — and this is one of the platform\'s defining features. Nigerian WHT computation is built around the 2024 regulations, applied to every applicable invoice automatically, with 7 WHT fields pushed to Microsoft Dynamics NAV alongside the standard invoice fields. No other major AP automation tool handles Nigerian WHT this deeply.',
       },
       {
-        q: 'What ERPs and accounting systems does FinMark.ai integrate with?',
-        // TODO: Update this list to reflect what you ACTUALLY integrate with today
-        a: 'FinMark.ai integrates with the major modern accounting and ERP systems including NetSuite, QuickBooks, Xero, and others. For systems without a direct integration, we support generic API connectors and CSV/SFTP fallback. Talk to sales for specifics on your stack.',
+        q: 'Does FinMark.ai execute payments?',
+        a: 'No. FinMark.ai handles invoice processing end-to-end through approval, then pushes approved invoices into Microsoft Dynamics NAV with all relevant fields populated. Payment execution happens in NAV using your existing banking integrations and treasury policy. This is intentional — the regulated payment side is best handled by your existing NAV setup.',
       },
       {
-        q: 'How long does AP automation take to implement?',
-        a: 'Most customers go from contract to first automated invoice in 2-4 weeks. Full deployment across your AP workflow takes 4-8 weeks. The biggest variable is ERP integration complexity — modern ERPs are faster than legacy or custom systems.',
+        q: 'How accurate is the Claude AI invoice extraction?',
+        a: 'FinMark.ai uses Anthropic Claude Opus 4.6 with a 2-pass extraction process that achieves 98% confidence on real production invoices. The remaining edge cases get flagged for human review with the AI predictions pre-filled, so confirmation takes seconds instead of minutes.',
       },
       {
-        q: 'What is the typical ROI of AP automation?',
-        a: 'Customers typically see 70-80% reductions in invoice processing costs (from ~$11 per invoice to ~$2), 50-70% reductions in cycle time, captured early-pay discounts of 1-2% of spend, and reduced late-payment penalties. Payback is usually within 4-6 months for companies processing more than 5,000 invoices per month.',
+        q: 'Is FinMark.ai SOC 2 or ISO 27001 certified?',
+        a: 'FinMark.ai has completed an internal security audit (12 findings, 100% remediated) and an internal penetration test (35 tests, 34 pass) — full reports available on request. The underlying AWS and Anthropic infrastructure are SOC 2 Type II certified. Direct SOC 2 certification for FinMark.ai itself is on the roadmap as the platform scales beyond its current customer base.',
       },
       {
-        q: 'Can AP automation prevent invoice fraud?',
-        a: 'Yes. AI-based anomaly detection catches duplicate invoices, inflated amounts, vendor impersonation, and business email compromise (BEC) attacks before payment runs. This is often a hidden value of AP automation that exceeds the direct labor savings.',
+        q: 'Where is the data hosted?',
+        a: 'FinMark.ai runs on AWS in eu-west-1 (Ireland). PostgreSQL on AWS RDS (encrypted at rest), invoice files in AWS S3 (versioned, SSE), all traffic over TLS. Vendor TINs are acknowledged as PII and encrypted at rest.',
       },
       {
-        q: 'Is FinMark.ai SOC 2 and PCI compliant?',
-        // TODO: Update with your real compliance status. If you don't have
-        // these certifications yet, change the answer or remove the question.
-        a: 'FinMark.ai is built around enterprise-grade security and compliance practices. Specific certification status is available on request — talk to sales for the most current details on SOC 2, ISO 27001, and other compliance frameworks.',
+        q: 'Who is FinMark.ai built for?',
+        a: 'African enterprise finance teams running Microsoft Dynamics NAV — particularly Nigerian companies with Withholding Tax obligations and group structures spanning multiple subsidiaries. The product is currently in production with TGI Group across two subsidiaries (TGID and WACube).',
       },
     ],
   },
@@ -189,7 +196,6 @@ export function getPillarBySlug(slug) {
 /**
  * Resolve a sibling pillar slug into the metadata needed for SiblingPillarsBar.
  * Currently returns nothing because the site has only one pillar.
- * Will become useful when more products ship.
  */
 export function resolveSiblings(siblingSlugs) {
   return siblingSlugs

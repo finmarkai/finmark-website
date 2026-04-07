@@ -43,7 +43,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://finmark.ai/accounts-payable-automation/invoice-ocr-data-extraction</loc>
+    <loc>https://finmark.ai/accounts-payable-automation/claude-ai-invoice-extraction</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -55,43 +55,43 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://finmark.ai/accounts-payable-automation/nigerian-withholding-tax-automation</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://finmark.ai/accounts-payable-automation/microsoft-dynamics-nav-integration</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://finmark.ai/accounts-payable-automation/sharepoint-invoice-integration</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://finmark.ai/accounts-payable-automation/multi-tenant-ap-platform</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://finmark.ai/accounts-payable-automation/ap-approval-workflows</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://finmark.ai/accounts-payable-automation/vendor-payment-automation</loc>
+    <loc>https://finmark.ai/accounts-payable-automation/duplicate-invoice-detection</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://finmark.ai/accounts-payable-automation/ap-automation-software</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finmark.ai/accounts-payable-automation/invoice-fraud-detection</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finmark.ai/accounts-payable-automation/ap-erp-integration</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finmark.ai/accounts-payable-automation/accounts-payable-software</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://finmark.ai/accounts-payable-automation/bill-pay-automation</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -1,11 +1,11 @@
 import {
   FileSearch,
-  Bot,
+  Brain,
   CheckSquare,
-  Workflow,
-  CreditCard,
-  ShieldCheck,
+  Receipt,
   Database,
+  FolderTree,
+  Building2,
 } from 'lucide-react'
 
 export const NAV_LINKS = [
@@ -15,148 +15,149 @@ export const NAV_LINKS = [
   { label: 'Contact', to: '/contact' },
 ]
 
-// Single-product navbar dropdown — links to AP cluster pages
-// (FinMark.ai builds AP automation, period. The dropdown surfaces the
-// depth of the AP product, not multiple unrelated products.)
+// Single-product navbar dropdown — links to AP cluster pages.
+// FinMark.ai builds AP automation specifically for African enterprise running
+// Microsoft Dynamics NAV. The dropdown reflects the real product capabilities
+// that ship in production today.
 export const PLATFORM_LINKS = [
   {
     label: 'Invoice Processing',
     to: '/accounts-payable-automation/invoice-processing-automation',
-    description: 'Capture & extract invoice data with AI.',
+    description: 'The full 8-stage AP pipeline.',
   },
   {
-    label: 'Invoice OCR',
-    to: '/accounts-payable-automation/invoice-ocr-data-extraction',
-    description: '95%+ accuracy on real-world invoices.',
+    label: 'Claude AI Extraction',
+    to: '/accounts-payable-automation/claude-ai-invoice-extraction',
+    description: 'Claude Opus 4.6 at 98% confidence.',
   },
   {
     label: '3-Way Matching',
     to: '/accounts-payable-automation/3-way-matching',
-    description: 'Auto-match invoices to POs and receipts.',
+    description: 'Match against POs and GRNs from NAV.',
+  },
+  {
+    label: 'Nigerian WHT Automation',
+    to: '/accounts-payable-automation/nigerian-withholding-tax-automation',
+    description: 'WHT computation per 2024 regulations.',
+  },
+  {
+    label: 'Microsoft Dynamics NAV',
+    to: '/accounts-payable-automation/microsoft-dynamics-nav-integration',
+    description: 'Direct on-premise NAV integration.',
+  },
+  {
+    label: 'SharePoint Integration',
+    to: '/accounts-payable-automation/sharepoint-invoice-integration',
+    description: 'Invoices in, portal uploads back.',
   },
   {
     label: 'Approval Workflows',
     to: '/accounts-payable-automation/ap-approval-workflows',
-    description: 'Configurable routing and one-click approval.',
+    description: 'Vendor-approver mapping, full audit trail.',
   },
   {
-    label: 'Vendor Payments',
-    to: '/accounts-payable-automation/vendor-payment-automation',
-    description: 'Pay on the right rail automatically.',
-  },
-  {
-    label: 'Invoice Fraud Detection',
-    to: '/accounts-payable-automation/invoice-fraud-detection',
-    description: 'Stop duplicates and BEC before payment.',
-  },
-  {
-    label: 'ERP Integration',
-    to: '/accounts-payable-automation/ap-erp-integration',
-    description: 'NetSuite, QuickBooks, Xero, SAP, more.',
-  },
-  {
-    label: 'Bill Pay Automation',
-    to: '/accounts-payable-automation/bill-pay-automation',
-    description: 'End-to-end bill pay across every rail.',
+    label: 'Multi-Tenant Platform',
+    to: '/accounts-payable-automation/multi-tenant-ap-platform',
+    description: 'Multiple subsidiaries, one platform.',
   },
 ]
 
 export const FEATURES = [
   {
-    icon: FileSearch,
-    title: 'AI Invoice Capture',
+    icon: Brain,
+    title: 'Claude AI Extraction',
     description:
-      'Read invoices in any format — PDF, image, email, EDI — with document AI that achieves 95%+ accuracy on real-world invoices, no per-vendor templates required.',
-  },
-  {
-    icon: Bot,
-    title: 'Smart GL Coding',
-    description:
-      'Machine learning predicts the right GL account, cost center, project, and tax codes from your historical patterns. New vendors learn fast.',
+      'Anthropic Claude Opus 4.6 with 2-pass extraction reads invoices in any format at 98% confidence — no per-vendor templates, no traditional OCR.',
   },
   {
     icon: CheckSquare,
-    title: 'Automated 3-Way Matching',
+    title: '3-Way Matching with NAV',
     description:
-      'Match invoices to POs and goods receipts automatically. Auto-approve clean matches; route real exceptions to a human with full context.',
+      'Auto-match invoices against POs and GRNs synced from Microsoft Dynamics NAV every 5 minutes. Lump-sum and ratio-based matching for telecom and marketing invoices.',
   },
   {
-    icon: Workflow,
-    title: 'Configurable Approval Workflows',
+    icon: Receipt,
+    title: 'Nigerian WHT Automation',
     description:
-      'Routing that auto-approves under threshold, escalates by amount and category, and handles delegation. One-click approval from email or Slack.',
+      'Withholding Tax computed automatically per Nigerian 2024 regulations. 7 WHT fields pushed to NAV with every invoice. The killer feature US AP tools cannot match.',
   },
   {
-    icon: CreditCard,
-    title: 'Multi-Rail Vendor Payments',
+    icon: Database,
+    title: 'Microsoft Dynamics NAV Integration',
     description:
-      'Pay vendors on the right rail automatically — ACH, wire, card, RTP, check, or international. Multi-currency support included.',
+      'Direct on-premise NAV integration via SOAP middleware. Bidirectional sync, ERP push-back with both standard and WHT fields populated. Production-tested.',
   },
   {
-    icon: ShieldCheck,
-    title: 'Built-In Fraud Detection',
+    icon: FolderTree,
+    title: 'SharePoint Document Repository',
     description:
-      'AI screens every invoice for duplicates, vendor impersonation, BEC patterns, and inflated amounts — before payment runs.',
+      'Invoices flow in from SharePoint folders via Microsoft Graph webhooks + delta polling. Portal uploads write back to SharePoint as the single source of truth.',
+  },
+  {
+    icon: Building2,
+    title: 'Multi-Tenant Platform',
+    description:
+      'Run multiple subsidiaries on one platform with full data isolation. Subdomain-based architecture with cross-company admin dashboard for group oversight.',
   },
 ]
 
 export const HOW_IT_WORKS = [
   {
     step: '01',
-    title: 'Capture Invoices Automatically',
+    title: 'Capture from SharePoint or Portal',
     description:
-      'Vendors send invoices to your dedicated FinMark.ai address (or upload via portal, EDI, or API). Document AI extracts the structured data automatically — no per-vendor templates required.',
+      'Vendors send invoices to a SharePoint folder or upload via the portal. Claude Opus 4.6 reads each invoice with a 2-pass extraction process that achieves 98% confidence. SHA-256 deduplication catches every duplicate at the door.',
   },
   {
     step: '02',
-    title: 'Code, Match, and Approve',
+    title: 'Match, Validate, and Compute Tax',
     description:
-      'Machine learning predicts the right GL coding from your history. 3-way matching against POs runs automatically. Configurable approval workflows route the rest with one-click approve from email or Slack.',
+      '3-way matching runs against POs and GRNs synced from Microsoft Dynamics NAV. 10 sanity checks catch the errors AI alone would miss. Nigerian Withholding Tax is computed automatically per 2024 regulations with the right rate per vendor type and service category.',
   },
   {
     step: '03',
-    title: 'Pay and Reconcile',
+    title: 'Approve and Push to NAV',
     description:
-      'Approved invoices pay on the right rail (ACH, wire, card, RTP, or check). Payments post to your GL automatically. Bank statements reconcile in real time. Your books stay clean.',
+      'Configurable approval workflows route invoices to the right approver with vendor-approver mapping. Approved invoices push back into Microsoft Dynamics NAV with all 4 standard Finmark fields and 7 WHT fields populated, ready to post.',
   },
 ]
 
 export const SERVICES = [
   {
     icon: FileSearch,
-    title: 'Invoice Processing',
+    title: 'AI Invoice Processing',
     description:
-      'AI captures, codes, and routes invoices in any format — PDF, scan, email, EDI. The extraction layer learns from your specific vendor patterns over time.',
+      'Claude Opus 4.6 reads invoices in any format with a 2-pass extraction process that achieves 98% confidence on real production invoices. No templates required.',
   },
   {
     icon: CheckSquare,
-    title: '3-Way Matching',
+    title: '3-Way Matching with NAV',
     description:
-      'Automatic matching against POs and goods receipts. Auto-approve clean matches within tolerance; route exceptions to humans with full context attached.',
+      'Auto-match invoices against POs and GRNs synced from Microsoft Dynamics NAV every 5 minutes. Lump-sum support for telecom and marketing invoices.',
   },
   {
-    icon: Workflow,
-    title: 'Approval Workflows',
+    icon: Receipt,
+    title: 'Nigerian Withholding Tax',
     description:
-      'Configurable routing that matches your real policy — by amount, category, vendor, or project. One-click approval from email, Slack, or mobile.',
-  },
-  {
-    icon: CreditCard,
-    title: 'Vendor Payments',
-    description:
-      'Multi-rail payment execution across ACH, wire, card, RTP, check, and international. Multi-currency support and automatic GL posting.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Fraud & Duplicate Detection',
-    description:
-      'AI catches duplicate invoices, vendor impersonation, BEC attacks, and inflated amounts before payment runs. Saves more than processing labor in many cases.',
+      'WHT computed per 2024 regulations with rate variations by vendor type and service category. 7 WHT fields pushed to NAV with every approved invoice.',
   },
   {
     icon: Database,
-    title: 'ERP Integration',
+    title: 'Microsoft Dynamics NAV',
     description:
-      'Direct integrations with NetSuite, QuickBooks, Xero, and more. Vendor master sync, GL posting, and bank reconciliation handled end-to-end.',
+      'Direct integration with on-premise NAV via SOAP middleware. Bidirectional sync of POs, GRNs, vendor master, and approved invoices.',
+  },
+  {
+    icon: FolderTree,
+    title: 'SharePoint Integration',
+    description:
+      'Invoices flow in from SharePoint folders via Microsoft Graph. Portal uploads write back to SharePoint. Single document repository for the whole AP workflow.',
+  },
+  {
+    icon: Building2,
+    title: 'Multi-Tenant for Group Companies',
+    description:
+      'Run multiple subsidiaries on one platform with subdomain-based isolation, per-tenant NAV integration, and cross-company admin dashboard for group oversight.',
   },
 ]
 

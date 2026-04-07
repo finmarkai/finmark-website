@@ -2,16 +2,14 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 const KEYWORDS = [
-  'AI Invoice Capture',
-  '95%+ Accuracy',
+  'Claude AI Extraction',
+  '98% Confidence',
+  'Microsoft Dynamics NAV',
+  'Nigerian WHT',
   '3-Way Matching',
-  'Approval Workflows',
-  'Multi-Rail Payments',
-  'Fraud Detection',
-  'NetSuite',
-  'QuickBooks',
-  'Xero',
-  'ERP-Integrated',
+  'SharePoint',
+  'Multi-Tenant',
+  'Built for Africa',
   'Audit-Ready',
 ]
 

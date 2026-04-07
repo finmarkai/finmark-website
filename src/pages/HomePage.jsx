@@ -12,8 +12,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="FinMark.ai — AI Accounts Payable Automation"
-        description="FinMark.ai is AI-powered accounts payable automation. Capture, code, approve, and pay every invoice automatically — with built-in fraud detection and direct ERP integration."
+        title="FinMark.ai — AI Accounts Payable Automation for African Enterprise"
+        description="AI-powered AP automation built for African enterprise. Microsoft Dynamics NAV integration, Nigerian Withholding Tax computation, and Claude-powered invoice extraction at 98% confidence. Live with TGI Group."
         path="/"
         schema={[organizationSchema(), websiteSchema()]}
       />

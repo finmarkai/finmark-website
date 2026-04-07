@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useCallback, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { ArrowRight, Sparkles, FileSearch, CheckSquare, CreditCard } from 'lucide-react'
+import { ArrowRight, Sparkles, Brain, Receipt, Database } from 'lucide-react'
 import GradientButton from './ui/GradientButton'
 import ReifyCard from './ui/ReifyCard'
 import FloatingElement from './ui/FloatingElement'
@@ -70,19 +70,19 @@ function GearBrainSVG() {
 
 const CARDS = [
   {
-    icon: FileSearch,
-    title: 'AI Invoice Capture',
-    desc: 'Read any invoice format with 95%+ accuracy. No templates required.',
+    icon: Brain,
+    title: 'Claude AI Extraction',
+    desc: 'Claude Opus 4.6 reads any invoice format at 98% confidence. No templates required.',
   },
   {
-    icon: CheckSquare,
-    title: 'Auto 3-Way Matching',
-    desc: 'Match invoices to POs and receipts automatically. Catch errors early.',
+    icon: Receipt,
+    title: 'Nigerian WHT Built In',
+    desc: 'Withholding Tax computed automatically per 2024 regulations. 7 fields pushed to NAV.',
   },
   {
-    icon: CreditCard,
-    title: 'Multi-Rail Payments',
-    desc: 'Pay vendors on the right rail — ACH, wire, card, RTP, or check.',
+    icon: Database,
+    title: 'Microsoft Dynamics NAV',
+    desc: 'Direct on-premise NAV integration. PO/GRN sync every 5 minutes.',
   },
 ]
 
@@ -127,18 +127,18 @@ function MobileHero() {
       <div className="relative z-10 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 text-xs font-medium text-electric-light mb-6">
           <Sparkles size={12} />
-          AI Accounts Payable Automation
+          AP Automation for African Enterprise
         </span>
 
         <h1 className="font-display text-[2rem] font-bold leading-[0.95] text-white tracking-[-0.03em] max-w-5xl mx-auto">
           AI Accounts Payable
           <br />
-          <span className="gradient-text">From Invoice to</span>{' '}
-          <TypewriterCycle words={['Payment', 'Approval', 'GL Posting', 'Reconciliation']} />
+          <span className="gradient-text">Built for</span>{' '}
+          <TypewriterCycle words={['NAV', 'Nigerian WHT', 'African Enterprise', 'Group Companies']} />
         </h1>
 
         <p className="mt-5 max-w-2xl mx-auto text-base text-gray-400 leading-relaxed">
-          Capture, code, approve, and pay every invoice automatically.
+          Claude AI extraction. Microsoft Dynamics NAV integration. Nigerian Withholding Tax automation. Live with TGI Group.
         </p>
 
         <div className="mt-6 flex flex-col items-center gap-3">
@@ -252,7 +252,7 @@ function DesktopHero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-electric-light mb-6 sm:mb-8 backdrop-blur-sm">
               <Sparkles size={14} />
-              AI Accounts Payable Automation
+              AP Automation for African Enterprise
             </span>
           </motion.div>
 
@@ -260,9 +260,9 @@ function DesktopHero() {
             <AnimatedWords delay={0.4}>AI Accounts Payable</AnimatedWords>
             <br />
             <span className="gradient-text">
-              <AnimatedWords delay={0.7}>From Invoice to</AnimatedWords>
+              <AnimatedWords delay={0.7}>Built for</AnimatedWords>
             </span>{' '}
-            <TypewriterCycle words={['Payment', 'Approval', 'GL Posting', 'Reconciliation']} />
+            <TypewriterCycle words={['NAV', 'Nigerian WHT', 'African Enterprise', 'Group Companies']} />
           </h1>
 
           <motion.p
@@ -271,7 +271,7 @@ function DesktopHero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-5 sm:mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed"
           >
-            Capture, code, approve, and pay every invoice automatically.
+            Claude AI extraction. Microsoft Dynamics NAV integration. Nigerian Withholding Tax automation. Live with TGI Group.
           </motion.p>
 
           <motion.div

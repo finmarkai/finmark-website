@@ -1,14 +1,16 @@
 # Netlify redirects
 # https://docs.netlify.com/routing/redirects/
 #
-# 301 redirects from the old multi-pillar site (Sprint 1 + 2) to the
-# refocused AP-only site. Preserves any link equity Google has assigned
-# to the old URLs and prevents 404s for anyone with old bookmarks.
+# 301 redirects covering:
+#   1. Old multi-pillar URLs (Sprint 1 + 2) → AP pillar
+#   2. Old generic AP cluster URLs (first refocus) → new real-product cluster URLs
 #
 # Format: from  to  status
 # (note: paths are space-separated, NOT slash-separated)
 
-# Old pillar URLs → AP pillar
+# ─────────────────────────────────────────────────────
+# Old multi-pillar URLs → AP pillar
+# ─────────────────────────────────────────────────────
 /ai-financial-automation                              /accounts-payable-automation              301
 /compliance-automation                                /accounts-payable-automation              301
 /ai-fraud-detection                                   /accounts-payable-automation              301
@@ -18,11 +20,7 @@
 /predictive-financial-forecasting                     /accounts-payable-automation              301
 /financial-workflow-automation                        /accounts-payable-automation              301
 
-# Old cluster URLs that map naturally to a new AP cluster → that cluster
-/payment-processing-automation/accounts-payable-automation   /accounts-payable-automation/ap-automation-software   301
-/payment-processing-automation/automated-payment-processing  /accounts-payable-automation/vendor-payment-automation  301
-
-# All remaining old cluster URLs → AP pillar (catches the long tail)
+# Old multi-pillar cluster URLs (catches the long tail) → AP pillar
 /ai-financial-automation/*                            /accounts-payable-automation              301
 /compliance-automation/*                              /accounts-payable-automation              301
 /ai-fraud-detection/*                                 /accounts-payable-automation              301
@@ -31,3 +29,25 @@
 /unified-financial-data-platform/*                    /accounts-payable-automation              301
 /predictive-financial-forecasting/*                   /accounts-payable-automation              301
 /financial-workflow-automation/*                      /accounts-payable-automation              301
+
+# ─────────────────────────────────────────────────────
+# Old generic AP cluster URLs → new real-product equivalents
+# ─────────────────────────────────────────────────────
+
+# Renamed: invoice-ocr-data-extraction → claude-ai-invoice-extraction
+/accounts-payable-automation/invoice-ocr-data-extraction  /accounts-payable-automation/claude-ai-invoice-extraction  301
+
+# Renamed: invoice-fraud-detection → duplicate-invoice-detection (more honest scope)
+/accounts-payable-automation/invoice-fraud-detection      /accounts-payable-automation/duplicate-invoice-detection   301
+
+# Renamed: ap-erp-integration → microsoft-dynamics-nav-integration (specific reality)
+/accounts-payable-automation/ap-erp-integration           /accounts-payable-automation/microsoft-dynamics-nav-integration  301
+
+# Removed: vendor-payment-automation → AP pillar (FinMark.ai doesn't do payment execution)
+/accounts-payable-automation/vendor-payment-automation    /accounts-payable-automation              301
+
+# Removed: bill-pay-automation → AP pillar (FinMark.ai doesn't do payment execution)
+/accounts-payable-automation/bill-pay-automation          /accounts-payable-automation              301
+
+# Removed: accounts-payable-software → ap-automation-software (consolidated buyer's guide)
+/accounts-payable-automation/accounts-payable-software    /accounts-payable-automation/ap-automation-software        301
