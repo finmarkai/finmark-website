@@ -4,7 +4,6 @@ import FeatureTicker from '../components/FeatureTicker'
 import Features from '../components/Features'
 import HowItWorks from '../components/HowItWorks'
 import Services from '../components/Services'
-import Stats from '../components/Stats'
 import CTA from '../components/CTA'
 import About from '../components/About'
 import { organizationSchema, websiteSchema } from '../lib/schema'
@@ -13,8 +12,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="FinMark.ai — AI Financial & Operational Automation Platform"
-        description="FinMark.ai is the AI-powered platform that automates financial and operational workflows end-to-end. Compliance, fraud detection, forecasting, reporting, and payments — all in one system."
+        title="FinMark.ai — AI Accounts Payable Automation"
+        description="FinMark.ai is AI-powered accounts payable automation. Capture, code, approve, and pay every invoice automatically — with built-in fraud detection and direct ERP integration."
         path="/"
         schema={[organizationSchema(), websiteSchema()]}
       />
@@ -23,7 +22,6 @@ export default function HomePage() {
       <Features />
       <HowItWorks />
       <Services />
-      <Stats />
       <CTA />
       <About />
     </>

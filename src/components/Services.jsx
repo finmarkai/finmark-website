@@ -103,12 +103,12 @@ export default function Services() {
         <div className="text-center mb-20">
           {isMobile ? (
             <>
-              <GlowBadge>Services</GlowBadge>
+              <GlowBadge>Capabilities</GlowBadge>
               <h2 className="mt-5 font-display text-4xl font-bold text-white tracking-tight">
-                End-to-End Financial & <span className="gradient-text">Operational</span> Solutions
+                Everything You Need for <span className="gradient-text">Modern AP</span>
               </h2>
               <p className="mt-5 max-w-2xl mx-auto text-lg text-gray-400">
-                From financial workflows to operational efficiency, FinMark.ai delivers intelligent services that help businesses automate, optimize, and scale with confidence.
+                A complete AP automation platform — capture, matching, approval, payment, fraud detection, and ERP integration — all in one product.
               </p>
             </>
           ) : (
@@ -118,7 +118,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <GlowBadge>Services</GlowBadge>
+                <GlowBadge>Capabilities</GlowBadge>
               </motion.div>
               <motion.h2
                 initial={{ opacity: 0, y: 30 }}
@@ -127,7 +127,7 @@ export default function Services() {
                 transition={{ delay: 0.1, duration: 0.6 }}
                 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight"
               >
-                End-to-End Financial & <span className="gradient-text">Operational</span> Solutions
+                Everything You Need for <span className="gradient-text">Modern AP</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ export default function Services() {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="mt-5 max-w-2xl mx-auto text-lg text-gray-400"
               >
-                From financial workflows to operational efficiency, FinMark.ai delivers intelligent services that help businesses automate, optimize, and scale with confidence.
+                A complete AP automation platform — capture, matching, approval, payment, fraud detection, and ERP integration — all in one product.
               </motion.p>
             </>
           )}

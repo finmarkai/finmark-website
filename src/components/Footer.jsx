@@ -65,7 +65,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.05 }}
           >
-            <h4 className="text-sm font-semibold text-white mb-4">Platform</h4>
+            <h4 className="text-sm font-semibold text-white mb-4">Product</h4>
             <ul className="space-y-2">
               {PLATFORM_LINKS.map((link) => (
                 <li key={link.to}>

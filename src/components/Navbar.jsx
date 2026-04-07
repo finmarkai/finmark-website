@@ -75,7 +75,7 @@ export default function Navbar() {
                 onClick={() => setPlatformOpen(!platformOpen)}
                 aria-expanded={platformOpen}
               >
-                Platform
+                Product
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-200 ${platformOpen ? 'rotate-180' : ''}`}
@@ -162,7 +162,7 @@ export default function Navbar() {
           >
             <div className="px-4 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
               <p className="px-3 pt-2 pb-1 text-xs uppercase tracking-[0.18em] text-gray-600">
-                Platform
+                Product
               </p>
               {PLATFORM_LINKS.map((link) => (
                 <Link

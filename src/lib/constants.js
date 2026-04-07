@@ -1,220 +1,173 @@
 import {
-  Brain,
-  Shield,
-  TrendingUp,
-  FileText,
-  Zap,
-  Layers,
+  FileSearch,
+  Bot,
+  CheckSquare,
+  Workflow,
   CreditCard,
   ShieldCheck,
-  AlertTriangle,
-  BarChart3,
-  Search,
   Database,
 } from 'lucide-react'
 
 export const NAV_LINKS = [
+  { label: 'Product', to: '/accounts-payable-automation' },
   { label: 'About', to: '/about' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'Contact', to: '/contact' },
 ]
 
-// Pillar dropdown for the Platform menu in the navbar.
-// Order matters — this is roughly the order they appear in the dropdown.
+// Single-product navbar dropdown — links to AP cluster pages
+// (FinMark.ai builds AP automation, period. The dropdown surfaces the
+// depth of the AP product, not multiple unrelated products.)
 export const PLATFORM_LINKS = [
   {
-    label: 'AI Financial Automation',
-    to: '/ai-financial-automation',
-    description: 'The unified AI finance platform.',
+    label: 'Invoice Processing',
+    to: '/accounts-payable-automation/invoice-processing-automation',
+    description: 'Capture & extract invoice data with AI.',
   },
   {
-    label: 'Compliance Automation',
-    to: '/compliance-automation',
-    description: 'KYC, AML, regulatory reporting.',
+    label: 'Invoice OCR',
+    to: '/accounts-payable-automation/invoice-ocr-data-extraction',
+    description: '95%+ accuracy on real-world invoices.',
   },
   {
-    label: 'AI Fraud Detection',
-    to: '/ai-fraud-detection',
-    description: 'Real-time ML fraud detection.',
+    label: '3-Way Matching',
+    to: '/accounts-payable-automation/3-way-matching',
+    description: 'Auto-match invoices to POs and receipts.',
   },
   {
-    label: 'Payment Processing',
-    to: '/payment-processing-automation',
-    description: 'AP, AR, and payment orchestration.',
+    label: 'Approval Workflows',
+    to: '/accounts-payable-automation/ap-approval-workflows',
+    description: 'Configurable routing and one-click approval.',
   },
   {
-    label: 'AI Financial Reporting',
-    to: '/ai-financial-reporting',
-    description: 'Automated reports and analytics.',
+    label: 'Vendor Payments',
+    to: '/accounts-payable-automation/vendor-payment-automation',
+    description: 'Pay on the right rail automatically.',
   },
   {
-    label: 'Unified Data Platform',
-    to: '/unified-financial-data-platform',
-    description: 'One data layer for all of finance.',
+    label: 'Invoice Fraud Detection',
+    to: '/accounts-payable-automation/invoice-fraud-detection',
+    description: 'Stop duplicates and BEC before payment.',
   },
   {
-    label: 'Predictive Forecasting',
-    to: '/predictive-financial-forecasting',
-    description: 'AI cash flow and FP&A.',
+    label: 'ERP Integration',
+    to: '/accounts-payable-automation/ap-erp-integration',
+    description: 'NetSuite, QuickBooks, Xero, SAP, more.',
   },
   {
-    label: 'Workflow Automation',
-    to: '/financial-workflow-automation',
-    description: 'P2P, O2C, R2R end-to-end.',
+    label: 'Bill Pay Automation',
+    to: '/accounts-payable-automation/bill-pay-automation',
+    description: 'End-to-end bill pay across every rail.',
   },
 ]
 
 export const FEATURES = [
   {
-    icon: Brain,
-    title: 'AI-Powered Analytics',
+    icon: FileSearch,
+    title: 'AI Invoice Capture',
     description:
-      'Leverage advanced AI models to analyze data across business functions in real time—turning raw information into actionable insights and strategic decisions.',
+      'Read invoices in any format — PDF, image, email, EDI — with document AI that achieves 95%+ accuracy on real-world invoices, no per-vendor templates required.',
   },
   {
-    icon: Shield,
-    title: 'Smart Compliance',
+    icon: Bot,
+    title: 'Smart GL Coding',
     description:
-      'Stay ahead of regulatory requirements with automated monitoring, intelligent risk scoring, and audit-ready systems across financial and operational workflows.',
+      'Machine learning predicts the right GL account, cost center, project, and tax codes from your historical patterns. New vendors learn fast.',
   },
   {
-    icon: TrendingUp,
-    title: 'Predictive Forecasting',
+    icon: CheckSquare,
+    title: 'Automated 3-Way Matching',
     description:
-      'Forecast revenue, demand, and performance trends using machine learning models that provide accurate, forward-looking insights for better planning.',
+      'Match invoices to POs and goods receipts automatically. Auto-approve clean matches; route real exceptions to a human with full context.',
   },
   {
-    icon: FileText,
-    title: 'Intelligent Reporting',
+    icon: Workflow,
+    title: 'Configurable Approval Workflows',
     description:
-      'Generate real-time reports with automated summaries, customizable dashboards, and seamless sharing across teams and stakeholders.',
+      'Routing that auto-approves under threshold, escalates by amount and category, and handles delegation. One-click approval from email or Slack.',
   },
   {
-    icon: Zap,
-    title: 'Workflow Automation',
+    icon: CreditCard,
+    title: 'Multi-Rail Vendor Payments',
     description:
-      'Automate repetitive tasks across finance, operations, and marketing—improving efficiency and reducing manual effort.',
+      'Pay vendors on the right rail automatically — ACH, wire, card, RTP, check, or international. Multi-currency support included.',
   },
   {
-    icon: Layers,
-    title: 'Unified Data Platform',
+    icon: ShieldCheck,
+    title: 'Built-In Fraud Detection',
     description:
-      'Bring all your business data into a single source of truth, enabling better collaboration, visibility, and decision-making.',
+      'AI screens every invoice for duplicates, vendor impersonation, BEC patterns, and inflated amounts — before payment runs.',
   },
 ]
 
 export const HOW_IT_WORKS = [
   {
     step: '01',
-    title: 'Connect Your Systems',
+    title: 'Capture Invoices Automatically',
     description:
-      'Integrate your existing tools across finance, operations, marketing, and more. FinMark.ai brings all your data into one unified platform—no silos, no friction.',
+      'Vendors send invoices to your dedicated FinMark.ai address (or upload via portal, EDI, or API). Document AI extracts the structured data automatically — no per-vendor templates required.',
   },
   {
     step: '02',
-    title: 'Automate Your Workflows',
+    title: 'Code, Match, and Approve',
     description:
-      'Design and deploy intelligent workflows tailored to your business. From financial processes to operational tasks and marketing activities, automate everything with precision.',
+      'Machine learning predicts the right GL coding from your history. 3-way matching against POs runs automatically. Configurable approval workflows route the rest with one-click approve from email or Slack.',
   },
   {
     step: '03',
-    title: 'Gain Insights & Scale',
+    title: 'Pay and Reconcile',
     description:
-      'Unlock real-time insights, monitor performance, and make data-driven decisions. As your business grows, FinMark.ai scales with you—ensuring efficiency at every stage.',
+      'Approved invoices pay on the right rail (ACH, wire, card, RTP, or check). Payments post to your GL automatically. Bank statements reconcile in real time. Your books stay clean.',
   },
 ]
 
 export const SERVICES = [
   {
-    icon: CreditCard,
-    title: 'Payment Processing',
+    icon: FileSearch,
+    title: 'Invoice Processing',
     description:
-      'Optimize and automate payment flows with intelligent routing, multi-currency support, and built-in fraud prevention for seamless global transactions.',
+      'AI captures, codes, and routes invoices in any format — PDF, scan, email, EDI. The extraction layer learns from your specific vendor patterns over time.',
+  },
+  {
+    icon: CheckSquare,
+    title: '3-Way Matching',
+    description:
+      'Automatic matching against POs and goods receipts. Auto-approve clean matches within tolerance; route exceptions to humans with full context attached.',
+  },
+  {
+    icon: Workflow,
+    title: 'Approval Workflows',
+    description:
+      'Configurable routing that matches your real policy — by amount, category, vendor, or project. One-click approval from email, Slack, or mobile.',
+  },
+  {
+    icon: CreditCard,
+    title: 'Vendor Payments',
+    description:
+      'Multi-rail payment execution across ACH, wire, card, RTP, check, and international. Multi-currency support and automatic GL posting.',
   },
   {
     icon: ShieldCheck,
-    title: 'Regulatory Compliance',
+    title: 'Fraud & Duplicate Detection',
     description:
-      'Stay compliant with automated KYC/AML checks, real-time regulatory updates, and audit-ready systems designed for modern businesses.',
-  },
-  {
-    icon: AlertTriangle,
-    title: 'Risk Management',
-    description:
-      'Proactively identify and mitigate risks using predictive analytics and AI-driven models that safeguard your financial and operational processes.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Financial Reporting',
-    description:
-      'Generate accurate, real-time reports with AI-powered insights, enabling better forecasting, analysis, and strategic decision-making.',
-  },
-  {
-    icon: Search,
-    title: 'Fraud Detection',
-    description:
-      'Detect anomalies and prevent fraud in real-time with advanced machine learning models that continuously learn and adapt.',
+      'AI catches duplicate invoices, vendor impersonation, BEC attacks, and inflated amounts before payment runs. Saves more than processing labor in many cases.',
   },
   {
     icon: Database,
-    title: 'Data Integration',
+    title: 'ERP Integration',
     description:
-      'Unify your data across systems with seamless integrations, creating a single source of truth for finance and operations.',
+      'Direct integrations with NetSuite, QuickBooks, Xero, and more. Vendor master sync, GL posting, and bank reconciliation handled end-to-end.',
   },
 ]
 
-export const TRUSTED_LOGOS = [
-  'Goldman Sachs',
-  'JPMorgan',
-  'Stripe',
-  'Bloomberg',
-  'Visa',
-  'Mastercard',
-  'Deloitte',
-  'McKinsey',
-  'Revolut',
-  'Plaid',
-]
+export const TRUSTED_LOGOS = []
 
-export const TESTIMONIALS = [
-  {
-    quote:
-      'Finmark reduced our compliance processing time by 85%. The AI-driven automation is nothing short of transformative for our operations.',
-    name: 'Sarah Chen',
-    role: 'CFO, Nexus Financial',
-    avatar: 'SC',
-  },
-  {
-    quote:
-      'The predictive forecasting alone paid for itself in the first quarter. We now have institutional-grade insights at a fraction of the cost.',
-    name: 'Marcus Williams',
-    role: 'VP Finance, TechScale Inc.',
-    avatar: 'MW',
-  },
-  {
-    quote:
-      'Fraud detection accuracy went from 72% to 99.4% after implementing Finmark. Our risk team can finally focus on strategic decisions.',
-    name: 'Elena Rodriguez',
-    role: 'Head of Risk, PayFlow',
-    avatar: 'ER',
-  },
-  {
-    quote:
-      'Integration took 15 minutes, not 15 weeks. The unified data layer connects seamlessly with our existing banking infrastructure.',
-    name: 'David Park',
-    role: 'CTO, FinBridge',
-    avatar: 'DP',
-  },
-  {
-    quote:
-      'The automated reporting saves our team 40+ hours per month. Stakeholders love the natural language summaries.',
-    name: 'Amara Osei',
-    role: 'Director of Operations, CloudBank',
-    avatar: 'AO',
-  },
-]
+// TESTIMONIALS — kept for backward compatibility but the Testimonials
+// component is no longer rendered on the homepage. Add real customer
+// quotes here when you have them; do NOT keep fake quotes.
+export const TESTIMONIALS = []
 
 export const FOOTER_LINKS = {
-  Product: ['Features', 'How It Works', 'Services'],
+  Product: ['Features', 'How It Works', 'Pricing'],
   Legal: ['Privacy Policy', 'Terms of Service'],
 }

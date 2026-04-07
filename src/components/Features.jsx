@@ -104,10 +104,10 @@ export default function Features() {
             <>
               <GlowBadge>Features</GlowBadge>
               <h2 className="mt-5 font-display text-4xl font-bold text-white tracking-tight">
-                Intelligence at <span className="gradient-text">Every Layer</span>
+                AI for <span className="gradient-text">Every Step of AP</span>
               </h2>
               <p className="mt-5 max-w-2xl mx-auto text-lg text-gray-400">
-                Our AI-powered platform transforms data into actionable insights across finance, operations, marketing, and beyond—helping your business move faster and smarter.
+                FinMark.ai handles the full invoice-to-payment lifecycle with AI built in at every step — capture, coding, matching, approval, payment, and reconciliation.
               </p>
             </>
           ) : (
@@ -127,7 +127,7 @@ export default function Features() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight"
               >
-                Intelligence at <span className="gradient-text">Every Layer</span>
+                AI for <span className="gradient-text">Every Step of AP</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ export default function Features() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mt-5 max-w-2xl mx-auto text-lg text-gray-400"
               >
-                Our AI-powered platform transforms data into actionable insights across finance, operations, marketing, and beyond—helping your business move faster and smarter.
+                FinMark.ai handles the full invoice-to-payment lifecycle with AI built in at every step — capture, coding, matching, approval, payment, and reconciliation.
               </motion.p>
             </>
           )}

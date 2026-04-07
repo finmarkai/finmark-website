@@ -2,16 +2,17 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 const KEYWORDS = [
-  'AI-Powered',
-  'Real-Time Analytics',
+  'AI Invoice Capture',
+  '95%+ Accuracy',
+  '3-Way Matching',
+  'Approval Workflows',
+  'Multi-Rail Payments',
   'Fraud Detection',
-  'Smart Compliance',
-  'Predictive Forecasting',
-  'Automation',
-  'Enterprise-Grade',
-  'Secure',
-  'Intelligent Reporting',
-  'Data Integration',
+  'NetSuite',
+  'QuickBooks',
+  'Xero',
+  'ERP-Integrated',
+  'Audit-Ready',
 ]
 
 function DiamondSeparator() {

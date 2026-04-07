@@ -1,5 +1,8 @@
 // Cluster page content config — single source of truth for all cluster pages.
 //
+// All clusters are children of the accounts-payable-automation pillar — FinMark.ai
+// is a single-product company and the site reflects that.
+//
 // Each cluster has:
 //   - pillar: parent pillar slug (must match a slug in pillars.js)
 //   - slug: cluster URL segment
@@ -8,1114 +11,802 @@
 //   - hero: { badge, h1, subhead }
 //   - sections: ordered array of content sections (renders via PillarSection)
 //   - relatedSiblings: 2-3 sibling cluster slugs (within same pillar)
-//   - crossPillarLink: { pillarSlug, anchor } — 1 cross-pillar contextual link
+//   - crossPillarLink: optional — { pillarSlug, anchor } — currently null
+//     because we have one pillar
 //   - faqs: FAQ items
 //
 // To add a new cluster: append a new entry. ClusterPage.jsx renders any cluster
 // from this config — no per-page component needed.
 //
-// Linking matrix rules baked in (rendered automatically by ClusterPage.jsx):
-//   - Breadcrumb: Home > Pillar > Cluster
-//   - 2× contextual link UP to parent pillar (intro + conclusion)
-//   - 2-3 sibling cluster links via relatedSiblings
-//   - 1 cross-pillar contextual link via crossPillarLink
-//   - Schema: WebPage + BreadcrumbList + FAQPage
+// IMPORTANT: Keep claims honest. Don't promise capabilities you don't ship.
+// TODO comments mark spots where the user should fill in real specifics.
 
 export const CLUSTERS = [
   // ─────────────────────────────────────────────────────────────────
-  // P1 — AI Financial Automation clusters
+  // 1. Invoice Processing Automation
   // ─────────────────────────────────────────────────────────────────
   {
-    pillar: 'ai-financial-automation',
-    slug: 'ai-for-finance',
-    primaryKeyword: 'ai for finance',
+    pillar: 'accounts-payable-automation',
+    slug: 'invoice-processing-automation',
+    primaryKeyword: 'invoice processing automation',
     meta: {
-      title: 'AI for Finance: A Practical Guide for 2026 | FinMark.ai',
+      title: 'Invoice Processing Automation: A Practical Guide | FinMark.ai',
       description:
-        'How AI is changing finance — the technologies, the use cases, and what to actually adopt first. A practical guide for finance teams evaluating AI in 2026.',
+        'How invoice processing automation actually works in 2026. AI-powered capture, coding, matching, and approval — without the brittle scripts of legacy AP tools.',
     },
     hero: {
-      badge: 'AI for Finance',
-      h1: 'AI for Finance: A Practical Guide for 2026',
+      badge: 'Invoice Processing',
+      h1: 'Invoice Processing Automation That Actually Works',
       subhead:
-        'Where AI actually fits in modern finance — from forecasting and fraud detection to compliance and reporting. The technologies that matter, the use cases that pay back, and how to start.',
+        'Capture, code, and approve invoices automatically — across every format your vendors send and every accounting system you run. Built for the messiness of real AP, not just clean demo data.',
     },
     sections: [
       {
         kicker: 'What it is',
-        heading: 'What AI for finance actually means',
+        heading: 'What invoice processing automation actually means',
         body: [
-          'AI for finance is the application of machine learning, natural language processing, and decision automation to the work that finance and operations teams do every day. It is not a single technology — it is a category that includes everything from anomaly detection in transaction streams to natural-language summaries of monthly reports.',
-          'Three things separate AI from previous waves of finance automation: AI learns from data instead of following hand-coded rules, it handles exceptions and edge cases natively, and it improves over time as it sees more of your specific patterns. Those properties matter more in finance than almost anywhere else, because finance data is messy, exception-heavy, and constantly changing.',
+          'Invoice processing automation is software that takes invoices from receipt all the way to GL posting without humans touching them — except to handle the small percentage of true exceptions. It covers four steps: capture (getting the invoice into the system), extraction (pulling out the structured data), validation (checking it matches the PO and the vendor record), and routing (sending it to the right approver and posting to the right account).',
+          'The version of invoice processing automation that worked five years ago was rule-based: hand-coded templates for each vendor format, brittle scripts to handle each system. The version that works today is AI-based: machine learning models that read any format, learn from your specific patterns, and handle exceptions natively. The difference is whether your AP team spends its week processing invoices or babysitting a tool that was supposed to process them.',
         ],
       },
       {
-        kicker: 'Core technologies',
-        heading: 'The core AI technologies finance teams should know',
+        kicker: 'Capture',
+        heading: 'How modern invoice capture works',
         body: [
-          'Machine learning is the broadest category — supervised models for fraud and credit risk, unsupervised models for anomaly detection, time-series models for forecasting. NLP and large language models handle unstructured documents (invoices, contracts, emails) and generate narrative reports. Computer vision processes scanned receipts and bank statements. Decision automation routes exceptions to the right human with full context attached.',
-          'You do not need a PhD to evaluate any of this. The right question for any AI claim is: what data does it learn from, how is the decision explained, and how does it handle the cases it has not seen before. Anything that cannot answer those three questions is not ready for finance.',
+          'Modern invoice capture pulls invoices from every channel your vendors actually use: email (forwarded to a dedicated address), vendor portals, EDI feeds, direct API uploads, and even photos taken on a phone. The capture layer normalizes everything into a single processing queue regardless of where it came from.',
+          'Once the invoice is in the queue, document AI extracts the structured fields: vendor, invoice number, line items, amounts, taxes, due date. Modern document AI is dramatically more accurate than the OCR tools of five years ago because it uses large language models that understand context, not just character recognition. A well-tuned system handles 95%+ of invoices fully automatically and routes the rest to a human reviewer with the extracted fields pre-filled for fast confirmation.',
         ],
       },
       {
-        kicker: 'Use cases',
-        heading: 'Eight high-impact AI use cases in finance',
+        kicker: 'Coding & matching',
+        heading: 'Automated coding and matching',
         body: [
-          'The use cases that consistently pay back: AI fraud detection, AI cash flow forecasting, KYC and AML automation, automated financial reporting, intelligent invoice processing, automated reconciliation, anomaly detection in close, and natural-language financial Q&A. Each of these has been validated by real finance teams running real production workloads at scale.',
-          'The pattern across all of them is the same: AI replaces work that is structured, recurring, and currently consuming analyst hours. Pick the use case where your team spends the most repetitive time and has the cleanest data — that is where the first AI deployment will have the highest ROI.',
+          'After capture, the system codes the invoice — assigning the right GL account, cost center, project, and tax codes. Machine learning predicts these from your historical patterns: this vendor always codes to this account, this line item type always goes to this cost center. New vendors and unfamiliar items get flagged for human review on the first occurrence and then learned for future runs.',
+          'Three-way matching against the PO and goods receipt happens automatically. If the invoice matches the PO and the receipt within tolerance, it auto-posts. If there is a discrepancy — quantity off, price changed, missing receipt — the exception is routed to a human with full context attached: the original PO, the receipt, the invoice, and the specific mismatch highlighted.',
         ],
       },
       {
-        kicker: 'How to start',
-        heading: 'Where finance teams should actually start with AI',
+        kicker: 'Approval & posting',
+        heading: 'Approval routing and GL posting',
         body: [
-          'Start with one use case, not a platform-wide rollout. The use case should be chosen by three criteria: it consumes a lot of repetitive analyst time, the data is reasonably clean and centralized, and the failure mode is forgiving (you can review AI output before it commits an action). Reporting automation, AP automation, and KYC are the three most common starting points for exactly these reasons.',
-          'Avoid the trap of trying to AI-enable everything at once. The teams that succeed with AI in finance go deep on one workflow, prove the value, then expand. The teams that fail try to do eight things badly at the same time.',
+          'Approval routing follows the policy you configure. Most policies have multiple paths: auto-approve under a threshold, route to a department head between thresholds, route to a VP above. Routing can also depend on category, vendor, project, or any other field. Approvers get notified by email or Slack with everything they need to decide in one click.',
+          'Once approved, the invoice posts to your GL automatically. The audit trail captures every step: who saw it, who touched it, who approved it, when it posted. Finance teams running automated invoice processing typically see month-end close get easier as a side effect — the data is already clean, coded, and posted by the time the period closes.',
         ],
       },
     ],
-    relatedSiblings: ['financial-automation-software'],
-    crossPillarLink: {
-      pillarSlug: 'ai-fraud-detection',
-      anchor: 'AI fraud detection',
-    },
+    relatedSiblings: ['invoice-ocr-data-extraction', '3-way-matching', 'ap-approval-workflows'],
+    crossPillarLink: null,
     faqs: [
       {
-        q: 'What is AI for finance?',
-        a: 'AI for finance is the use of machine learning, NLP, and decision automation to run finance and operations workflows that previously required manual effort. It includes everything from fraud detection to forecasting to natural-language reporting.',
+        q: 'What is invoice processing automation?',
+        a: 'Invoice processing automation is software that handles invoices from capture to GL posting automatically. Modern systems use AI to extract structured data from any invoice format, predict the right coding, match against POs, and route through approval — without hand-coded templates per vendor.',
       },
       {
-        q: 'Is AI for finance ready for production use?',
-        a: 'Yes — for the right use cases. Fraud detection, KYC, transaction monitoring, and reporting automation are all production-mature and used at scale by major banks and fintechs. Generative AI for less structured tasks (drafting commentary, conversational Q&A) is more recent but maturing fast.',
+        q: 'How accurate is automated invoice processing?',
+        a: 'Modern document AI extracts structured invoice data with 95%+ accuracy across formats. The remaining cases get flagged for human review with the AI predictions pre-filled, so confirmation takes seconds instead of minutes.',
       },
       {
-        q: 'How is AI for finance different from RPA?',
-        a: 'RPA executes hand-coded scripts that break the moment something unexpected happens. AI learns patterns from data and handles exceptions natively. The most powerful systems combine both: RPA for stable steps, AI for the messy parts.',
+        q: 'Can it handle invoices from new vendors?',
+        a: 'Yes. Unlike rule-based systems that need a template per vendor, AI-based invoice processing handles any format on day one. Accuracy improves over time as the model sees more invoices from each vendor.',
       },
       {
-        q: 'Can small finance teams adopt AI?',
-        a: 'Yes. Modern AI finance platforms ship as SaaS, so you do not need to hire ML engineers to deploy them. The tradeoff is that small teams should start narrow (one workflow at a time) and pick high-leverage use cases like AP automation or reporting first.',
+        q: 'How long does invoice processing automation take to implement?',
+        a: 'Most teams go live in 2-4 weeks. The biggest variables are how clean your existing vendor master data is and how complex your approval policy is.',
       },
       {
-        q: 'What does FinMark.ai offer for AI in finance?',
-        a: 'FinMark.ai is a unified platform that brings every category of AI for finance — reporting, forecasting, compliance, fraud detection, payments, workflow automation — into one product. You start with whichever capability matters most and expand as the value compounds.',
-      },
-    ],
-  },
-  {
-    pillar: 'ai-financial-automation',
-    slug: 'financial-automation-software',
-    primaryKeyword: 'financial automation software',
-    meta: {
-      title: 'Financial Automation Software: Buyer\'s Guide for 2026 | FinMark.ai',
-      description:
-        'How to evaluate financial automation software in 2026. Categories, buying criteria, and the gap between point solutions and unified platforms.',
-    },
-    hero: {
-      badge: 'Financial Automation Software',
-      h1: 'Financial Automation Software That Scales With Your Team',
-      subhead:
-        'The buyer\'s guide for finance teams evaluating automation software in 2026. Categories, criteria, common traps, and what separates the platforms from the point tools.',
-    },
-    sections: [
-      {
-        kicker: 'What it does',
-        heading: 'What financial automation software actually does',
-        body: [
-          'Financial automation software replaces manual finance work — invoice processing, reconciliation, reporting, compliance checks, payment processing, forecasting — with systems that do it automatically and at scale. The goal is to take the repetitive, structured work off your analysts so they can focus on the parts that actually require judgment.',
-          'Modern financial automation software does more than just script clicks. It uses AI to handle exceptions, NLP to read unstructured documents, and integrations to read and write across your ERP, banking, and payment systems. The result is automation that holds up in production, not just in demos.',
-        ],
-      },
-      {
-        kicker: 'Categories',
-        heading: 'The six main categories of financial automation software',
-        body: [
-          'AP automation handles invoice capture, coding, approval, payment, and reconciliation. AR automation handles invoicing, collections, cash application, and dispute resolution. Reporting automation generates statements, dashboards, and management commentary. Compliance automation handles KYC, AML, transaction monitoring, and regulatory filings. Fraud detection runs ML models against transaction streams. FP&A automation handles planning, forecasting, and scenario analysis.',
-          'Most companies start by buying one category from a point-solution vendor, then end up running 6-8 different systems that do not talk to each other. The maintenance cost compounds. The integration debt grows. By year three, the team is spending more time managing the tools than doing finance work.',
-        ],
-      },
-      {
-        kicker: 'Buying criteria',
-        heading: 'What to look for in 2026',
-        body: [
-          'Five criteria that separate the best financial automation software from the rest: AI-native (built around ML, not bolted on), pre-built integrations to your existing stack, full audit trail for every automated decision, time-to-value measured in weeks not months, and the ability to handle exceptions without rebuilding the workflow each time.',
-          'A sixth criterion that matters more than people realize: how well the vendor handles the messy real-world data. Demo environments are clean. Your actual ERP is not. Ask for a proof-of-concept on your real data before signing.',
-        ],
-      },
-      {
-        kicker: 'Platform vs point tools',
-        heading: 'Platform vs point tool — when each makes sense',
-        body: [
-          'Point tools win when you need depth in a single category and you have the integration capacity to glue them together. Platforms win when you need breadth across categories and you want one vendor relationship, one data model, and one bill. For most finance teams, the math tilts toward platforms by year two or three — but the right answer depends on your team size, your tolerance for integration work, and how mature your existing stack already is.',
-        ],
-      },
-    ],
-    relatedSiblings: ['ai-for-finance'],
-    crossPillarLink: {
-      pillarSlug: 'payment-processing-automation',
-      anchor: 'payment processing automation',
-    },
-    faqs: [
-      {
-        q: 'What is financial automation software?',
-        a: 'Financial automation software replaces manual finance work with systems that do it automatically. It includes AP/AR automation, reporting, compliance, fraud detection, and FP&A — either as point solutions or as a unified platform.',
-      },
-      {
-        q: 'Should I buy a platform or stitch together point tools?',
-        a: 'Point tools work well for narrow needs and small teams. Platforms scale better when you need 4+ categories of automation, because point tools accumulate integration debt over time. By year 2-3, most growing teams find platforms cheaper to operate.',
-      },
-      {
-        q: 'How long does financial automation software take to implement?',
-        a: 'Modern SaaS automation goes live in weeks, not months. The biggest implementation variable is data integration — if your source systems are clean and well-organized, implementation is faster. If they need cleanup first, that often becomes the bottleneck.',
-      },
-      {
-        q: 'What is the typical ROI of financial automation?',
-        a: 'Most categories pay back within 6-12 months. AP automation typically saves $9 per invoice. Reporting automation cuts close cycles by 30-50%. Fraud detection reduces losses by 50-80%. The compounding effect of catching errors earlier and freeing analyst time is harder to measure but often larger than the direct savings.',
-      },
-      {
-        q: 'How does FinMark.ai compare to other financial automation software?',
-        a: 'FinMark.ai is built as a unified platform from day one — every capability shares the same data layer, the same models, and the same UI. That makes it slower to evaluate against narrow point solutions on a single feature, but dramatically cheaper to operate as your needs grow.',
+        q: 'What happens to exceptions and errors?',
+        a: 'Exceptions are flagged for human review with full context attached — the original invoice, the AI predictions, the matching PO, and the specific reason for the flag. Reviewers resolve them in minutes instead of hours, and the system learns from each resolution.',
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // P2 — Compliance Automation clusters
+  // 2. Invoice OCR & Data Extraction
   // ─────────────────────────────────────────────────────────────────
   {
-    pillar: 'compliance-automation',
-    slug: 'regulatory-compliance-automation',
-    primaryKeyword: 'regulatory compliance automation',
+    pillar: 'accounts-payable-automation',
+    slug: 'invoice-ocr-data-extraction',
+    primaryKeyword: 'invoice ocr',
     meta: {
-      title: 'Regulatory Compliance Automation for Financial Services | FinMark.ai',
+      title: 'Invoice OCR & Data Extraction: Beyond Legacy OCR | FinMark.ai',
       description:
-        'Automate BSA, OFAC, GDPR, MiFID, Basel and SEC compliance with AI you can audit. Continuous monitoring, automated reporting, and audit-ready trails for modern financial services.',
+        'How modern document AI replaces legacy OCR for invoice data extraction. 95%+ accuracy on real-world invoices, no per-vendor templates required.',
     },
     hero: {
-      badge: 'Regulatory Compliance',
-      h1: 'Regulatory Compliance Automation for Modern Financial Services',
+      badge: 'Invoice OCR',
+      h1: 'Invoice OCR and Data Extraction, Built on Document AI',
       subhead:
-        'BSA, OFAC, GDPR, MiFID, Basel, SEC — automated monitoring and reporting for the regulatory regimes that matter to your business. Built around explainable AI your auditors will trust.',
+        'Modern document AI extracts structured data from any invoice format with 95%+ accuracy — no templates, no per-vendor configuration, no babysitting.',
+    },
+    sections: [
+      {
+        kicker: 'OCR vs document AI',
+        heading: 'Why legacy OCR is no longer enough',
+        body: [
+          'Optical character recognition has been around for decades. The classic version recognized characters one at a time and stitched them into text. For clean, structured documents it worked fine. For real-world invoices — with logos, table layouts, mixed fonts, scanner artifacts, and the endless variety of how vendors format their bills — it failed constantly. Companies spent more time fixing OCR errors than they would have spent typing the invoices themselves.',
+          'Modern document AI is a different category. It uses large language models and computer vision together to understand documents the way a human does — reading the layout, understanding the context, and extracting the structured fields directly. It handles formats it has never seen before because it understands what an invoice IS, not just what specific invoices look like.',
+        ],
+      },
+      {
+        kicker: 'How it works',
+        heading: 'How document AI extracts invoice data',
+        body: [
+          'When an invoice arrives, the document AI model first identifies the document type (is this an invoice, a receipt, a credit memo). Then it extracts the header fields (vendor, invoice number, date, due date, total) and the line items (description, quantity, unit price, total per line). It handles tables, multi-page documents, and the layout variations that confuse older OCR.',
+          'The output is structured data ready to flow into your AP system. Confidence scores are attached to every field so the system knows when to trust the extraction and when to flag for human review. Over time, the model learns from corrections and gets better on your specific vendor mix.',
+        ],
+      },
+      {
+        kicker: 'Accuracy',
+        heading: 'How accurate is modern invoice OCR in 2026',
+        body: [
+          'Production document AI achieves 95%+ field-level accuracy on typical invoices and 98%+ on header fields like invoice number, date, and total. The remaining 2-5% are messy edge cases — handwritten line items, severely damaged scans, unusual formats — which get flagged for human review with the AI predictions pre-filled.',
+          'The key metric is not raw accuracy but human touch rate. A system that achieves 99% accuracy but flags 30% of invoices for review is worse than a system that achieves 95% accuracy but only flags 5%. FinMark.ai is tuned to maximize the percentage of invoices that need zero human intervention while keeping confidence thresholds high enough that errors do not slip through.',
+        ],
+      },
+      {
+        kicker: 'Edge cases',
+        heading: 'Handling the long tail of edge cases',
+        body: [
+          'No invoice OCR system handles every case automatically. Handwritten line items, photos taken at angles, scanned documents with bleed-through, multi-currency invoices with non-standard symbols — these all require special handling. The difference between a good and great system is how well it surfaces these cases for human review without losing them entirely.',
+          'FinMark.ai routes every uncertain extraction to a review queue with the source document, the AI predictions, the confidence scores, and a one-click confirmation flow. Human review takes seconds, not minutes, and the model learns from every correction.',
+        ],
+      },
+    ],
+    relatedSiblings: ['invoice-processing-automation', '3-way-matching'],
+    crossPillarLink: null,
+    faqs: [
+      {
+        q: 'What is invoice OCR?',
+        a: 'Invoice OCR is software that extracts structured data (vendor, line items, amounts, dates) from invoice documents automatically. Modern invoice OCR uses document AI — large language models combined with computer vision — instead of legacy character recognition.',
+      },
+      {
+        q: 'How accurate is invoice OCR in 2026?',
+        a: 'Production document AI achieves 95%+ field-level accuracy on typical invoices. Header fields like invoice number, date, and total are usually 98%+. Edge cases get flagged for human review with predictions pre-filled.',
+      },
+      {
+        q: 'Does it work on scanned PDFs?',
+        a: 'Yes. Modern document AI handles scanned PDFs, photos of paper invoices, and even handwritten line items — though accuracy is highest on digital-native PDFs.',
+      },
+      {
+        q: 'Do I need to set up templates per vendor?',
+        a: 'No. Unlike legacy OCR, document AI handles any vendor format on day one without templates. The model gets more accurate over time as it sees more invoices from each vendor, but you do not need to configure anything.',
+      },
+      {
+        q: 'What languages does invoice OCR support?',
+        // TODO: Update this with actual supported languages
+        a: 'Modern document AI supports the major languages used in international business invoices including English, Spanish, French, German, Portuguese, and others. Talk to sales for specifics on languages relevant to your vendor mix.',
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // 3. 3-Way Matching Automation
+  // ─────────────────────────────────────────────────────────────────
+  {
+    pillar: 'accounts-payable-automation',
+    slug: '3-way-matching',
+    primaryKeyword: '3 way matching',
+    meta: {
+      title: '3-Way Matching Automation in AP | FinMark.ai',
+      description:
+        'How automated 3-way matching catches invoice errors and fraud before payment. Match invoices to POs and goods receipts automatically.',
+    },
+    hero: {
+      badge: '3-Way Matching',
+      h1: 'Automated 3-Way Matching for Modern AP',
+      subhead:
+        'Match invoices to POs and goods receipts automatically. Auto-approve clean matches, route real exceptions to a human with full context — and stop the wrong invoices from getting paid.',
     },
     sections: [
       {
         kicker: 'What it is',
-        heading: 'What regulatory compliance automation covers',
+        heading: 'What 3-way matching actually is',
         body: [
-          'Regulatory compliance automation is software that handles the detect → assess → report → audit lifecycle for the regulations that apply to your business. For most financial services companies, that means automated KYC and AML, transaction monitoring against sanctions and watch lists, regulatory reporting (CTR, SAR, FBAR, FATCA), and an audit-ready trail of every decision.',
-          'The shift from manual to automated compliance is not just about speed. It changes the model: instead of periodic reviews after the fact, automated compliance happens continuously, in real time, on every transaction. That is the only way to keep up with modern transaction volumes without growing the compliance team linearly.',
+          '3-way matching is the AP control that compares three documents before an invoice gets paid: the purchase order (what was supposed to be ordered), the goods receipt (what was actually received), and the vendor invoice (what they are billing you for). All three need to agree within tolerance for the invoice to be approved automatically. If any of them disagree, the invoice gets flagged.',
+          'It is one of the most basic financial controls in AP — and one of the most expensive to do by hand. Manual three-way matching means an AP clerk pulling up each document, comparing line items, calculating tolerance, and documenting the result. For high-volume AP teams it consumes a brutal amount of time and is the slowest part of the workflow.',
         ],
       },
       {
         kicker: 'Why it matters',
-        heading: 'The regulatory landscape in 2026',
+        heading: 'Why 3-way matching is non-negotiable for AP control',
         body: [
-          'Regulators have not gotten more lenient. BSA enforcement is up. OFAC sanctions lists are growing faster than compliance teams can keep up by hand. GDPR fines have crossed nine figures multiple times. The Basel III/IV implementation deadlines keep moving but the requirements keep stacking. MiFID II reporting requires near-real-time transaction reporting. The cost of getting it wrong has never been higher.',
-          'At the same time, regulators have explicitly endorsed risk-based, technology-driven compliance. FATF guidance, FFIEC handbooks, and EU regulation all say the same thing: automation with proper auditability is acceptable, often preferred. The teams still doing compliance manually are not being more conservative — they are being slower and more error-prone for no regulatory benefit.',
+          'The reason 3-way matching exists is fraud prevention and error catching. Without it, finance teams pay invoices for goods they never ordered, for quantities they never received, or at prices that were never agreed. These errors are usually small individually but enormous in aggregate. A medium-sized company processing tens of thousands of invoices a year without proper matching can lose millions to overcharges, duplicate billing, and outright vendor fraud.',
+          'Three-way matching also catches the kind of mistakes that look innocent: a vendor who quietly raises prices below the radar, a clerk who enters the wrong PO number, a delivery that came in 10% short but was invoiced in full. Manual reviewers miss these constantly because the volume is too high to spot patterns.',
         ],
       },
       {
-        kicker: 'Where automation fits',
-        heading: 'The four places automation reduces compliance effort',
+        kicker: 'Automation',
+        heading: 'How automated 3-way matching works',
         body: [
-          'First: customer onboarding. Automated KYC and identity verification take onboarding from weeks to minutes. Second: ongoing monitoring. Continuous transaction monitoring catches issues in real time instead of in the next quarterly review. Third: regulatory reporting. Automated CTR, SAR, and other filings eliminate the manual data wrangling that consumes most compliance team time. Fourth: audit prep. A complete, queryable audit trail reduces audit fieldwork by 60-80%.',
+          'The automated version does what a human would do, but faster and more consistently. When an invoice arrives, the system finds the matching PO by number, vendor, or fuzzy match. It pulls the goods receipt for that PO. It compares line items, quantities, and prices across all three documents. If they match within your configured tolerances (price within 2%, quantity within 5%, etc.), the invoice auto-approves and posts to the GL. If they do not, it routes to a human with the exact discrepancy highlighted.',
+          'Tolerances are configurable per vendor, category, or amount. A trusted long-term vendor might have looser tolerances than a new one. High-value invoices might have tighter ones. The whole point is to focus human attention only on the cases that actually warrant it.',
+        ],
+      },
+      {
+        kicker: 'Exceptions',
+        heading: 'How exceptions get handled',
+        body: [
+          'When 3-way matching fails, the exception goes to a review queue with the three documents, the highlighted discrepancy, and a recommended action. Most exceptions are easy to resolve — a missing receipt, a price update that was approved but not communicated, a quantity short-shipment. The reviewer either approves the variance, rejects the invoice, or escalates to procurement.',
+          'The valuable property of automated matching is that it surfaces patterns. If one vendor consistently invoices for more than was received, that is a vendor relationship problem. If a particular GL account has unusually high variance rates, that is a procurement process problem. Patterns that were invisible in manual workflows become obvious when the system tracks every match and exception.',
+        ],
+      },
+    ],
+    relatedSiblings: ['invoice-processing-automation', 'invoice-fraud-detection', 'ap-approval-workflows'],
+    crossPillarLink: null,
+    faqs: [
+      {
+        q: 'What is 3-way matching in accounts payable?',
+        a: '3-way matching is the AP control that compares the purchase order, goods receipt, and vendor invoice before approving payment. All three must agree within tolerance for the invoice to auto-approve. It catches overcharges, duplicate billing, short shipments, and vendor fraud.',
+      },
+      {
+        q: 'What is the difference between 2-way and 3-way matching?',
+        a: '2-way matching compares only the PO and the invoice. 3-way matching adds the goods receipt, which catches cases where the invoice matches the PO but the goods never arrived (or arrived short). 3-way is the standard for inventory-heavy businesses; 2-way is sometimes used for services and recurring expenses.',
+      },
+      {
+        q: 'Can 3-way matching be automated for all invoices?',
+        a: 'Most invoices can be matched automatically with the right tolerances. The exceptions are cases where one of the three documents is missing or where the variance exceeds tolerance — these get routed to humans for review.',
+      },
+      {
+        q: 'What tolerances should I configure?',
+        a: 'Tolerances depend on your business. Common starting points: price tolerance of 2-5%, quantity tolerance of 5%, total tolerance of 10% or $100 (whichever is smaller). Tighter tolerances catch more errors but flag more exceptions. Most teams iterate over the first few months.',
+      },
+      {
+        q: 'Does 3-way matching require a procurement system?',
+        a: 'Yes — for true 3-way matching you need POs and goods receipts somewhere. Most modern ERPs handle this. If you do not have a procurement system and only have invoices, the right control is 2-way matching (PO and invoice) or invoice-only review with strong fraud detection.',
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // 4. AP Approval Workflows
+  // ─────────────────────────────────────────────────────────────────
+  {
+    pillar: 'accounts-payable-automation',
+    slug: 'ap-approval-workflows',
+    primaryKeyword: 'ap approval workflows',
+    meta: {
+      title: 'AP Approval Workflows: Configurable & Auditable | FinMark.ai',
+      description:
+        'Configurable AP approval workflows that route invoices by amount, category, vendor, or department. Auto-approve where safe, escalate where needed.',
+    },
+    hero: {
+      badge: 'AP Approval Workflows',
+      h1: 'AP Approval Workflows That Actually Match Your Policy',
+      subhead:
+        'Configurable approval routing with auto-approve under threshold, multi-level escalation, vendor-specific rules, and one-click decisions for approvers — all logged for audit.',
+    },
+    sections: [
+      {
+        kicker: 'The problem',
+        heading: 'Why most AP approval workflows are broken',
+        body: [
+          'Approval workflows are the part of AP that finance teams are most often unhappy with. Either they are too rigid (every invoice goes through the same five-step process whether it is $50 or $50,000) or too loose (high-value invoices slip through with the same quick-click approval as routine ones). The first is slow and frustrating. The second is dangerous.',
+          'The other failure mode is approval queues that nobody actually monitors. Invoices pile up waiting for a manager who is on vacation or who has too many other notifications. The AP team chases approvals manually, sends reminder emails, and watches due dates slip — defeating the whole point of having an approval system in the first place.',
         ],
       },
       {
         kicker: 'What good looks like',
-        heading: 'What a good automated compliance program looks like',
+        heading: 'What a working AP approval workflow looks like',
         body: [
-          'Good compliance automation has five properties: every alert is explainable (you can tell the auditor exactly why the model flagged a transaction), every decision is logged and queryable, the system handles exceptions without breaking, the false positive rate is low enough that real alerts get attention, and the program adapts as regulations change without requiring custom development.',
-          'Bad compliance automation looks like a black-box ML model with no explanation, a 95% false positive rate, and a vendor that needs three months to add a new sanctions list. Avoid those.',
+          'A good approval workflow has five properties. First, it auto-approves the routine cases that do not need human attention (recurring vendors, expected amounts, matched POs). Second, it routes non-routine cases by the right criteria (amount, category, project, GL account). Third, it has multi-level escalation when amounts are large. Fourth, it handles delegation when an approver is unavailable. Fifth, it makes the approval action itself frictionless — one click from an email or Slack message, on mobile or desktop, with all context attached.',
+          'Behind all of this, every action is logged with full context for audit. Who approved what, when, on what device, with what justification. Auditors love this; AP managers love it more.',
+        ],
+      },
+      {
+        kicker: 'Configuration',
+        heading: 'How to configure approval workflows that actually work',
+        body: [
+          'The right configuration depends on your company, but a few patterns hold across most teams. Auto-approve under $1,000 for matched POs from known vendors. Route $1,000-$10,000 to the department head. Route $10,000-$100,000 to the VP. Route above $100,000 to the CFO or CEO. Add vendor-specific rules where needed (a strategic vendor might bypass certain steps; a new vendor might add an extra one).',
+          'Configurability matters because no two finance teams have the same policy. The wrong approach is a tool that imposes its own workflow and forces you to adapt. The right approach is a tool that adapts to your policy — including the parts of your policy that exist for political or historical reasons that are not going away.',
+        ],
+      },
+      {
+        kicker: 'Mobile & Slack',
+        heading: 'Approve from anywhere, in seconds',
+        body: [
+          'The most common bottleneck in approval workflows is approver attention. Managers are busy, they travel, they get hundreds of emails a day, and a multi-step web form is not going to win their attention. The solution is to bring approval to where they already are: their inbox or their Slack.',
+          'A good AP system sends approvers a single message with everything they need to decide — the invoice, the amount, the GL coding, the matching PO, the vendor history. They click approve or reject in one tap from their phone, and the action is logged with full audit trail. Approval times go from days to hours.',
         ],
       },
     ],
-    relatedSiblings: ['kyc-automation', 'aml-compliance-software'],
-    crossPillarLink: {
-      pillarSlug: 'ai-fraud-detection',
-      anchor: 'AI fraud detection',
-    },
+    relatedSiblings: ['invoice-processing-automation', '3-way-matching', 'vendor-payment-automation'],
+    crossPillarLink: null,
     faqs: [
       {
-        q: 'What is regulatory compliance automation?',
-        a: 'Regulatory compliance automation is software that runs the detect → assess → report → audit lifecycle for the regulations that apply to your business. It typically includes KYC, AML, transaction monitoring, regulatory reporting, and audit trail management.',
+        q: 'What are AP approval workflows?',
+        a: 'AP approval workflows are the rules that determine who approves which invoices and in what sequence before payment is released. Modern AP approval workflows are configurable by amount, category, vendor, project, or any other field, with auto-approval for routine cases.',
       },
       {
-        q: 'Is automated compliance accepted by regulators?',
-        a: 'Yes. FATF, FFIEC, EU AML directives, and US BSA/AML rulemaking all explicitly endorse risk-based, technology-driven compliance. The key requirement is auditability — you must be able to explain every decision after the fact.',
+        q: 'Should we auto-approve invoices?',
+        a: 'For routine cases, yes. Invoices from known vendors that match a PO and fall under a configured threshold can be auto-approved safely. The risk is low because the controls (vendor verification, PO matching, fraud screening) have already run. Auto-approval is what makes the human review of non-routine cases actually possible.',
       },
       {
-        q: 'What regulations does FinMark.ai support?',
-        a: 'BSA, OFAC, FinCEN (US); 5AMLD, 6AMLD, GDPR, MiFID II (EU); FCA, PRA (UK); PMLA, RBI (India); MAS (Singapore); and most major regulatory regimes. Templates are updated continuously as rules change.',
+        q: 'How does delegation work when an approver is unavailable?',
+        a: 'Delegation rules let you specify a backup approver for each role. When the primary approver is on vacation or out of office, invoices route to the backup automatically. Delegation can be time-bound or category-specific.',
       },
       {
-        q: 'How does AI handle false positives in compliance?',
-        a: 'Rule-based compliance systems often produce 95%+ false positive rates. AI systems learn the patterns that actually predict suspicious activity, typically reducing false positives by 60-80% while catching novel patterns hand-written rules miss.',
+        q: 'Can approvers approve from mobile or Slack?',
+        a: 'Yes. Modern AP tools integrate with email, Slack, and mobile apps. Approvers see all the context they need in one message and can approve or reject with one tap. This dramatically reduces approval cycle times.',
       },
       {
-        q: 'How long does compliance automation take to implement?',
-        a: 'Most customers go live on KYC automation in 2 weeks. Full AML, transaction monitoring, and regulatory reporting takes 30-60 days. The biggest variable is how clean and centralized your transaction data already is.',
-      },
-    ],
-  },
-  {
-    pillar: 'compliance-automation',
-    slug: 'kyc-automation',
-    primaryKeyword: 'kyc automation',
-    meta: {
-      title: 'KYC Automation: Onboard Customers in Minutes | FinMark.ai',
-      description:
-        'KYC automation that takes customer onboarding from weeks to minutes. AI-powered identity verification, document checks, risk scoring, and ongoing monitoring — all auditable.',
-    },
-    hero: {
-      badge: 'KYC Automation',
-      h1: 'KYC Automation: Onboard Customers in Minutes, Not Weeks',
-      subhead:
-        'Identity verification, document checks, risk scoring, and ongoing monitoring — automated end-to-end with AI that handles exceptions and produces audit trails your regulators trust.',
-    },
-    sections: [
-      {
-        kicker: 'What it is',
-        heading: 'What KYC automation actually does',
-        body: [
-          'KYC automation replaces the manual customer onboarding process — collecting documents, verifying identity, screening against sanctions lists, scoring risk, and reviewing the file — with software that does all of it automatically. Modern KYC automation goes from "we need a copy of your passport" to a fully verified, risk-scored customer file in under five minutes.',
-          'The technology stack underneath is mature: optical character recognition reads identity documents, biometric matching compares the document photo to a selfie, sanctions screening checks the customer against global watch lists, and risk scoring models flag the customer for the right level of ongoing monitoring. Each step is logged and explainable.',
-        ],
-      },
-      {
-        kicker: 'The KYC lifecycle',
-        heading: 'The full KYC lifecycle, automated',
-        body: [
-          'KYC is not a one-time event — it is a lifecycle. Onboarding KYC verifies identity at signup. Periodic refresh KYC re-verifies high-risk customers on a schedule. Trigger-based KYC re-screens when something changes (a new beneficial owner, a sudden change in transaction patterns, a new sanction). Each phase has different requirements and different signals to monitor.',
-          'The platforms that handle the full lifecycle in one system — instead of bolting periodic refresh onto a separate tool — get dramatically better results, because the same risk model sees the customer across all phases.',
-        ],
-      },
-      {
-        kicker: 'Why AI matters',
-        heading: 'What AI changes in KYC',
-        body: [
-          'Three things AI changes in KYC. First, document fraud detection — AI can spot manipulated or synthetic identity documents that humans miss. Second, biometric matching — modern face matching is more accurate than humans at comparing a live selfie to a passport photo. Third, risk scoring — ML models combine dozens of signals to assign a risk score that informs the level of due diligence required, instead of a one-size-fits-all process.',
-          'The end result is faster onboarding for the 90% of customers who are clearly low-risk and more thorough due diligence on the 10% who actually warrant it. Manual KYC inverts that ratio.',
-        ],
-      },
-      {
-        kicker: 'Regulatory acceptance',
-        heading: 'Is automated KYC actually accepted by regulators?',
-        body: [
-          'Yes — explicitly. FATF Recommendation 10 endorses risk-based KYC including digital methods. The EU 6AMLD, FCA guidance, FinCEN customer due diligence rules, and most other global frameworks all permit and often encourage technology-based identity verification. The requirement is that the methodology be auditable: you must be able to demonstrate to a regulator how each verification was made and why each customer was scored the way they were.',
-          'FinMark.ai\'s KYC automation is built around exactly this requirement. Every verification produces a complete audit trail; every risk score comes with the features that drove it; every model decision is reproducible after the fact.',
-        ],
-      },
-    ],
-    relatedSiblings: ['aml-compliance-software', 'regulatory-compliance-automation'],
-    crossPillarLink: {
-      pillarSlug: 'ai-fraud-detection',
-      anchor: 'AI fraud detection',
-    },
-    faqs: [
-      {
-        q: 'What is KYC automation?',
-        a: 'KYC automation is software that handles customer identity verification, document checks, sanctions screening, and risk scoring automatically. Modern KYC automation completes onboarding in minutes instead of weeks.',
-      },
-      {
-        q: 'Is automated KYC legal and compliant?',
-        a: 'Yes. FATF, EU 6AMLD, US FinCEN, and most major regulatory frameworks explicitly permit automated KYC as long as the methodology is documented and auditable.',
-      },
-      {
-        q: 'How accurate is automated identity verification?',
-        a: 'Modern systems combining document verification + biometric matching achieve accuracy rates above 99% on legitimate users while catching synthetic and manipulated documents at higher rates than human reviewers.',
-      },
-      {
-        q: 'What if the system flags a customer incorrectly?',
-        a: 'Flagged customers are routed to a human reviewer with full context: the document images, the matching score, the sanctions hits, and the risk factors. The reviewer makes the final decision and the model learns from the feedback.',
-      },
-      {
-        q: 'How does KYC automation handle ongoing monitoring?',
-        a: 'After onboarding, customers are continuously monitored against updated sanctions lists, beneficial owner changes, and behavioral risk signals. High-risk customers get triggered re-verification automatically.',
-      },
-    ],
-  },
-  {
-    pillar: 'compliance-automation',
-    slug: 'aml-compliance-software',
-    primaryKeyword: 'aml compliance software',
-    meta: {
-      title: 'AML Compliance Software With AI False Positive Reduction | FinMark.ai',
-      description:
-        'AML compliance software powered by AI. Sanctions screening, transaction monitoring, and SAR-ready audit trails — with false positive rates 60-80% lower than legacy rules engines.',
-    },
-    hero: {
-      badge: 'AML Compliance Software',
-      h1: 'AML Compliance Software That Adapts to Your Risk Profile',
-      subhead:
-        'Sanctions screening, transaction monitoring, and SAR workflow management — powered by AI that learns your risk patterns and dramatically reduces false positives.',
-    },
-    sections: [
-      {
-        kicker: 'What it does',
-        heading: 'What AML compliance software covers',
-        body: [
-          'AML compliance software handles the four pillars of an AML program: sanctions and watch list screening, transaction monitoring, suspicious activity reporting (SAR), and recordkeeping. Modern AML platforms run all four on a shared transaction stream and a shared customer data layer, so signals from one feed into the others — a sanction hit on a counterparty automatically affects the customer\'s risk score and triggers transaction review.',
-          'The bar for AML software has gone up dramatically in the last five years. Regulators expect real-time monitoring (not nightly batches), explainable decisions (not black-box models), and full audit trails. The legacy systems still running rule-based AML on overnight jobs are increasingly out of compliance with current expectations.',
-        ],
-      },
-      {
-        kicker: 'False positives',
-        heading: 'The false positive problem and how AI fixes it',
-        body: [
-          'The dirty secret of legacy AML software is that most of what it produces is noise. False positive rates of 95-99% are common — meaning a compliance team can spend 95% of its time investigating alerts that turn out to be nothing. The team that should be hunting actual money laundering is instead processing tickets.',
-          'AI changes the math by learning what suspicious activity actually looks like for your specific customer base, instead of relying on generic rules. Customers running ML-based AML typically see false positive reductions of 60-80% within the first 90 days, with no drop in true positive detection rate. That means the same compliance headcount can cover 5x the transaction volume.',
-        ],
-      },
-      {
-        kicker: 'Auditability',
-        heading: 'Why explainability is non-negotiable',
-        body: [
-          'Regulators do not accept "the model said so" as a justification for an AML decision. Every AML platform that uses AI must be able to explain, for each alert, exactly which features contributed to the score and how much. This is not a nice-to-have — it is a hard regulatory requirement, and the AML platforms that fail audits are usually the ones that treated explainability as an afterthought.',
-          'FinMark.ai\'s AML platform is built around explainability by design. Every score is decomposable, every model decision is reproducible, and the entire alert investigation history is queryable. Auditors love it; compliance officers love it more.',
-        ],
-      },
-      {
-        kicker: 'Industries',
-        heading: 'AML use cases by industry',
-        body: [
-          'Banks need full BSA/OFAC programs covering retail, commercial, and correspondent banking. Fintech startups need fast onboarding and behavioral risk scoring without a giant compliance team. Crypto exchanges need travel rule compliance and complex chain analysis. Insurance companies need claims fraud + AML overlap detection. The same underlying AML platform handles all of these with industry-specific configuration.',
-        ],
-      },
-    ],
-    relatedSiblings: ['kyc-automation', 'regulatory-compliance-automation'],
-    crossPillarLink: {
-      pillarSlug: 'ai-fraud-detection',
-      anchor: 'transaction monitoring software',
-    },
-    faqs: [
-      {
-        q: 'What is AML compliance software?',
-        a: 'AML compliance software automates sanctions screening, transaction monitoring, suspicious activity reporting, and recordkeeping. Modern AML software uses machine learning to dramatically reduce false positives while catching novel laundering patterns.',
-      },
-      {
-        q: 'How much does AI reduce AML false positives?',
-        a: 'Customers typically see 60-80% reductions in false positive rates within 90 days of going live with AI-based monitoring. The same compliance team can then cover 4-5x the transaction volume without missing real threats.',
-      },
-      {
-        q: 'How does FinMark.ai handle regulator audits?',
-        a: 'Every AML decision the platform makes is logged with full feature attribution — which signals contributed to the alert, with what weight. Auditors can reproduce any decision after the fact, which makes audits dramatically faster.',
-      },
-      {
-        q: 'Does it integrate with my core banking system?',
-        a: 'Yes. Direct integrations with major core banking platforms (FIS, Fiserv, Jack Henry, Temenos) and a generic real-time event API for proprietary cores. AML monitoring runs on your existing transaction stream — no data migration required.',
-      },
-      {
-        q: 'How quickly can FinMark.ai add a new sanctions list?',
-        a: 'New sanctions lists are added within 24 hours of publication. Major lists (OFAC SDN, EU consolidated, UN) are continuously synced. Custom internal watch lists can be added by your team without engineering involvement.',
+        q: 'How is the approval audit trail captured?',
+        a: 'Every approval action is logged with timestamp, approver identity, the invoice details at time of approval, and any comments. The audit trail is immutable and queryable, and exports cleanly for SOX or external audit requirements.',
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // P3 — Fraud Detection clusters
+  // 5. Vendor Payment Automation
   // ─────────────────────────────────────────────────────────────────
   {
-    pillar: 'ai-fraud-detection',
-    slug: 'fraud-detection-software',
-    primaryKeyword: 'fraud detection software',
+    pillar: 'accounts-payable-automation',
+    slug: 'vendor-payment-automation',
+    primaryKeyword: 'vendor payment automation',
     meta: {
-      title: 'Fraud Detection Software for Modern Payment Volumes | FinMark.ai',
+      title: 'Vendor Payment Automation Across Every Rail | FinMark.ai',
       description:
-        'Modern fraud detection software with real-time machine learning scoring, low false positive rates, and full auditability. Built for high-volume payments and financial services.',
+        'Automate vendor payments across ACH, wire, card, RTP, and check. Multi-currency, intelligent routing, and reconciliation that posts to the GL automatically.',
     },
     hero: {
-      badge: 'Fraud Detection Software',
-      h1: 'Fraud Detection Software Built for Modern Payment Volumes',
+      badge: 'Vendor Payments',
+      h1: 'Vendor Payment Automation Across Every Rail',
       subhead:
-        'Real-time machine learning fraud scoring, sub-100ms latency, and explainable decisions. The fraud detection software that scales with your transaction volume instead of your compliance headcount.',
+        'Pay vendors automatically on whatever rail makes sense — ACH, wire, card, RTP, check, or international. Multi-currency support, intelligent routing, and reconciliation handled.',
     },
     sections: [
       {
-        kicker: 'What it does',
-        heading: 'What modern fraud detection software actually does',
+        kicker: 'The problem',
+        heading: 'Why vendor payments are still painful',
         body: [
-          'Fraud detection software analyzes incoming transactions in real time and decides which ones to approve, flag, or block. The decision happens at authorization time — typically in under 100 milliseconds — and is based on hundreds of features about the transaction, the customer, the device, and the historical pattern. Modern fraud detection software does this with machine learning models, not rules engines.',
-          'The output is a risk score and an explanation: how risky is this transaction, and exactly why. The score drives the decision (approve, challenge, block, escalate) and the explanation drives the audit trail and any human review.',
+          'Even after the invoice is approved, the actual payment step is often where AP automation falls apart. Different vendors want different payment methods — some take ACH, some require wire, some only accept check, some prefer corporate card, some are international and need cross-border handling. Coordinating this across hundreds or thousands of vendors by hand is slow, error-prone, and expensive.',
+          'The legacy solution was a separate banking platform that the AP team logged into to schedule each payment. The modern solution is a vendor payment layer integrated with the AP workflow itself — so once an invoice is approved, the payment runs automatically on the right rail without anyone having to switch tools.',
         ],
       },
       {
-        kicker: 'Rules vs ML',
-        heading: 'Why rules-based fraud detection is no longer enough',
+        kicker: 'Multi-rail',
+        heading: 'How multi-rail vendor payment routing works',
         body: [
-          'Rule-based fraud systems work like decision trees: if transaction amount > X and country = Y and device unfamiliar, then flag. They are easy to understand and easy to audit, which is why they were the standard for decades. They also have a fatal flaw: fraudsters constantly adapt their patterns, and rules cannot adapt as fast as the engineers who maintain them.',
-          'The result is that rule-based fraud systems either have crushing false positive rates (when rules are tightened to catch new patterns) or miss real fraud (when rules are loosened to reduce false positives). ML models avoid this tradeoff because they learn the patterns directly from data and adapt automatically as new fraud patterns appear.',
+          'A modern vendor payment system maintains a payment profile for each vendor: their preferred rail, their bank details, their tax ID, their payment terms, their currency. When an invoice is approved, the system selects the right rail automatically based on the vendor profile and the invoice characteristics. ACH for most domestic vendors. Wire for high-value or urgent payments. Card for vendors that accept it (and where you want the rebate). Check for the vendors that still insist on paper. RTP for instant payments where supported. International rails for cross-border.',
+          'The point of multi-rail is not just convenience — it is cost optimization. Different rails have different fees, different settlement times, and different fraud risks. A good system picks the rail that optimizes for your priorities (cost, speed, security) on each individual payment, instead of forcing every vendor onto the same rail.',
         ],
       },
       {
-        kicker: 'Buying criteria',
-        heading: 'What to look for in fraud detection software',
+        kicker: 'Multi-currency',
+        heading: 'Multi-currency payments without the FX headache',
         body: [
-          'Six criteria. First: real-time inference under 100ms — anything slower means you cannot block fraud at authorization. Second: low false positive rate (under 20% on a typical mix of transactions). Third: explainability for every decision. Fourth: continuous learning so the model improves on your specific data. Fifth: integration with your payment processor and customer systems via API. Sixth: SOC 2 and PCI DSS compliance, since you will be processing card data.',
-          'A seventh criterion that matters enormously in practice: how the vendor handles the long tail of edge cases. Demo environments are clean. Real fraud is messy. Ask for performance metrics on real customer data, not synthetic benchmarks.',
-        ],
-      },
-      {
-        kicker: 'How FinMark.ai works',
-        heading: 'How FinMark.ai\'s fraud detection works',
-        body: [
-          'FinMark.ai runs an inference pipeline on top of your transaction stream. Each transaction is scored against multiple specialized models — some looking at the transaction itself, some at customer behavior, some at network-level signals across customers — and gets a risk score plus an explanation. The decision returns in under 100ms. Models retrain weekly on your fraud feedback (confirmed fraud, false positives) and immediately when novel patterns are detected.',
-          'Crucially, every score is reproducible after the fact. If a customer disputes a decision or a regulator asks why a transaction was blocked, you can pull the exact features and weights that drove the decision.',
-        ],
-      },
-    ],
-    relatedSiblings: ['machine-learning-fraud-detection'],
-    crossPillarLink: {
-      pillarSlug: 'compliance-automation',
-      anchor: 'AML compliance software',
-    },
-    faqs: [
-      {
-        q: 'How accurate is modern fraud detection software?',
-        a: 'Production ML fraud systems typically achieve 85-95% precision and recall on standard benchmarks, vs 30-60% for rule-based systems. Performance on your specific data depends on training data quality and how well the model is tuned to your customer base.',
-      },
-      {
-        q: 'How does fraud detection software handle false positives?',
-        a: 'Two ways. First, ML models tuned on your data have inherently lower false positive rates. Second, dynamic decision thresholds let high-value customers get more lenient treatment while new customers get tighter screening. Most customers see 60-80% reductions in false positives within 30 days.',
-      },
-      {
-        q: 'What\'s the typical latency for real-time fraud scoring?',
-        a: 'P50 latency on FinMark.ai is 25ms; P99 is under 100ms. Fast enough to slot into payment authorization without affecting customer experience.',
-      },
-      {
-        q: 'Can fraud detection software handle ACH, wire, and card fraud?',
-        a: 'Yes. Modern fraud detection software covers all payment rails — card present, card not present, ACH, wire, RTP, BEC, and account takeover. The same models can be tuned for each fraud type.',
-      },
-      {
-        q: 'Is FinMark.ai PCI compliant?',
-        a: 'Yes. PCI DSS Level 1, SOC 2 Type II, and ISO 27001 certified. Card data is tokenized so it never enters your systems through FinMark.ai.',
-      },
-    ],
-  },
-  {
-    pillar: 'ai-fraud-detection',
-    slug: 'machine-learning-fraud-detection',
-    primaryKeyword: 'machine learning fraud detection',
-    meta: {
-      title: 'Machine Learning Fraud Detection Explained | FinMark.ai',
-      description:
-        'How machine learning detects fraud. Supervised, unsupervised, and graph-based approaches. Feature engineering, false positive reduction, and explainability for finance ML.',
-    },
-    hero: {
-      badge: 'ML Fraud Detection',
-      h1: 'How Machine Learning Detects Fraud (And Why Rules Aren\'t Enough)',
-      subhead:
-        'A practical guide to ML fraud detection: the model types, the feature engineering that matters, the false positive problem, and how explainability makes ML usable in regulated finance.',
-    },
-    sections: [
-      {
-        kicker: 'What it is',
-        heading: 'What machine learning fraud detection means',
-        body: [
-          'Machine learning fraud detection uses statistical models trained on historical transaction data to predict whether a new transaction is fraudulent. Unlike rule-based systems that follow hand-coded "if this then flag" logic, ML models learn the patterns that distinguish fraud from legitimate activity directly from data and adapt as new patterns emerge.',
-          'The shift from rules to ML is not just an incremental improvement. It is a different approach to a problem that rules cannot solve: fraudsters adapt their tactics constantly, and any static rule set is obsolete the moment it ships. ML models can be retrained as fast as new fraud patterns appear.',
-        ],
-      },
-      {
-        kicker: 'Model types',
-        heading: 'The four main ML approaches to fraud detection',
-        body: [
-          'Supervised learning trains a model on historical examples labeled as fraud or not-fraud. It is the most common approach and works well when you have enough labeled training data. Unsupervised learning (anomaly detection) finds transactions that look unusual compared to normal patterns, even without labels — useful for novel fraud types. Semi-supervised learning combines both. Graph-based approaches analyze relationships between accounts, devices, and transactions to detect fraud rings that look normal individually but suspicious in aggregate.',
-          'The best production fraud systems use all four together. Supervised models catch the bulk of known fraud patterns. Anomaly detection catches the long tail of novel attacks. Graph models catch coordinated fraud. Each compensates for the others\' blind spots.',
-        ],
-      },
-      {
-        kicker: 'Features',
-        heading: 'The features that actually predict fraud',
-        body: [
-          'The features that drive fraud detection accuracy fall into four categories. Transaction features (amount, currency, time, merchant). Velocity features (how many transactions in the last hour, day, week). Behavioral features (does this match the customer\'s normal pattern). Network features (is this device or IP linked to other suspicious accounts). The strongest production models use 200+ features across all four categories.',
-          'Feature engineering — designing the right features for your specific fraud types — is often more important than the choice of model architecture. A simple model with great features beats a complex model with weak features almost every time.',
-        ],
-      },
-      {
-        kicker: 'Explainability',
-        heading: 'Why explainability is non-negotiable for finance ML',
-        body: [
-          'In regulated finance, "the model said so" is not an acceptable answer to a customer dispute or a regulator inquiry. Every ML fraud decision must be explainable: which features contributed, how much each contributed, and what the model would have decided if certain features had been different. This is hard to get right with deep learning models — which is why production fraud systems often use explainable model architectures like gradient boosted trees instead of neural nets.',
-          'FinMark.ai\'s ML fraud detection is built around explainability by design. Every score comes with a complete feature attribution. Auditors can reproduce decisions. Compliance teams can defend the model in regulatory reviews. This is what makes ML fraud detection viable in finance, not a research curiosity.',
-        ],
-      },
-    ],
-    relatedSiblings: ['fraud-detection-software'],
-    crossPillarLink: {
-      pillarSlug: 'unified-financial-data-platform',
-      anchor: 'unified financial data platform',
-    },
-    faqs: [
-      {
-        q: 'What is machine learning fraud detection?',
-        a: 'Machine learning fraud detection uses statistical models trained on historical data to predict whether new transactions are fraudulent. Unlike rule-based systems, ML models learn patterns from data and adapt as new fraud emerges.',
-      },
-      {
-        q: 'What ML models work best for fraud?',
-        a: 'Gradient boosted trees (XGBoost, LightGBM) are the workhorse for supervised fraud detection because they\'re accurate and explainable. Anomaly detection algorithms (isolation forest, autoencoders) catch novel patterns. Graph neural networks catch coordinated fraud. Production systems use all of these together.',
-      },
-      {
-        q: 'How does ML handle imbalanced fraud data?',
-        a: 'Fraud is rare — typically 0.1-1% of transactions. Standard techniques include oversampling minority class, undersampling majority class, using class weights, and choosing models robust to imbalance. The more important fix is using the right evaluation metric (precision/recall/AUPRC) instead of accuracy.',
-      },
-      {
-        q: 'Can ML models be audited?',
-        a: 'Yes — when designed for it. Tree-based models like XGBoost are inherently interpretable. SHAP values and feature attribution let you explain any single prediction. This is critical for regulated finance, where every decision must be defensible.',
-      },
-      {
-        q: 'How often should fraud models be retrained?',
-        a: 'At minimum weekly, ideally continuously. Fraud patterns evolve fast and models drift accordingly. FinMark.ai retrains models weekly by default and immediately when novel attack patterns are detected.',
-      },
-    ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────
-  // P4 — Payment Processing clusters
-  // ─────────────────────────────────────────────────────────────────
-  {
-    pillar: 'payment-processing-automation',
-    slug: 'automated-payment-processing',
-    primaryKeyword: 'automated payment processing',
-    meta: {
-      title: 'Automated Payment Processing for B2B Finance Teams | FinMark.ai',
-      description:
-        'Automated payment processing with built-in fraud screening, multi-currency support, and reconciliation. From initiation to settlement in one intelligent platform.',
-    },
-    hero: {
-      badge: 'Automated Payment Processing',
-      h1: 'Automated Payment Processing for B2B and Marketplace Volumes',
-      subhead:
-        'End-to-end automated payment workflows: initiation, routing, settlement, reconciliation, and reporting — with fraud screening and compliance built in at every step.',
-    },
-    sections: [
-      {
-        kicker: 'What it does',
-        heading: 'What automated payment processing actually does',
-        body: [
-          'Automated payment processing handles every step of the payment lifecycle without human intervention. A payment is initiated (by an invoice, an API call, or a scheduled run), routed through approval workflows, screened for fraud and compliance, executed across the right rail, settled, reconciled against the GL, and reported on. All automatically. Exceptions get flagged with full context for human review.',
-          'The pieces have existed for years, but stitching them together used to require integrating 4-6 different systems and writing custom glue code for each handoff. Modern platforms run the full workflow in one product, which is what makes "end-to-end automation" actually work in production.',
-        ],
-      },
-      {
-        kicker: 'The workflow',
-        heading: 'The end-to-end automated payment workflow',
-        body: [
-          'Stage 1 is initiation — the payment comes from an invoice (AP), a customer charge (AR), a payroll run, a vendor payout, or an API call. Stage 2 is enrichment — adding metadata like categorization, tax codes, and matching POs. Stage 3 is approval — routing through your approval policy (auto-approve under threshold, route to manager above). Stage 4 is screening — fraud detection and compliance checks run inline. Stage 5 is execution — the right rail (ACH, wire, card, RTP) is selected and the payment runs. Stage 6 is settlement and reconciliation — confirming receipt and posting to the GL. Stage 7 is reporting — making the payment visible in dashboards and reports.',
-          'Manual payment processing fails at the handoffs between these stages. Automation succeeds by running them as a single workflow with no manual handoffs.',
-        ],
-      },
-      {
-        kicker: 'Built-in screening',
-        heading: 'Why fraud screening and compliance are inline',
-        body: [
-          'Payments that bypass fraud screening cause losses. Payments that bypass compliance screening cause fines and reputational damage. Most legacy payment systems treat fraud and compliance as bolt-ons run by separate teams — which means they happen too late to prevent the bad transactions in the first place. FinMark.ai runs fraud detection and compliance screening inline, before payment execution, so suspicious or non-compliant payments never go out.',
-          'Inline screening only works if the latency is low enough to not slow payments down. FinMark.ai\'s fraud and compliance checks complete in under 100ms, fast enough to not affect even high-volume real-time payment flows.',
+          // TODO: Update this if you do not currently support multi-currency
+          'For companies with international vendors, multi-currency payment automation removes one of the most painful manual workflows in AP. The system holds vendor bank details in their local currency, calculates FX at mid-market rates, and executes the payment via the right international rail (SWIFT, SEPA, local clearing networks, or fintech-powered cross-border products). FX exposure can be hedged automatically based on your treasury policy.',
+          'The alternative — managing FX yourself, getting individual quotes from your bank, manually scheduling each international wire — is a tax on every cross-border payment that compounds into a real cost over time.',
         ],
       },
       {
         kicker: 'Reconciliation',
         heading: 'Automated reconciliation against the GL',
         body: [
-          'The least glamorous part of payment processing — and the most painful when done by hand — is reconciliation. Matching bank statements to GL entries, identifying exceptions, investigating discrepancies, and posting adjustments consumes weeks of finance team time every month. Automated reconciliation handles 90%+ of matches automatically and surfaces only the actual exceptions for human review. The result is closing the books in days instead of weeks.',
+          'After the payment runs, reconciliation happens automatically. The payment posts to the GL against the right account. Bank statements come in and get matched against expected payments. Confirmations and remittances get filed against the right vendor record. Any mismatches get surfaced for review with full context.',
+          'This is the part of AP automation that finance teams underrate the most. Manual reconciliation is one of the slowest parts of close. Automating it changes the rhythm of the whole month: the books are clean by the time the period ends, instead of being the bottleneck that delays close.',
         ],
       },
     ],
-    relatedSiblings: ['accounts-payable-automation'],
-    crossPillarLink: {
-      pillarSlug: 'ai-fraud-detection',
-      anchor: 'fraud detection software',
-    },
+    relatedSiblings: ['ap-approval-workflows', 'invoice-fraud-detection', 'bill-pay-automation'],
+    crossPillarLink: null,
     faqs: [
       {
-        q: 'What is automated payment processing?',
-        a: 'Automated payment processing is software that handles the full payment lifecycle — initiation, approval, fraud screening, execution, settlement, and reconciliation — automatically. Modern platforms run all of it in one workflow with no manual handoffs.',
+        q: 'What is vendor payment automation?',
+        a: 'Vendor payment automation is software that executes payments to vendors automatically once an invoice is approved — on the right rail (ACH, wire, card, RTP, check), in the right currency, with reconciliation back to the GL handled automatically.',
       },
       {
-        q: 'How does fraud screening work in automated payment processing?',
-        a: 'Fraud screening runs inline during payment authorization, in under 100ms. Suspicious payments are blocked or flagged before execution. The same models that power our fraud detection product run on every payment in this product.',
+        q: 'What payment rails does FinMark.ai support?',
+        // TODO: Update with the rails you actually support
+        a: 'ACH for domestic US, wire for high-value and international, card for vendors that accept it, RTP for instant payments where supported, and check fallback for vendors that still require paper. International payments via SWIFT and other cross-border rails.',
       },
       {
-        q: 'Can it handle multi-currency payments?',
-        a: 'Yes. Multi-currency is supported across 100+ currencies with native FX, local payment rails in 50+ countries, and automated treasury management to optimize when to convert.',
+        q: 'How are vendor bank details secured?',
+        a: 'Vendor bank details are encrypted at rest and in transit, with access restricted to authorized users. Modern AP platforms include vendor verification flows to confirm bank details before payments execute, which is a key control against business email compromise (BEC) attacks.',
       },
       {
-        q: 'Will it integrate with my ERP?',
-        a: 'Yes. Direct integrations with NetSuite, SAP, Oracle, Workday, Microsoft Dynamics, QuickBooks, and Xero. Payments and reconciliations sync to your GL automatically.',
+        q: 'Can it handle multi-currency vendor payments?',
+        // TODO: Update if multi-currency is not supported yet
+        a: 'Yes. Multi-currency is supported with FX at mid-market rates and direct settlement via international rails. FX exposure can be hedged based on your treasury policy.',
       },
       {
-        q: 'What\'s the typical ROI of payment automation?',
-        a: 'Most customers see payback within 6 months from a combination of reduced manual labor, fewer fraud losses, captured early-pay discounts, and faster reconciliation.',
-      },
-    ],
-  },
-  {
-    pillar: 'payment-processing-automation',
-    slug: 'accounts-payable-automation',
-    primaryKeyword: 'accounts payable automation',
-    meta: {
-      title: 'Accounts Payable Automation: Invoice to Payment, Hands-Free | FinMark.ai',
-      description:
-        'AP automation that takes invoice processing costs from $11 to $2 per invoice. AI-powered capture, 3-way matching, approval routing, and payment in one workflow.',
-    },
-    hero: {
-      badge: 'AP Automation',
-      h1: 'Accounts Payable Automation: From Invoice to Payment, Hands-Free',
-      subhead:
-        'Automate every step of the AP workflow — capture, code, approve, pay, reconcile — with AI that handles exceptions and integrates directly with your ERP.',
-    },
-    sections: [
-      {
-        kicker: 'The AP problem',
-        heading: 'Why manual AP is broken at scale',
-        body: [
-          'Manual accounts payable is one of the most expensive processes in finance. Industry benchmarks put the cost at $9-15 per invoice when you include capture, coding, approval routing, payment, and reconciliation. For a company processing 10,000 invoices per month, that is $1.5M+ per year just to pay your vendors.',
-          'It is also slow. Manual AP cycles average 10-25 days from invoice receipt to payment. That means missed early-pay discounts, strained vendor relationships, and constant firefighting from finance to track down exceptions and approvals. The teams running manual AP are not lazy — they are drowning in volume that the process was never designed to handle.',
-        ],
-      },
-      {
-        kicker: 'The workflow',
-        heading: 'The AP workflow, automated step by step',
-        body: [
-          'Step 1: capture. Invoices arrive via email, vendor portal, EDI, or API. AI extracts the line items, vendor info, dates, and amounts automatically — including from PDF and scanned documents. Step 2: coding. Machine learning predicts the right GL account, cost center, and tax codes based on history. Step 3: matching. Three-way match against the PO and goods receipt happens automatically; only mismatches go to humans. Step 4: approval. Routing follows your approval policy (auto-approve under threshold, route by amount and category). Step 5: payment. The right rail is chosen automatically and the payment executes. Step 6: reconciliation. The payment posts to the GL and matches against bank statements automatically.',
-          'Each step is logged with full audit trail. Exceptions are handled by humans, but with full context attached so they take minutes instead of hours.',
-        ],
-      },
-      {
-        kicker: 'AI in AP',
-        heading: 'Where AI actually helps in AP',
-        body: [
-          'OCR is no longer enough — modern document AI uses LLMs to extract structured data from any invoice format, even messy ones. ML categorization predicts the right GL coding from history with 95%+ accuracy. Anomaly detection flags suspicious invoices (duplicate, inflated, fraudulent vendor) before payment. Predictive cash management forecasts when each invoice should be paid to optimize working capital. None of these were possible with the AP automation generation that came before.',
-        ],
-      },
-      {
-        kicker: 'ROI',
-        heading: 'The math on AP automation ROI',
-        body: [
-          'AP automation typically reduces processing costs from $9-15 per invoice to $2-3 per invoice — a 70-80% reduction. For 10,000 invoices/month, that is $850K-$1.4M in annual savings on processing alone. Add the captured early-pay discounts (typically 1-2% of total spend) and the reduction in late payment penalties, and most customers see total annual savings well above the platform cost. Payback is usually 4-6 months.',
-        ],
-      },
-    ],
-    relatedSiblings: ['automated-payment-processing'],
-    crossPillarLink: {
-      pillarSlug: 'financial-workflow-automation',
-      anchor: 'procure-to-pay automation',
-    },
-    faqs: [
-      {
-        q: 'What is accounts payable automation?',
-        a: 'AP automation is software that handles the full invoice-to-payment workflow automatically: capture, coding, approval routing, payment, and reconciliation. Modern AP automation uses AI to handle invoices in any format and predict the right coding from history.',
-      },
-      {
-        q: 'How accurate is invoice OCR in 2026?',
-        a: 'Modern document AI (which goes well beyond OCR) extracts structured data from invoices with 95%+ accuracy across formats — including handwritten line items, scanned PDFs, and non-standard layouts. Edge cases are flagged for human review.',
-      },
-      {
-        q: 'How long does AP automation take to implement?',
-        a: 'Most customers go live in 4-8 weeks. The biggest variable is ERP integration complexity — NetSuite, QuickBooks, and Xero are typically faster than SAP or custom systems.',
-      },
-      {
-        q: 'What\'s the ROI of AP automation?',
-        a: 'Typical savings are 70-80% on processing cost per invoice (from ~$11 to ~$2), plus captured early-pay discounts and reduced late fees. Payback is usually 4-6 months for companies processing more than 5,000 invoices per month.',
-      },
-      {
-        q: 'Can AP automation prevent invoice fraud?',
-        a: 'Yes. ML-based anomaly detection catches duplicate invoices, inflated amounts, vendor impersonation, and BEC attacks before payment. This is a major hidden value of AP automation that often exceeds the labor savings.',
+        q: 'How does reconciliation work?',
+        a: 'Payments post to the GL automatically against the right account. Bank statements get matched against expected payments. Any mismatches surface for review with full context attached.',
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // P5 — Reporting & Analytics clusters
+  // 6. AP Automation Software (buyer's guide)
   // ─────────────────────────────────────────────────────────────────
   {
-    pillar: 'ai-financial-reporting',
-    slug: 'automated-financial-reporting',
-    primaryKeyword: 'automated financial reporting',
+    pillar: 'accounts-payable-automation',
+    slug: 'ap-automation-software',
+    primaryKeyword: 'ap automation software',
     meta: {
-      title: 'Automated Financial Reporting in Real Time | FinMark.ai',
+      title: 'AP Automation Software: Buyer\'s Guide for 2026 | FinMark.ai',
       description:
-        'Automate P&L, balance sheet, cash flow, MD&A, and the full board pack. Real-time financial reporting from live data with AI-generated narrative summaries.',
+        'How to evaluate AP automation software in 2026. Categories, criteria, common traps, and what separates real AP platforms from glorified OCR tools.',
     },
     hero: {
-      badge: 'Automated Financial Reporting',
-      h1: 'Automated Financial Reporting for Real-Time Finance',
+      badge: 'AP Automation Software',
+      h1: 'How to Evaluate AP Automation Software in 2026',
       subhead:
-        'P&L, balance sheet, cash flow, MD&A, the board pack — generated automatically from your live financial data. Real-time, audit-ready, and explainable.',
+        'A practical buyer\'s guide for finance teams evaluating AP automation software. The categories, the criteria that actually matter, and the common traps to avoid.',
     },
     sections: [
       {
-        kicker: 'What it covers',
-        heading: 'What automated financial reporting actually covers',
+        kicker: 'The category',
+        heading: 'What "AP automation software" actually means',
         body: [
-          'Automated financial reporting covers the recurring reports that consume the most finance team time: monthly close packages, board decks, management reports, variance analysis, KPI dashboards, and the standard financial statements (P&L, balance sheet, cash flow statement). Each is generated automatically from live data instead of being assembled by hand in a spreadsheet.',
-          'The shift from manual to automated reporting is not just speed. It changes the model: instead of monthly batch reports assembled three weeks after period close, reports are continuously updated and always current. The CFO can pull up cash position at any moment and get a real number, not a stale snapshot from last Friday.',
+          'The label "AP automation software" gets stretched to cover everything from basic OCR tools to full-platform AP suites. That makes evaluation hard, because two tools described the same way can differ by 10x in scope and capability. Before anything else, you need to be precise about what category of tool you are buying.',
+          'There are four broad categories. (1) OCR-only tools that just extract data from invoices. (2) AP modules inside a broader ERP that handle the workflow but with limited intelligence. (3) Standalone AP automation platforms that handle the full lifecycle as their core product. (4) AP-as-a-feature inside a finance super-app. Each is appropriate for different team sizes and stages.',
         ],
       },
       {
-        kicker: 'The pipeline',
-        heading: 'How the reporting pipeline works',
+        kicker: 'Criteria',
+        heading: 'The criteria that actually matter',
         body: [
-          'Reports run on top of the unified data layer that ingests from every source system. Mappings convert source data to your chart of accounts, your entity structure, and your reporting currency. Calculations apply business logic (consolidation, intercompany elimination, accruals). Templates render the data into the right format (PDF, Excel, dashboard, web). Distribution pushes the right view to the right person on the right schedule.',
-          'Each step is logged and queryable. Every number in every report traces back to the source transactions, so audit prep is dramatically faster — your auditors can verify any line item by clicking through to the source data.',
+          'Eight criteria separate the AP automation tools that work in production from the ones that look good in demos. (1) Document AI accuracy on real-world (not curated) invoices. (2) Pre-built integrations with your specific ERP and accounting system. (3) Configurable approval workflows that match your real policy, not a vendor-imposed one. (4) Audit trail that satisfies SOX and external auditors. (5) Time-to-value measured in weeks, not months. (6) Pricing that does not penalize you for scaling users. (7) Built-in fraud detection. (8) A roadmap that aligns with your direction.',
+          'A ninth criterion that matters more than people realize: how the vendor handles edge cases. Demo data is clean. Your real vendor mix is not. Ask for a proof-of-concept on your real invoices, including the messy ones, before signing.',
         ],
       },
       {
-        kicker: 'AI narratives',
-        heading: 'AI-generated narratives and commentary',
+        kicker: 'Traps',
+        heading: 'Common traps to avoid',
         body: [
-          'The hardest part of monthly reporting is not the numbers — it is the narrative. Writing the management discussion and analysis, the variance commentary, the executive summary. Modern AI handles this automatically: it analyzes the variances, identifies the drivers, and drafts narrative commentary in your house style. The CFO still owns the story and edits the final version, but the first draft takes seconds instead of hours.',
-          'This is where generative AI actually delivers in finance. Not as a magic black box, but as a fast first draft on a task that has clear inputs (the financial data) and a clear quality bar (does the human approve it).',
+          'The biggest trap in AP software buying is letting the demo dictate the decision. Demos are designed to show clean cases that work. Your reality is exception-heavy. The right evaluation is a paid pilot on your actual invoices, not a 30-minute click-through of a curated demo flow.',
+          'The second trap is overweighting features you do not need. Every AP vendor has a long feature list, but most teams only use 20% of it. Focus on the 20% you actually need and ignore the rest. The third trap is buying based on price alone without considering total cost of ownership: implementation effort, integration work, ongoing maintenance, and the cost of switching if it does not work out.',
         ],
       },
       {
-        kicker: 'Auditability',
-        heading: 'Audit-ready by default',
+        kicker: 'Decision framework',
+        heading: 'A decision framework for AP automation software',
         body: [
-          'Automated financial reporting is only useful if it produces reports that can stand up to audit. Every number FinMark.ai produces traces back to source transactions; every AI-generated narrative cites the data behind it; the entire reporting pipeline is logged and reproducible. External auditors regularly use the audit trail to accelerate their fieldwork instead of doing it from scratch.',
+          'Start by writing down what you actually want to automate. Be specific: capture, coding, approval, payment, reconciliation. Then write down the constraints: ERP, volume, team size, budget, timeline. Then evaluate 3-5 vendors against your specific list, not against a generic comparison matrix.',
+          'Run paid pilots with the top 2 candidates on your real data. The pilot is the only honest evaluation. Anything less is buying based on marketing.',
         ],
       },
     ],
-    relatedSiblings: [],
-    crossPillarLink: {
-      pillarSlug: 'unified-financial-data-platform',
-      anchor: 'unified financial data platform',
-    },
+    relatedSiblings: ['accounts-payable-software', 'invoice-processing-automation', 'ap-erp-integration'],
+    crossPillarLink: null,
     faqs: [
       {
-        q: 'What is automated financial reporting?',
-        a: 'Automated financial reporting generates standard financial reports — statements, dashboards, board packs, management commentary — automatically from live data, instead of being assembled by hand in spreadsheets each period.',
+        q: 'What is AP automation software?',
+        a: 'AP automation software handles the accounts payable workflow automatically — from invoice capture to payment to reconciliation. The category includes OCR-only tools, AP modules in ERPs, standalone AP platforms, and AP-as-a-feature inside broader finance products.',
       },
       {
-        q: 'Can AI generate audit-ready reports?',
-        a: 'Yes. Every number traces back to source transactions, every AI-generated narrative cites its supporting data, and the full reporting pipeline is logged and reproducible. External auditors use the audit trail to accelerate fieldwork.',
+        q: 'How much does AP automation software cost?',
+        a: 'Pricing varies widely by category and volume. Basic OCR tools start at a few hundred dollars per month. Full AP platforms typically charge based on transaction volume rather than seats. Total cost of ownership depends on implementation effort, integration work, and ongoing maintenance — not just the license fee.',
       },
       {
-        q: 'How does it integrate with my GL?',
-        a: 'Direct integrations with NetSuite, SAP, Oracle, Workday, Microsoft Dynamics, QuickBooks, Xero, and most modern GLs. Reports run on top of your existing GL — no migration required.',
+        q: 'How do I evaluate AP automation software?',
+        a: 'Write down what you want to automate, list your constraints (ERP, volume, budget), evaluate 3-5 vendors against your specific needs, and run paid pilots with the top 2 on your real invoice data. Demo data is misleading; pilots on real data are the only honest evaluation.',
       },
       {
-        q: 'What dashboards come out of the box?',
-        a: 'CFO dashboard (cash, runway, key KPIs), controller dashboard (close status, reconciliation, journal entries), FP&A dashboard (budget vs actual, forecasts), and operations dashboards (working capital, AR/AP aging). All customizable.',
+        q: 'What is the difference between AP automation and an ERP AP module?',
+        a: 'An ERP AP module handles the workflow but typically has limited document AI and weaker integrations to capture and payment. A dedicated AP automation platform is built specifically for AP and is usually more capable in extraction, fraud detection, and approval flexibility — but requires integrating with your ERP rather than living inside it.',
       },
       {
-        q: 'Can it handle multi-entity consolidation?',
-        a: 'Yes. Native multi-entity support including intercompany elimination, currency translation, and consolidation rules. Built specifically for the complexity of multi-entity reporting at scale.',
+        q: 'What ROI should I expect from AP automation software?',
+        a: 'Most teams see 70-80% reductions in processing cost per invoice, 50-70% reductions in cycle time, and payback within 4-6 months. The hidden value (faster close, better vendor relationships, fraud prevention) often exceeds the direct labor savings.',
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // P6 — Data Platform clusters
+  // 7. Invoice Fraud Detection
   // ─────────────────────────────────────────────────────────────────
   {
-    pillar: 'unified-financial-data-platform',
-    slug: 'financial-data-integration',
-    primaryKeyword: 'financial data integration',
+    pillar: 'accounts-payable-automation',
+    slug: 'invoice-fraud-detection',
+    primaryKeyword: 'invoice fraud detection',
     meta: {
-      title: 'Financial Data Integration: Unify Every System | FinMark.ai',
+      title: 'Invoice Fraud Detection: Stop Duplicate, BEC, and Vendor Fraud | FinMark.ai',
       description:
-        'Financial data integration that connects ERP, banking, payments, billing, and CRM into one unified data layer. Real-time sync, normalization, and a single source of truth.',
+        'AI-powered invoice fraud detection catches duplicate invoices, vendor impersonation, BEC attacks, and inflated amounts before payment runs.',
     },
     hero: {
-      badge: 'Financial Data Integration',
-      h1: 'Financial Data Integration: Unify Every System You Use',
+      badge: 'Invoice Fraud Detection',
+      h1: 'Invoice Fraud Detection That Catches the Bad Ones',
       subhead:
-        'Connect your ERP, banking, payments, billing, CRM and 100+ other source systems into one unified data layer. Real-time sync, automatic normalization, and a single source of truth for every downstream application.',
+        'AI screens every invoice for duplicate charges, vendor impersonation, business email compromise patterns, and inflated amounts — before payment goes out.',
+    },
+    sections: [
+      {
+        kicker: 'The threat',
+        heading: 'Why invoice fraud is the most costly AP risk',
+        body: [
+          'Invoice fraud is one of the largest financial losses companies face from outside attackers, and it gets worse every year. The categories are well known: duplicate invoices submitted by vendors hoping you will pay both. Inflated invoices where prices or quantities are quietly raised. Vendor impersonation where an attacker poses as a known vendor and submits a fake invoice. Business email compromise (BEC) where attackers redirect payment instructions for legitimate invoices to their own accounts.',
+          'The reason it works is that AP is a high-volume, low-attention process. An AP clerk processing 100 invoices a day is going to miss the patterns that distinguish a real invoice from a fake. Even diligent reviewers cannot mentally cross-reference every invoice against every other invoice from the same vendor for the last six months. Software can.',
+        ],
+      },
+      {
+        kicker: 'Duplicates',
+        heading: 'How AI catches duplicate invoices',
+        body: [
+          'Duplicate invoice fraud is the easiest fraud to commit and one of the easiest to catch with the right tooling. The naive version is a vendor sending the same invoice twice. The smarter version uses slightly different invoice numbers, amounts off by a few dollars, or split invoices that add up to the same total. Manual reviewers miss most of these because they only look at the invoice in front of them.',
+          'AI duplicate detection compares every incoming invoice against history using fuzzy matching across vendor, amount, line items, dates, and PO references. It catches exact matches obviously, but also near-duplicates that humans would have missed. False positives get flagged for human review with the suspected duplicates highlighted side by side.',
+        ],
+      },
+      {
+        kicker: 'BEC',
+        heading: 'How to defend against BEC and vendor impersonation',
+        body: [
+          'Business email compromise is the single most expensive AP fraud category. The attack is simple: an attacker gains access to a vendor email account (or spoofs it convincingly), then sends a "we have new bank details" message to your AP team along with a real-looking invoice. The AP team updates the vendor record, pays the next legitimate invoice to the new account, and the money is gone before anyone notices.',
+          'Defending against BEC requires three controls in combination. First, vendor master data must be locked down — bank detail changes require multi-factor verification, not just an email. Second, every payment must be screened against the vendor profile, with anomalies (new bank account, unusual amount, unusual rail) flagged. Third, the system must learn what normal vendor behavior looks like and surface deviations. AI is essential for the third control because the patterns are too subtle for rules.',
+        ],
+      },
+      {
+        kicker: 'Inflated invoices',
+        heading: 'Catching inflated invoices and vendor overcharging',
+        body: [
+          'The hardest fraud to catch is the slow inflation: a vendor who quietly raises prices or adds line items below your radar. Each individual instance looks normal. The pattern only shows up when you compare to history at scale. AI is well-suited to this because it can baseline what normal looks like for each vendor and surface deviations even when no individual invoice would trigger a manual review.',
+          'The other valuable property is that the system learns from your feedback. When you confirm fraud or dismiss a false positive, the model updates. Over time, it gets dramatically better at catching the patterns specific to your vendor mix.',
+        ],
+      },
+    ],
+    relatedSiblings: ['3-way-matching', 'vendor-payment-automation', 'ap-approval-workflows'],
+    crossPillarLink: null,
+    faqs: [
+      {
+        q: 'What is invoice fraud detection?',
+        a: 'Invoice fraud detection is software that screens incoming invoices for fraud patterns — duplicates, inflated amounts, vendor impersonation, BEC attacks — before payment runs. Modern systems use AI to catch patterns that manual reviewers miss.',
+      },
+      {
+        q: 'What types of invoice fraud can be detected automatically?',
+        a: 'Duplicate invoices (exact and near-duplicate), inflated amounts vs vendor history, unusual changes to vendor bank details, anomalous payment patterns, and business email compromise (BEC) attacks. Each type uses a different detection approach but they all run on the same invoice screening pipeline.',
+      },
+      {
+        q: 'How does AI detection compare to rules-based fraud screening?',
+        a: 'Rules-based screening catches the cases the rules anticipate. AI screening catches both the anticipated cases AND the novel patterns that did not exist when the rules were written. Most production systems use both: rules for known patterns, AI for the long tail.',
+      },
+      {
+        q: 'What is BEC and how is it different from regular invoice fraud?',
+        a: 'Business email compromise (BEC) is a fraud where an attacker poses as a known vendor (often by compromising the vendor email) and redirects payments to their own account. It is different from regular invoice fraud because the invoice itself looks legitimate — only the payment destination is wrong. Defending against BEC requires locking down vendor master data changes, not just screening invoice content.',
+      },
+      {
+        q: 'How does fraud detection learn from feedback?',
+        a: 'When you confirm a fraud detection or dismiss a false positive, the model updates on that signal. Over time, the system becomes calibrated to your specific vendor mix and the patterns that actually predict fraud in your business.',
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // 8. AP & ERP Integration
+  // ─────────────────────────────────────────────────────────────────
+  {
+    pillar: 'accounts-payable-automation',
+    slug: 'ap-erp-integration',
+    primaryKeyword: 'ap erp integration',
+    meta: {
+      title: 'AP & ERP Integration: NetSuite, QuickBooks, Xero, SAP | FinMark.ai',
+      description:
+        'How AP automation integrates with NetSuite, QuickBooks, Xero, SAP, and other ERPs. Real-time sync, GL posting, vendor master, and audit trail.',
+    },
+    hero: {
+      badge: 'ERP Integration',
+      h1: 'AP and ERP Integration That Actually Works',
+      subhead:
+        'Direct integrations with NetSuite, QuickBooks, Xero, SAP, and the ERP systems finance teams actually use. Real-time sync, automatic GL posting, and a single source of truth.',
     },
     sections: [
       {
         kicker: 'The problem',
-        heading: 'Why financial data integration is hard',
+        heading: 'Why most AP-ERP integrations are broken',
         body: [
-          'Modern finance teams use 8-15 different systems on average. The ERP holds the GL. The banking platform holds cash. The payment processor holds transaction details. The billing system holds revenue. The HRIS holds payroll. The CRM holds customer-side metadata. Each system has its own data model, its own update cadence, and its own quirks. Getting a unified view across all of them is one of the hardest, most expensive problems finance teams face.',
-          'The traditional solution — write custom ETL scripts for each integration — does not scale. Every new source system means new code. Every schema change means broken pipelines. Every period close means scrambling to reconcile mismatched data. The maintenance cost of a hand-built integration layer compounds over time and eventually consumes the team that built it.',
+          'Integration is where most AP automation projects die. The vendor sells you a great-looking AP product. You buy it. Then implementation begins, and you discover that the integration to your ERP is brittle, partial, or requires custom development. Vendor master data does not sync. Payment posts do not match. The AP team ends up reconciling between the two systems by hand — which is exactly what they were trying to avoid.',
+          'The reason this happens is that integration is hard and most AP vendors treat it as an afterthought. They have a generic API connector and call it done. Real ERP integration requires deep, system-specific work: handling NetSuite\'s SuiteScript quirks, dealing with QuickBooks Online\'s rate limits, mapping Xero\'s unique chart of accounts logic, navigating SAP\'s schema. There is no shortcut.',
         ],
       },
       {
-        kicker: 'Patterns',
-        heading: 'Integration patterns that actually work',
+        kicker: 'What good looks like',
+        heading: 'What a real ERP integration covers',
         body: [
-          'There are four integration patterns that work in production. API-based integration pulls data via REST or GraphQL APIs — best for systems with good APIs (Stripe, Plaid, modern SaaS). Webhook-based integration receives push events when data changes — lowest latency but requires the source system to support it. Batch ETL loads data on a schedule — works for legacy systems without good APIs but introduces lag. Database replication mirrors source databases directly — fastest sync but requires deep access to source systems.',
-          'A good integration layer uses all four patterns depending on the source system. FinMark.ai picks the right pattern for each connector automatically and handles the conversion to a unified schema downstream.',
+          'A working AP-ERP integration covers six things. (1) Vendor master sync — vendors created in either system appear in the other within minutes. (2) Chart of accounts sync — your GL accounts, cost centers, and dimensions are available for AP coding. (3) PO sync — purchase orders flow from the ERP into AP for matching. (4) Receipt sync — goods receipts flow in for 3-way matching. (5) Payment posting — approved payments post to the GL automatically. (6) Bank reconciliation — bank transactions match against AP payments without manual work.',
+          'If any of these six is missing or partial, the integration is incomplete and the AP team will end up filling the gap by hand. A good vendor will tell you exactly which of these are supported on your specific ERP version and which are not.',
         ],
       },
       {
-        kicker: 'Normalization',
-        heading: 'The normalization layer',
+        kicker: 'Major ERPs',
+        heading: 'How FinMark.ai integrates with major ERPs',
         body: [
-          'Raw integration is the easy part. Normalization is where most projects die. Different systems use different chart of accounts, different currency conventions, different period boundaries, different vendor identifiers. To make the data usable downstream, all of this has to be reconciled into a single canonical model. That requires master data management, fuzzy matching, currency conversion, period alignment, and dozens of edge case handlers.',
-          'FinMark.ai handles normalization automatically using a finance-aware schema and ML-based deduplication. New source systems plug in and start producing usable data within hours, not weeks.',
-        ],
-      },
-      {
-        kicker: 'Real-time vs batch',
-        heading: 'Real-time vs batch — when each makes sense',
-        body: [
-          'Real-time integration is essential for fraud detection, cash position monitoring, and live reporting. Batch integration is fine for monthly close, audit prep, and historical analysis. A mature data platform supports both patterns on the same source system — the same connector can stream events in real time and run nightly reconciliation batches to catch anything missed. Most legacy ETL tools force you to choose; modern platforms run both modes in parallel.',
-        ],
-      },
-    ],
-    relatedSiblings: [],
-    crossPillarLink: {
-      pillarSlug: 'ai-financial-reporting',
-      anchor: 'automated financial reporting',
-    },
-    faqs: [
-      {
-        q: 'What is financial data integration?',
-        a: 'Financial data integration is the practice of connecting all the systems that hold your financial data (ERP, banking, payments, billing, CRM) into a single unified data layer that can serve every downstream application — reporting, forecasting, fraud detection, compliance.',
-      },
-      {
-        q: 'What systems does FinMark.ai integrate with?',
-        a: 'NetSuite, SAP, Oracle, Workday, Microsoft Dynamics, QuickBooks, Xero, Stripe, Adyen, Plaid, banking APIs, HRIS, CRMs, and 100+ more out of the box. Custom systems can be added via a generic API connector or CSV/SFTP fallback.',
-      },
-      {
-        q: 'How long does integration take?',
-        a: 'Most customers connect their first source system within hours and full multi-system integration takes 1-3 weeks depending on system count and complexity. Custom systems may take longer.',
-      },
-      {
-        q: 'Is the data secure?',
-        a: 'Yes. SOC 2 Type II, ISO 27001, encrypted at rest (AES-256) and in transit (TLS 1.3), regional data residency options, and full role-based access control.',
-      },
-      {
-        q: 'Do I keep ownership of my data?',
-        a: 'Yes. You own all data ingested into FinMark.ai. You can export at any time in standard formats, and we never train models on your data without explicit consent.',
-      },
-    ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────
-  // P7 — Predictive Forecasting clusters
-  // ─────────────────────────────────────────────────────────────────
-  {
-    pillar: 'predictive-financial-forecasting',
-    slug: 'ai-cash-flow-forecasting',
-    primaryKeyword: 'ai cash flow forecasting',
-    meta: {
-      title: 'AI Cash Flow Forecasting You Can Take to the Board | FinMark.ai',
-      description:
-        'AI cash flow forecasting refreshed daily from live banking and AR/AP data. Confidence intervals, scenario planning, and forecast accuracy you can defend in board meetings.',
-    },
-    hero: {
-      badge: 'AI Cash Flow Forecasting',
-      h1: 'AI Cash Flow Forecasting You Can Take to the Board',
-      subhead:
-        'Refreshed daily from live banking and AR/AP data, with statistical confidence intervals and scenario modeling. The cash flow forecasts your CFO can actually defend.',
-    },
-    sections: [
-      {
-        kicker: 'The problem',
-        heading: 'Why most cash flow forecasts are wrong',
-        body: [
-          'Most cash flow forecasts are spreadsheet models that get updated quarterly and immediately start drifting from reality. The assumptions are stale within weeks. The inputs are entered by hand and full of errors. The methodology is basically "last month + 5%" with some optimistic adjustments. By the time anyone looks at the forecast in detail, it bears little resemblance to actual cash flow.',
-          'This matters more than people realize. Cash flow forecast errors directly drive bad decisions: overhiring, under-investing, missed opportunities, unexpected liquidity crunches. CFOs do not avoid forecasting because it is unimportant — they avoid forecasting because the spreadsheet-based version is so unreliable that it is not worth the effort.',
-        ],
-      },
-      {
-        kicker: 'How AI helps',
-        heading: 'How machine learning changes cash flow forecasting',
-        body: [
-          'ML cash flow forecasting works fundamentally differently. Instead of hand-coded assumptions, the model learns the actual drivers from your historical cash flow data — seasonality, customer payment patterns, vendor payment cycles, growth trends, one-off events. Instead of point estimates, it produces probabilistic forecasts with confidence intervals. Instead of monthly batch updates, it refreshes continuously as new data arrives.',
-          'The result is a forecast that is more accurate, more current, and more honest about uncertainty. CFOs can use it for board presentations, fundraising conversations, hiring decisions, and capital allocation — knowing it is grounded in actual data instead of optimism.',
-        ],
-      },
-      {
-        kicker: 'Direct vs indirect',
-        heading: 'Direct vs indirect method, automated',
-        body: [
-          'Direct method cash flow forecasting projects each cash inflow and outflow line by line. Indirect method starts with net income and adjusts for non-cash items. Both have valid use cases, and most finance teams need both. FinMark.ai produces direct method forecasts at the transaction level (best for short-term liquidity management) and indirect method forecasts at the GL level (best for board reporting and strategic planning) — automatically, from the same underlying data.',
-        ],
-      },
-      {
-        kicker: 'Confidence intervals',
-        heading: 'Why confidence intervals matter for forecasts',
-        body: [
-          'Spreadsheet forecasts give you point estimates: "we will have $4.2M in cash on April 30." That is misleading because the actual answer has uncertainty. ML forecasts give you a probabilistic range: "we will have between $3.8M and $4.6M with 80% confidence, with upside if these specific receivables collect on time and downside if they slip." That is honest about uncertainty and lets you plan for both tails instead of pretending you know the exact number.',
-        ],
-      },
-    ],
-    relatedSiblings: ['financial-planning-and-analysis-software'],
-    crossPillarLink: {
-      pillarSlug: 'unified-financial-data-platform',
-      anchor: 'financial data integration',
-    },
-    faqs: [
-      {
-        q: 'What is AI cash flow forecasting?',
-        a: 'AI cash flow forecasting uses machine learning models to project future cash inflows and outflows from historical data. Unlike spreadsheet forecasting, ML models learn nonlinear patterns, run scenarios in parallel, and quantify uncertainty as confidence intervals.',
-      },
-      {
-        q: 'How accurate are AI cash flow forecasts?',
-        a: 'On benchmark datasets, ML cash flow models cut forecast error (MAPE) by 30-60% compared to spreadsheet forecasting. The bigger gain is consistency — the model does not get optimistic before board meetings.',
-      },
-      {
-        q: 'Can I trust ML forecasts for board reporting?',
-        a: 'Yes — when the model is explainable and the CFO owns the assumptions. FinMark.ai forecasts come with full feature attribution and confidence intervals. CFOs typically present both the model output and their own override commentary.',
-      },
-      {
-        q: 'How does it handle one-off events?',
-        a: 'You can override or annotate any specific period (e.g., "this quarter has a one-time legal settlement of $X"). The model treats these as known interventions and adjusts the forecast accordingly.',
-      },
-      {
-        q: 'How often does the forecast refresh?',
-        a: 'Continuously, as new transaction data arrives. Most customers see a daily refresh cadence in practice — fast enough for cash management decisions without overwhelming the team with constant updates.',
-      },
-    ],
-  },
-  {
-    pillar: 'predictive-financial-forecasting',
-    slug: 'fpa-software',
-    primaryKeyword: 'financial planning and analysis software',
-    meta: {
-      title: 'Financial Planning and Analysis Software for the AI Era | FinMark.ai',
-      description:
-        'Modern financial planning and analysis software with AI-powered forecasting, scenario planning, and driver-based modeling. Built for finance teams that need to move beyond spreadsheets.',
-    },
-    hero: {
-      badge: 'FP&A Software',
-      h1: 'Financial Planning and Analysis Software for the AI Era',
-      subhead:
-        'Modern FP&A software with AI-powered forecasting, scenario planning, and driver-based modeling. Built for finance teams that need to move beyond spreadsheets without rebuilding from scratch.',
-    },
-    sections: [
-      {
-        kicker: 'What it does',
-        heading: 'What FP&A software actually does',
-        body: [
-          'FP&A software covers four functions: planning (the annual budget process), forecasting (rolling projections of how the business will perform), analysis (variance analysis, KPI tracking, profitability deep-dives), and reporting (dashboards, board decks, management commentary). Modern FP&A platforms run all four on the same data layer so the inputs to the budget feed automatically into the forecast and the variances are calculated automatically.',
-          'The big shift in FP&A software in the last few years is the addition of AI. Forecasts that used to be hand-modeled in Excel are now generated by ML models that learn from historical data. Variance analysis that used to require an FP&A analyst is now produced automatically by anomaly detection. The role of the human is shifting from data entry and calculation to interpretation and judgment — which is what FP&A teams should have been doing all along.',
-        ],
-      },
-      {
-        kicker: 'Beyond spreadsheets',
-        heading: 'Why it is time to move past Excel',
-        body: [
-          'Excel is the most successful piece of finance software ever made. It is also the wrong tool for FP&A at any meaningful scale. Spreadsheets break: links go stale, formulas error out, version control becomes a nightmare, and the model that the CFO built three years ago is now an unmaintainable artifact that no one understands. The companies still running FP&A on Excel are not getting the benefits of structured planning — they are getting the costs.',
-          'Modern FP&A platforms are designed to do everything Excel does, but with structured data, version control, audit trails, multi-user collaboration, and AI-powered automation. They are not a replacement for analyst judgment; they are a replacement for the spreadsheet sprawl that consumes analyst time.',
-        ],
-      },
-      {
-        kicker: 'Buying criteria',
-        heading: 'How to evaluate FP&A software',
-        body: [
-          'Eight things to look for. Direct integration with your GL and source systems (no manual data uploads). Driver-based modeling (forecast revenue from MAU, hiring from open roles, not just historical extrapolation). Scenario planning that runs in seconds, not days. AI forecasting with explainable outputs. Multi-entity and multi-currency support. Collaborative workflow (multiple users editing the same plan). Built-in reporting and dashboards. A pricing model that does not penalize you for adding users.',
+          // TODO: Update with your real integration coverage. The list below
+          // describes typical integration patterns for these systems but you
+          // should confirm what FinMark.ai actually supports today.
+          'FinMark.ai integrates directly with the major modern ERPs and accounting systems: NetSuite (via SuiteTalk and SuiteScript), QuickBooks Online (via REST API with OAuth), Xero (via OAuth API), and Microsoft Dynamics 365 Business Central. For SAP and Oracle, the integration is via standard middleware patterns. For ERPs without a direct integration, we support generic API connectors and CSV/SFTP fallback.',
+          'The integrations cover the full six-point checklist above for the major modern ERPs. For legacy or custom systems, integration depth depends on what APIs are available — talk to sales for specifics on your stack.',
         ],
       },
       {
         kicker: 'Migration',
-        heading: 'How to migrate off spreadsheets',
+        heading: 'How to migrate to an AP automation tool without breaking your ERP',
         body: [
-          'The biggest barrier to FP&A software adoption is the migration. Years of Excel models, hand-built formulas, and institutional knowledge embedded in cell references — all of it needs to be translated into the new system. The trap is trying to migrate everything at once. The path that works: start with the next budget cycle, not by porting the existing one. Use the new tool for the next plan from scratch and let the old spreadsheets retire naturally.',
+          'Migration is the riskiest part of AP automation adoption because it touches your live financial data. The right approach is incremental: connect the new AP tool to the ERP in read-only mode first, validate the data flow, then enable write-back for one workflow at a time. Most teams start with new invoices going through the new system while in-flight invoices finish in the old workflow.',
+          'The wrong approach is a hard cutover where everything switches on day one. Always-on cutovers cause cascading failures because edge cases that were never tested only show up in production.',
         ],
       },
     ],
-    relatedSiblings: ['ai-cash-flow-forecasting'],
-    crossPillarLink: {
-      pillarSlug: 'ai-financial-reporting',
-      anchor: 'automated financial reporting',
-    },
+    relatedSiblings: ['ap-automation-software', 'invoice-processing-automation', 'accounts-payable-software'],
+    crossPillarLink: null,
     faqs: [
       {
-        q: 'What is financial planning and analysis software?',
-        a: 'FP&A software handles the four functions of financial planning and analysis: budgeting, forecasting, variance analysis, and management reporting. Modern FP&A platforms run all four on a shared data layer with AI-powered forecasting built in.',
+        q: 'What ERPs does FinMark.ai integrate with?',
+        // TODO: Update with your real integration list
+        a: 'NetSuite, QuickBooks Online, Xero, Microsoft Dynamics 365 Business Central directly. SAP and Oracle via middleware. Other ERPs via generic API connectors or CSV/SFTP fallback. Talk to sales for specifics on your stack.',
       },
       {
-        q: 'When should I move from spreadsheets to FP&A software?',
-        a: 'If you spend more than 20% of your finance team\'s time on spreadsheet maintenance, version control problems, or manual data entry between systems — it is time. Most companies hit this point between 50-200 employees.',
+        q: 'How long does ERP integration take?',
+        a: 'For modern ERPs with direct integrations (NetSuite, QuickBooks, Xero), integration is usually configured in days, not weeks. For legacy or custom systems, integration depth depends on what APIs are available and may require custom work.',
       },
       {
-        q: 'How does AI-powered FP&A actually work?',
-        a: 'AI-powered FP&A uses machine learning to forecast revenue, expenses, and KPIs from historical data. It also handles automated variance analysis, anomaly detection, and natural-language commentary generation. The CFO still owns assumptions; AI handles the calculation work.',
+        q: 'Does the integration sync vendor master data?',
+        a: 'Yes. Vendors created in either system appear in the other within minutes. Vendor updates flow both ways with conflict resolution rules you can configure.',
       },
       {
-        q: 'Can FP&A software handle multi-entity consolidation?',
-        a: 'Yes — modern FP&A software handles multi-entity consolidation, intercompany elimination, currency translation, and complex reporting structures natively.',
+        q: 'How are payment posts handled?',
+        a: 'Approved payments post to the GL automatically against the right account. Bank reconciliation matches the bank statement transactions against expected payments without manual work.',
       },
       {
-        q: 'How long does FP&A software take to implement?',
-        a: 'Typical implementation is 8-12 weeks for the first plan cycle. The biggest variable is data integration — clean source data accelerates implementation; messy data extends it.',
+        q: 'Can I use AP automation without an ERP?',
+        a: 'Yes, but with reduced functionality. Without an ERP, you lose 3-way matching (no PO source) and have to handle GL posting manually. For very small companies without an ERP, AP automation still helps with capture, approval, and payment execution.',
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // P8 — Workflow Automation clusters
+  // 9. Accounts Payable Software (alt commercial query)
   // ─────────────────────────────────────────────────────────────────
   {
-    pillar: 'financial-workflow-automation',
-    slug: 'rpa-in-finance',
-    primaryKeyword: 'rpa in finance',
+    pillar: 'accounts-payable-automation',
+    slug: 'accounts-payable-software',
+    primaryKeyword: 'accounts payable software',
     meta: {
-      title: 'RPA in Finance: Where It Wins, Where It Fails | FinMark.ai',
+      title: 'Accounts Payable Software: 2026 Buyer\'s Guide | FinMark.ai',
       description:
-        'A practical guide to RPA in finance. The high-value use cases, the limitations, and how intelligent process automation goes beyond what RPA alone can do.',
+        'A buyer\'s guide to modern accounts payable software. Categories, pricing models, evaluation criteria, and what separates real platforms from glorified OCR.',
     },
     hero: {
-      badge: 'RPA in Finance',
-      h1: 'RPA in Finance: Where It Wins, Where It Fails',
+      badge: 'Accounts Payable Software',
+      h1: 'Accounts Payable Software for Modern Finance Teams',
       subhead:
-        'A practical guide to robotic process automation in finance. The use cases that work, the limitations to watch out for, and how intelligent process automation extends RPA with AI.',
+        'A buyer\'s guide to choosing accounts payable software in 2026. The categories, the pricing models, the evaluation criteria, and the questions that matter.',
+    },
+    sections: [
+      {
+        kicker: 'The category',
+        heading: 'What "accounts payable software" actually covers',
+        body: [
+          'Accounts payable software is a broad category. At one end, it covers basic tools that just store and track invoices for manual processing. At the other end, it covers full automation platforms that handle the entire invoice-to-payment lifecycle. Both get marketed as "AP software" — but they are radically different products at different price points solving different problems.',
+          'Before evaluating vendors, it helps to be clear which subcategory you actually need. A 10-person startup processing 100 invoices a month does not need the same tool as a 500-person company processing 10,000 invoices a month. The features that matter for one are noise for the other.',
+        ],
+      },
+      {
+        kicker: 'Categories',
+        heading: 'The four categories of accounts payable software',
+        body: [
+          'Category 1: AP modules inside accounting software. QuickBooks, Xero, and NetSuite all have built-in AP functionality. Fine for low volume; limited automation.',
+          'Category 2: Bill pay tools. Bill.com is the canonical example. Focus is on payment scheduling and execution, with basic invoice capture and approval. Strong on the payment side, weaker on document AI.',
+          'Category 3: Full AP automation platforms. Standalone products that handle the full invoice lifecycle with strong AI. Examples include Tipalti, Stampli, AvidXchange, and FinMark.ai. Generally more capable and more expensive than bill pay tools.',
+          'Category 4: AP modules inside enterprise procurement suites. Coupa, SAP Ariba, Oracle Procurement Cloud. Built for large enterprises with complex procurement; overkill for most mid-market companies.',
+        ],
+      },
+      {
+        kicker: 'Pricing',
+        heading: 'How accounts payable software pricing actually works',
+        body: [
+          'Most modern AP software prices on transaction volume — typically a per-invoice fee or a tiered monthly fee based on volume bands. Some vendors add per-user fees on top, which gets expensive as the team grows. A few price purely on volume with no user fees, which scales better for growing finance teams.',
+          'When comparing prices, look at total cost: license + implementation + integration + ongoing support. Cheap licenses with expensive implementation often cost more than higher-licensed products with included implementation. Get the full picture before deciding.',
+        ],
+      },
+      {
+        kicker: 'Buying criteria',
+        heading: 'How to evaluate accounts payable software',
+        body: [
+          'Five criteria that matter most. (1) Document AI accuracy on real (not curated) invoices. (2) Direct integration with your specific ERP. (3) Configurable approval workflows. (4) Built-in fraud detection. (5) Time-to-value measured in weeks. A sixth criterion that is often underweighted: how the vendor handles the messy edge cases. Always run a paid pilot on your real invoices, not just a demo on theirs.',
+        ],
+      },
+    ],
+    relatedSiblings: ['ap-automation-software', 'ap-erp-integration', 'bill-pay-automation'],
+    crossPillarLink: null,
+    faqs: [
+      {
+        q: 'What is accounts payable software?',
+        a: 'Accounts payable software helps finance teams manage the AP workflow — invoice receipt, coding, approval, payment, and reconciliation. The category ranges from basic AP modules in accounting software to full AP automation platforms.',
+      },
+      {
+        q: 'How much does accounts payable software cost?',
+        a: 'Pricing varies enormously by category. Basic AP modules in accounting software are often included. Bill pay tools start at ~$50/month per user. Full AP automation platforms typically charge based on transaction volume, often $500-$5000+ per month depending on volume.',
+      },
+      {
+        q: 'What is the best AP software for small businesses?',
+        a: 'For small businesses, the AP module inside QuickBooks or Xero is often sufficient. As volume grows past a few hundred invoices a month, dedicated AP automation tools become cost-effective.',
+      },
+      {
+        q: 'What is the best AP software for mid-market companies?',
+        a: 'Mid-market companies (50-500 employees) typically benefit most from full AP automation platforms — Tipalti, Stampli, AvidXchange, FinMark.ai. The break-even point is usually 1,000+ invoices per month.',
+      },
+      {
+        q: 'How long does AP software take to implement?',
+        a: 'Modern AP automation goes live in 4-8 weeks for typical companies. The biggest variable is ERP integration complexity. Legacy or heavily customized ERPs add weeks to implementation.',
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // 10. Bill Pay Automation
+  // ─────────────────────────────────────────────────────────────────
+  {
+    pillar: 'accounts-payable-automation',
+    slug: 'bill-pay-automation',
+    primaryKeyword: 'bill pay automation',
+    meta: {
+      title: 'Bill Pay Automation for Finance Teams | FinMark.ai',
+      description:
+        'End-to-end bill pay automation that schedules payments, executes them on the right rail, and reconciles to the GL automatically.',
+    },
+    hero: {
+      badge: 'Bill Pay Automation',
+      h1: 'Bill Pay Automation for Finance Teams That Want to Stop Scheduling Payments by Hand',
+      subhead:
+        'Schedule, execute, and reconcile vendor payments automatically. ACH, wire, card, RTP, and check — all from one workflow with full audit trail.',
     },
     sections: [
       {
         kicker: 'What it is',
-        heading: 'What RPA actually is (and is not)',
+        heading: 'What bill pay automation actually does',
         body: [
-          'Robotic Process Automation is software that automates structured, repetitive tasks by mimicking the actions a human would take in a user interface — clicking buttons, copying fields between applications, running reports, sending emails. RPA bots run scripts that are essentially recorded macros: do this, then this, then this. They are predictable, fast, and brittle.',
-          'RPA is not AI. It does not learn. It does not handle exceptions. It does not understand the data it is moving around. It just executes the same scripted steps over and over. That sounds limiting, and it is — but for the right kinds of tasks, that limitation is actually a feature: predictable scripts are easier to audit and verify than ML models.',
+          'Bill pay automation is software that handles the payment side of accounts payable: scheduling vendor payments, executing them on the right rail, sending remittance information, and reconciling against the GL. It overlaps with broader AP automation but is often sold as a focused product for teams that already handle invoice capture and approval elsewhere.',
+          'The line between bill pay and full AP automation is blurry and getting blurrier. A few years ago, bill pay tools focused only on payment execution. Today, most also handle approval workflows and basic invoice capture. The distinction now is mostly about depth: bill pay tools optimize for payment execution; full AP automation optimizes for the end-to-end workflow.',
         ],
       },
       {
-        kicker: 'Where it wins',
-        heading: 'High-value RPA use cases in finance',
+        kicker: 'Why automate bill pay',
+        heading: 'Why finance teams automate bill pay',
         body: [
-          'RPA wins on tasks that are high-volume, structured, and stable: copying data between systems that do not have APIs, generating standard reports, running scheduled reconciliations, processing structured invoice formats from a known set of vendors, downloading bank statements and uploading them to the GL, and other "human-in-the-loop" tasks where the loop is mostly mechanical. For these tasks, an RPA bot is faster, cheaper, and more reliable than a human.',
-          'A well-deployed RPA program can save hundreds of analyst hours per week on the repetitive tail of finance work. The teams that have done this successfully treat RPA as a tactical tool, not a strategic platform.',
+          'Manual bill pay has three failure modes. First, slow payment execution — finance teams that schedule payments by hand often miss early-pay discounts and incur late fees. Second, error-prone reconciliation — matching bank transactions to AP records by hand is the slowest part of close. Third, fraud exposure — manual payment workflows are vulnerable to BEC attacks and vendor impersonation because there is no automated screening.',
+          'Bill pay automation solves all three. Payments execute on schedule automatically. Reconciliation happens in real time. Fraud screening runs on every payment before it goes out.',
         ],
       },
       {
-        kicker: 'Where it fails',
-        heading: 'Where RPA breaks down',
+        kicker: 'Multi-rail',
+        heading: 'How multi-rail bill pay works',
         body: [
-          'RPA fails the moment something unexpected happens. A new invoice format. A field name change. A pop-up dialog the script did not anticipate. An exception that requires judgment. The bot simply stops, and someone has to figure out what went wrong and fix the script. Companies that built large RPA programs on the promise of "automate everything" usually end up spending more time maintaining the bots than they ever saved by deploying them.',
-          'The fundamental limitation is that RPA cannot handle unstructured data or make judgment calls. Anything beyond strict scripts requires AI — which is what intelligent process automation (IPA) adds on top.',
+          'Modern bill pay automation maintains a payment profile for each vendor and routes payments to the right rail automatically. Most vendors take ACH (cheap, fast for domestic). High-value or urgent payments go via wire. Vendors that accept cards may get paid that way for the rebate. Some vendors only take checks (still common in certain industries). International vendors need cross-border rails. The system picks the right one for each payment based on vendor profile, amount, urgency, and your treasury policy.',
         ],
       },
       {
-        kicker: 'RPA + AI',
-        heading: 'How RPA evolves into intelligent process automation',
+        kicker: 'vs full AP',
+        heading: 'Bill pay vs full AP automation — when each makes sense',
         body: [
-          'Intelligent process automation combines RPA with machine learning, NLP, and decision automation. The RPA layer still handles the deterministic steps (open this app, click here, enter this value). The AI layer handles the messy parts (read this unstructured invoice, decide which exception path to take, classify this transaction). Together they handle workflows that pure RPA cannot.',
-          'FinMark.ai\'s workflow automation runs as IPA from the start: RPA for stable steps, AI for the parts that require judgment. The result is automation that holds up in production and gets better over time, instead of breaking the moment reality diverges from the script.',
+          'If you already have a working invoice capture and approval flow (whether through your ERP, a separate tool, or manual processes you are happy with), a focused bill pay tool may be all you need. If you want to automate the full lifecycle from invoice receipt to payment to reconciliation, you want a full AP automation platform.',
+          'The math usually tilts toward full AP automation as volume grows past 1,000-2,000 invoices per month, because the integration cost of running multiple tools starts to outweigh the savings from picking the best-of-breed for each step.',
         ],
       },
     ],
-    relatedSiblings: [],
-    crossPillarLink: {
-      pillarSlug: 'ai-financial-automation',
-      anchor: 'AI financial automation',
-    },
+    relatedSiblings: ['vendor-payment-automation', 'ap-automation-software', 'accounts-payable-software'],
+    crossPillarLink: null,
     faqs: [
       {
-        q: 'What is RPA in finance?',
-        a: 'RPA (Robotic Process Automation) is software that automates structured, repetitive finance tasks by mimicking human actions in user interfaces. It works well for tasks like copying data between systems, running reports, and processing structured invoice formats.',
+        q: 'What is bill pay automation?',
+        a: 'Bill pay automation is software that schedules, executes, and reconciles vendor payments automatically. It handles the payment side of AP — usually paired with separate tools for invoice capture and approval, or as part of a full AP automation platform.',
       },
       {
-        q: 'What is the difference between RPA and intelligent process automation?',
-        a: 'RPA executes hard-coded scripts and fails on exceptions. Intelligent process automation (IPA) combines RPA with AI — using ML and NLP to handle exceptions, unstructured data, and judgment-based decisions that pure RPA cannot.',
+        q: 'How is bill pay different from full AP automation?',
+        a: 'Bill pay focuses on payment execution; full AP automation handles the entire invoice-to-payment lifecycle. Bill pay tools are simpler and cheaper but require you to handle invoice capture and approval elsewhere. Full AP automation is more capable but more comprehensive.',
       },
       {
-        q: 'Where does RPA fail?',
-        a: 'RPA fails when the underlying system changes, when invoice formats vary, when exceptions require judgment, or when data is unstructured. Large RPA programs often spend more on maintenance than they save in labor — which is why most modern automation combines RPA with AI.',
+        q: 'What payment methods does bill pay automation support?',
+        // TODO: Update with rails you actually support
+        a: 'ACH, wire, card, RTP, and check for domestic payments. International payments via SWIFT and other cross-border rails. Multi-currency support included.',
       },
       {
-        q: 'Should I still invest in RPA?',
-        a: 'Yes — for the right use cases. RPA is the right tool for high-volume, stable, structured tasks. It is the wrong tool for anything requiring judgment or handling unstructured data. Most successful finance automation programs use both RPA and AI together.',
+        q: 'How does bill pay automation handle reconciliation?',
+        a: 'Payments post to the GL automatically when executed. Bank transactions match against expected payments in real time. Mismatches surface for review with full context attached.',
       },
       {
-        q: 'How does FinMark.ai approach RPA?',
-        a: 'FinMark.ai uses RPA for the deterministic steps in workflows where determinism matters, and AI for the parts that need judgment. The two work together as one intelligent process automation system, not separate tools.',
+        q: 'Is bill pay automation safe?',
+        a: 'Yes — when configured properly. Modern bill pay automation includes fraud screening on every payment, vendor master controls (multi-factor approval for bank detail changes), and full audit trails. The combination is dramatically safer than manual bill pay, which is vulnerable to BEC attacks and human error.',
       },
     ],
   },

@@ -51,18 +51,18 @@ export default function CTA() {
             <div className="mb-6">
               <span className="inline-flex items-center gap-2 rounded-full border border-electric/20 bg-electric/5 px-4 py-1.5 text-sm text-electric-light">
                 <Zap size={14} />
-                Limited Time Offer
+                Get Started
               </span>
             </div>
 
             <h2 className="relative font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
-              Ready to Transform Your{' '}
-              <span className="gradient-text">Financial Operations</span>?
+              Ready to Automate{' '}
+              <span className="gradient-text">Your AP Workflow</span>?
             </h2>
 
             <p className="relative mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
-              Join 150+ enterprises already using Finmark to automate, predict,
-              and scale their financial workflows.
+              See FinMark.ai in action. Book a 30-minute demo and we'll walk you
+              through the platform live, with your data.
             </p>
 
             <div className="relative mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

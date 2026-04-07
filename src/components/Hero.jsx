@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useCallback, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { ArrowRight, Sparkles, Brain, Shield, TrendingUp } from 'lucide-react'
+import { ArrowRight, Sparkles, FileSearch, CheckSquare, CreditCard } from 'lucide-react'
 import GradientButton from './ui/GradientButton'
 import ReifyCard from './ui/ReifyCard'
 import FloatingElement from './ui/FloatingElement'
@@ -70,19 +70,19 @@ function GearBrainSVG() {
 
 const CARDS = [
   {
-    icon: Brain,
-    title: 'AI Analytics',
-    desc: 'Deep learning models analyze transactions in real-time.',
+    icon: FileSearch,
+    title: 'AI Invoice Capture',
+    desc: 'Read any invoice format with 95%+ accuracy. No templates required.',
   },
   {
-    icon: Shield,
-    title: 'Smart Compliance',
-    desc: 'Automated regulatory monitoring across jurisdictions.',
+    icon: CheckSquare,
+    title: 'Auto 3-Way Matching',
+    desc: 'Match invoices to POs and receipts automatically. Catch errors early.',
   },
   {
-    icon: TrendingUp,
-    title: 'Predictive Forecasting',
-    desc: 'Forecast cash flows with institutional-grade accuracy.',
+    icon: CreditCard,
+    title: 'Multi-Rail Payments',
+    desc: 'Pay vendors on the right rail — ACH, wire, card, RTP, or check.',
   },
 ]
 
@@ -127,18 +127,18 @@ function MobileHero() {
       <div className="relative z-10 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 text-xs font-medium text-electric-light mb-6">
           <Sparkles size={12} />
-          AI-Powered Unified Infrastructure
+          AI Accounts Payable Automation
         </span>
 
         <h1 className="font-display text-[2rem] font-bold leading-[0.95] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-          The Future of
+          AI Accounts Payable
           <br />
-          <span className="gradient-text">Financial and Operational</span>{' '}
-          <TypewriterCycle words={['Automation', 'Intelligence', 'Analytics', 'Compliance']} />
+          <span className="gradient-text">From Invoice to</span>{' '}
+          <TypewriterCycle words={['Payment', 'Approval', 'GL Posting', 'Reconciliation']} />
         </h1>
 
         <p className="mt-5 max-w-2xl mx-auto text-base text-gray-400 leading-relaxed">
-          Automate what slows you down.
+          Capture, code, approve, and pay every invoice automatically.
         </p>
 
         <div className="mt-6 flex flex-col items-center gap-3">
@@ -252,17 +252,17 @@ function DesktopHero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-electric-light mb-6 sm:mb-8 backdrop-blur-sm">
               <Sparkles size={14} />
-              AI-Powered Unified Infrastructure
+              AI Accounts Payable Automation
             </span>
           </motion.div>
 
           <h1 className="font-display text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] font-bold leading-[0.9] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-            <AnimatedWords delay={0.4}>The Future of</AnimatedWords>
+            <AnimatedWords delay={0.4}>AI Accounts Payable</AnimatedWords>
             <br />
             <span className="gradient-text">
-              <AnimatedWords delay={0.7}>Financial and Operational</AnimatedWords>
+              <AnimatedWords delay={0.7}>From Invoice to</AnimatedWords>
             </span>{' '}
-            <TypewriterCycle words={['Automation', 'Intelligence', 'Analytics', 'Compliance']} />
+            <TypewriterCycle words={['Payment', 'Approval', 'GL Posting', 'Reconciliation']} />
           </h1>
 
           <motion.p
@@ -271,8 +271,7 @@ function DesktopHero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-5 sm:mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed"
           >
-            Automate what slows you down.
-
+            Capture, code, approve, and pay every invoice automatically.
           </motion.p>
 
           <motion.div
