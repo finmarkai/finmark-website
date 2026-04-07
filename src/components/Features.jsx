@@ -102,12 +102,12 @@ export default function Features() {
         <div className="text-center mb-20">
           {isMobile ? (
             <>
-              <GlowBadge>Features</GlowBadge>
+              <GlowBadge>Today's Product</GlowBadge>
               <h2 className="mt-5 font-display text-4xl font-bold text-white tracking-tight">
-                AI for <span className="gradient-text">Every Step of AP</span>
+                What FinMark.ai <span className="gradient-text">Ships Today</span>
               </h2>
               <p className="mt-5 max-w-2xl mx-auto text-lg text-gray-400">
-                FinMark.ai handles the full invoice-to-payment lifecycle with AI built in at every step — capture, coding, matching, approval, payment, and reconciliation.
+                Our first product is AI-powered accounts payable automation. AI does the parts that need AI — invoice extraction. Rules and ERP integrations do the rest. Together they replace the manual AP work that consumes most of a finance team's week.
               </p>
             </>
           ) : (
@@ -118,7 +118,7 @@ export default function Features() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <GlowBadge>Features</GlowBadge>
+                <GlowBadge>Today's Product</GlowBadge>
               </motion.div>
               <motion.h2
                 initial={{ opacity: 0, y: 30 }}
@@ -127,7 +127,7 @@ export default function Features() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight"
               >
-                AI for <span className="gradient-text">Every Step of AP</span>
+                What FinMark.ai <span className="gradient-text">Ships Today</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ export default function Features() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mt-5 max-w-2xl mx-auto text-lg text-gray-400"
               >
-                FinMark.ai handles the full invoice-to-payment lifecycle with AI built in at every step — capture, coding, matching, approval, payment, and reconciliation.
+                Our first product is AI-powered accounts payable automation. AI does the parts that need AI — invoice extraction. Rules and ERP integrations do the rest. Together they replace the manual AP work that consumes most of a finance team's week.
               </motion.p>
             </>
           )}

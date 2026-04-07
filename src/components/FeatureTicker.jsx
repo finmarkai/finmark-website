@@ -3,13 +3,13 @@ import { useRef } from 'react'
 
 const KEYWORDS = [
   'AI Invoice Capture',
-  'Built for African Enterprise',
-  'Microsoft Dynamics NAV',
-  'Nigerian WHT',
+  'Direct ERP Integration',
+  'Two-Model Extraction',
+  'Withholding Tax',
   '3-Way Matching',
+  'SOAP & REST APIs',
   'Group Companies',
   'Live in Production',
-  'Audit-Ready',
 ]
 
 function DiamondSeparator() {

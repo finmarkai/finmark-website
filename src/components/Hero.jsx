@@ -46,17 +46,17 @@ const CARDS = [
   {
     icon: Brain,
     title: 'AI Invoice Extraction',
-    desc: 'Reads any invoice format your vendors send. No per-vendor templates.',
+    desc: 'Two AI models read every invoice and verify each other. High accuracy on any vendor format, no templates.',
   },
   {
     icon: Receipt,
-    title: 'Nigerian WHT Built In',
-    desc: 'Withholding Tax computed and pushed to NAV automatically. The killer feature.',
+    title: 'Withholding Tax, Built In',
+    desc: 'WHT computed automatically per local regulations and pushed back to your ERP alongside the invoice.',
   },
   {
     icon: Database,
-    title: 'Microsoft Dynamics NAV',
-    desc: 'Direct integration with your on-premise NAV. Built for the African enterprise reality.',
+    title: 'Direct ERP Integration',
+    desc: 'Connect via SOAP and REST APIs. Approved invoices flow straight into your ERP, ready to post.',
   },
 ]
 
@@ -101,17 +101,17 @@ function MobileHero() {
       <div className="relative z-10 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 text-xs font-medium text-electric-light mb-6">
           <Sparkles size={12} />
-          Live in Production at TGI Group
+          Live in Production
         </span>
 
         <h1 className="font-display text-[2rem] font-bold leading-[0.95] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-          Financial Automation for
+          AI Financial
           <br />
-          <span className="gradient-text">African Enterprise</span>
+          <span className="gradient-text">Automation</span>
         </h1>
 
         <p className="mt-5 max-w-2xl mx-auto text-base text-gray-400 leading-relaxed">
-          Today: AI Accounts Payable for Microsoft Dynamics NAV. Nigerian Withholding Tax computed automatically. Live in production at TGI Group.
+          FinMark.ai builds intelligent automation for modern finance teams. Today's product: AI accounts payable for enterprises running ERPs like Microsoft Dynamics NAV. Live in production at TGI Group.
         </p>
 
         <div className="mt-6 flex flex-col items-center gap-3">
@@ -225,14 +225,14 @@ function DesktopHero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-electric-light mb-6 sm:mb-8 backdrop-blur-sm">
               <Sparkles size={14} />
-              Live in Production at TGI Group
+              Live in Production
             </span>
           </motion.div>
 
           <h1 className="font-display text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] font-bold leading-[0.9] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-            Financial Automation for
+            AI Financial
             <br />
-            <span className="gradient-text">African Enterprise</span>
+            <span className="gradient-text">Automation</span>
           </h1>
 
           <motion.p
@@ -241,7 +241,7 @@ function DesktopHero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-5 sm:mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed"
           >
-            Today: AI Accounts Payable for Microsoft Dynamics NAV. Nigerian Withholding Tax computed automatically. Live in production at TGI Group.
+            FinMark.ai builds intelligent automation for modern finance teams. Today's product: AI accounts payable for enterprises running ERPs like Microsoft Dynamics NAV. Live in production at TGI Group.
           </motion.p>
 
           <motion.div

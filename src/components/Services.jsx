@@ -105,10 +105,10 @@ export default function Services() {
             <>
               <GlowBadge>Capabilities</GlowBadge>
               <h2 className="mt-5 font-display text-4xl font-bold text-white tracking-tight">
-                Everything You Need for <span className="gradient-text">Modern AP</span>
+                Everything in <span className="gradient-text">One Platform</span>
               </h2>
               <p className="mt-5 max-w-2xl mx-auto text-lg text-gray-400">
-                A complete AP automation platform — capture, matching, approval, payment, fraud detection, and ERP integration — all in one product.
+                AI invoice extraction, ERP integration, smart matching, approval workflows, withholding tax automation, and a multi-tenant platform for group companies — all in one product, live in production.
               </p>
             </>
           ) : (
@@ -127,7 +127,7 @@ export default function Services() {
                 transition={{ delay: 0.1, duration: 0.6 }}
                 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight"
               >
-                Everything You Need for <span className="gradient-text">Modern AP</span>
+                Everything in <span className="gradient-text">One Platform</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ export default function Services() {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="mt-5 max-w-2xl mx-auto text-lg text-gray-400"
               >
-                A complete AP automation platform — capture, matching, approval, payment, fraud detection, and ERP integration — all in one product.
+                AI invoice extraction, ERP integration, smart matching, approval workflows, withholding tax automation, and a multi-tenant platform for group companies — all in one product, live in production.
               </motion.p>
             </>
           )}

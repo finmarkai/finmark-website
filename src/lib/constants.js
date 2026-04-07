@@ -16,34 +16,34 @@ export const NAV_LINKS = [
 ]
 
 // Single-product navbar dropdown — links to AP cluster pages.
-// FinMark.ai builds AP automation specifically for Nigerian enterprise running
-// Microsoft Dynamics NAV. Descriptions are outcome-focused, not implementation
-// details. The buyer cares what they get, not how it's built internally.
+// Descriptions are outcome-focused and use generic "ERP" language so the
+// dropdown reads as a product overview rather than a NAV-specific brochure.
+// The pillar/cluster pages can be more specific where SEO targeting matters.
 export const PLATFORM_LINKS = [
   {
     label: 'Invoice Processing',
     to: '/accounts-payable-automation/invoice-processing-automation',
-    description: 'From PDF to NAV, hands-free.',
+    description: 'From PDF to ERP, hands-free.',
   },
   {
     label: 'AI Invoice Extraction',
     to: '/accounts-payable-automation/ai-invoice-extraction',
-    description: 'Read any invoice format, no templates.',
+    description: 'Two models read every invoice for accuracy.',
   },
   {
     label: '3-Way Matching',
     to: '/accounts-payable-automation/3-way-matching',
-    description: 'Match invoices to POs and GRNs from NAV.',
+    description: 'Match invoices to POs and goods receipts.',
   },
   {
-    label: 'Nigerian WHT Automation',
+    label: 'Withholding Tax Automation',
     to: '/accounts-payable-automation/nigerian-withholding-tax-automation',
-    description: 'WHT computed and pushed to NAV automatically.',
+    description: 'WHT computed and pushed to your ERP.',
   },
   {
-    label: 'Microsoft Dynamics NAV',
+    label: 'ERP Integration',
     to: '/accounts-payable-automation/microsoft-dynamics-nav-integration',
-    description: 'Direct integration with on-premise NAV.',
+    description: 'Direct integration via SOAP and REST APIs.',
   },
   {
     label: 'SharePoint Integration',
@@ -62,106 +62,109 @@ export const PLATFORM_LINKS = [
   },
 ]
 
-// FEATURES — outcome-focused, not implementation porn.
-// What the buyer gets, not what's under the hood.
+// FEATURES — outcome-focused. AI claims are honest about scope:
+// - Extraction is genuinely AI (two-model verification approach).
+// - Matching, approval, WHT, ERP integration are deterministic rules + sync.
+// We don't claim "AI everywhere" because that would be a lie. We claim AI
+// where AI actually delivers and rules-based automation where rules deliver.
 export const FEATURES = [
   {
     icon: Brain,
     title: 'AI Invoice Extraction',
     description:
-      'Reads any invoice format your vendors send — PDFs, scans, photos, emails. No per-vendor template setup. Sustained high accuracy on real-world invoices in production.',
+      'Two AI models read every invoice and verify each other\'s extraction before the data flows downstream. High accuracy on any vendor format, no per-vendor templates required.',
   },
   {
     icon: Database,
-    title: 'Direct NAV Integration',
+    title: 'Direct ERP Integration',
     description:
-      'Approved invoices flow straight into your Microsoft Dynamics NAV instance with all the fields populated. No manual rekeying. No middleware to babysit.',
+      'Connect via SOAP and REST APIs. POs and goods receipts sync into FinMark.ai; approved invoices push back into your ERP with all the fields populated, ready to post.',
   },
   {
     icon: Receipt,
-    title: 'Nigerian Withholding Tax, Built In',
+    title: 'Withholding Tax, Built In',
     description:
-      'WHT computed automatically per the latest Nigerian regulations and pushed to NAV alongside the invoice. The killer feature US-built AP tools simply do not have.',
+      'Withholding Tax computed automatically and pushed back to your ERP alongside the invoice. Currently optimized for the Nigerian 2024 regulations; other regions on the roadmap.',
   },
   {
     icon: CheckSquare,
     title: 'Smart Matching',
     description:
-      'Auto-match invoices against POs and GRNs from NAV. Handles the messy real-world cases — telecom invoices, marketing line items, partial receipts — without manual workarounds.',
+      'Auto-match invoices against POs and goods receipts from your ERP using configurable tolerances. Handles the messy real-world cases — telecom invoices, marketing line items, partial receipts — without manual workarounds.',
   },
   {
     icon: FolderTree,
     title: 'SharePoint as Your Repository',
     description:
-      'If your vendors send to SharePoint, FinMark.ai picks them up automatically. If you upload through the portal, the documents go back to SharePoint. One source of truth, no migration.',
+      'Pick up new invoices from your SharePoint folders automatically. Portal uploads write back to SharePoint. One source of truth, no migration.',
   },
   {
     icon: Building2,
     title: 'Built for Group Companies',
     description:
-      'Run multiple subsidiaries on one platform with full data isolation. The parent group sees everything; each subsidiary stays independent. Standard architecture, not an afterthought.',
+      'Run multiple subsidiaries on one platform with full data isolation between them and a cross-company admin view for the parent group. Each subsidiary stays independent.',
   },
 ]
 
-// HOW_IT_WORKS — three steps the buyer cares about, not eight stages of internal pipeline.
+// HOW_IT_WORKS — honest about what's AI vs what's not.
 export const HOW_IT_WORKS = [
   {
     step: '01',
     title: 'Invoices Arrive',
     description:
-      'Vendors send invoices to your SharePoint folder, or upload through the FinMark.ai portal. Whatever format they use, the platform picks them up automatically and reads them.',
+      'Vendors send invoices to your SharePoint folder, or upload through the FinMark.ai portal. Whatever format they use, the platform picks them up automatically and reads them with two AI models that verify each other\'s work.',
   },
   {
     step: '02',
-    title: 'AI Does the Work',
+    title: 'Validated, Matched, and Routed',
     description:
-      'Extraction, GL coding, PO and GRN matching, sanity checks, and Nigerian Withholding Tax computation all happen automatically. Only the genuine exceptions reach a human, and they reach the right human with full context attached.',
+      'Each invoice is matched against POs and goods receipts from your ERP, validated against rule-based sanity checks, run through the WHT computation, and routed to the right approver. Only the genuine exceptions reach a human, and they reach the right one with full context attached.',
   },
   {
     step: '03',
-    title: 'Approved, Posted to NAV',
+    title: 'Approved and Posted to Your ERP',
     description:
-      'Configurable approval workflows route each invoice to the right approver. Approved invoices push straight into Microsoft Dynamics NAV with every field populated, ready to post. Your AP team stops rekeying and starts reviewing.',
+      'Approved invoices push straight into your ERP with every field populated, ready to post. Your AP team stops rekeying and starts reviewing.',
   },
 ]
 
-// SERVICES — same outcome-focused approach as FEATURES.
+// SERVICES — same honest framing as FEATURES.
 export const SERVICES = [
   {
     icon: FileSearch,
     title: 'AI Invoice Capture',
     description:
-      'Read invoices in any format your vendors send. No templates, no per-vendor setup, accuracy that holds up on the messy real-world documents.',
+      'Two AI models read each invoice and verify the extraction before it flows downstream. High accuracy on any vendor format with no template setup.',
   },
   {
     icon: CheckSquare,
     title: 'PO & GRN Matching',
     description:
-      'Auto-match invoices against your purchase orders and goods receipts from NAV. Handles lump-sum and ratio-based matching for telecom and marketing categories.',
+      'Auto-match invoices against purchase orders and goods receipts from your ERP. Configurable tolerances. Handles lump-sum and ratio-based matching for telecom and marketing categories.',
   },
   {
     icon: Receipt,
-    title: 'Nigerian WHT',
+    title: 'Withholding Tax',
     description:
-      'Withholding Tax computed automatically per the latest Nigerian regulations. The numbers are right, the certificates are filable, the audit trail is clean.',
+      'WHT computed automatically and pushed to your ERP alongside the invoice. Currently optimized for the Nigerian 2024 regulations; other regions on the roadmap.',
   },
   {
     icon: Database,
-    title: 'NAV Integration',
+    title: 'ERP Integration',
     description:
-      'Direct integration with your on-premise Microsoft Dynamics NAV. POs, GRNs, vendor master, and approved invoices all flow between FinMark.ai and NAV automatically.',
+      'Direct integration via SOAP and REST APIs. Bidirectional sync of POs, goods receipts, vendor master, and approved invoices. Built for on-premise and cloud ERPs.',
   },
   {
     icon: FolderTree,
-    title: 'SharePoint as Repository',
+    title: 'SharePoint Repository',
     description:
-      'Use SharePoint as your AP document repository. FinMark.ai reads invoices in and writes portal uploads back. Your existing IT governance stays intact.',
+      'Use SharePoint as your AP document repository. We read invoices in and write portal uploads back. Your existing IT governance stays intact.',
   },
   {
     icon: Building2,
     title: 'Multi-Subsidiary Platform',
     description:
-      'Run multiple subsidiaries on one platform with full data isolation and a cross-company admin view for the parent group. Designed for African enterprise group structures.',
+      'Run multiple subsidiaries on one platform with full data isolation and a cross-company admin view. Designed for group company structures with multiple legal entities.',
   },
 ]
 
