@@ -11,31 +11,6 @@ const HeroScene = lazy(() => import('./3d/HeroScene'))
 
 const LOGO_COLOR = '#7DD3FC'
 
-function AnimatedWords({ children, delay = 0 }) {
-  const words = children.split(' ')
-  return (
-    <span>
-      {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.25em] last:mr-0">
-          <motion.span
-            className="inline-block"
-            initial={{ y: '120%', rotateX: -80, opacity: 0 }}
-            animate={{ y: '0%', rotateX: 0, opacity: 1 }}
-            transition={{
-              duration: 0.8,
-              delay: delay + i * 0.08,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            style={{ transformOrigin: 'bottom center' }}
-          >
-            {word}
-          </motion.span>
-        </span>
-      ))}
-    </span>
-  )
-}
-
 function GearBrainSVG() {
   return (
     <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
@@ -255,11 +230,9 @@ function DesktopHero() {
           </motion.div>
 
           <h1 className="font-display text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] font-bold leading-[0.9] text-white tracking-[-0.03em] max-w-5xl mx-auto">
-            <AnimatedWords delay={0.4}>AP Automation for</AnimatedWords>
+            AP Automation for
             <br />
-            <span className="gradient-text">
-              <AnimatedWords delay={0.7}>Microsoft Dynamics NAV</AnimatedWords>
-            </span>
+            <span className="gradient-text">Microsoft Dynamics NAV</span>
           </h1>
 
           <motion.p
