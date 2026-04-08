@@ -7,7 +7,7 @@ const FOUNDERS = [
   {
     name: 'Arin Soni',
     initials: 'AS',
-    role: 'Co-founder & CTO',
+    role: 'Co-founder',
     bio: 'Builds the product. Wrote most of the code FinMark.ai runs on, including the AI invoice extraction pipeline, the NAV middleware integration, and the multi-tenant architecture that runs TGI Group\'s subsidiaries on isolated subdomains. Spends his weeks split between Lagos and his laptop.',
   },
   {

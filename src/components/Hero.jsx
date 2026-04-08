@@ -46,17 +46,17 @@ const CARDS = [
   {
     icon: Brain,
     title: 'AI Invoice Extraction',
-    desc: 'Two AI models read every invoice and verify each other. High accuracy on any vendor format, no templates.',
+    desc: 'Two models read each invoice and verify each other.',
   },
   {
     icon: Receipt,
     title: 'Withholding Tax, Built In',
-    desc: 'WHT computed automatically per local regulations and pushed back to your ERP alongside the invoice.',
+    desc: 'Computed automatically and pushed to your ERP.',
   },
   {
     icon: Database,
     title: 'Direct ERP Integration',
-    desc: 'Connect via SOAP and REST APIs. Approved invoices flow straight into your ERP, ready to post.',
+    desc: 'Connect via SOAP and REST APIs, ready to post.',
   },
 ]
 
@@ -101,7 +101,7 @@ function MobileHero() {
       <div className="relative z-10 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 text-xs font-medium text-electric-light mb-6">
           <Sparkles size={12} />
-          Live in Production
+          Automate what slows you down
         </span>
 
         <h1 className="font-display text-[2rem] font-bold leading-[0.95] text-white tracking-[-0.03em] max-w-5xl mx-auto">
@@ -111,13 +111,13 @@ function MobileHero() {
         </h1>
 
         <p className="mt-5 max-w-2xl mx-auto text-base text-gray-400 leading-relaxed">
-          FinMark.ai builds intelligent automation for modern finance teams. Today's product: AI accounts payable for enterprises running ERPs like Microsoft Dynamics NAV. Live in production at TGI Group.
+          AI accounts payable for finance teams. Live in production with TGI Group.
         </p>
 
         <div className="mt-6 flex flex-col items-center gap-3">
           <Link to="/demo">
             <GradientButton className="text-sm px-7 py-3 flex items-center gap-2">
-              Book a 30-min call <ArrowRight size={16} />
+              Get a demo <ArrowRight size={16} />
             </GradientButton>
           </Link>
         </div>
@@ -225,7 +225,7 @@ function DesktopHero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/[0.08] px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium text-electric-light mb-6 sm:mb-8 backdrop-blur-sm">
               <Sparkles size={14} />
-              Live in Production
+              Automate what slows you down
             </span>
           </motion.div>
 
@@ -241,7 +241,7 @@ function DesktopHero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-5 sm:mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed"
           >
-            FinMark.ai builds intelligent automation for modern finance teams. Today's product: AI accounts payable for enterprises running ERPs like Microsoft Dynamics NAV. Live in production at TGI Group.
+            AI accounts payable for finance teams. Live in production with TGI Group.
           </motion.p>
 
           <motion.div
@@ -252,7 +252,7 @@ function DesktopHero() {
           >
             <Link to="/demo">
               <GradientButton className="text-sm sm:text-base px-7 py-3 sm:px-10 sm:py-4 flex items-center gap-2">
-                Book a 30-min call <ArrowRight size={16} />
+                Get a demo <ArrowRight size={16} />
               </GradientButton>
             </Link>
           </motion.div>
