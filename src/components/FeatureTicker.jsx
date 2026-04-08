@@ -2,14 +2,13 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 const KEYWORDS = [
-  'AI Invoice Capture',
-  'Direct ERP Integration',
-  'Two-Model Extraction',
-  'Withholding Tax',
-  '3-Way Matching',
-  'SOAP & REST APIs',
-  'Group Companies',
+  'AI Financial Automation',
+  'Automate what slows you down',
+  'Built for Finance Teams',
+  'Enterprise-Grade',
   'Live in Production',
+  'Modern Finance Stack',
+  'FinMark.ai',
 ]
 
 function DiamondSeparator() {

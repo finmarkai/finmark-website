@@ -56,19 +56,18 @@ export default function CTA() {
             </div>
 
             <h2 className="relative font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
-              Ready to Automate{' '}
-              <span className="gradient-text">Your AP Workflow</span>?
+              Automate{' '}
+              <span className="gradient-text">What Slows You Down</span>
             </h2>
 
             <p className="relative mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
-              See FinMark.ai in action. Book a 30-minute demo and we'll walk you
-              through the platform live, with your data.
+              Get a demo and see what FinMark.ai is building for modern finance teams.
             </p>
 
             <div className="relative mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/demo">
                 <GradientButton className="text-base px-8 py-4 flex items-center gap-2">
-                  Get Started Free <ArrowRight size={18} />
+                  Get a demo <ArrowRight size={18} />
                 </GradientButton>
               </Link>
               <Link to="/pricing">
