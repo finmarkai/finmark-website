@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useCallback, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { ArrowRight, Sparkles, Brain, Receipt, Database } from 'lucide-react'
+import { ArrowRight, Sparkles, Brain, Shield, TrendingUp } from 'lucide-react'
 import GradientButton from './ui/GradientButton'
 import ReifyCard from './ui/ReifyCard'
 import FloatingElement from './ui/FloatingElement'
@@ -45,18 +45,18 @@ function GearBrainSVG() {
 const CARDS = [
   {
     icon: Brain,
-    title: 'AI Invoice Extraction',
-    desc: 'Two models read each invoice and verify each other.',
+    title: 'AI Analytics',
+    desc: 'Deep learning models analyze transactions in real-time.',
   },
   {
-    icon: Receipt,
-    title: 'Withholding Tax, Built In',
-    desc: 'Computed automatically and pushed to your ERP.',
+    icon: Shield,
+    title: 'Smart Compliance',
+    desc: 'Automated regulatory monitoring across jurisdictions.',
   },
   {
-    icon: Database,
-    title: 'Direct ERP Integration',
-    desc: 'Connect via SOAP and REST APIs, ready to post.',
+    icon: TrendingUp,
+    title: 'Predictive Forecasting',
+    desc: 'Forecast cash flows with institutional-grade accuracy.',
   },
 ]
 
