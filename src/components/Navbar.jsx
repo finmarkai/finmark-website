@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
-import { Menu, X, ChevronDown } from 'lucide-react'
-import { NAV_LINKS, PLATFORM_LINKS } from '../lib/constants'
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
+import { NAV_LINKS, PRODUCTS } from '../lib/constants'
 import GradientButton from './ui/GradientButton'
 
 export default function Navbar() {
@@ -75,7 +75,7 @@ export default function Navbar() {
                 onClick={() => setPlatformOpen(!platformOpen)}
                 aria-expanded={platformOpen}
               >
-                Product
+                Products
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-200 ${platformOpen ? 'rotate-180' : ''}`}
@@ -88,25 +88,57 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[640px] glass-strong rounded-2xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[680px] glass-strong rounded-2xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden"
                   >
-                    <div className="grid grid-cols-2 gap-1 p-3">
-                      {PLATFORM_LINKS.map((link) => (
+                    {PRODUCTS.map((product) => (
+                      <div key={product.to} className="p-5">
+                        {/* Product header — clickable, goes to the pillar page */}
                         <Link
-                          key={link.to}
-                          to={link.to}
+                          to={product.to}
                           onClick={() => setPlatformOpen(false)}
-                          className="group flex flex-col gap-1 rounded-xl px-4 py-3 hover:bg-white/[0.04] transition-colors"
+                          className="group flex items-start justify-between gap-4 rounded-xl px-4 py-3 mb-3 bg-gradient-to-r from-electric/[0.08] to-purple/[0.05] border border-electric/20 hover:border-electric/40 transition-all"
                         >
-                          <span className="text-sm font-medium text-white group-hover:text-electric-light transition-colors">
-                            {link.label}
-                          </span>
-                          <span className="text-xs text-gray-500 leading-relaxed">
-                            {link.description}
-                          </span>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-semibold text-white group-hover:text-electric-light transition-colors">
+                                {product.label}
+                              </span>
+                              {product.badge && (
+                                <span className="inline-flex items-center gap-1 rounded-full bg-electric/15 border border-electric/30 px-2 py-0.5 text-[10px] font-medium text-electric-light uppercase tracking-wider">
+                                  {product.badge}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs text-gray-500 leading-relaxed mt-1">
+                              {product.description}
+                            </p>
+                          </div>
+                          <ArrowRight
+                            size={14}
+                            className="text-electric-light opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all mt-1"
+                          />
                         </Link>
-                      ))}
-                    </div>
+
+                        {/* Features list under the product */}
+                        <div className="grid grid-cols-2 gap-1">
+                          {product.features.map((f) => (
+                            <Link
+                              key={f.to}
+                              to={f.to}
+                              onClick={() => setPlatformOpen(false)}
+                              className="group/item flex flex-col gap-0.5 rounded-lg px-3 py-2 hover:bg-white/[0.04] transition-colors"
+                            >
+                              <span className="text-xs font-medium text-gray-300 group-hover/item:text-white transition-colors">
+                                {f.label}
+                              </span>
+                              <span className="text-[11px] text-gray-600 leading-relaxed">
+                                {f.description}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -162,17 +194,35 @@ export default function Navbar() {
           >
             <div className="px-4 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
               <p className="px-3 pt-2 pb-1 text-xs uppercase tracking-[0.18em] text-gray-600">
-                Product
+                Products
               </p>
-              {PLATFORM_LINKS.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setMobileOpen(false)}
-                  className="block rounded-lg px-3 py-2 text-gray-300 hover:text-white hover:bg-white/[0.04] transition-colors text-sm"
-                >
-                  {link.label}
-                </Link>
+              {PRODUCTS.map((product) => (
+                <div key={product.to} className="mb-3">
+                  <Link
+                    to={product.to}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 rounded-lg px-3 py-2 text-white font-medium hover:bg-white/[0.04] transition-colors text-sm"
+                  >
+                    {product.label}
+                    {product.badge && (
+                      <span className="inline-flex items-center rounded-full bg-electric/15 border border-electric/30 px-2 py-0.5 text-[10px] font-medium text-electric-light uppercase tracking-wider">
+                        {product.badge}
+                      </span>
+                    )}
+                  </Link>
+                  <div className="pl-4 mt-1 space-y-0.5 border-l border-white/[0.06] ml-5">
+                    {product.features.map((f) => (
+                      <Link
+                        key={f.to}
+                        to={f.to}
+                        onClick={() => setMobileOpen(false)}
+                        className="block rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:bg-white/[0.04] transition-colors text-xs"
+                      >
+                        {f.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               ))}
               <div className="h-px bg-white/5 my-3" />
               <p className="px-3 pb-1 text-xs uppercase tracking-[0.18em] text-gray-600">Company</p>

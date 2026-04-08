@@ -9,58 +9,71 @@ import {
 } from 'lucide-react'
 
 export const NAV_LINKS = [
-  { label: 'Product', to: '/accounts-payable-automation' },
   { label: 'About', to: '/about' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'Contact', to: '/contact' },
 ]
 
-// Single-product navbar dropdown — links to AP cluster pages.
-// Descriptions are outcome-focused and use generic "ERP" language so the
-// dropdown reads as a product overview rather than a NAV-specific brochure.
-// The pillar/cluster pages can be more specific where SEO targeting matters.
-export const PLATFORM_LINKS = [
+// Nested product structure for the navbar "Products" dropdown.
+// Today there is one product (Accounts Payable). Each product has
+// a set of features that show as sub-items in the dropdown.
+// When more products ship, append new entries here and the dropdown
+// expands automatically.
+export const PRODUCTS = [
   {
-    label: 'Invoice Processing',
-    to: '/accounts-payable-automation/invoice-processing-automation',
-    description: 'From PDF to ERP, hands-free.',
+    label: 'Accounts Payable',
+    to: '/accounts-payable-automation',
+    description: 'AI-powered AP automation. Live in production.',
+    badge: 'Live',
+    features: [
+      {
+        label: 'Invoice Processing',
+        to: '/accounts-payable-automation/invoice-processing-automation',
+        description: 'From PDF to ERP, hands-free.',
+      },
+      {
+        label: 'AI Invoice Extraction',
+        to: '/accounts-payable-automation/ai-invoice-extraction',
+        description: 'Two models read every invoice for accuracy.',
+      },
+      {
+        label: '3-Way Matching',
+        to: '/accounts-payable-automation/3-way-matching',
+        description: 'Match invoices to POs and goods receipts.',
+      },
+      {
+        label: 'Withholding Tax Automation',
+        to: '/accounts-payable-automation/nigerian-withholding-tax-automation',
+        description: 'WHT computed and pushed to your ERP.',
+      },
+      {
+        label: 'ERP Integration',
+        to: '/accounts-payable-automation/microsoft-dynamics-nav-integration',
+        description: 'Direct integration via SOAP and REST APIs.',
+      },
+      {
+        label: 'SharePoint Integration',
+        to: '/accounts-payable-automation/sharepoint-invoice-integration',
+        description: 'Use SharePoint as your AP repository.',
+      },
+      {
+        label: 'Approval Workflows',
+        to: '/accounts-payable-automation/ap-approval-workflows',
+        description: 'Vendor-approver mapping, full audit trail.',
+      },
+      {
+        label: 'For Group Companies',
+        to: '/accounts-payable-automation/multi-tenant-ap-platform',
+        description: 'Multiple subsidiaries on one platform.',
+      },
+    ],
   },
-  {
-    label: 'AI Invoice Extraction',
-    to: '/accounts-payable-automation/ai-invoice-extraction',
-    description: 'Two models read every invoice for accuracy.',
-  },
-  {
-    label: '3-Way Matching',
-    to: '/accounts-payable-automation/3-way-matching',
-    description: 'Match invoices to POs and goods receipts.',
-  },
-  {
-    label: 'Withholding Tax Automation',
-    to: '/accounts-payable-automation/nigerian-withholding-tax-automation',
-    description: 'WHT computed and pushed to your ERP.',
-  },
-  {
-    label: 'ERP Integration',
-    to: '/accounts-payable-automation/microsoft-dynamics-nav-integration',
-    description: 'Direct integration via SOAP and REST APIs.',
-  },
-  {
-    label: 'SharePoint Integration',
-    to: '/accounts-payable-automation/sharepoint-invoice-integration',
-    description: 'Use SharePoint as your AP repository.',
-  },
-  {
-    label: 'Approval Workflows',
-    to: '/accounts-payable-automation/ap-approval-workflows',
-    description: 'Vendor-approver mapping, full audit trail.',
-  },
-  {
-    label: 'For Group Companies',
-    to: '/accounts-payable-automation/multi-tenant-ap-platform',
-    description: 'Multiple subsidiaries on one platform.',
-  },
+  // Future products go here
 ]
+
+// Flat list of all feature links — derived from PRODUCTS.
+// Kept for backward compat with Footer's Product column.
+export const PLATFORM_LINKS = PRODUCTS.flatMap((p) => p.features)
 
 // FEATURES — outcome-focused. AI claims are honest about scope:
 // - Extraction is genuinely AI (two-model verification approach).
@@ -106,25 +119,25 @@ export const FEATURES = [
   },
 ]
 
-// HOW_IT_WORKS — honest about what's AI vs what's not.
+// HOW_IT_WORKS — brand-level homepage content. Original pre-AP copy.
 export const HOW_IT_WORKS = [
   {
     step: '01',
-    title: 'Invoices Arrive',
+    title: 'Connect Your Systems',
     description:
-      'Vendors send invoices to your SharePoint folder, or upload through the FinMark.ai portal. Whatever format they use, the platform picks them up automatically and reads them with two AI models that verify each other\'s work.',
+      'Integrate your existing tools across finance, operations, marketing, and more. FinMark.ai brings all your data into one unified platform—no silos, no friction.',
   },
   {
     step: '02',
-    title: 'Validated, Matched, and Routed',
+    title: 'Automate Your Workflows',
     description:
-      'Each invoice is matched against POs and goods receipts from your ERP, validated against rule-based sanity checks, run through the WHT computation, and routed to the right approver. Only the genuine exceptions reach a human, and they reach the right one with full context attached.',
+      'Design and deploy intelligent workflows tailored to your business. From financial processes to operational tasks and marketing activities, automate everything with precision.',
   },
   {
     step: '03',
-    title: 'Approved and Posted to Your ERP',
+    title: 'Gain Insights & Scale',
     description:
-      'Approved invoices push straight into your ERP with every field populated, ready to post. Your AP team stops rekeying and starts reviewing.',
+      'Unlock real-time insights, monitor performance, and make data-driven decisions. As your business grows, FinMark.ai scales with you—ensuring efficiency at every stage.',
   },
 ]
 

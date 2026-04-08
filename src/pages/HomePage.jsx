@@ -1,14 +1,17 @@
 import SEO from '../components/seo/SEO'
 import Hero from '../components/Hero'
 import FeatureTicker from '../components/FeatureTicker'
+import HowItWorks from '../components/HowItWorks'
 import CTA from '../components/CTA'
 import About from '../components/About'
 import { organizationSchema, websiteSchema } from '../lib/schema'
 
 // Homepage is intentionally brand-level only.
-// The Features / HowItWorks / Services / full AP story all live on the
+// The Features / Services / full AP story live on the
 // /accounts-payable-automation pillar page. The homepage tells the
 // FinMark.ai story; the pillar tells the AP product story.
+// HowItWorks is kept here as a brand-level "how automation works"
+// tracker, not AP-specific.
 export default function HomePage() {
   return (
     <>
@@ -20,6 +23,7 @@ export default function HomePage() {
       />
       <Hero />
       <FeatureTicker />
+      <HowItWorks />
       <About />
       <CTA />
     </>
