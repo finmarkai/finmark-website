@@ -31,24 +31,6 @@
 /financial-workflow-automation/*                      /accounts-payable-automation              301
 
 # ─────────────────────────────────────────────────────
-# Old generic AP cluster URLs → new real-product equivalents
+# All AP cluster sub-pages removed — redirect to AP pillar
 # ─────────────────────────────────────────────────────
-
-# Renamed twice: invoice-ocr-data-extraction → claude-ai-invoice-extraction → ai-invoice-extraction
-/accounts-payable-automation/invoice-ocr-data-extraction      /accounts-payable-automation/ai-invoice-extraction  301
-/accounts-payable-automation/claude-ai-invoice-extraction     /accounts-payable-automation/ai-invoice-extraction  301
-
-# Renamed: invoice-fraud-detection → duplicate-invoice-detection (more honest scope)
-/accounts-payable-automation/invoice-fraud-detection      /accounts-payable-automation/duplicate-invoice-detection   301
-
-# Renamed: ap-erp-integration → microsoft-dynamics-nav-integration (specific reality)
-/accounts-payable-automation/ap-erp-integration           /accounts-payable-automation/microsoft-dynamics-nav-integration  301
-
-# Removed: vendor-payment-automation → AP pillar (FinMark.ai doesn't do payment execution)
-/accounts-payable-automation/vendor-payment-automation    /accounts-payable-automation              301
-
-# Removed: bill-pay-automation → AP pillar (FinMark.ai doesn't do payment execution)
-/accounts-payable-automation/bill-pay-automation          /accounts-payable-automation              301
-
-# Removed: accounts-payable-software → ap-automation-software (consolidated buyer's guide)
-/accounts-payable-automation/accounts-payable-software    /accounts-payable-automation/ap-automation-software        301
+/accounts-payable-automation/*                                    /accounts-payable-automation              301

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Send } from 'lucide-react'
-import { PLATFORM_LINKS } from '../lib/constants'
+import { PRODUCTS } from '../lib/constants'
 
 const COMPANY_LINKS = [
   { label: 'About', to: '/about' },
@@ -65,15 +65,15 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.05 }}
           >
-            <h4 className="text-sm font-semibold text-white mb-4">Product</h4>
+            <h4 className="text-sm font-semibold text-white mb-4">Products</h4>
             <ul className="space-y-2">
-              {PLATFORM_LINKS.map((link) => (
-                <li key={link.to}>
+              {PRODUCTS.map((product) => (
+                <li key={product.to}>
                   <Link
-                    to={link.to}
+                    to={product.to}
                     className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
                   >
-                    {link.label}
+                    {product.label}
                   </Link>
                 </li>
               ))}

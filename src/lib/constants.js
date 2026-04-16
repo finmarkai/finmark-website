@@ -26,48 +26,7 @@ export const PRODUCTS = [
     to: '/accounts-payable-automation',
     description: 'AI-powered AP automation. Live in production.',
     badge: 'Live',
-    features: [
-      {
-        label: 'Invoice Processing',
-        to: '/accounts-payable-automation/invoice-processing-automation',
-        description: 'From PDF to ERP, hands-free.',
-      },
-      {
-        label: 'AI Invoice Extraction',
-        to: '/accounts-payable-automation/ai-invoice-extraction',
-        description: 'Two models read every invoice for accuracy.',
-      },
-      {
-        label: '3-Way Matching',
-        to: '/accounts-payable-automation/3-way-matching',
-        description: 'Match invoices to POs and goods receipts.',
-      },
-      {
-        label: 'Withholding Tax Automation',
-        to: '/accounts-payable-automation/nigerian-withholding-tax-automation',
-        description: 'WHT computed and pushed to your ERP.',
-      },
-      {
-        label: 'ERP Integration',
-        to: '/accounts-payable-automation/microsoft-dynamics-nav-integration',
-        description: 'Direct integration via SOAP and REST APIs.',
-      },
-      {
-        label: 'SharePoint Integration',
-        to: '/accounts-payable-automation/sharepoint-invoice-integration',
-        description: 'Use SharePoint as your AP repository.',
-      },
-      {
-        label: 'Approval Workflows',
-        to: '/accounts-payable-automation/ap-approval-workflows',
-        description: 'Vendor-approver mapping, full audit trail.',
-      },
-      {
-        label: 'For Group Companies',
-        to: '/accounts-payable-automation/multi-tenant-ap-platform',
-        description: 'Multiple subsidiaries on one platform.',
-      },
-    ],
+    features: [],
     intro: null, // AP uses the full pillar page, not the simple intro template
   },
   {

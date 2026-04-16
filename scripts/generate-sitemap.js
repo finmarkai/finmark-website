@@ -14,7 +14,7 @@ import { writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { PILLARS } from '../src/content/pillars.js'
-import { CLUSTERS } from '../src/content/clusters.js'
+import { PRODUCTS } from '../src/lib/constants.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -36,16 +36,16 @@ const PILLAR_PAGES = PILLARS.map((p) => ({
   changefreq: 'weekly',
 }))
 
-// Cluster pages — only the ones with actual content in clusters.js make it
-// into the sitemap. Clusters declared in pillars.js but not yet implemented
-// stay out so Google doesn't crawl URLs that 404.
-const CLUSTER_PAGES = CLUSTERS.map((c) => ({
-  path: `/${c.pillar}/${c.slug}`,
-  priority: 0.7,
-  changefreq: 'monthly',
-}))
+// Product intro pages (ERP Audit, FP&A, Spend Analytics, etc.)
+const PRODUCT_PAGES = PRODUCTS
+  .filter((p) => p.intro)
+  .map((p) => ({
+    path: `/${p.slug}`,
+    priority: 0.8,
+    changefreq: 'monthly',
+  }))
 
-const urls = [...STATIC_PAGES, ...PILLAR_PAGES, ...CLUSTER_PAGES]
+const urls = [...STATIC_PAGES, ...PILLAR_PAGES, ...PRODUCT_PAGES]
 
 const today = new Date().toISOString().split('T')[0]
 

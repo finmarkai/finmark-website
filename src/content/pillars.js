@@ -83,69 +83,8 @@ export const PILLARS = [
         ],
       },
     ],
-    clusterHubHeading: 'AP Automation Capabilities',
-    clusters: [
-      {
-        slug: 'invoice-processing-automation',
-        title: 'Invoice Processing',
-        description:
-          'From PDF to NAV, hands-free. The full AP workflow in one platform.',
-      },
-      {
-        slug: 'ai-invoice-extraction',
-        title: 'AI Invoice Extraction',
-        description:
-          'Read any invoice format your vendors send. No per-vendor templates required.',
-      },
-      {
-        slug: '3-way-matching',
-        title: '3-Way Matching',
-        description:
-          'Auto-match invoices against POs and GRNs from NAV. Handles lump-sum and ratio-based matching.',
-      },
-      {
-        slug: 'nigerian-withholding-tax-automation',
-        title: 'Nigerian WHT Automation',
-        description:
-          'Withholding Tax computed automatically per the current regulations and pushed to NAV.',
-      },
-      {
-        slug: 'microsoft-dynamics-nav-integration',
-        title: 'Microsoft Dynamics NAV Integration',
-        description:
-          'Direct integration with your on-premise NAV. Built for the African enterprise reality.',
-      },
-      {
-        slug: 'sharepoint-invoice-integration',
-        title: 'SharePoint Integration',
-        description:
-          'Use SharePoint as your AP document repository. We read invoices in and write back.',
-      },
-      {
-        slug: 'ap-approval-workflows',
-        title: 'AP Approval Workflows',
-        description:
-          'Vendor-approver mapping, configurable thresholds, full audit trail for every action.',
-      },
-      {
-        slug: 'multi-tenant-ap-platform',
-        title: 'For Group Companies',
-        description:
-          'Run multiple subsidiaries on one platform with full isolation and cross-company oversight.',
-      },
-      {
-        slug: 'duplicate-invoice-detection',
-        title: 'Duplicate Detection & Sanity Checks',
-        description:
-          'Catch duplicates and the errors AI alone would miss before they reach approval.',
-      },
-      {
-        slug: 'ap-automation-software',
-        title: 'AP Automation Software (Buyer\'s Guide)',
-        description:
-          'How to evaluate AP automation software for African enterprise running NAV.',
-      },
-    ],
+    clusterHubHeading: null,
+    clusters: [],
     siblings: [],
     faqs: [
       {
