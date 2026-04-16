@@ -5,7 +5,6 @@ import { PRODUCTS } from '../lib/constants'
 
 const COMPANY_LINKS = [
   { label: 'About', to: '/about' },
-  { label: 'Pricing', to: '/pricing' },
   { label: 'Contact', to: '/contact' },
   { label: 'Get a demo', to: '/demo' },
 ]
@@ -131,6 +130,12 @@ export default function Footer() {
           <p className="text-sm text-gray-600">
             &copy; {new Date().getFullYear()} FinMark.ai. All rights reserved.
           </p>
+          <a
+            href="mailto:admin@finmark.ai"
+            className="text-sm text-gray-600 hover:text-electric-light transition-colors"
+          >
+            admin@finmark.ai
+          </a>
         </div>
       </div>
     </footer>

@@ -39,50 +39,9 @@ export const PILLARS = [
       subhead:
         'Live in production at a major enterprise group. Nigerian Withholding Tax computed automatically. Approved invoices pushed straight into ERP. Built by Nigerian founders for Nigerian enterprise.',
       primaryCta: { label: 'Book a 30-min call', href: '/demo' },
-      secondaryCta: { label: 'See pricing', href: '/pricing' },
+      secondaryCta: null,
     },
-    sections: [
-      {
-        kicker: 'Why we exist',
-        heading: 'No AP automation tool was built for Nigerian enterprise running ERP',
-        body: [
-          'We started building FinMark.ai because a major enterprise group\'s CFO told us no AP automation tool on the market handled Nigerian Withholding Tax inside ERP. The Bill.coms and Tipaltis of the world were built for US sales tax and cloud accounting systems. None of them spoke ERP. None of them computed Nigerian WHT. The Nigerian conglomerates running ERP were stuck doing AP by hand or bending US-built tools into shapes they were never designed for.',
-          'So we built it for them. We spent months in the client\'s finance team understanding how invoices actually arrive, how matching breaks down for telecom and marketing categories, how WHT certificates get filed, how the AP team uses ERP day to day. The result is a platform that now runs across multiple subsidiaries in production — solving the AP problem the way Nigerian finance teams actually need it solved.',
-        ],
-      },
-      {
-        kicker: 'In production',
-        heading: 'Live at a major enterprise group across two subsidiaries',
-        body: [
-          'FinMark.ai is live in production today at a major enterprise group, one of West Africa\'s largest conglomerates. The platform handles AP for multiple subsidiaries on dedicated subdomains, with full data isolation between entities and a cross-company admin view for group oversight. AP teams across both subsidiaries process invoices through FinMark.ai every working day.',
-          'This is not a pilot, not a sandbox, not a curated demo. It is the real production AP workflow for a real Nigerian conglomerate, processing real invoices into real ERP instances. Everything described on this page is something we ship today, not something on a roadmap.',
-        ],
-      },
-      {
-        kicker: 'How it works',
-        heading: 'From invoice arrival to ERP posting, hands-free',
-        body: [
-          'Vendors send invoices to your SharePoint folder or upload them through the FinMark.ai portal. Our AI reads the invoice in any format — PDF, scanned document, photo, email — without any per-vendor template setup. Duplicates are caught at the door. The platform pulls your purchase orders and goods receipts directly from ERP and runs the matching automatically, including the messy lump-sum cases that break generic AP tools.',
-          'Sanity checks catch the things AI alone would miss — vendor verification, line-item math, plausibility checks, near-duplicate detection. Nigerian Withholding Tax is computed automatically per the current regulations, with the right rate for each vendor type and service category. Approval workflows route the invoice to the right approver with one-click approve. Approved invoices push straight into ERP with both the standard fields and the WHT fields populated, ready for your AP team to post.',
-        ],
-      },
-      {
-        kicker: 'Why FinMark.ai',
-        heading: 'Why this is different from Bill.com, Tipalti, and the rest',
-        body: [
-          'The major US AP automation tools are excellent at what they do — but what they do is built for US sales tax and cloud accounting systems. They do not handle on-premise ERP well. They do not handle Nigerian Withholding Tax at all. They do not handle the multi-subsidiary group structures that are standard in African enterprise. For a Nigerian conglomerate running ERP, the choice has historically been: use a US tool and run WHT manually outside it (defeating the automation), or run AP entirely by hand.',
-          'FinMark.ai is the third option. Built specifically for the African enterprise context. ERP as the primary integration, not an afterthought. Nigerian WHT as a first-class feature, not a workaround. Multi-tenant by design for group company structures. The same product a major enterprise group runs in production, available to other Nigerian groups with similar AP workflows.',
-        ],
-      },
-      {
-        kicker: 'The vision',
-        heading: 'AP today. Financial Automation tomorrow.',
-        body: [
-          'FinMark.ai is the start of a broader Financial Automation platform built for African enterprise. AP automation is the first product because AP is where the pain is loudest — and because building one product really well at one paying customer is the only way to earn the right to build the next one.',
-          'More products will follow as the company grows. But not by claiming them on a website before they exist. Every product on FinMark.ai will be real, shipping, and proven at a paying customer first. AP is here today. The rest is what comes after we earn it.',
-        ],
-      },
-    ],
+    sections: [],
     clusterHubHeading: null,
     clusters: [],
     siblings: [],

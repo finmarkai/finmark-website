@@ -302,7 +302,7 @@ export const CLUSTERS = [
         kicker: 'Why this matters',
         heading: 'Why this is the killer differentiator',
         body: [
-          'There is no major AP automation tool — Bill.com, Stampli, Tipalti, AvidXchange, Coupa — that handles Nigerian WHT this way. The reason is simple: they are all built for the US or Europe, and Nigeria is not on their roadmap. Any African enterprise that wants AP automation has historically had to either accept the limitation (compute WHT outside the tool) or build their own.',
+          'There is no major AP automation tool — the major US and European AP tools — that handles Nigerian WHT this way. The reason is simple: they are all built for the US or Europe, and Nigeria is not on their roadmap. Any African enterprise that wants AP automation has historically had to either accept the limitation (compute WHT outside the tool) or build their own.',
           'FinMark.ai is built for this specific reality. WHT is a first-class feature, integrated into every step of the pipeline, pushed automatically to ERP. For African enterprise finance teams running ERP, this single feature makes FinMark.ai the AP automation that actually works end-to-end without manual workarounds.',
         ],
       },
@@ -740,7 +740,7 @@ export const CLUSTERS = [
         kicker: 'The category',
         heading: 'Why most AP automation software is built for the wrong market',
         body: [
-          'The AP automation category is dominated by tools built for US and European mid-market companies. Bill.com, Stampli, Tipalti, AvidXchange, and the rest were designed for clean cloud ERPs (NetSuite, QuickBooks, Xero), simple sales tax models (US sales tax, EU VAT), and single-currency single-entity finance teams. They are excellent at what they do — but what they do is not what Nigerian enterprise finance teams actually need.',
+          'The AP automation category is dominated by tools built for US and European mid-market companies. the major US and European AP tools were designed for clean cloud ERPs (NetSuite, QuickBooks, Xero), simple sales tax models (US sales tax, EU VAT), and single-currency single-entity finance teams. They are excellent at what they do — but what they do is not what Nigerian enterprise finance teams actually need.',
           'The mismatch shows up in three places. First, the ERP integration: most Nigerian enterprise runs ERP, often on-premise, which the cloud-first AP vendors do not handle well. Second, the tax model: Nigerian Withholding Tax is more complex than US sales tax and is handled by exactly zero major AP tools. Third, the entity model: Nigerian groups typically run multiple subsidiaries with separate ERP instances, and most AP tools treat that as an awkward edge case rather than a primary use case.',
         ],
       },
@@ -748,7 +748,7 @@ export const CLUSTERS = [
         kicker: 'Substitutes',
         heading: 'Your real alternatives',
         body: [
-          'Be honest about what you are choosing between. If you do not buy FinMark.ai, your real alternatives are: keep doing AP manually with Excel and ERP (the most common starting point); hire a Nigerian WHT consultant plus more AP clerks (the most common scaling answer); use Bill.com or Tipalti for the easy 70% of invoices and run WHT manually in spreadsheets for the hard 30% (the most common compromise); or hire a Nigerian systems integrator to build something custom on top of ERP (the most common large-enterprise default).',
+          'Be honest about what you are choosing between. If you do not buy FinMark.ai, your real alternatives are: keep doing AP manually with Excel and ERP (the most common starting point); hire a Nigerian WHT consultant plus more AP clerks (the most common scaling answer); use a US-built AP tool for the easy 70% of invoices and run WHT manually in spreadsheets for the hard 30% (the most common compromise); or hire a Nigerian systems integrator to build something custom on top of ERP (the most common large-enterprise default).',
           'Each of these has costs and tradeoffs. The most common one — doing nothing — has the highest hidden cost because the labor and the audit risk and the missed early-pay discounts and the WHT compliance exposure all compound silently. The most expensive one — the custom SI build — locks you into a single vendor and a multi-month delivery cycle. The compromise (US tool plus manual WHT) defeats most of the automation value because the WHT step is where the most expensive labor lives.',
         ],
       },
@@ -781,8 +781,8 @@ export const CLUSTERS = [
         a: 'Three reasons. ERP: most Nigerian enterprise runs ERP, often on-premise, which cloud-first AP vendors handle poorly. Tax: Nigerian Withholding Tax is more complex than US sales tax and is not supported by major AP tools. Entity: Nigerian groups run multiple subsidiaries with separate ERP instances, which most tools treat as an edge case.',
       },
       {
-        q: 'Can I use Bill.com or Tipalti for Nigerian operations?',
-        a: 'You can use them for parts of the workflow, but you will end up running Nigerian WHT computation manually outside the tool, which defeats most of the automation value. None of the major US AP tools handle Nigerian WHT this deeply.',
+        q: 'Can I use a US-built AP tool for Nigerian operations?',
+        a: 'You can use them for parts of the workflow, but you will end up running Nigerian WHT computation manually outside the tool, which defeats most of the automation value. None of the major US-built AP tools handle regional WHT this deeply.',
       },
       {
         q: 'How do I evaluate AP software for Nigerian enterprise?',

@@ -70,11 +70,6 @@ export default function CTA() {
                   Get a demo <ArrowRight size={18} />
                 </GradientButton>
               </Link>
-              <Link to="/pricing">
-                <GradientButton variant="outline" className="text-base px-8 py-4">
-                  See Pricing
-                </GradientButton>
-              </Link>
             </div>
           </div>
         </ReifyCard>

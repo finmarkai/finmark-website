@@ -1,30 +1,21 @@
 import App from './App'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
-import PricingPage from './pages/PricingPage'
 import DemoPage from './pages/DemoPage'
 import ContactPage from './pages/ContactPage'
-import PillarPage from './pages/PillarPage'
 import ProductIntroPage from './pages/ProductIntroPage'
 import NotFoundPage from './pages/NotFoundPage'
-import { PILLARS } from './content/pillars'
 import { PRODUCTS } from './lib/constants'
 
 /**
  * Route table consumed by both react-router-dom and vite-react-ssg.
  *
- * Every route is enumerated as a static path so vite-react-ssg pre-renders
- * each one as its own HTML file.
+ * All product pages now use the same simple ProductIntroPage template.
+ * Adding a new product to the PRODUCTS array in constants.js with an
+ * `intro` field auto-creates its route.
  */
 
-const pillarRoutes = PILLARS.map((p) => ({
-  path: p.slug,
-  element: <PillarPage slug={p.slug} />,
-}))
-
-// Product intro pages — for products that have an `intro` field
-// (i.e., the ones that don't have a full pillar page yet).
-const productIntroRoutes = PRODUCTS
+const productRoutes = PRODUCTS
   .filter((p) => p.intro)
   .map((p) => ({
     path: p.slug,
@@ -38,11 +29,9 @@ export const routes = [
     children: [
       { index: true, element: <HomePage /> },
       { path: 'about', element: <AboutPage /> },
-      { path: 'pricing', element: <PricingPage /> },
       { path: 'demo', element: <DemoPage /> },
       { path: 'contact', element: <ContactPage /> },
-      ...pillarRoutes,
-      ...productIntroRoutes,
+      ...productRoutes,
       { path: '*', element: <NotFoundPage /> },
     ],
   },
@@ -54,9 +43,7 @@ export const routes = [
 export const STATIC_PATHS = [
   '/',
   '/about',
-  '/pricing',
   '/demo',
   '/contact',
-  ...PILLARS.map((p) => `/${p.slug}`),
   ...PRODUCTS.filter((p) => p.intro).map((p) => `/${p.slug}`),
 ]

@@ -10,7 +10,6 @@ import {
 
 export const NAV_LINKS = [
   { label: 'About', to: '/about' },
-  { label: 'Pricing', to: '/pricing' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -27,7 +26,16 @@ export const PRODUCTS = [
     description: 'AI-powered AP automation. Live in production.',
     badge: null,
     features: [],
-    intro: null, // AP uses the full pillar page, not the simple intro template
+    intro: {
+      metaTitle: 'Accounts Payable Automation | FinMark.ai',
+      metaDescription: 'AI-powered accounts payable automation. Full invoice-to-ERP workflow — capture, match, validate, approve, post. Live in production with enterprise customers.',
+      h1: 'Accounts Payable',
+      body: [
+        'FinMark.ai runs the full invoice-to-ERP workflow end to end. AI captures invoices in any format. Matching happens against live ERP data. Withholding tax is computed automatically against current regulations. Sanity checks catch what AI alone would miss. Approved invoices post back into the ERP, audit-ready.',
+        'What used to take finance teams days now takes minutes. The platform is live in production with enterprise customers today.',
+        'Built for finance teams that process hundreds of vendor invoices a month, operate inside an established ERP, and spend more time keying data than analysing it.',
+      ],
+    },
   },
   {
     label: 'ERP Audit',

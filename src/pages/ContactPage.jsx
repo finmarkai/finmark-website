@@ -171,10 +171,10 @@ export default function ContactPage() {
             <Mail size={16} className="inline mr-2 text-electric-light" />
             Or email us directly at{' '}
             <a
-              href="mailto:hello@finmark.ai"
+              href="mailto:admin@finmark.ai"
               className="text-electric-light hover:text-white transition-colors"
             >
-              hello@finmark.ai
+              admin@finmark.ai
             </a>
           </div>
         </div>

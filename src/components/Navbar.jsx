@@ -147,11 +147,18 @@ export default function Navbar() {
                     ))}
 
                     {/* & many more */}
-                    <div className="px-5 pb-4 pt-2 border-t border-white/[0.06]">
-                      <p className="text-center text-xs text-gray-600 italic">
+                    <Link
+                      to="/demo"
+                      onClick={() => setPlatformOpen(false)}
+                      className="group block px-5 pb-5 pt-3 border-t border-white/[0.06]"
+                    >
+                      <p className="text-center text-sm font-medium text-gray-400 group-hover:text-electric-light transition-colors">
                         & many more
                       </p>
-                    </div>
+                      <p className="text-center text-xs text-gray-600 mt-1 group-hover:text-gray-400 transition-colors">
+                        Tell us what you need and we'll build it for you within 2 weeks
+                      </p>
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -237,6 +244,13 @@ export default function Navbar() {
                   </div>
                 </div>
               ))}
+              <Link
+                to="/demo"
+                onClick={() => setMobileOpen(false)}
+                className="block px-3 py-2 text-sm text-gray-400 hover:text-electric-light transition-colors"
+              >
+                & many more — tell us what you need
+              </Link>
               <div className="h-px bg-white/5 my-3" />
               <p className="px-3 pb-1 text-xs uppercase tracking-[0.18em] text-gray-600">Company</p>
               {NAV_LINKS.map((link) => (
