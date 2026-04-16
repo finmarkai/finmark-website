@@ -91,16 +91,20 @@ export default function Navbar() {
                     className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[680px] glass-strong rounded-2xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden"
                   >
                     {PRODUCTS.map((product) => (
-                      <div key={product.to} className="p-5">
-                        {/* Product header — clickable, goes to the pillar page */}
+                      <div key={product.to} className={`px-5 pt-4 ${product.features.length > 0 ? 'pb-5' : 'pb-1'}`}>
+                        {/* Product header */}
                         <Link
                           to={product.to}
                           onClick={() => setPlatformOpen(false)}
-                          className="group flex items-start justify-between gap-4 rounded-xl px-4 py-3 mb-3 bg-gradient-to-r from-electric/[0.08] to-purple/[0.05] border border-electric/20 hover:border-electric/40 transition-all"
+                          className={`group flex items-start justify-between gap-4 rounded-xl px-4 py-3 transition-all ${
+                            product.features.length > 0
+                              ? 'mb-3 bg-gradient-to-r from-electric/[0.08] to-purple/[0.05] border border-electric/20 hover:border-electric/40'
+                              : 'hover:bg-white/[0.04]'
+                          }`}
                         >
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
-                              <span className="text-sm font-semibold text-white group-hover:text-electric-light transition-colors">
+                              <span className="text-sm font-medium text-white group-hover:text-electric-light transition-colors">
                                 {product.label}
                               </span>
                               {product.badge && (
@@ -119,26 +123,35 @@ export default function Navbar() {
                           />
                         </Link>
 
-                        {/* Features list under the product */}
-                        <div className="grid grid-cols-2 gap-1">
-                          {product.features.map((f) => (
-                            <Link
-                              key={f.to}
-                              to={f.to}
-                              onClick={() => setPlatformOpen(false)}
-                              className="group/item flex flex-col gap-0.5 rounded-lg px-3 py-2 hover:bg-white/[0.04] transition-colors"
-                            >
-                              <span className="text-xs font-medium text-gray-300 group-hover/item:text-white transition-colors">
-                                {f.label}
-                              </span>
-                              <span className="text-[11px] text-gray-600 leading-relaxed">
-                                {f.description}
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
+                        {/* Features list — only for products that have them */}
+                        {product.features.length > 0 && (
+                          <div className="grid grid-cols-2 gap-1">
+                            {product.features.map((f) => (
+                              <Link
+                                key={f.to}
+                                to={f.to}
+                                onClick={() => setPlatformOpen(false)}
+                                className="group/item flex flex-col gap-0.5 rounded-lg px-3 py-2 hover:bg-white/[0.04] transition-colors"
+                              >
+                                <span className="text-xs font-medium text-gray-300 group-hover/item:text-white transition-colors">
+                                  {f.label}
+                                </span>
+                                <span className="text-[11px] text-gray-600 leading-relaxed">
+                                  {f.description}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
+
+                    {/* & many more */}
+                    <div className="px-5 pb-4 pt-2 border-t border-white/[0.06]">
+                      <p className="text-center text-xs text-gray-600 italic">
+                        & many more
+                      </p>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

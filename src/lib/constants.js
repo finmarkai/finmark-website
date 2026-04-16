@@ -22,6 +22,7 @@ export const NAV_LINKS = [
 export const PRODUCTS = [
   {
     label: 'Accounts Payable',
+    slug: 'accounts-payable-automation',
     to: '/accounts-payable-automation',
     description: 'AI-powered AP automation. Live in production.',
     badge: 'Live',
@@ -67,8 +68,62 @@ export const PRODUCTS = [
         description: 'Multiple subsidiaries on one platform.',
       },
     ],
+    intro: null, // AP uses the full pillar page, not the simple intro template
   },
-  // Future products go here
+  {
+    label: 'ERP Audit',
+    slug: 'erp-audit',
+    to: '/erp-audit',
+    description: 'Automated audit and compliance for your ERP.',
+    badge: null,
+    features: [],
+    intro: {
+      metaTitle: 'ERP Audit — Automated Compliance Checks | FinMark.ai',
+      metaDescription: 'Automated ERP audit that finds anomalies, control gaps, and compliance issues in your financial data before your auditors do.',
+      h1: 'ERP Audit',
+      body: [
+        'Your ERP holds all your financial data. FinMark.ai\'s ERP Audit scans it automatically — looking for anomalies, control gaps, duplicate transactions, unauthorized changes, and compliance issues that manual audits miss or find too late.',
+        'Instead of quarterly reviews that surface problems weeks after they happen, ERP Audit runs continuously on your live data. Findings are flagged with full context so your finance team can act immediately — not after the auditor leaves.',
+        'Built on the same AI and ERP integration layer that powers our AP automation product. If you run an ERP, this is the audit tool that actually understands your data.',
+      ],
+    },
+  },
+  {
+    label: 'FP&A',
+    slug: 'fpa',
+    to: '/fpa',
+    description: 'Financial planning, budgeting, and forecasting.',
+    badge: null,
+    features: [],
+    intro: {
+      metaTitle: 'FP&A — Financial Planning & Analysis | FinMark.ai',
+      metaDescription: 'AI-powered financial planning and analysis. Budgeting, forecasting, variance analysis, and scenario planning — built for finance teams that want to move past spreadsheets.',
+      h1: 'FP&A',
+      body: [
+        'Financial Planning & Analysis still runs on spreadsheets at most companies. FinMark.ai\'s FP&A product replaces the spreadsheet sprawl with a structured system — budgets, forecasts, variance analysis, and scenario planning in one place, connected to your live financial data.',
+        'AI handles the parts that need AI — forecasting from historical patterns, flagging unusual variances, generating narrative commentary. Rules and integrations handle the rest. The result is planning you can trust and analysis that happens in hours, not weeks.',
+        'Built on the same data layer and ERP integrations that power our AP automation product. Your actuals flow in automatically; your plans stay current without manual data entry.',
+      ],
+    },
+  },
+  {
+    label: 'Spend Analytics',
+    slug: 'spend-analytics',
+    to: '/spend-analytics',
+    description: 'Spending insights from your invoice data.',
+    badge: null,
+    features: [],
+    intro: {
+      metaTitle: 'Spend Analytics — Invoice Intelligence | FinMark.ai',
+      metaDescription: 'Turn your invoice data into spending insights. Vendor concentration, category trends, cost anomalies, and savings opportunities — visible automatically.',
+      h1: 'Spend Analytics',
+      body: [
+        'Every invoice your AP team processes is a data point about how your company spends money. FinMark.ai\'s Spend Analytics turns that data into visible, actionable intelligence — vendor concentration risk, category spending trends, cost anomalies, and savings opportunities that nobody was tracking.',
+        'No separate data warehouse. No ETL project. The analytics layer sits directly on top of your AP data as it flows through the platform. The insights are there the moment the invoices are processed.',
+        'Built as a natural extension of the AP automation product. If you already run FinMark.ai for accounts payable, Spend Analytics is one switch away — your data is already there.',
+      ],
+    },
+  },
 ]
 
 // Flat list of all feature links — derived from PRODUCTS.
