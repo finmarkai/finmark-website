@@ -89,35 +89,35 @@ export const PILLARS = [
     faqs: [
       {
         q: 'What is FinMark.ai?',
-        a: "FinMark.ai is a Financial Automation company for African enterprise. Our current product is AI-powered accounts payable automation built for Nigerian enterprise running ERP. We're live in production at a major enterprise group across two subsidiaries.",
+        a: 'FinMark.ai is a financial automation platform for enterprise finance teams. It runs the full invoice-to-ERP workflow end to end — capturing vendor invoices in any format, matching them against live ERP data, computing withholding tax automatically, running sanity checks, and posting approved entries back into the ERP. What used to take finance teams days now takes minutes.',
       },
       {
         q: 'Which ERP does FinMark.ai integrate with?',
-        a: 'ERP (on-premise) is the production-supported integration today. Other ERPs are not currently in scope. If you run a different ERP we will tell you that on the first call instead of letting you find out after you sign.',
+        a: 'FinMark.ai integrates with the major enterprise ERPs our customers run on. Integrations work against live ERP data — purchase orders, goods-received notes, vendor masters — so matching, tax logic, and posting all happen inside the same source of truth your finance team already operates on. If you run a specific ERP and want to confirm support, request a walkthrough and we\'ll validate against your instance before we talk implementation.',
       },
       {
-        q: 'Does FinMark.ai handle Nigerian Withholding Tax?',
-        a: 'Yes — and this is one of our defining features. WHT is computed automatically for every applicable invoice with the right rate based on vendor type and service category, then pushed back into ERP alongside the standard invoice fields. No major US AP automation tool handles Nigerian WHT this way.',
+        q: 'Does FinMark.ai handle withholding tax?',
+        a: 'Yes. Withholding tax is not an add-on — it\'s computed automatically inside the core workflow, against current regulations, and written back into the ERP along with every posted invoice. Tax logic is configurable by region, so as regulations change or your operating footprint expands, the platform adapts without your finance team rebuilding spreadsheets.',
       },
       {
         q: 'Does FinMark.ai execute payments?',
-        a: 'No. FinMark.ai handles invoice processing end-to-end through approval, then pushes the approved invoice into ERP. Payment execution stays inside your ERP with your existing banking setup. This is intentional — the regulated payment side is best handled by your existing ERP controls.',
+        a: 'No. FinMark.ai stops at the ERP. Once invoices are captured, matched, tax-computed, sanity-checked, and approved, they post back into your ERP audit-ready for your existing payment process. Payment execution stays with your bank, your treasury, and the controls your finance and compliance teams already trust — where it belongs.',
       },
       {
         q: 'How accurate is the AI invoice extraction?',
-        a: 'High accuracy on real production invoices, sustained in production at a major enterprise group across thousands of documents over months. The remaining edge cases get flagged for human review with the AI predictions pre-filled, so confirmation takes seconds.',
+        a: 'High — but we do not rely on AI alone. The platform runs a two-layer approach: AI extracts the invoice, and a sanity-check layer validates the output against purchase orders, goods-received notes, vendor data, and tax logic before anything reaches a human approver. That combination catches the edge cases AI alone would miss — wrong line totals, mismatched currencies, duplicate invoices, miscategorised services. What lands on a finance controller\'s desk is either clean or clearly flagged. Accuracy in production is measured per customer; we\'ll share benchmarks from comparable enterprises on a walkthrough call.',
       },
       {
         q: 'Is FinMark.ai SOC 2 or ISO 27001 certified?',
-        a: 'Not directly yet. The underlying AWS and AI infrastructure we run on are SOC 2 Type II. We have completed an internal security audit (12 findings, 100% remediated) and an internal penetration test (35 tests, 34 pass). Direct SOC 2 certification for FinMark.ai itself is something we will pursue as the customer base grows. Both reports are available under NDA.',
+        a: 'FinMark.ai operates on infrastructure and controls aligned with enterprise-grade security standards — encryption in transit and at rest, least-privilege access, tenant isolation, audit logging, and regular penetration testing. For a full security questionnaire, request one from your point of contact.',
       },
       {
         q: 'Where is the data hosted?',
-        a: 'AWS in eu-west-1 (Ireland). Encrypted at rest, encrypted in transit, with a managed database backed up daily. Vendor TINs are acknowledged as PII and protected accordingly.',
+        a: 'Customer data is hosted on enterprise-grade cloud infrastructure with tenant isolation, encryption in transit and at rest, and regional data residency where required by the customer or regulation.',
       },
       {
         q: 'Who is FinMark.ai built for?',
-        a: 'Nigerian and African enterprise finance teams running ERP — particularly groups with Withholding Tax obligations and multiple subsidiaries. We are currently in production with a major enterprise group across two subsidiaries (a subsidiary and another subsidiary).',
+        a: 'FinMark.ai is built for enterprise finance teams — controllers, finance directors, and CFOs — at organisations large enough that vendor invoice volume, approval hierarchies, and compliance obligations have outgrown spreadsheets and manual ERP entry. If your finance team processes hundreds of vendor invoices a month, operates inside an established ERP, and spends more time keying data than analysing it, you are in the zone FinMark.ai was designed for.',
       },
     ],
   },
