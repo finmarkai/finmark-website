@@ -110,10 +110,6 @@ function MobileHero() {
           <span className="gradient-text">Automation</span>
         </h1>
 
-        <p className="mt-5 max-w-2xl mx-auto text-base text-gray-400 leading-relaxed">
-          AI accounts payable for finance teams. Live in production with TGI Group.
-        </p>
-
         <div className="mt-6 flex flex-col items-center gap-3">
           <Link to="/demo">
             <GradientButton className="text-sm px-7 py-3 flex items-center gap-2">
@@ -234,15 +230,6 @@ function DesktopHero() {
             <br />
             <span className="gradient-text">Automation</span>
           </h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mt-5 sm:mt-8 max-w-2xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed"
-          >
-            AI accounts payable for finance teams. Live in production with TGI Group.
-          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
