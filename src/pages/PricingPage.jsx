@@ -24,23 +24,23 @@ import {
 //
 // Suggested by investor review: $2,500/month per subsidiary +
 // $15,000 one-time implementation. 30-day pilot at no cost on real data.
-// Adjust based on what TGI is actually paying.
+// Adjust based on what the client is actually paying.
 const PLAN = {
-  name: 'FinMark.ai for Microsoft Dynamics NAV',
+  name: 'FinMark.ai for ERP',
   tag: 'One product, one price',
-  // TODO(founder): Replace with the real number you charge TGI Group.
+  // TODO(founder): Replace with the real number you charge a major enterprise group.
   // Until then, this stays as "Talk to us" — but the placeholder pricing
   // anchor below tells visitors what to expect.
   price: 'Talk to us',
   description:
-    'AI-powered accounts payable automation for Nigerian enterprise running Microsoft Dynamics NAV. The same product TGI Group runs in production today, available to other groups on a contained, predictable engagement.',
+    'AI-powered accounts payable automation for Nigerian enterprise running ERP. The same product a major enterprise group runs in production today, available to other groups on a contained, predictable engagement.',
   whatYouGet: [
     'Full AP automation pipeline — invoice intake, AI extraction, matching, approval, ERP push',
-    'Direct integration with your Microsoft Dynamics NAV instance',
-    'Nigerian Withholding Tax computed automatically and pushed back to NAV',
+    'Direct integration with your ERP instance',
+    'Nigerian Withholding Tax computed automatically and pushed back to ERP',
     'SharePoint as your document repository (read and write)',
     'Multi-tenant subdomain per subsidiary, with cross-company admin for the parent group',
-    'Audit trail covering every state change, every approval, every push to NAV',
+    'Audit trail covering every state change, every approval, every push to ERP',
     'Implementation, integration setup, and onboarding workshops included',
     '30-day pilot on your real invoices at no cost',
   ],
@@ -50,23 +50,23 @@ const PLAN = {
 const FAQS = [
   {
     q: 'Why is the price not on the page?',
-    a: "Honest answer: we have one customer (TGI Group), the contract is private, and we want to talk to you for 30 minutes before quoting. The conversation tells us how many subsidiaries you're running, what your invoice volume looks like, and how complex your NAV setup is — all of which shape the number. We will give you a real number on that first call. No pricing games.",
+    a: "Honest answer: we have one customer (a major enterprise group), the contract is private, and we want to talk to you for 30 minutes before quoting. The conversation tells us how many subsidiaries you're running, what your invoice volume looks like, and how complex your ERP setup is — all of which shape the number. We will give you a real number on that first call. No pricing games.",
   },
   {
     q: 'Is there a free trial?',
-    a: 'There is a 30-day pilot on your real invoices at no cost. Not a sandbox, not a curated demo — your actual invoice files running through the actual production pipeline against your actual NAV instance. The pilot is the only honest way to evaluate AP automation.',
+    a: 'There is a 30-day pilot on your real invoices at no cost. Not a sandbox, not a curated demo — your actual invoice files running through the actual production pipeline against your actual ERP instance. The pilot is the only honest way to evaluate AP automation.',
   },
   {
     q: 'What is included in implementation?',
-    a: 'Implementation includes the NAV middleware install, the SharePoint integration setup if applicable, vendor master mapping, approval workflow configuration, and an onboarding workshop with the AP team. Most customers go from contract to first automated invoice within 4 weeks.',
+    a: 'Implementation includes the ERP middleware install, the SharePoint integration setup if applicable, vendor master mapping, approval workflow configuration, and an onboarding workshop with the AP team. Most customers go from contract to first automated invoice within 4 weeks.',
   },
   {
     q: 'Do I need to switch ERPs to use FinMark.ai?',
-    a: "No. FinMark.ai integrates directly with your existing on-premise Microsoft Dynamics NAV. The whole point is that you don't switch anything — we layer on top of the NAV you already run.",
+    a: "No. FinMark.ai integrates directly with your existing on-premise ERP. The whole point is that you don't switch anything — we layer on top of the ERP you already run.",
   },
   {
     q: 'What about other ERPs (NetSuite, QuickBooks, SAP)?',
-    a: 'Today, Microsoft Dynamics NAV is the production-supported integration. Other ERPs are not currently in scope. If you run a different ERP we will tell you that on the call instead of letting you find out after you sign.',
+    a: 'Today, ERP is the production-supported integration. Other ERPs are not currently in scope. If you run a different ERP we will tell you that on the call instead of letting you find out after you sign.',
   },
   {
     q: 'Are you SOC 2 / ISO 27001 certified?',
@@ -88,14 +88,14 @@ export default function PricingPage() {
   return (
     <>
       <SEO
-        title="FinMark.ai Pricing — AP Automation for Microsoft Dynamics NAV"
+        title="FinMark.ai Pricing — AP Automation for ERP"
         description="Transparent, contained pricing for FinMark.ai's AI accounts payable automation. One product. 30-day pilot at no cost on your real invoices."
         path={path}
         schema={[
           organizationSchema(),
           webPageSchema({
             title: 'FinMark.ai Pricing',
-            description: "Pricing for FinMark.ai's AI accounts payable automation built for Microsoft Dynamics NAV.",
+            description: "Pricing for FinMark.ai's AI accounts payable automation built for ERP.",
             path,
           }),
           breadcrumbSchema(items),
@@ -137,7 +137,7 @@ export default function PricingPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 mx-auto max-w-2xl text-base sm:text-lg text-gray-400 leading-relaxed"
           >
-            FinMark.ai is a single-product company. AP automation for Microsoft Dynamics NAV. The same software TGI Group runs in production today, on the same engagement structure. Book a 30-minute call and we'll tell you what it costs.
+            FinMark.ai is a single-product company. AP automation for ERP. The same software a major enterprise group runs in production today, on the same engagement structure. Book a 30-minute call and we'll tell you what it costs.
           </motion.p>
         </div>
       </section>

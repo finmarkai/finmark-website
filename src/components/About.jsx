@@ -3,7 +3,23 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import GlowBadge from './ui/GlowBadge'
 import GradientButton from './ui/GradientButton'
+import ReifyCard from './ui/ReifyCard'
 import useIsMobile from '../lib/useIsMobile'
+
+const FOUNDERS = [
+  {
+    name: 'Arin Soni',
+    initials: 'AS',
+    role: 'Co-founder',
+    bio: 'Arin is a technology-driven problem solver with a strong focus on building intelligent, scalable systems. With a vision to leverage automation and AI at the core of business workflows, he is dedicated to creating seamless, high-performance solutions that enhance productivity and decision-making across organizations.',
+  },
+  {
+    name: 'Aditi Agarwal',
+    initials: 'AA',
+    role: 'Co-founder',
+    bio: 'Aditi brings a sharp strategic mindset and a deep understanding of business operations, with a focus on identifying inefficiencies and transforming them into scalable, high-impact solutions. She is passionate about building structured systems that bring clarity, control, and efficiency to organizations, enabling them to operate at their full potential.',
+  },
+]
 
 // Content sourced from FinMark-About-Section.docx.
 // "Who we are" section deliberately excluded per founder request.
@@ -102,6 +118,44 @@ export default function About() {
             </div>
           </div>
         ))}
+
+        {/* Founding Team */}
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <Wrapper {...delayMotion(0.1)}>
+              <h3 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                Founding <span className="gradient-text">Team</span>
+              </h3>
+            </Wrapper>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {FOUNDERS.map((founder, i) => (
+              <Wrapper key={founder.name} {...delayMotion(0.2 + i * 0.1)}>
+                <ReifyCard className="rounded-2xl h-full">
+                  <div className="p-8">
+                    <div className="flex items-center gap-4 mb-5">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-electric to-purple flex items-center justify-center text-lg font-bold text-white flex-shrink-0">
+                        {founder.initials}
+                      </div>
+                      <div>
+                        <h4 className="font-display text-xl font-semibold text-white">
+                          {founder.name}
+                        </h4>
+                        <p className="text-electric-light text-xs uppercase tracking-[0.15em] mt-1">
+                          {founder.role}
+                        </p>
+                      </div>
+                    </div>
+                    <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
+                      {founder.bio}
+                    </p>
+                  </div>
+                </ReifyCard>
+              </Wrapper>
+            ))}
+          </div>
+        </div>
 
         {/* Let's talk CTA */}
         <Wrapper {...delayMotion(0.4)}>

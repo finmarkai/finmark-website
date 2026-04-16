@@ -25,7 +25,7 @@ export const PRODUCTS = [
     slug: 'accounts-payable-automation',
     to: '/accounts-payable-automation',
     description: 'AI-powered AP automation. Live in production.',
-    badge: 'Live',
+    badge: null,
     features: [],
     intro: null, // AP uses the full pillar page, not the simple intro template
   },

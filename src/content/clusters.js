@@ -2,14 +2,14 @@
 //
 // All clusters are children of the accounts-payable-automation pillar.
 // FinMark.ai builds AP automation specifically for Nigerian enterprise running
-// Microsoft Dynamics NAV.
+// ERP.
 //
 // COPY RULES (apply to every cluster):
 //   1. OUTCOMES, not implementation. What the buyer gets, not how it's built.
 //   2. NO LLM provider names. The model is the moat — keep it opaque.
 //   3. NO internal architecture details (SOAP, webhooks, polling intervals,
 //      fingerprinting algorithms, internal field counts, pipeline stage numbers).
-//   4. PROOF over claims. Reference TGI Group as the production customer.
+//   4. PROOF over claims. Reference a major enterprise group as the production customer.
 //   5. HONEST scope. Don't promise what isn't shipping.
 //
 // Each cluster has:
@@ -32,46 +32,46 @@ export const CLUSTERS = [
     slug: 'invoice-processing-automation',
     primaryKeyword: 'invoice processing automation',
     meta: {
-      title: 'Invoice Processing Automation for NAV | FinMark.ai',
+      title: 'Invoice Processing Automation for ERP | FinMark.ai',
       description:
-        'End-to-end invoice processing for Nigerian enterprise running Microsoft Dynamics NAV. From PDF arrival to NAV posting, hands-free.',
+        'End-to-end invoice processing for Nigerian enterprise running ERP. From PDF arrival to ERP posting, hands-free.',
     },
     hero: {
       badge: 'Invoice Processing',
-      h1: 'Invoice Processing, From PDF to NAV',
+      h1: 'Invoice Processing, From PDF to ERP',
       subhead:
-        'The full AP workflow in one platform — capture, extraction, matching, validation, tax computation, approval, and ERP push. Live in production at TGI Group.',
+        'The full AP workflow in one platform — capture, extraction, matching, validation, tax computation, approval, and ERP push. Live in production at a major enterprise group.',
     },
     sections: [
       {
         kicker: 'What it does',
         heading: 'What invoice processing automation actually delivers',
         body: [
-          'Invoice processing automation takes invoices from arrival all the way to NAV posting without humans touching them — except to handle the small percentage of true exceptions. The version that actually works in production has to handle every step: intake, reading, matching, validation, tax computation, approval, and ERP push. Most "AP automation" tools handle one or two steps well and leave the rest to integrations and manual handoffs.',
-          'FinMark.ai is built around the full pipeline. Vendors send invoices and an end-to-end automated workflow does the rest. The AP team stops rekeying invoices into NAV and starts reviewing exceptions. The same workflow runs every working day at TGI Group across two subsidiaries.',
+          'Invoice processing automation takes invoices from arrival all the way to ERP posting without humans touching them — except to handle the small percentage of true exceptions. The version that actually works in production has to handle every step: intake, reading, matching, validation, tax computation, approval, and ERP push. Most "AP automation" tools handle one or two steps well and leave the rest to integrations and manual handoffs.',
+          'FinMark.ai is built around the full pipeline. Vendors send invoices and an end-to-end automated workflow does the rest. The AP team stops rekeying invoices into ERP and starts reviewing exceptions. The same workflow runs every working day at a major enterprise group across two subsidiaries.',
         ],
       },
       {
         kicker: 'How it feels',
         heading: 'What this looks like for the AP team',
         body: [
-          'Before automation: An AP clerk opens an invoice from the SharePoint folder, reads it, types the line items into NAV, looks up the matching PO, manually verifies the goods receipt, calculates the WHT in a spreadsheet, walks the approval up the chain, and finally posts the invoice. Multiply by 200 invoices a week and you have a department that exists primarily to do data entry.',
-          'After automation: The AP clerk opens FinMark.ai, sees a queue of fully-processed invoices ready for review, scans the small handful of flagged exceptions with full context attached, clicks approve, and the invoices land in NAV. The same work that used to take all week takes a morning. The clerk\'s job changes from data entry to actual financial review — which is what they were hired to do.',
+          'Before automation: An AP clerk opens an invoice from the SharePoint folder, reads it, types the line items into ERP, looks up the matching PO, manually verifies the goods receipt, calculates the WHT in a spreadsheet, walks the approval up the chain, and finally posts the invoice. Multiply by 200 invoices a week and you have a department that exists primarily to do data entry.',
+          'After automation: The AP clerk opens FinMark.ai, sees a queue of fully-processed invoices ready for review, scans the small handful of flagged exceptions with full context attached, clicks approve, and the invoices land in ERP. The same work that used to take all week takes a morning. The clerk\'s job changes from data entry to actual financial review — which is what they were hired to do.',
         ],
       },
       {
         kicker: 'In production',
-        heading: 'Live at TGI Group',
+        heading: 'Live at a major enterprise group',
         body: [
-          'FinMark.ai is currently running this exact workflow in production at TGI Group across two subsidiaries — TGI Distri Limited and West Africa Cube Limited. AP teams in both subsidiaries process vendor invoices through the platform every working day. The pipeline has been running for months without breaking.',
-          'This is not a sandbox or a curated demo. It is the actual production AP workflow for a real Nigerian conglomerate, processing real invoices into real NAV instances.',
+          'FinMark.ai is currently running this exact workflow in production at a major enterprise group across two subsidiaries — a subsidiary and another subsidiary. AP teams in both subsidiaries process vendor invoices through the platform every working day. The pipeline has been running for months without breaking.',
+          'This is not a sandbox or a curated demo. It is the actual production AP workflow for a real Nigerian conglomerate, processing real invoices into real ERP instances.',
         ],
       },
       {
         kicker: 'What it replaces',
         heading: 'What invoice processing automation replaces',
         body: [
-          'It replaces the manual invoice data entry that consumes most of an AP clerk\'s week. It replaces the spreadsheet WHT computation that finance teams do separately from NAV. It replaces the back-and-forth with vendors over invoice format issues. It replaces the duplicate payments that nobody catches until the next quarterly review. It replaces the chasing of approvals that delays vendor payments past their due dates.',
+          'It replaces the manual invoice data entry that consumes most of an AP clerk\'s week. It replaces the spreadsheet WHT computation that finance teams do separately from ERP. It replaces the back-and-forth with vendors over invoice format issues. It replaces the duplicate payments that nobody catches until the next quarterly review. It replaces the chasing of approvals that delays vendor payments past their due dates.',
           'What it does not replace is the AP team\'s judgment. Genuine exceptions still need a human. The point of automation is to make sure the human only sees the cases that actually need them — and to make those cases easy to resolve when they appear.',
         ],
       },
@@ -81,11 +81,11 @@ export const CLUSTERS = [
     faqs: [
       {
         q: 'What is invoice processing automation?',
-        a: 'Invoice processing automation is software that handles the full invoice-to-ERP workflow — from receipt to extraction, matching, validation, approval, and ERP push — automatically. FinMark.ai\'s version is currently running in production at TGI Group.',
+        a: 'Invoice processing automation is software that handles the full invoice-to-ERP workflow — from receipt to extraction, matching, validation, approval, and ERP push — automatically. FinMark.ai\'s version is currently running in production at a major enterprise group.',
       },
       {
         q: 'How accurate is the extraction?',
-        a: 'High enough to run in production at TGI Group across thousands of invoices over months. Edge cases get flagged for human review with the AI predictions pre-filled, so confirmation takes seconds.',
+        a: 'High enough to run in production at a major enterprise group across thousands of invoices over months. Edge cases get flagged for human review with the AI predictions pre-filled, so confirmation takes seconds.',
       },
       {
         q: 'What happens to exceptions?',
@@ -93,11 +93,11 @@ export const CLUSTERS = [
       },
       {
         q: 'What ERP does it push to?',
-        a: 'Microsoft Dynamics NAV is the production-supported ERP. Approved invoices flow back into NAV with all relevant fields populated, ready for the AP team to post.',
+        a: 'ERP is the production-supported ERP. Approved invoices flow back into ERP with all relevant fields populated, ready for the AP team to post.',
       },
       {
         q: 'How do I get started?',
-        a: 'Book a 30-minute call. We will walk you through the platform live, show you how it runs at TGI Group, and tell you what implementation looks like for your specific NAV setup.',
+        a: 'Book a 30-minute call. We will walk you through the platform live, show you how it runs at a major enterprise group, and tell you what implementation looks like for your specific ERP setup.',
       },
     ],
   },
@@ -112,7 +112,7 @@ export const CLUSTERS = [
     meta: {
       title: 'AI Invoice Extraction That Reads Any Format | FinMark.ai',
       description:
-        'AI invoice extraction that reads any vendor invoice format — PDFs, scanned documents, photos, emails — without per-vendor template setup. Live in production at TGI Group.',
+        'AI invoice extraction that reads any vendor invoice format — PDFs, scanned documents, photos, emails — without per-vendor template setup. Live in production at a major enterprise group.',
     },
     hero: {
       badge: 'AI Invoice Extraction',
@@ -141,7 +141,7 @@ export const CLUSTERS = [
         kicker: 'In production',
         heading: 'How it performs in production',
         body: [
-          'FinMark.ai\'s extraction runs every working day at TGI Group across two subsidiaries. The model has processed thousands of real production invoices over months — including the messy edge cases that break demo systems. The accuracy holds up in production at the level you need to actually trust the output and let it flow through the rest of the pipeline without manual review of every field.',
+          'FinMark.ai\'s extraction runs every working day at a major enterprise group across two subsidiaries. The model has processed thousands of real production invoices over months — including the messy edge cases that break demo systems. The accuracy holds up in production at the level you need to actually trust the output and let it flow through the rest of the pipeline without manual review of every field.',
           'The remaining edge cases get flagged for human review with the model\'s predictions pre-filled. The reviewer sees the original document and the extracted fields side by side and confirms or corrects in seconds — not minutes.',
         ],
       },
@@ -149,7 +149,7 @@ export const CLUSTERS = [
         kicker: 'What stays opaque',
         heading: 'Why we don\'t talk about the model architecture',
         body: [
-          'The specific model we use, the number of inference passes, and the internal extraction architecture are deliberately not on this page. The model is one of the things that makes FinMark.ai work and we treat it as proprietary. Sophisticated buyers can ask under NDA. Most buyers do not care — they care whether it works on their invoices, which the production deployment at TGI Group already proves.',
+          'The specific model we use, the number of inference passes, and the internal extraction architecture are deliberately not on this page. The model is one of the things that makes FinMark.ai work and we treat it as proprietary. Sophisticated buyers can ask under NDA. Most buyers do not care — they care whether it works on their invoices, which the production deployment at a major enterprise group already proves.',
         ],
       },
     ],
@@ -162,7 +162,7 @@ export const CLUSTERS = [
       },
       {
         q: 'How accurate is it on real invoices?',
-        a: 'High enough to run in production at TGI Group across thousands of invoices over months. Edge cases get flagged for human review with predictions pre-filled.',
+        a: 'High enough to run in production at a major enterprise group across thousands of invoices over months. Edge cases get flagged for human review with predictions pre-filled.',
       },
       {
         q: 'Does it work on scanned PDFs and photos?',
@@ -187,15 +187,15 @@ export const CLUSTERS = [
     slug: '3-way-matching',
     primaryKeyword: '3 way matching nav',
     meta: {
-      title: '3-Way Matching Against NAV | FinMark.ai',
+      title: '3-Way Matching Against ERP | FinMark.ai',
       description:
-        'Automated 3-way matching of invoices against POs and GRNs from Microsoft Dynamics NAV. Handles lump-sum and ratio-based matching for telecom and marketing categories.',
+        'Automated 3-way matching of invoices against POs and GRNs from ERP. Handles lump-sum and ratio-based matching for telecom and marketing categories.',
     },
     hero: {
       badge: '3-Way Matching',
-      h1: 'Automated 3-Way Matching Against NAV',
+      h1: 'Automated 3-Way Matching Against ERP',
       subhead:
-        'Match invoices against POs and GRNs from your Microsoft Dynamics NAV instance automatically. Handles the messy real-world cases — telecom invoices, marketing line items, partial receipts — without manual workarounds.',
+        'Match invoices against POs and GRNs from your ERP instance automatically. Handles the messy real-world cases — telecom invoices, marketing line items, partial receipts — without manual workarounds.',
     },
     sections: [
       {
@@ -207,11 +207,11 @@ export const CLUSTERS = [
         ],
       },
       {
-        kicker: 'NAV integration',
-        heading: 'Matching against your live NAV data',
+        kicker: 'ERP integration',
+        heading: 'Matching against your live ERP data',
         body: [
-          'FinMark.ai pulls purchase orders and goods receipt notes directly from your Microsoft Dynamics NAV instance. When an invoice arrives, the matching engine has access to your live PO and GRN data without any manual upload or sync delay. The match runs automatically, the result is logged, and the invoice moves forward — or gets flagged for review.',
-          'The integration is bidirectional. POs and GRNs flow in. Approved invoices flow back into NAV with all the relevant fields populated, ready to post.',
+          'FinMark.ai pulls purchase orders and goods receipt notes directly from your ERP instance. When an invoice arrives, the matching engine has access to your live PO and GRN data without any manual upload or sync delay. The match runs automatically, the result is logged, and the invoice moves forward — or gets flagged for review.',
+          'The integration is bidirectional. POs and GRNs flow in. Approved invoices flow back into ERP with all the relevant fields populated, ready to post.',
         ],
       },
       {
@@ -219,7 +219,7 @@ export const CLUSTERS = [
         heading: 'How we handle the cases that break generic matching',
         body: [
           'Standard 3-way matching assumes one invoice line per PO line. Reality is messier. Telecom invoices have one PO line that says "Telephone" and a hundred invoice lines for calls, SMS, data, and bundles. Marketing invoices come with line items that do not map cleanly to specific PO lines at all. Partial deliveries leave you with quantity mismatches that are correct but flagged anyway by naive matching engines.',
-          'FinMark.ai handles two special cases that come up constantly in production. Lump-sum matching: a single PO line plus N invoice lines passes if the totals match within tolerance — this is how telecom invoices flow through. Ratio-based matching: when invoice lines do not map cleanly, amounts are split proportionally across the relevant PO lines. Both are real production patterns at TGI Group, not theoretical edge cases.',
+          'FinMark.ai handles two special cases that come up constantly in production. Lump-sum matching: a single PO line plus N invoice lines passes if the totals match within tolerance — this is how telecom invoices flow through. Ratio-based matching: when invoice lines do not map cleanly, amounts are split proportionally across the relevant PO lines. Both are real production patterns at a major enterprise group, not theoretical edge cases.',
         ],
       },
       {
@@ -238,12 +238,12 @@ export const CLUSTERS = [
         a: '3-way matching compares the purchase order, the goods receipt, and the vendor invoice before approving payment. All three need to agree within tolerance. It catches overcharges, short shipments, billing errors, and vendor fraud.',
       },
       {
-        q: 'Does FinMark.ai sync POs and GRNs from NAV?',
-        a: 'Yes. POs and GRNs sync directly from your Microsoft Dynamics NAV instance. The matching engine has access to your live data without any manual upload.',
+        q: 'Does FinMark.ai sync POs and GRNs from ERP?',
+        a: 'Yes. POs and GRNs sync directly from your ERP instance. The matching engine has access to your live data without any manual upload.',
       },
       {
         q: 'What about telecom invoices with one PO line and many invoice lines?',
-        a: 'Lump-sum matching handles this directly. A single PO line plus N invoice lines passes if the totals match within tolerance. This is a real production pattern at TGI Group.',
+        a: 'Lump-sum matching handles this directly. A single PO line plus N invoice lines passes if the totals match within tolerance. This is a real production pattern at a major enterprise group.',
       },
       {
         q: 'Can I configure tolerances per vendor?',
@@ -251,7 +251,7 @@ export const CLUSTERS = [
       },
       {
         q: 'Does 3-way matching require an existing procurement workflow?',
-        a: 'Yes — for true 3-way matching you need POs and GRNs in NAV. For services and recurring charges where you do not have POs, 2-way matching against the invoice and an approver decision is supported.',
+        a: 'Yes — for true 3-way matching you need POs and GRNs in ERP. For services and recurring charges where you do not have POs, 2-way matching against the invoice and an approver decision is supported.',
       },
     ],
   },
@@ -266,13 +266,13 @@ export const CLUSTERS = [
     meta: {
       title: 'Nigerian Withholding Tax (WHT) Automation | FinMark.ai',
       description:
-        'Nigerian Withholding Tax computed automatically per current regulations and pushed back into Microsoft Dynamics NAV with every approved invoice. Built into the AP workflow.',
+        'Nigerian Withholding Tax computed automatically per current regulations and pushed back into ERP with every approved invoice. Built into the AP workflow.',
     },
     hero: {
       badge: 'Nigerian WHT Automation',
       h1: 'Nigerian Withholding Tax, Computed Automatically',
       subhead:
-        'WHT computed automatically per the current Nigerian regulations and pushed back into Microsoft Dynamics NAV alongside the standard invoice fields. Built into the AP workflow, not a separate spreadsheet.',
+        'WHT computed automatically per the current Nigerian regulations and pushed back into ERP alongside the standard invoice fields. Built into the AP workflow, not a separate spreadsheet.',
     },
     sections: [
       {
@@ -288,14 +288,14 @@ export const CLUSTERS = [
         heading: 'How FinMark.ai computes WHT',
         body: [
           'When an invoice flows through the FinMark.ai pipeline, the WHT engine evaluates whether WHT applies, which rate to use, and what the tax base should be. The decision uses the vendor type, the service category mapped from the invoice line items, the TIN status, and the current Nigerian regulation table. The engine applies the right rate, computes the tax amount, and produces the supporting fields needed for the certificate.',
-          'All of this runs automatically as part of the invoice processing workflow. By the time an invoice reaches the approval step, the WHT has already been computed, the rate applied is visible in the audit trail, and the supporting fields are ready to flow back into NAV with the rest of the invoice.',
+          'All of this runs automatically as part of the invoice processing workflow. By the time an invoice reaches the approval step, the WHT has already been computed, the rate applied is visible in the audit trail, and the supporting fields are ready to flow back into ERP with the rest of the invoice.',
         ],
       },
       {
-        kicker: 'NAV integration',
-        heading: 'WHT lands in NAV alongside the invoice',
+        kicker: 'ERP integration',
+        heading: 'WHT lands in ERP alongside the invoice',
         body: [
-          'When an approved invoice pushes back into Microsoft Dynamics NAV, the WHT fields are populated alongside the standard invoice fields. NAV then has everything it needs to post the invoice with WHT correctly captured for the tax filing. Your AP team does not have to copy WHT numbers from one system to another. They do not have to maintain a parallel WHT spreadsheet. The numbers are right, the fields are populated, and the audit trail traces every computation back to the rule that was applied.',
+          'When an approved invoice pushes back into ERP, the WHT fields are populated alongside the standard invoice fields. Your ERP then has everything it needs to post the invoice with WHT correctly captured for the tax filing. Your AP team does not have to copy WHT numbers from one system to another. They do not have to maintain a parallel WHT spreadsheet. The numbers are right, the fields are populated, and the audit trail traces every computation back to the rule that was applied.',
         ],
       },
       {
@@ -303,7 +303,7 @@ export const CLUSTERS = [
         heading: 'Why this is the killer differentiator',
         body: [
           'There is no major AP automation tool — Bill.com, Stampli, Tipalti, AvidXchange, Coupa — that handles Nigerian WHT this way. The reason is simple: they are all built for the US or Europe, and Nigeria is not on their roadmap. Any African enterprise that wants AP automation has historically had to either accept the limitation (compute WHT outside the tool) or build their own.',
-          'FinMark.ai is built for this specific reality. WHT is a first-class feature, integrated into every step of the pipeline, pushed automatically to NAV. For African enterprise finance teams running NAV, this single feature makes FinMark.ai the AP automation that actually works end-to-end without manual workarounds.',
+          'FinMark.ai is built for this specific reality. WHT is a first-class feature, integrated into every step of the pipeline, pushed automatically to ERP. For African enterprise finance teams running ERP, this single feature makes FinMark.ai the AP automation that actually works end-to-end without manual workarounds.',
         ],
       },
     ],
@@ -320,7 +320,7 @@ export const CLUSTERS = [
       },
       {
         q: 'Where does the WHT data end up?',
-        a: 'WHT is pushed back into Microsoft Dynamics NAV alongside the standard invoice fields. NAV then has everything it needs to post the invoice with WHT correctly captured for the tax filing. No parallel spreadsheet.',
+        a: 'WHT is pushed back into ERP alongside the standard invoice fields. Your ERP then has everything it needs to post the invoice with WHT correctly captured for the tax filing. No parallel spreadsheet.',
       },
       {
         q: 'What if a vendor is exempt from WHT?',
@@ -334,53 +334,53 @@ export const CLUSTERS = [
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // 5. Microsoft Dynamics NAV Integration
+  // 5. ERP Integration
   // ─────────────────────────────────────────────────────────────────
   {
     pillar: 'accounts-payable-automation',
     slug: 'microsoft-dynamics-nav-integration',
     primaryKeyword: 'microsoft dynamics nav ap integration',
     meta: {
-      title: 'Microsoft Dynamics NAV AP Integration | FinMark.ai',
+      title: 'ERP AP Integration | FinMark.ai',
       description:
-        'Direct AP automation integration with on-premise Microsoft Dynamics NAV. Built for the African enterprise reality that cloud-first AP vendors do not handle well.',
+        'Direct AP automation integration with on-premise ERP. Built for the African enterprise reality that cloud-first AP vendors do not handle well.',
     },
     hero: {
-      badge: 'NAV Integration',
-      h1: 'Direct Microsoft Dynamics NAV Integration',
+      badge: 'ERP Integration',
+      h1: 'Direct ERP Integration',
       subhead:
-        'POs, GRNs, vendor master, and approved invoices flow between FinMark.ai and your Microsoft Dynamics NAV instance automatically. Built for the on-premise NAV reality that cloud-first AP tools do not handle well.',
+        'POs, GRNs, vendor master, and approved invoices flow between FinMark.ai and your ERP instance automatically. Built for the on-premise ERP reality that cloud-first AP tools do not handle well.',
     },
     sections: [
       {
         kicker: 'The problem',
-        heading: 'Why most AP tools cannot integrate with NAV well',
+        heading: 'Why most AP tools cannot integrate with on-premise ERP well',
         body: [
-          'Microsoft Dynamics NAV is one of the most widely deployed ERPs in mid-market and enterprise organizations across Africa, the Middle East, and parts of Europe. It is also one of the hardest ERPs to integrate with from a modern AP automation tool. Most NAV deployments are on-premise, behind corporate firewalls. The cloud-first AP vendors built for SaaS-era ERPs (NetSuite, Xero, QuickBooks Online) simply do not have the integration story for on-premise NAV.',
-          'The result is that NAV-based finance teams have been stuck — using AP tools that integrate well with cloud systems but not with the actual NAV instance that holds their financial data, or running AP entirely on top of NAV with all the manual workflow problems that come with it.',
+          'ERP is one of the most widely deployed ERPs in mid-market and enterprise organizations across Africa, the Middle East, and parts of Europe. It is also one of the hardest ERPs to integrate with from a modern AP automation tool. Most ERP deployments are on-premise, behind corporate firewalls. The cloud-first AP vendors built for SaaS-era ERPs (NetSuite, Xero, QuickBooks Online) simply do not have the integration story for on-premise ERP.',
+          'The result is that ERP-based finance teams have been stuck — using AP tools that integrate well with cloud systems but not with the actual ERP instance that holds their financial data, or running AP entirely on top of ERP with all the manual workflow problems that come with it.',
         ],
       },
       {
         kicker: 'How we handle it',
-        heading: 'How FinMark.ai integrates with NAV',
+        heading: 'How FinMark.ai integrates with ERP',
         body: [
-          'FinMark.ai is built specifically for the on-premise NAV reality. The integration handles the firewall realities, the authentication patterns, and the bidirectional sync that on-premise NAV deployments need. Once configured, POs and GRNs flow from NAV into FinMark.ai automatically, and approved invoices flow back into NAV with all the relevant fields populated.',
-          'The integration is in production today at TGI Group across two subsidiaries, each with their own NAV instance. The setup is repeatable for the next customer running NAV — we have already done the hard part of figuring out how on-premise NAV integration actually works.',
+          'FinMark.ai is built specifically for the on-premise ERP reality. The integration handles the firewall realities, the authentication patterns, and the bidirectional sync that on-premise ERP deployments need. Once configured, POs and GRNs flow from ERP into FinMark.ai automatically, and approved invoices flow back into ERP with all the relevant fields populated.',
+          'The integration is in production today at a major enterprise group across two subsidiaries, each with their own ERP instance. The setup is repeatable for the next customer running ERP — we have already done the hard part of figuring out how on-premise ERP integration actually works.',
         ],
       },
       {
         kicker: 'What syncs',
-        heading: 'What flows between FinMark.ai and NAV',
+        heading: 'What flows between FinMark.ai and your ERP',
         body: [
-          'From NAV into FinMark.ai: purchase orders, goods receipt notes, vendor master data, and chart of accounts references. From FinMark.ai into NAV: approved invoices with all the standard fields plus the Nigerian Withholding Tax fields populated. The integration is bidirectional, automated, and audited end to end.',
-          'Once an invoice is in NAV, the AP team posts it like any other invoice — except the validation, the matching, and the tax computation have already been done. The whole loop runs without humans rekeying data between systems.',
+          'From your ERP into FinMark.ai: purchase orders, goods receipt notes, vendor master data, and chart of accounts references. From FinMark.ai into ERP: approved invoices with all the standard fields plus the Nigerian Withholding Tax fields populated. The integration is bidirectional, automated, and audited end to end.',
+          'Once an invoice is in ERP, the AP team posts it like any other invoice — except the validation, the matching, and the tax computation have already been done. The whole loop runs without humans rekeying data between systems.',
         ],
       },
       {
         kicker: 'Production',
         heading: 'In production today',
         body: [
-          'The NAV integration is currently running in production at TGI Group across two subsidiaries (TGI Distri Limited and West Africa Cube Limited). Each subsidiary has its own NAV instance and its own FinMark.ai subdomain. The integration runs continuously and has been verified end-to-end including the round-trip ERP push-back.',
+          'The ERP integration is currently running in production at a major enterprise group across two subsidiaries (a subsidiary and another subsidiary). Each subsidiary has its own ERP instance and its own FinMark.ai subdomain. The integration runs continuously and has been verified end-to-end including the round-trip ERP push-back.',
         ],
       },
     ],
@@ -388,24 +388,24 @@ export const CLUSTERS = [
     crossPillarLink: null,
     faqs: [
       {
-        q: 'Does FinMark.ai integrate with Microsoft Dynamics NAV?',
-        a: 'Yes — directly. NAV is the production-supported ERP integration. POs, GRNs, and vendor data sync from NAV automatically. Approved invoices push back with both standard and WHT fields populated.',
+        q: 'Does FinMark.ai integrate with ERP?',
+        a: 'Yes — directly. On-premise ERP is the production-supported ERP integration. POs, GRNs, and vendor data sync from ERP automatically. Approved invoices push back with both standard and WHT fields populated.',
       },
       {
-        q: 'Does it work with on-premise NAV?',
-        a: 'Yes. FinMark.ai is built specifically for the on-premise NAV reality, including the firewall and authentication patterns that on-premise deployments need.',
+        q: 'Does it work with on-premise ERP?',
+        a: 'Yes. FinMark.ai is built specifically for the on-premise ERP reality, including the firewall and authentication patterns that on-premise deployments need.',
       },
       {
-        q: 'What about NAV cloud / Business Central?',
-        a: 'Current production is on-premise Microsoft Dynamics NAV. Business Central support is not in scope today. We will tell you on the first call rather than letting you find out after you sign.',
+        q: 'What about cloud ERP / Business Central?',
+        a: 'Current production is on-premise ERP. Business Central support is not in scope today. We will tell you on the first call rather than letting you find out after you sign.',
       },
       {
-        q: 'How long does NAV integration take to set up?',
-        a: 'Most customers go from contract to first automated invoice in 2-4 weeks. The biggest variable is your specific NAV configuration and the access we need from your IT team.',
+        q: 'How long does ERP integration take to set up?',
+        a: 'Most customers go from contract to first automated invoice in 2-4 weeks. The biggest variable is your specific ERP configuration and the access we need from your IT team.',
       },
       {
-        q: 'Can I run AP automation without NAV?',
-        a: 'No. FinMark.ai is built specifically for Microsoft Dynamics NAV. If you run a different ERP, we are not the right tool for you today.',
+        q: 'Can I run AP automation without ERP?',
+        a: 'No. FinMark.ai is built specifically for ERP. If you run a different ERP, we are not the right tool for you today.',
       },
     ],
   },
@@ -450,8 +450,8 @@ export const CLUSTERS = [
         heading: 'What access we need',
         body: [
           'FinMark.ai accesses SharePoint via standard Microsoft Graph permissions — read access to the designated folders so we can pick up invoices, and write access if you want portal uploads to flow back. Permissions are scoped per tenant and require admin consent on your end. There are no broad tenant-wide privileges beyond what Microsoft Graph requires for this kind of integration.',
-          // TODO: Confirm exact scopes for current TGI deployment
-          'For TGI Group, the SharePoint integration is configured but currently waiting on TGI providing the Tenant ID and admin consent. The technical implementation is ready; it is the governance approval on the customer side that is the gating item.',
+          // TODO: Confirm exact scopes for current the client deployment
+          'For a major enterprise group, the SharePoint integration is configured but currently waiting on the client providing the Tenant ID and admin consent. The technical implementation is ready; it is the governance approval on the customer side that is the gating item.',
         ],
       },
       {
@@ -498,7 +498,7 @@ export const CLUSTERS = [
     meta: {
       title: 'AP Automation for Group Companies | FinMark.ai',
       description:
-        'Run multiple subsidiaries on one AP platform with full data isolation. Designed for African enterprise group structures with multiple legal entities and NAV instances.',
+        'Run multiple subsidiaries on one AP platform with full data isolation. Designed for African enterprise group structures with multiple legal entities and ERP instances.',
     },
     hero: {
       badge: 'For Group Companies',
@@ -511,7 +511,7 @@ export const CLUSTERS = [
         kicker: 'The problem',
         heading: 'Why group companies need multi-tenant AP',
         body: [
-          'Group company structures are everywhere in African enterprise. A parent holding company runs multiple operating subsidiaries, each with its own NAV instance, its own vendor base, its own approval policy, and its own tax obligations. The parent group needs visibility across all of them; the subsidiaries need independence within them.',
+          'Group company structures are everywhere in African enterprise. A parent holding company runs multiple operating subsidiaries, each with its own ERP instance, its own vendor base, its own approval policy, and its own tax obligations. The parent group needs visibility across all of them; the subsidiaries need independence within them.',
           'Most AP automation tools either force you to deploy a separate instance per subsidiary (expensive, fragmented, hard to govern) or run everything in one instance with weak data isolation (governance nightmare, audit risk). Neither works for a group structure where the subsidiaries genuinely need to operate independently AND the parent needs cross-company oversight.',
         ],
       },
@@ -519,23 +519,23 @@ export const CLUSTERS = [
         kicker: 'How we handle it',
         heading: 'How FinMark.ai handles group companies',
         body: [
-          'Each subsidiary gets its own dedicated environment on FinMark.ai with its own users, its own NAV integration, its own vendor base, and its own approval workflows. Data isolation between subsidiaries is enforced at the platform level — there is no way for one subsidiary to accidentally see another subsidiary\'s data, even with deliberate URL manipulation.',
+          'Each subsidiary gets its own dedicated environment on FinMark.ai with its own users, its own ERP integration, its own vendor base, and its own approval workflows. Data isolation between subsidiaries is enforced at the platform level — there is no way for one subsidiary to accidentally see another subsidiary\'s data, even with deliberate URL manipulation.',
           'Above the subsidiaries, the parent group gets a cross-company admin view. Group CFOs and internal audit teams can see invoices, approvals, audit trails, and key metrics across every subsidiary in one place — without losing the per-subsidiary isolation that the subsidiaries themselves need to operate independently.',
         ],
       },
       {
         kicker: 'In production',
-        heading: 'Live with TGI Group',
+        heading: 'Live with a major enterprise group',
         body: [
-          'TGI Group is currently running on the multi-tenant architecture across two subsidiaries — TGI Distri Limited (TGID) and West Africa Cube Limited (WACube). Each has its own NAV instance, its own AP team, its own vendor base, and its own subdomain on FinMark.ai. The parent TGI group has cross-company admin access for oversight.',
-          'The architecture is designed for groups that add subsidiaries one at a time. Adding a new subsidiary spins up a new environment, a new NAV configuration, and a new vendor base without affecting the existing tenants. We are ready to onboard the third TGI subsidiary as soon as the parent decides to add it.',
+          'a major enterprise group is currently running on the multi-tenant architecture across two subsidiaries — multiple subsidiaries. Each has its own ERP instance, its own AP team, its own vendor base, and its own subdomain on FinMark.ai. The parent the client group has cross-company admin access for oversight.',
+          'The architecture is designed for groups that add subsidiaries one at a time. Adding a new subsidiary spins up a new environment, a new ERP configuration, and a new vendor base without affecting the existing tenants. We are ready to onboard the third client subsidiary as soon as the parent decides to add it.',
         ],
       },
       {
-        kicker: 'Per-tenant NAV',
-        heading: 'Per-subsidiary NAV integration',
+        kicker: 'Per-tenant ERP',
+        heading: 'Per-subsidiary ERP integration',
         body: [
-          'Each subsidiary can have its own Microsoft Dynamics NAV instance — and usually does, because group companies typically run separate NAV deployments per legal entity. FinMark.ai handles this by maintaining a separate NAV integration configuration per subsidiary. Each tenant\'s data flows to and from the right NAV without crossing wires.',
+          'Each subsidiary can have its own ERP instance — and usually does, because group companies typically run separate ERP deployments per legal entity. FinMark.ai handles this by maintaining a separate ERP integration configuration per subsidiary. Each tenant\'s data flows to and from the right ERP without crossing wires.',
         ],
       },
     ],
@@ -551,8 +551,8 @@ export const CLUSTERS = [
         a: 'Data isolation is enforced at the platform level. There is no way for one subsidiary to access another subsidiary\'s data, even with deliberate URL manipulation. The isolation is built into the architecture, not bolted on as access control.',
       },
       {
-        q: 'Can each subsidiary have its own NAV instance?',
-        a: 'Yes. Each tenant gets its own NAV integration configuration. Group companies typically run separate NAV deployments per legal entity and FinMark.ai handles this directly.',
+        q: 'Can each subsidiary have its own ERP instance?',
+        a: 'Yes. Each tenant gets its own ERP integration configuration. Group companies typically run separate ERP deployments per legal entity and FinMark.ai handles this directly.',
       },
       {
         q: 'How does the cross-company admin work?',
@@ -672,7 +672,7 @@ export const CLUSTERS = [
         kicker: 'Sanity checks',
         heading: 'The sanity checks that catch what AI misses',
         body: [
-          'AI extraction is great, but no AI is perfect. The small percentage of cases where the extraction is slightly off — a date misread, a tax amount off by a digit, a vendor name almost right — would cause real problems if they made it into NAV. Rule-based sanity checks catch these as a second line of defense.',
+          'AI extraction is great, but no AI is perfect. The small percentage of cases where the extraction is slightly off — a date misread, a tax amount off by a digit, a vendor name almost right — would cause real problems if they made it into ERP. Rule-based sanity checks catch these as a second line of defense.',
           'The checks cover the categories that matter: date sanity (is the invoice date plausible), amount sanity (does the invoice total fall within historical norms for this vendor), vendor verification (is the vendor in the master, is the TIN valid), line-item totals (do the line items sum to the invoice total), tax math (does the tax match the rate and base), currency consistency, PO and GRN reference sanity, near-duplicate detection, and bank detail change detection.',
         ],
       },
@@ -687,7 +687,7 @@ export const CLUSTERS = [
         kicker: 'What\'s next',
         heading: 'What is and is not in scope today',
         body: [
-          'The current implementation focuses on duplicate detection and rule-based sanity checks. ML-based anomaly detection for fraud — looking at vendor history patterns, unusual amounts, timing anomalies — is on the roadmap but not in production today. The deterministic checks above handle the highest-impact fraud categories and are production-tested at TGI Group.',
+          'The current implementation focuses on duplicate detection and rule-based sanity checks. ML-based anomaly detection for fraud — looking at vendor history patterns, unusual amounts, timing anomalies — is on the roadmap but not in production today. The deterministic checks above handle the highest-impact fraud categories and are production-tested at a major enterprise group.',
         ],
       },
     ],
@@ -727,13 +727,13 @@ export const CLUSTERS = [
     meta: {
       title: 'AP Automation Software for Nigerian Enterprise | FinMark.ai',
       description:
-        'How to evaluate AP automation software for Nigerian enterprise running Microsoft Dynamics NAV. The criteria that actually matter, the traps to avoid, and what US-built tools usually miss.',
+        'How to evaluate AP automation software for Nigerian enterprise running ERP. The criteria that actually matter, the traps to avoid, and what US-built tools usually miss.',
     },
     hero: {
       badge: 'AP Automation Software',
       h1: 'AP Automation Software for Nigerian Enterprise',
       subhead:
-        'A buyer\'s guide focused on what actually matters for Nigerian enterprise running Microsoft Dynamics NAV. The features US-built AP tools miss, the criteria that matter most, and how to evaluate honestly.',
+        'A buyer\'s guide focused on what actually matters for Nigerian enterprise running ERP. The features US-built AP tools miss, the criteria that matter most, and how to evaluate honestly.',
     },
     sections: [
       {
@@ -741,14 +741,14 @@ export const CLUSTERS = [
         heading: 'Why most AP automation software is built for the wrong market',
         body: [
           'The AP automation category is dominated by tools built for US and European mid-market companies. Bill.com, Stampli, Tipalti, AvidXchange, and the rest were designed for clean cloud ERPs (NetSuite, QuickBooks, Xero), simple sales tax models (US sales tax, EU VAT), and single-currency single-entity finance teams. They are excellent at what they do — but what they do is not what Nigerian enterprise finance teams actually need.',
-          'The mismatch shows up in three places. First, the ERP integration: most Nigerian enterprise runs Microsoft Dynamics NAV, often on-premise, which the cloud-first AP vendors do not handle well. Second, the tax model: Nigerian Withholding Tax is more complex than US sales tax and is handled by exactly zero major AP tools. Third, the entity model: Nigerian groups typically run multiple subsidiaries with separate NAV instances, and most AP tools treat that as an awkward edge case rather than a primary use case.',
+          'The mismatch shows up in three places. First, the ERP integration: most Nigerian enterprise runs ERP, often on-premise, which the cloud-first AP vendors do not handle well. Second, the tax model: Nigerian Withholding Tax is more complex than US sales tax and is handled by exactly zero major AP tools. Third, the entity model: Nigerian groups typically run multiple subsidiaries with separate ERP instances, and most AP tools treat that as an awkward edge case rather than a primary use case.',
         ],
       },
       {
         kicker: 'Substitutes',
         heading: 'Your real alternatives',
         body: [
-          'Be honest about what you are choosing between. If you do not buy FinMark.ai, your real alternatives are: keep doing AP manually with Excel and NAV (the most common starting point); hire a Nigerian WHT consultant plus more AP clerks (the most common scaling answer); use Bill.com or Tipalti for the easy 70% of invoices and run WHT manually in spreadsheets for the hard 30% (the most common compromise); or hire a Nigerian systems integrator to build something custom on top of NAV (the most common large-enterprise default).',
+          'Be honest about what you are choosing between. If you do not buy FinMark.ai, your real alternatives are: keep doing AP manually with Excel and ERP (the most common starting point); hire a Nigerian WHT consultant plus more AP clerks (the most common scaling answer); use Bill.com or Tipalti for the easy 70% of invoices and run WHT manually in spreadsheets for the hard 30% (the most common compromise); or hire a Nigerian systems integrator to build something custom on top of ERP (the most common large-enterprise default).',
           'Each of these has costs and tradeoffs. The most common one — doing nothing — has the highest hidden cost because the labor and the audit risk and the missed early-pay discounts and the WHT compliance exposure all compound silently. The most expensive one — the custom SI build — locks you into a single vendor and a multi-month delivery cycle. The compromise (US tool plus manual WHT) defeats most of the automation value because the WHT step is where the most expensive labor lives.',
         ],
       },
@@ -756,7 +756,7 @@ export const CLUSTERS = [
         kicker: 'Criteria',
         heading: 'The criteria that actually matter',
         body: [
-          'Six criteria separate AP automation tools that work for Nigerian enterprise from the ones that do not. Direct Microsoft Dynamics NAV integration including on-premise. Nigerian Withholding Tax computation built in, not bolted on. Multi-tenant architecture for group companies. SharePoint integration if your document repository is SharePoint. Document AI accuracy on real-world (not curated) invoices. Audit trail that satisfies external audit and regulatory expectations.',
+          'Six criteria separate AP automation tools that work for Nigerian enterprise from the ones that do not. Direct ERP integration including on-premise. Nigerian Withholding Tax computation built in, not bolted on. Multi-tenant architecture for group companies. SharePoint integration if your document repository is SharePoint. Document AI accuracy on real-world (not curated) invoices. Audit trail that satisfies external audit and regulatory expectations.',
           'A seventh criterion that matters more than people realize: how the vendor handles the messy reality of African enterprise — the on-premise systems, the firewall realities, the local tax regulations, the multi-subsidiary structures. Generic global AP tools usually do not handle these well because they were never designed for them.',
         ],
       },
@@ -764,7 +764,7 @@ export const CLUSTERS = [
         kicker: 'Traps',
         heading: 'Common evaluation traps',
         body: [
-          'The biggest trap is letting a US AP vendor demo set your expectations. Their demo will look great on a clean QuickBooks integration with simple sales tax — and tell you nothing about how the tool handles your real NAV, your real WHT regulations, your real subsidiaries. The right evaluation is a paid pilot on your actual data, not a 30-minute click-through.',
+          'The biggest trap is letting a US AP vendor demo set your expectations. Their demo will look great on a clean QuickBooks integration with simple sales tax — and tell you nothing about how the tool handles your real ERP, your real WHT regulations, your real subsidiaries. The right evaluation is a paid pilot on your actual data, not a 30-minute click-through.',
           'The second trap is checklist-buying. Long feature lists are misleading because most teams use 20% of any tool. Focus on the specific gaps the tool will fill in your existing workflow, not the long list of features you might use someday. The third trap is buying based on price alone without considering total cost of ownership: implementation effort, integration work, ongoing maintenance, and the cost of running fundamental gaps manually outside the tool.',
         ],
       },
@@ -778,7 +778,7 @@ export const CLUSTERS = [
       },
       {
         q: 'Why does Nigerian enterprise need different AP automation?',
-        a: 'Three reasons. ERP: most Nigerian enterprise runs Microsoft Dynamics NAV, often on-premise, which cloud-first AP vendors handle poorly. Tax: Nigerian Withholding Tax is more complex than US sales tax and is not supported by major AP tools. Entity: Nigerian groups run multiple subsidiaries with separate NAV instances, which most tools treat as an edge case.',
+        a: 'Three reasons. ERP: most Nigerian enterprise runs ERP, often on-premise, which cloud-first AP vendors handle poorly. Tax: Nigerian Withholding Tax is more complex than US sales tax and is not supported by major AP tools. Entity: Nigerian groups run multiple subsidiaries with separate ERP instances, which most tools treat as an edge case.',
       },
       {
         q: 'Can I use Bill.com or Tipalti for Nigerian operations?',
@@ -786,11 +786,11 @@ export const CLUSTERS = [
       },
       {
         q: 'How do I evaluate AP software for Nigerian enterprise?',
-        a: 'Write down your specific requirements (NAV setup, WHT obligations, subsidiary count, document repository), evaluate vendors against your specific list, and run paid pilots on your real data — including the problematic invoices. The pilot is the only honest evaluation.',
+        a: 'Write down your specific requirements (ERP setup, WHT obligations, subsidiary count, document repository), evaluate vendors against your specific list, and run paid pilots on your real data — including the problematic invoices. The pilot is the only honest evaluation.',
       },
       {
         q: 'How is FinMark.ai different from US-built AP automation?',
-        a: 'FinMark.ai is built specifically for Nigerian enterprise. Direct Microsoft Dynamics NAV integration, Nigerian WHT as a first-class feature, multi-tenant for group companies, SharePoint integration. None of these are bolted-on adaptations — they are the core design. Live in production today at TGI Group.',
+        a: 'FinMark.ai is built specifically for Nigerian enterprise. Direct ERP integration, Nigerian WHT as a first-class feature, multi-tenant for group companies, SharePoint integration. None of these are bolted-on adaptations — they are the core design. Live in production today at a major enterprise group.',
       },
     ],
   },
