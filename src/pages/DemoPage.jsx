@@ -13,9 +13,9 @@ import {
 } from '../lib/schema'
 
 const BENEFITS = [
-  'Live walkthrough of all 8 platform modules',
+  'Live walkthrough of the platform',
   'Tailored to your tech stack and use cases',
-  'Implementation timeline and pricing for your scale',
+  'Implementation timeline for your scale',
   'No-pressure conversation with a product expert',
 ]
 
