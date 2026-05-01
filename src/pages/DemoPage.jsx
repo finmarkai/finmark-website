@@ -21,15 +21,15 @@ const PRODUCT_OPTIONS = [
   { id: 'custom', label: 'Something else — tell us what you need' },
 ]
 
-// Map URL ?product= param to checkbox id
+// Map URL ?product= param to product label
 const PRODUCT_PARAM_MAP = {
-  'accounts-payable-automation': 'ap',
-  'accounts-payable': 'ap',
-  'ap': 'ap',
-  'erp-audit': 'erp-audit',
-  'fpa': 'fpa',
-  'spend-analytics': 'spend-analytics',
-  'custom': 'custom',
+  'accounts-payable-automation': 'Accounts Payable',
+  'accounts-payable': 'Accounts Payable',
+  'ap': 'Accounts Payable',
+  'erp-audit': 'ERP Audit',
+  'fpa': 'FP&A',
+  'spend-analytics': 'Spend Analytics',
+  'custom': null, // show checkboxes
 }
 
 export default function DemoPage() {
@@ -38,13 +38,20 @@ export default function DemoPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [selected, setSelected] = useState({})
 
-  // Pre-select product from URL param (e.g., /demo?product=ap)
+  // If a specific product is in the URL, lock to that product (no checkboxes).
+  // If ?product=custom or no param, show checkboxes.
+  const productParam = searchParams.get('product')
+  const lockedProduct = productParam && productParam !== 'custom' && PRODUCT_PARAM_MAP[productParam]
+    ? PRODUCT_PARAM_MAP[productParam]
+    : null
+  const showCheckboxes = !lockedProduct
+
+  // Pre-check "Something else" when coming from "& many more"
   useEffect(() => {
-    const param = searchParams.get('product')
-    if (param && PRODUCT_PARAM_MAP[param]) {
-      setSelected((prev) => ({ ...prev, [PRODUCT_PARAM_MAP[param]]: true }))
+    if (productParam === 'custom') {
+      setSelected((prev) => ({ ...prev, custom: true }))
     }
-  }, [searchParams])
+  }, [productParam])
 
   const path = '/demo'
   const items = [
@@ -60,10 +67,9 @@ export default function DemoPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const selectedProducts = PRODUCT_OPTIONS
-      .filter((p) => selected[p.id])
-      .map((p) => p.label)
-      .join(', ')
+    const selectedProducts = lockedProduct
+      ? lockedProduct
+      : PRODUCT_OPTIONS.filter((p) => selected[p.id]).map((p) => p.label).join(', ')
 
     const subject = selectedProducts
       ? `New inquiry — ${selectedProducts}`
@@ -187,37 +193,39 @@ export default function DemoPage() {
                     />
                   </div>
 
-                  {/* Product selection */}
-                  <div>
-                    <label className="block text-xs font-medium text-gray-400 mb-3">
-                      What are you interested in?
-                    </label>
-                    <div className="space-y-2">
-                      {PRODUCT_OPTIONS.map((product) => (
-                        <button
-                          key={product.id}
-                          type="button"
-                          onClick={() => toggleProduct(product.id)}
-                          className={`w-full flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all ${
-                            selected[product.id]
-                              ? 'border-electric/50 bg-electric/[0.08] text-white'
-                              : 'border-white/10 bg-white/[0.02] text-gray-400 hover:border-white/20 hover:bg-white/[0.04]'
-                          }`}
-                        >
-                          <div
-                            className={`w-4 h-4 rounded flex-shrink-0 border flex items-center justify-center transition-all ${
+                  {/* Product selection — only shown on /demo (no product param) or /demo?product=custom */}
+                  {showCheckboxes && (
+                    <div>
+                      <label className="block text-xs font-medium text-gray-400 mb-3">
+                        What are you interested in?
+                      </label>
+                      <div className="space-y-2">
+                        {PRODUCT_OPTIONS.map((product) => (
+                          <button
+                            key={product.id}
+                            type="button"
+                            onClick={() => toggleProduct(product.id)}
+                            className={`w-full flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all ${
                               selected[product.id]
-                                ? 'border-electric bg-electric'
-                                : 'border-white/20'
+                                ? 'border-electric/50 bg-electric/[0.08] text-white'
+                                : 'border-white/10 bg-white/[0.02] text-gray-400 hover:border-white/20 hover:bg-white/[0.04]'
                             }`}
                           >
-                            {selected[product.id] && <Check size={10} className="text-white" />}
-                          </div>
-                          {product.label}
-                        </button>
-                      ))}
+                            <div
+                              className={`w-4 h-4 rounded flex-shrink-0 border flex items-center justify-center transition-all ${
+                                selected[product.id]
+                                  ? 'border-electric bg-electric'
+                                  : 'border-white/20'
+                              }`}
+                            >
+                              {selected[product.id] && <Check size={10} className="text-white" />}
+                            </div>
+                            {product.label}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <div>
                     <label className="block text-xs font-medium text-gray-400 mb-2">
