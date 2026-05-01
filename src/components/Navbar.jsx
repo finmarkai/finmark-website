@@ -148,7 +148,7 @@ export default function Navbar() {
 
                     {/* & many more */}
                     <Link
-                      to="/request"
+                      to="/demo?product=custom"
                       onClick={() => setPlatformOpen(false)}
                       className="group block px-5 pb-5 pt-3 border-t border-white/[0.06]"
                     >
@@ -245,7 +245,7 @@ export default function Navbar() {
                 </div>
               ))}
               <Link
-                to="/request"
+                to="/demo?product=custom"
                 onClick={() => setMobileOpen(false)}
                 className="block px-3 py-2 text-sm text-gray-400 hover:text-electric-light transition-colors"
               >

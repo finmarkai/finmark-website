@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Sparkles, Check } from 'lucide-react'
 import SEO from '../components/seo/SEO'
@@ -12,13 +13,38 @@ import {
   breadcrumbSchema,
 } from '../lib/schema'
 
+const PRODUCT_OPTIONS = [
+  { id: 'ap', label: 'Accounts Payable' },
+  { id: 'erp-audit', label: 'ERP Audit' },
+  { id: 'fpa', label: 'FP&A' },
+  { id: 'spend-analytics', label: 'Spend Analytics' },
+  { id: 'custom', label: 'Something else — tell us what you need' },
+]
+
+// Map URL ?product= param to checkbox id
+const PRODUCT_PARAM_MAP = {
+  'accounts-payable-automation': 'ap',
+  'accounts-payable': 'ap',
+  'ap': 'ap',
+  'erp-audit': 'erp-audit',
+  'fpa': 'fpa',
+  'spend-analytics': 'spend-analytics',
+  'custom': 'custom',
+}
+
 export default function DemoPage() {
+  const [searchParams] = useSearchParams()
   const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [selected, setSelected] = useState({})
+
+  // Pre-select product from URL param (e.g., /demo?product=ap)
+  useEffect(() => {
+    const param = searchParams.get('product')
+    if (param && PRODUCT_PARAM_MAP[param]) {
+      setSelected((prev) => ({ ...prev, [PRODUCT_PARAM_MAP[param]]: true }))
+    }
+  }, [searchParams])
 
   const path = '/demo'
   const items = [
@@ -28,15 +54,29 @@ export default function DemoPage() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
+  const toggleProduct = (id) => {
+    setSelected((prev) => ({ ...prev, [id]: !prev[id] }))
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    const selectedProducts = PRODUCT_OPTIONS
+      .filter((p) => selected[p.id])
+      .map((p) => p.label)
+      .join(', ')
+
     const formData = new URLSearchParams({
       'form-name': 'demo',
       name: form.name,
       email: form.email,
+      products: selectedProducts || 'None selected',
       message: form.message,
     })
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData.toString() })
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString(),
+    })
       .then(() => setSubmitted(true))
       .catch(() => setSubmitted(true))
   }
@@ -112,7 +152,7 @@ export default function DemoPage() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label className="block text-xs font-medium text-gray-400 mb-2">
                       Name
@@ -141,17 +181,50 @@ export default function DemoPage() {
                       placeholder="you@company.com"
                     />
                   </div>
+
+                  {/* Product selection */}
+                  <div>
+                    <label className="block text-xs font-medium text-gray-400 mb-3">
+                      What are you interested in?
+                    </label>
+                    <div className="space-y-2">
+                      {PRODUCT_OPTIONS.map((product) => (
+                        <button
+                          key={product.id}
+                          type="button"
+                          onClick={() => toggleProduct(product.id)}
+                          className={`w-full flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all ${
+                            selected[product.id]
+                              ? 'border-electric/50 bg-electric/[0.08] text-white'
+                              : 'border-white/10 bg-white/[0.02] text-gray-400 hover:border-white/20 hover:bg-white/[0.04]'
+                          }`}
+                        >
+                          <div
+                            className={`w-4 h-4 rounded flex-shrink-0 border flex items-center justify-center transition-all ${
+                              selected[product.id]
+                                ? 'border-electric bg-electric'
+                                : 'border-white/20'
+                            }`}
+                          >
+                            {selected[product.id] && <Check size={10} className="text-white" />}
+                          </div>
+                          {product.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
                   <div>
                     <label className="block text-xs font-medium text-gray-400 mb-2">
-                      What's the problem you're trying to solve?
+                      Anything else? (optional)
                     </label>
                     <textarea
                       name="message"
-                      rows={4}
+                      rows={3}
                       value={form.message}
                       onChange={handleChange}
                       className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-gray-600 focus:border-electric/50 focus:bg-white/[0.05] focus:outline-none transition-all resize-none"
-                      placeholder="Tell us what's slowing your finance team down..."
+                      placeholder="Tell us more about what you need..."
                     />
                   </div>
                   <GradientButton type="submit" className="w-full text-sm py-3 mt-2">

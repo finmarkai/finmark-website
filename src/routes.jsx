@@ -4,7 +4,6 @@ import AboutPage from './pages/AboutPage'
 import DemoPage from './pages/DemoPage'
 import ContactPage from './pages/ContactPage'
 import ProductIntroPage from './pages/ProductIntroPage'
-import RequestPage from './pages/RequestPage'
 import NotFoundPage from './pages/NotFoundPage'
 import { PRODUCTS } from './lib/constants'
 
@@ -32,7 +31,6 @@ export const routes = [
       { path: 'about', element: <AboutPage /> },
       { path: 'demo', element: <DemoPage /> },
       { path: 'contact', element: <ContactPage /> },
-      { path: 'request', element: <RequestPage /> },
       ...productRoutes,
       { path: '*', element: <NotFoundPage /> },
     ],
@@ -47,6 +45,5 @@ export const STATIC_PATHS = [
   '/about',
   '/demo',
   '/contact',
-  '/request',
   ...PRODUCTS.filter((p) => p.intro).map((p) => `/${p.slug}`),
 ]
