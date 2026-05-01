@@ -38,20 +38,24 @@ export default function DemoPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [selected, setSelected] = useState({})
 
-  // If a specific product is in the URL, lock to that product (no checkboxes).
-  // If ?product=custom or no param, show checkboxes.
   const productParam = searchParams.get('product')
-  const lockedProduct = productParam && productParam !== 'custom' && PRODUCT_PARAM_MAP[productParam]
+
+  // Reset form when URL changes (e.g., navigating from AP demo → "& many more")
+  useEffect(() => {
+    setSubmitted(false)
+    setForm({ name: '', email: '', message: '' })
+    setSelected({})
+  }, [productParam])
+
+  // Three modes:
+  // 1. /demo (no param) → show checkboxes
+  // 2. /demo?product=ap (specific product) → no checkboxes, locked to that product
+  // 3. /demo?product=custom ("& many more") → no checkboxes, just simple form
+  const isCustom = productParam === 'custom'
+  const lockedProduct = productParam && !isCustom && PRODUCT_PARAM_MAP[productParam]
     ? PRODUCT_PARAM_MAP[productParam]
     : null
-  const showCheckboxes = !lockedProduct
-
-  // Pre-check "Something else" when coming from "& many more"
-  useEffect(() => {
-    if (productParam === 'custom') {
-      setSelected((prev) => ({ ...prev, custom: true }))
-    }
-  }, [productParam])
+  const showCheckboxes = !lockedProduct && !isCustom
 
   const path = '/demo'
   const items = [
@@ -69,7 +73,9 @@ export default function DemoPage() {
     e.preventDefault()
     const selectedProducts = lockedProduct
       ? lockedProduct
-      : PRODUCT_OPTIONS.filter((p) => selected[p.id]).map((p) => p.label).join(', ')
+      : isCustom
+        ? 'Custom request'
+        : PRODUCT_OPTIONS.filter((p) => selected[p.id]).map((p) => p.label).join(', ')
 
     const subject = selectedProducts
       ? `New inquiry — ${selectedProducts}`
