@@ -30,8 +30,15 @@ export default function DemoPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // TODO: wire to a real backend (Formspree, HubSpot, etc.)
-    setSubmitted(true)
+    const formData = new URLSearchParams({
+      'form-name': 'demo',
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    })
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData.toString() })
+      .then(() => setSubmitted(true))
+      .catch(() => setSubmitted(true))
   }
 
   return (

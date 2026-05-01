@@ -25,7 +25,16 @@ export default function ContactPage() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    const formData = new URLSearchParams({
+      'form-name': 'contact',
+      name: form.name,
+      email: form.email,
+      subject: form.subject,
+      message: form.message,
+    })
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData.toString() })
+      .then(() => setSubmitted(true))
+      .catch(() => setSubmitted(true))
   }
 
   return (
