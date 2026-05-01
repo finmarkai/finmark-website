@@ -27,9 +27,9 @@ export default function ContactPage() {
     e.preventDefault()
     const formData = new URLSearchParams({
       'form-name': 'contact',
+      subject: `Contact — ${form.subject || 'General inquiry'}`,
       name: form.name,
       email: form.email,
-      subject: form.subject,
       message: form.message,
     })
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData.toString() })

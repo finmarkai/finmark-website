@@ -65,8 +65,13 @@ export default function DemoPage() {
       .map((p) => p.label)
       .join(', ')
 
+    const subject = selectedProducts
+      ? `New inquiry — ${selectedProducts}`
+      : 'New inquiry from finmark.ai'
+
     const formData = new URLSearchParams({
       'form-name': 'demo',
+      subject,
       name: form.name,
       email: form.email,
       products: selectedProducts || 'None selected',
