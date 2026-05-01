@@ -14,22 +14,22 @@ export const NAV_LINKS = [
 ]
 
 // Nested product structure for the navbar "Products" dropdown.
-// Today there is one product (Accounts Payable). Each product has
+// Today there is one product (Amount Payables). Each product has
 // a set of features that show as sub-items in the dropdown.
 // When more products ship, append new entries here and the dropdown
 // expands automatically.
 export const PRODUCTS = [
   {
-    label: 'Accounts Payable',
+    label: 'Amount Payables',
     slug: 'accounts-payable-automation',
     to: '/accounts-payable-automation',
     description: 'AI-powered AP automation. Live in production.',
     badge: null,
     features: [],
     intro: {
-      metaTitle: 'Accounts Payable Automation | FinMark.ai',
+      metaTitle: 'Amount Payables Automation | FinMark.ai',
       metaDescription: 'AI-powered accounts payable automation. Full invoice-to-ERP workflow — capture, match, validate, approve, post. Live in production with enterprise customers.',
-      h1: 'Accounts Payable',
+      h1: 'Amount Payables',
       body: [
         'FinMark.ai runs the full invoice-to-ERP workflow end to end. AI captures invoices in any format. Matching happens against live ERP data. Withholding tax is computed automatically against current regulations. Sanity checks catch what AI alone would miss. Approved invoices post back into the ERP, audit-ready.',
         'What used to take finance teams days now takes minutes. The platform is live in production with enterprise customers today.',
@@ -74,20 +74,20 @@ export const PRODUCTS = [
     },
   },
   {
-    label: 'Spend Analytics',
-    slug: 'spend-analytics',
-    to: '/spend-analytics',
-    description: 'Spending insights from your invoice data.',
+    label: 'MT Billing',
+    slug: 'mt-billing',
+    to: '/mt-billing',
+    description: 'Automated billing for multi-tenant platforms.',
     badge: null,
     features: [],
     intro: {
-      metaTitle: 'Spend Analytics — Invoice Intelligence | FinMark.ai',
-      metaDescription: 'Turn your invoice data into spending insights. Vendor concentration, category trends, cost anomalies, and savings opportunities — visible automatically.',
-      h1: 'Spend Analytics',
+      metaTitle: 'MT Billing — Multi-Tenant Billing Automation | FinMark.ai',
+      metaDescription: 'Automated billing for multi-tenant platforms. Usage tracking, invoice generation, and reconciliation — built for companies running multi-tenant infrastructure.',
+      h1: 'MT Billing',
       body: [
-        'Every invoice your AP team processes is a data point about how your company spends money. FinMark.ai\'s Spend Analytics turns that data into visible, actionable intelligence — vendor concentration risk, category spending trends, cost anomalies, and savings opportunities that nobody was tracking.',
-        'No separate data warehouse. No ETL project. The analytics layer sits directly on top of your AP data as it flows through the platform. The insights are there the moment the invoices are processed.',
-        'Built as a natural extension of the AP automation product. If you already run FinMark.ai for accounts payable, Spend Analytics is one switch away — your data is already there.',
+        'Multi-tenant platforms generate complex billing — usage-based charges, per-tenant invoicing, tiered pricing, overage calculations. Most teams cobble this together with spreadsheets and custom scripts that break every time the pricing model changes.',
+        'FinMark.ai\'s MT Billing automates the entire flow — track usage per tenant, generate invoices automatically, reconcile payments, and push everything into your accounting system. No more month-end billing scrambles.',
+        'Built for companies running multi-tenant SaaS, infrastructure platforms, or managed services where billing complexity scales with customer count.',
       ],
     },
   },

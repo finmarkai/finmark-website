@@ -1,7 +1,7 @@
 // Pillar content config — single source of truth for pillar pages.
 //
 // FinMark.ai is a Financial Automation company for African enterprise.
-// Today's product is AI Accounts Payable automation built for Microsoft
+// Today's product is AI Amount Payables automation built for Microsoft
 // ERP. AP is the first product in the platform; more will follow
 // once each one is real, shipping, and proven at a paying customer.
 //
@@ -27,14 +27,14 @@
 export const PILLARS = [
   {
     slug: 'accounts-payable-automation',
-    primaryKeyword: 'accounts payable automation',
+    primaryKeyword: 'amount payables automation',
     meta: {
       title: 'AP Automation | FinMark.ai',
       description:
-        'AI-powered accounts payable automation for Nigerian enterprise running ERP. Live in production at a major enterprise group. Nigerian Withholding Tax computed automatically.',
+        'AI-powered amount payables automation for Nigerian enterprise running ERP. Live in production at a major enterprise group. Nigerian Withholding Tax computed automatically.',
     },
     hero: {
-      badge: 'Accounts Payable Automation',
+      badge: 'Amount Payables Automation',
       h1: 'AP Automation for ERP',
       subhead:
         'Live in production at a major enterprise group. Nigerian Withholding Tax computed automatically. Approved invoices pushed straight into ERP. Built by Nigerian founders for Nigerian enterprise.',

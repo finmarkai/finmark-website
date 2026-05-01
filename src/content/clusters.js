@@ -774,7 +774,7 @@ export const CLUSTERS = [
     faqs: [
       {
         q: 'What is AP automation software?',
-        a: 'AP automation software handles the accounts payable workflow automatically — from invoice capture through approval and ERP push. The category is dominated by US-built tools that work well for cloud ERPs and simple tax models but struggle with the African enterprise reality.',
+        a: 'AP automation software handles the amount payables workflow automatically — from invoice capture through approval and ERP push. The category is dominated by US-built tools that work well for cloud ERPs and simple tax models but struggle with the African enterprise reality.',
       },
       {
         q: 'Why does Nigerian enterprise need different AP automation?',

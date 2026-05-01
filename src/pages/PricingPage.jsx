@@ -33,7 +33,7 @@ const PLAN = {
   // anchor below tells visitors what to expect.
   price: 'Talk to us',
   description:
-    'AI-powered accounts payable automation for Nigerian enterprise running ERP. The same product a major enterprise group runs in production today, available to other groups on a contained, predictable engagement.',
+    'AI-powered amount payables automation for Nigerian enterprise running ERP. The same product a major enterprise group runs in production today, available to other groups on a contained, predictable engagement.',
   whatYouGet: [
     'Full AP automation pipeline — invoice intake, AI extraction, matching, approval, ERP push',
     'Direct integration with your ERP instance',
@@ -89,13 +89,13 @@ export default function PricingPage() {
     <>
       <SEO
         title="FinMark.ai Pricing — AP Automation for ERP"
-        description="Transparent, contained pricing for FinMark.ai's AI accounts payable automation. One product. 30-day pilot at no cost on your real invoices."
+        description="Transparent, contained pricing for FinMark.ai's AI amount payables automation. One product. 30-day pilot at no cost on your real invoices."
         path={path}
         schema={[
           organizationSchema(),
           webPageSchema({
             title: 'FinMark.ai Pricing',
-            description: "Pricing for FinMark.ai's AI accounts payable automation built for ERP.",
+            description: "Pricing for FinMark.ai's AI amount payables automation built for ERP.",
             path,
           }),
           breadcrumbSchema(items),

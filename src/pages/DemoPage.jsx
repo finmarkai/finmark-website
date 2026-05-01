@@ -14,21 +14,21 @@ import {
 } from '../lib/schema'
 
 const PRODUCT_OPTIONS = [
-  { id: 'ap', label: 'Accounts Payable' },
+  { id: 'ap', label: 'Amount Payables' },
   { id: 'erp-audit', label: 'ERP Audit' },
   { id: 'fpa', label: 'FP&A' },
-  { id: 'spend-analytics', label: 'Spend Analytics' },
+  { id: 'mt-billing', label: 'MT Billing' },
   { id: 'custom', label: 'Something else — tell us what you need' },
 ]
 
 // Map URL ?product= param to product label
 const PRODUCT_PARAM_MAP = {
-  'accounts-payable-automation': 'Accounts Payable',
-  'accounts-payable': 'Accounts Payable',
-  'ap': 'Accounts Payable',
+  'accounts-payable-automation': 'Amount Payables',
+  'accounts-payable': 'Amount Payables',
+  'ap': 'Amount Payables',
   'erp-audit': 'ERP Audit',
   'fpa': 'FP&A',
-  'spend-analytics': 'Spend Analytics',
+  'mt-billing': 'MT Billing',
   'custom': null, // show checkboxes
 }
 

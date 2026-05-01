@@ -34,4 +34,5 @@
 # All AP cluster sub-pages removed — redirect to AP pillar
 # ─────────────────────────────────────────────────────
 /request                                                          /demo?product=custom                      301
+/spend-analytics                                                  /mt-billing                               301
 /accounts-payable-automation/*                                    /accounts-payable-automation              301
