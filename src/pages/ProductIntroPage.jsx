@@ -6,6 +6,7 @@ import Breadcrumb from '../components/seo/Breadcrumb'
 import GlowBadge from '../components/ui/GlowBadge'
 import GradientButton from '../components/ui/GradientButton'
 import { PRODUCTS } from '../lib/constants'
+import { getClustersForPillar } from '../content/clusters'
 import { organizationSchema, webPageSchema, breadcrumbSchema } from '../lib/schema'
 
 /**
@@ -38,6 +39,10 @@ export default function ProductIntroPage({ slug }) {
     { name: 'Home', path: '/' },
     { name: product.label, path },
   ]
+
+  // In-depth guides for this product (the SEO cluster pages). When present,
+  // this page acts as the hub that links down to each guide.
+  const guides = getClustersForPillar(product.slug)
 
   return (
     <>
@@ -118,6 +123,51 @@ export default function ProductIntroPage({ slug }) {
           </motion.div>
         </div>
       </section>
+
+      {/* In-depth guides — internal link hub down to the cluster pages */}
+      {guides.length > 0 && (
+        <section className="relative py-16 sm:py-20 border-t border-white/5">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <p className="text-center text-xs uppercase tracking-[0.2em] text-gray-500 mb-3 font-medium">
+              Go deeper
+            </p>
+            <h2 className="text-center font-display text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-12">
+              In-depth guides
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {guides.map((g, i) => (
+                <motion.div
+                  key={g.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (i % 2) * 0.06 }}
+                >
+                  <Link
+                    to={`/${g.pillar}/${g.slug}`}
+                    className="group block h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-electric/40 hover:bg-electric/[0.04]"
+                  >
+                    <h3 className="font-display text-base font-semibold text-white mb-2">
+                      {g.hero.badge || g.primaryKeyword}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      {g.meta.description}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-electric-light text-xs font-medium">
+                      Read the guide{' '}
+                      <ArrowRight
+                        size={12}
+                        className="transition-transform group-hover:translate-x-0.5"
+                      />
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   )
 }

@@ -211,6 +211,5 @@ export const TRUSTED_LOGOS = []
 export const TESTIMONIALS = []
 
 export const FOOTER_LINKS = {
-  Product: ['Features', 'How It Works', 'Pricing'],
-  Legal: ['Privacy Policy', 'Terms of Service'],
+  Product: ['Features', 'How It Works'],
 }

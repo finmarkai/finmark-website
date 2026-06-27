@@ -63,7 +63,7 @@ export const CLUSTERS = [
         kicker: 'In production',
         heading: 'Live at a major enterprise group',
         body: [
-          'FinMark.ai is currently running this exact workflow in production at a major enterprise group across two subsidiaries — a subsidiary and another subsidiary. AP teams in both subsidiaries process vendor invoices through the platform every working day. The pipeline has been running for months without breaking.',
+          'FinMark.ai is currently running this exact workflow in production at a major enterprise group across two operating subsidiaries. AP teams in both subsidiaries process vendor invoices through the platform every working day. The pipeline has been running for months without breaking.',
           'This is not a sandbox or a curated demo. It is the actual production AP workflow for a real Nigerian conglomerate, processing real invoices into real ERP instances.',
         ],
       },
@@ -380,7 +380,7 @@ export const CLUSTERS = [
         kicker: 'Production',
         heading: 'In production today',
         body: [
-          'The ERP integration is currently running in production at a major enterprise group across two subsidiaries (a subsidiary and another subsidiary). Each subsidiary has its own ERP instance and its own FinMark.ai subdomain. The integration runs continuously and has been verified end-to-end including the round-trip ERP push-back.',
+          'The ERP integration is currently running in production at a major enterprise group across two operating subsidiaries. Each subsidiary has its own ERP instance and its own FinMark.ai subdomain. The integration runs continuously and has been verified end-to-end including the round-trip ERP push-back.',
         ],
       },
     ],
@@ -450,8 +450,7 @@ export const CLUSTERS = [
         heading: 'What access we need',
         body: [
           'FinMark.ai accesses SharePoint via standard Microsoft Graph permissions — read access to the designated folders so we can pick up invoices, and write access if you want portal uploads to flow back. Permissions are scoped per tenant and require admin consent on your end. There are no broad tenant-wide privileges beyond what Microsoft Graph requires for this kind of integration.',
-          // TODO: Confirm exact scopes for current the client deployment
-          'For a major enterprise group, the SharePoint integration is configured but currently waiting on the client providing the Tenant ID and admin consent. The technical implementation is ready; it is the governance approval on the customer side that is the gating item.',
+          'The SharePoint integration is built and production-ready. Turning it on for a given customer is gated only by that customer granting the necessary Microsoft Graph admin consent — a governance approval on their side, not an engineering task on ours.',
         ],
       },
       {
@@ -527,8 +526,8 @@ export const CLUSTERS = [
         kicker: 'In production',
         heading: 'Live with a major enterprise group',
         body: [
-          'a major enterprise group is currently running on the multi-tenant architecture across two subsidiaries — multiple subsidiaries. Each has its own ERP instance, its own AP team, its own vendor base, and its own subdomain on FinMark.ai. The parent the client group has cross-company admin access for oversight.',
-          'The architecture is designed for groups that add subsidiaries one at a time. Adding a new subsidiary spins up a new environment, a new ERP configuration, and a new vendor base without affecting the existing tenants. We are ready to onboard the third client subsidiary as soon as the parent decides to add it.',
+          'A major enterprise group is currently running on the multi-tenant architecture across two operating subsidiaries. Each has its own ERP instance, its own AP team, its own vendor base, and its own subdomain on FinMark.ai. The parent group has cross-company admin access for oversight.',
+          'The architecture is designed for groups that add subsidiaries one at a time. Adding a new subsidiary spins up a new environment, a new ERP configuration, and a new vendor base without affecting the existing tenants. We are ready to onboard the next subsidiary as soon as the parent group decides to add it.',
         ],
       },
       {
