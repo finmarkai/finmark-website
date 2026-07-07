@@ -2,7 +2,7 @@
 // you can stringify and drop inside a <script type="application/ld+json"> tag.
 // Use the SEO component to render — it does the JSON.stringify for you.
 
-import { SITE_URL, SITE_NAME, FOUNDERS, SOCIAL } from './site'
+import { SITE_URL, SITE_NAME, SOCIAL } from './site'
 
 export function organizationSchema() {
   return {
@@ -13,7 +13,6 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/logo-full.png`,
     sameAs: [SOCIAL.twitter, SOCIAL.linkedin],
-    founder: FOUNDERS.map((f) => ({ '@type': 'Person', name: f.name })),
   }
 }
 

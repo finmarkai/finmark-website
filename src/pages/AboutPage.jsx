@@ -17,8 +17,8 @@ export default function AboutPage() {
   return (
     <>
       <SEO
-        title="About FinMark.ai — Our Mission and Founding Team"
-        description="FinMark.ai builds AI-powered tools that simplify and optimize financial and operational workflows for modern businesses. Meet the founding team."
+        title="About FinMark.ai — Our Mission"
+        description="FinMark.ai builds AI-powered tools that simplify and optimize financial and operational workflows for modern businesses."
         path={path}
         schema={[
           organizationSchema(),

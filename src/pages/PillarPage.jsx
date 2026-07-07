@@ -100,7 +100,7 @@ export default function PillarPage({ slug: slugProp }) {
         heading={`Ready to see ${pillar.hero.badge} in action?`}
         subhead="Get a 30-minute demo and we'll walk you through the platform live, with your data."
         primaryCta={{ label: 'Get a demo', href: '/demo' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        secondaryCta={{ label: 'Talk to us', href: '/contact' }}
       />
     </>
   )

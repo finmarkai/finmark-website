@@ -4,16 +4,19 @@
 // manually with `node scripts/generate-sitemap.js` whenever you add new pages.
 //
 // The sitemap includes:
-//   - Static pages (homepage, about, pricing, demo, contact)
-//   - All 8 pillar pages from src/content/pillars.js
-//   - All cluster pages declared inside each pillar (when those pages exist)
+//   - Static pages (homepage, about, demo, contact)
+//   - All pillar pages from src/content/pillars.js
+//   - All product intro pages from src/lib/constants.js
+//   - All SEO cluster/guide pages from src/content/clusters.js
 //
-// Update PRIORITIES below if you want to weight some pages higher.
+// Duplicate paths are collapsed (a slug that is both a pillar and a product
+// only appears once). Update PRIORITIES below to weight some pages higher.
 
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { PILLARS } from '../src/content/pillars.js'
+import { CLUSTERS } from '../src/content/clusters.js'
 import { PRODUCTS } from '../src/lib/constants.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -25,7 +28,6 @@ const SITE_URL = 'https://finmark.ai'
 const STATIC_PAGES = [
   { path: '/', priority: 1.0, changefreq: 'weekly' },
   { path: '/about', priority: 0.7, changefreq: 'monthly' },
-  { path: '/pricing', priority: 0.9, changefreq: 'monthly' },
   { path: '/demo', priority: 0.9, changefreq: 'monthly' },
   { path: '/contact', priority: 0.5, changefreq: 'monthly' },
 ]
@@ -36,7 +38,7 @@ const PILLAR_PAGES = PILLARS.map((p) => ({
   changefreq: 'weekly',
 }))
 
-// Product intro pages (ERP Audit, FP&A, Spend Analytics, etc.)
+// Product intro pages (Amount Payables, ERP Audit, FP&A, MT Billing, etc.)
 const PRODUCT_PAGES = PRODUCTS
   .filter((p) => p.intro)
   .map((p) => ({
@@ -45,7 +47,22 @@ const PRODUCT_PAGES = PRODUCTS
     changefreq: 'monthly',
   }))
 
-const urls = [...STATIC_PAGES, ...PILLAR_PAGES, ...PRODUCT_PAGES]
+// SEO cluster/guide pages — children of their parent pillar slug.
+const CLUSTER_PAGES = CLUSTERS.map((c) => ({
+  path: `/${c.pillar}/${c.slug}`,
+  priority: 0.8,
+  changefreq: 'monthly',
+}))
+
+// Collapse duplicate paths (e.g. a slug that is both a pillar and a product),
+// keeping the first occurrence so higher-priority entries win.
+const seen = new Set()
+const urls = [...STATIC_PAGES, ...PILLAR_PAGES, ...PRODUCT_PAGES, ...CLUSTER_PAGES]
+  .filter((u) => {
+    if (seen.has(u.path)) return false
+    seen.add(u.path)
+    return true
+  })
 
 const today = new Date().toISOString().split('T')[0]
 

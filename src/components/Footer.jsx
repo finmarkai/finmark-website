@@ -9,11 +9,6 @@ const COMPANY_LINKS = [
   { label: 'Get a demo', to: '/demo' },
 ]
 
-const LEGAL_LINKS = [
-  { label: 'Privacy Policy', to: '/privacy' },
-  { label: 'Terms of Service', to: '/terms' },
-]
-
 export default function Footer() {
   return (
     <footer className="relative border-t border-white/5 bg-dark-lighter overflow-hidden">
@@ -22,7 +17,7 @@ export default function Footer() {
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple/5 rounded-full blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <motion.div
             className="col-span-2"
@@ -90,29 +85,6 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-white mb-4">Company</h4>
             <ul className="space-y-2">
               {COMPANY_LINKS.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    className="text-sm text-gray-500 hover:text-gray-300 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Legal */}
-          <motion.div
-            className="col-span-1"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <h4 className="text-sm font-semibold text-white mb-4">Legal</h4>
-            <ul className="space-y-2">
-              {LEGAL_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.to}

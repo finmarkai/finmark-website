@@ -12,7 +12,7 @@
 // stays opaque. Sophisticated buyers can ask under NDA if they want.
 //
 // Real product context (sourced from internal vault, NOT promised on website):
-//   - Live with a major enterprise group (Nigerian conglomerate). 2 subsidiaries (the first subsidiary + the second subsidiary)
+//   - Live with a major enterprise group (Nigerian conglomerate) across two operating subsidiaries
 //   - Multi-subsidiary support with subdomain isolation
 //   - High AI extraction accuracy sustained in production
 //   - Direct on-premise ERP integration
@@ -20,9 +20,6 @@
 //   - SharePoint integration for document repositories
 //   - AWS eu-west-1 hosting, encrypted at rest and in transit
 //   - Internal security audit + pentest complete
-//
-// TODO comments mark spots where the user should verify or expand details
-// before they get indexed by Google.
 
 export const PILLARS = [
   {
