@@ -6,11 +6,6 @@ export const SITE_NAME = 'FinMark.ai'
 export const SITE_TAGLINE = 'AI-Powered Financial and Operational Automation'
 export const DEFAULT_OG_IMAGE = '/og/default.png'
 
-export const FOUNDERS = [
-  { name: 'Arin Soni' },
-  { name: 'Aditi Agarwal' },
-]
-
 export const SOCIAL = {
   twitter: 'https://twitter.com/finmark_ai',
   linkedin: 'https://linkedin.com/company/finmark-ai',
