@@ -1,0 +1,37 @@
+# FinMark.ai
+
+> FinMark.ai is an AI financial automation platform for enterprise finance teams. Its flagship product, Amount Payables, automates the full accounts payable (AP) workflow end to end: AI invoice capture in any format, matching against live ERP data (purchase orders, goods-received notes, vendor masters), automatic Nigerian withholding tax (WHT) computation, duplicate detection and sanity checks, approval workflows, and audit-ready posting back into the ERP. It is live in production at a major Nigerian enterprise group across multiple operating subsidiaries.
+
+Key facts:
+- Category: AI automation / financial automation / accounts payable (AP) automation software
+- Built for: enterprise finance teams running Microsoft ERP systems, with deep support for African (especially Nigerian) tax and compliance requirements
+- Differentiators: category-aware 3-way matching, built-in Nigerian withholding tax computation, direct on-premise ERP integration, SharePoint document integration, multi-subsidiary (multi-tenant) support
+- Scope: FinMark.ai stops at the ERP — it does not execute payments; approved invoices post back audit-ready for the customer's existing payment controls
+- Hosting & security: AWS (eu-west-1), encrypted at rest and in transit, internal security audit and penetration test complete
+- Get a demo: https://finmark.ai/demo
+
+## Products
+
+- [Amount Payables — Accounts Payable Automation](https://finmark.ai/accounts-payable-automation): AI-powered AP automation, live in production. Full invoice-to-ERP workflow: capture, match, validate, compute withholding tax, approve, post.
+- [ERP Audit](https://finmark.ai/erp-audit): Continuous automated audit of live ERP data — anomalies, control gaps, duplicate transactions, compliance issues.
+- [FP&A](https://finmark.ai/fpa): Financial planning and analysis — budgeting, forecasting, variance analysis, scenario planning.
+- [MT Billing](https://finmark.ai/mt-billing): Multi-tenant billing automation.
+
+## Guides (Accounts Payable Automation)
+
+- [Invoice Processing Automation for ERP](https://finmark.ai/accounts-payable-automation/invoice-processing-automation): How automated invoice processing works from capture to ERP posting.
+- [AI Invoice Extraction](https://finmark.ai/accounts-payable-automation/ai-invoice-extraction): AI that reads vendor invoices in any format with production-grade accuracy.
+- [3-Way Matching Against ERP](https://finmark.ai/accounts-payable-automation/3-way-matching): Category-aware matching of invoices against purchase orders and goods-received notes.
+- [Nigerian Withholding Tax (WHT) Automation](https://finmark.ai/accounts-payable-automation/nigerian-withholding-tax-automation): Automatic WHT computation per current Nigerian regulations, written back into the ERP.
+- [ERP AP Integration (Microsoft Dynamics NAV)](https://finmark.ai/accounts-payable-automation/microsoft-dynamics-nav-integration): Direct integration with on-premise Microsoft ERP.
+- [SharePoint Invoice Integration](https://finmark.ai/accounts-payable-automation/sharepoint-invoice-integration): Pulling invoices from SharePoint document repositories into the AP workflow.
+- [AP Automation for Group Companies](https://finmark.ai/accounts-payable-automation/multi-tenant-ap-platform): Multi-subsidiary AP with per-subsidiary isolation.
+- [AP Approval Workflows](https://finmark.ai/accounts-payable-automation/ap-approval-workflows): Vendor-approver mapping and approval chains.
+- [Duplicate Invoice Detection & Sanity Checks](https://finmark.ai/accounts-payable-automation/duplicate-invoice-detection): Catching duplicates and edge cases AI alone would miss.
+- [AP Automation Software for Nigerian Enterprise](https://finmark.ai/accounts-payable-automation/ap-automation-software): How to evaluate AP automation software for African enterprise.
+
+## Company
+
+- [About FinMark.ai](https://finmark.ai/about): Why FinMark.ai exists and how the product was built alongside enterprise finance teams.
+- [Book a demo](https://finmark.ai/demo): 30-minute walkthrough with the founders.
+- [Contact](https://finmark.ai/contact): Get in touch.

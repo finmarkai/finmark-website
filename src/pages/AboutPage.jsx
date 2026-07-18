@@ -32,7 +32,7 @@ export default function AboutPage() {
         ]}
       />
       <Breadcrumb items={items} />
-      <About />
+      <About headingTag="h1" />
     </>
   )
 }

@@ -45,20 +45,23 @@ function GearBrainSVG() {
 const CARDS = [
   {
     icon: Brain,
-    title: 'AI Analytics',
-    desc: 'Deep learning models analyze transactions in real-time.',
+    title: 'AI Invoice Capture',
+    desc: 'AI reads vendor invoices in any format and matches them against live ERP data.',
   },
   {
     icon: Shield,
-    title: 'Smart Compliance',
-    desc: 'Automated regulatory monitoring across jurisdictions.',
+    title: 'Tax & Compliance Built In',
+    desc: 'Withholding tax computed automatically against current regulations, audit-ready.',
   },
   {
     icon: TrendingUp,
-    title: 'Predictive Forecasting',
-    desc: 'Forecast cash flows with institutional-grade accuracy.',
+    title: 'Straight Into Your ERP',
+    desc: 'Matched, checked, and approved invoices post back into your ERP in minutes, not days.',
   },
 ]
+
+const HERO_SUBHEAD =
+  'FinMark.ai builds AI automation for enterprise finance teams — invoice capture, accounts payable, tax compliance, and ERP posting, end to end.'
 
 function InteractiveGradient() {
   const [pos, setPos] = useState({ x: 50, y: 50 })
@@ -110,6 +113,10 @@ function MobileHero() {
           <span className="gradient-text">Automation</span>
         </h1>
 
+        <p className="mt-5 max-w-md mx-auto text-sm text-gray-400 leading-relaxed">
+          {HERO_SUBHEAD}
+        </p>
+
         <div className="mt-6 flex flex-col items-center gap-3">
           <Link to="/demo">
             <GradientButton className="text-sm px-7 py-3 flex items-center gap-2">
@@ -120,7 +127,7 @@ function MobileHero() {
 
         {/* Logo */}
         <div className="mt-10 mx-auto w-[180px] opacity-20">
-          <img src="/logo-full.png" alt="FinMark.ai" className="w-full h-auto object-contain" />
+          <img src="/logo-full.png" alt="FinMark.ai" width={655} height={484} className="w-full h-auto object-contain" />
         </div>
 
         {/* Cards */}
@@ -231,6 +238,15 @@ function DesktopHero() {
             <span className="gradient-text">Automation</span>
           </h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-6 max-w-xl mx-auto text-base sm:text-lg text-gray-400 leading-relaxed"
+          >
+            {HERO_SUBHEAD}
+          </motion.p>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -260,7 +276,7 @@ function DesktopHero() {
           transition={{ duration: 1.2, delay: 0.5, type: 'spring', stiffness: 50, damping: 14 }}
         >
           <div className="w-[160px] sm:w-[220px] md:w-[280px] lg:w-[340px]">
-            <img src="/logo-full.png" alt="FinMark.ai" className="w-full h-auto object-contain" />
+            <img src="/logo-full.png" alt="FinMark.ai" width={655} height={484} className="w-full h-auto object-contain" />
           </div>
         </motion.div>
 

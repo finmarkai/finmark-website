@@ -27,12 +27,12 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
           >
             <Link to="/" className="flex items-center mb-4">
-              <img src="/logo-full.png" alt="FinMark.ai" className="h-8 w-auto" />
+              <img src="/logo-nav.png" alt="FinMark.ai" width={173} height={128} className="h-8 w-auto" />
             </Link>
             <p className="text-sm text-gray-500 max-w-xs leading-relaxed">
-              AI-powered financial and operational automation for modern finance teams.
-              Compliance, fraud detection, forecasting, payments, and reporting in one
-              unified platform.
+              AI financial automation for enterprise finance teams. Invoice capture,
+              accounts payable automation, withholding tax, and ERP posting — end to
+              end, in one platform.
             </p>
 
             {/* Newsletter */}

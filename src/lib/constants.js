@@ -27,7 +27,7 @@ export const PRODUCTS = [
     badge: null,
     features: [],
     intro: {
-      metaTitle: 'Amount Payables Automation | FinMark.ai',
+      metaTitle: 'Accounts Payable (AP) Automation Software — Amount Payables | FinMark.ai',
       metaDescription: 'AI-powered accounts payable automation. Full invoice-to-ERP workflow — capture, match, validate, approve, post. Live in production with enterprise customers.',
       h1: 'Amount Payables',
       body: [

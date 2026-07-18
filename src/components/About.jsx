@@ -46,7 +46,10 @@ const SECTIONS = [
   },
 ]
 
-export default function About() {
+// `headingTag` lets the About page render this heading as its H1
+// (every page needs exactly one), while the homepage keeps it as an H2
+// under the hero's H1.
+export default function About({ headingTag: Heading = 'h2' }) {
   const isMobile = useIsMobile()
 
   const Wrapper = isMobile ? 'div' : motion.div
@@ -74,9 +77,9 @@ export default function About() {
             <GlowBadge>About</GlowBadge>
           </Wrapper>
           <Wrapper {...delayMotion(0.1)}>
-            <h2 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
+            <Heading className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
               About <span className="gradient-text">FinMark.ai</span>
-            </h2>
+            </Heading>
           </Wrapper>
           <Wrapper {...delayMotion(0.15)}>
             <p className="mt-5 max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 leading-relaxed">

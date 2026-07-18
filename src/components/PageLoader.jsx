@@ -77,7 +77,7 @@ export default function PageLoader({ onComplete }) {
 
           <div className="relative text-center">
             <div className="mx-auto">
-              <img src="/logo-full.png" alt="FinMark.ai" className="h-12 sm:h-16 w-auto mx-auto" />
+              <img src="/logo-nav.png" alt="FinMark.ai" width={173} height={128} className="h-12 sm:h-16 w-auto mx-auto" />
             </div>
 
             <div className="mt-6 h-6 overflow-hidden">

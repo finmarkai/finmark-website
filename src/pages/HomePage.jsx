@@ -16,8 +16,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="FinMark.ai — AI Financial Automation"
-        description="FinMark.ai builds intelligent automation for modern finance teams. Live in production at a major enterprise group. Explore what we ship today at /accounts-payable-automation."
+        title="FinMark.ai — AI Automation for Enterprise Finance Teams"
+        description="FinMark.ai is an AI financial automation platform for enterprise finance teams. Automate invoice capture, accounts payable, withholding tax, and ERP posting — live in production at a major enterprise group."
         path="/"
         schema={[organizationSchema(), websiteSchema()]}
       />

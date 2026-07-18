@@ -24,11 +24,11 @@
 export const PILLARS = [
   {
     slug: 'accounts-payable-automation',
-    primaryKeyword: 'amount payables automation',
+    primaryKeyword: 'accounts payable automation',
     meta: {
-      title: 'AP Automation | FinMark.ai',
+      title: 'Accounts Payable (AP) Automation Software | FinMark.ai',
       description:
-        'AI-powered amount payables automation for Nigerian enterprise running ERP. Live in production at a major enterprise group. Nigerian Withholding Tax computed automatically.',
+        'AI-powered accounts payable automation for Nigerian enterprise running ERP. Live in production at a major enterprise group. Nigerian Withholding Tax computed automatically.',
     },
     hero: {
       badge: 'Amount Payables Automation',
