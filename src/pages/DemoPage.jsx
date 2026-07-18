@@ -14,7 +14,7 @@ import {
 } from '../lib/schema'
 
 const PRODUCT_OPTIONS = [
-  { id: 'ap', label: 'Amount Payables' },
+  { id: 'ap', label: 'Accounts Payable' },
   { id: 'erp-audit', label: 'ERP Audit' },
   { id: 'fpa', label: 'FP&A' },
   { id: 'mt-billing', label: 'MT Billing' },
@@ -23,9 +23,9 @@ const PRODUCT_OPTIONS = [
 
 // Map URL ?product= param to product label
 const PRODUCT_PARAM_MAP = {
-  'accounts-payable-automation': 'Amount Payables',
-  'accounts-payable': 'Amount Payables',
-  'ap': 'Amount Payables',
+  'accounts-payable-automation': 'Accounts Payable',
+  'accounts-payable': 'Accounts Payable',
+  'ap': 'Accounts Payable',
   'erp-audit': 'ERP Audit',
   'fpa': 'FP&A',
   'mt-billing': 'MT Billing',

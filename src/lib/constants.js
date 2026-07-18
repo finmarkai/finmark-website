@@ -14,22 +14,22 @@ export const NAV_LINKS = [
 ]
 
 // Nested product structure for the navbar "Products" dropdown.
-// Today there is one product (Amount Payables). Each product has
+// Today there is one product (Accounts Payable). Each product has
 // a set of features that show as sub-items in the dropdown.
 // When more products ship, append new entries here and the dropdown
 // expands automatically.
 export const PRODUCTS = [
   {
-    label: 'Amount Payables',
+    label: 'Accounts Payable',
     slug: 'accounts-payable-automation',
     to: '/accounts-payable-automation',
     description: 'AI-powered AP automation. Live in production.',
     badge: null,
     features: [],
     intro: {
-      metaTitle: 'Accounts Payable (AP) Automation Software — Amount Payables | FinMark.ai',
+      metaTitle: 'Accounts Payable (AP) Automation Software | FinMark.ai',
       metaDescription: 'AI-powered accounts payable automation. Full invoice-to-ERP workflow — capture, match, validate, approve, post. Live in production with enterprise customers.',
-      h1: 'Amount Payables',
+      h1: 'Accounts Payable',
       body: [
         'FinMark.ai runs the full invoice-to-ERP workflow end to end. AI captures invoices in any format. Matching happens against live ERP data. Withholding tax is computed automatically against current regulations. Sanity checks catch what AI alone would miss. Approved invoices post back into the ERP, audit-ready.',
         'What used to take finance teams days now takes minutes. The platform is live in production with enterprise customers today.',
@@ -63,13 +63,13 @@ export const PRODUCTS = [
     badge: null,
     features: [],
     intro: {
-      metaTitle: 'FP&A — Financial Planning & Analysis | FinMark.ai',
-      metaDescription: 'AI-powered financial planning and analysis. Budgeting, forecasting, variance analysis, and scenario planning — built for finance teams that want to move past spreadsheets.',
+      metaTitle: 'FP&A & Financial Reporting Automation | FinMark.ai',
+      metaDescription: 'Automated financial reporting for enterprise groups. P&L, balance sheet, cash flow, and budget vs actuals — generated from your trial balance and GL data. Live in production.',
       h1: 'FP&A',
       body: [
-        'Financial Planning & Analysis still runs on spreadsheets at most companies. FinMark.ai\'s FP&A product replaces the spreadsheet sprawl with a structured system — budgets, forecasts, variance analysis, and scenario planning in one place, connected to your live financial data.',
-        'AI handles the parts that need AI — forecasting from historical patterns, flagging unusual variances, generating narrative commentary. Rules and integrations handle the rest. The result is planning you can trust and analysis that happens in hours, not weeks.',
-        'Built on the same data layer and ERP integrations that power our AP automation product. Your actuals flow in automatically; your plans stay current without manual data entry.',
+        'Month-end reporting at most enterprise groups still means days of spreadsheet work — pulling trial balances, classifying GL lines, and rebuilding the same P&L, balance sheet, and cash flow every month. FinMark.ai\'s FP&A product automates that: upload your trial balance and GL data, and finished management reports come out the other side.',
+        'It goes beyond the core statements — budget vs actuals with annual plans and latest estimates, expense reporting by category, SKU-level margin analysis, rebate analytics, and built-in insights that answer the questions management actually asks at review meetings.',
+        'Built for multi-company groups: each entity gets its own isolated reporting portal, with a consolidated view for the group. Live in production with enterprise groups today, on the same platform that powers our accounts payable automation.',
       ],
     },
   },

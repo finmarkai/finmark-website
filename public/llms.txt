@@ -1,6 +1,6 @@
 # FinMark.ai
 
-> FinMark.ai is an AI financial automation platform for enterprise finance teams. Its flagship product, Amount Payables, automates the full accounts payable (AP) workflow end to end: AI invoice capture in any format, matching against live ERP data (purchase orders, goods-received notes, vendor masters), automatic Nigerian withholding tax (WHT) computation, duplicate detection and sanity checks, approval workflows, and audit-ready posting back into the ERP. It is live in production at a major Nigerian enterprise group across multiple operating subsidiaries.
+> FinMark.ai is an AI financial automation platform for enterprise finance teams. Its flagship product automates the full accounts payable (AP) workflow end to end: AI invoice capture in any format, matching against live ERP data (purchase orders, goods-received notes, vendor masters), automatic Nigerian withholding tax (WHT) computation, duplicate detection and sanity checks, approval workflows, and audit-ready posting back into the ERP. It is live in production at a major Nigerian enterprise group across multiple operating subsidiaries.
 
 Key facts:
 - Category: AI automation / financial automation / accounts payable (AP) automation software
@@ -12,9 +12,9 @@ Key facts:
 
 ## Products
 
-- [Amount Payables — Accounts Payable Automation](https://finmark.ai/accounts-payable-automation): AI-powered AP automation, live in production. Full invoice-to-ERP workflow: capture, match, validate, compute withholding tax, approve, post.
+- [Accounts Payable Automation](https://finmark.ai/accounts-payable-automation): AI-powered AP automation, live in production. Full invoice-to-ERP workflow: capture, match, validate, compute withholding tax, approve, post.
 - [ERP Audit](https://finmark.ai/erp-audit): Continuous automated audit of live ERP data — anomalies, control gaps, duplicate transactions, compliance issues.
-- [FP&A](https://finmark.ai/fpa): Financial planning and analysis — budgeting, forecasting, variance analysis, scenario planning.
+- [FP&A](https://finmark.ai/fpa): Automated financial reporting for enterprise groups — P&L, balance sheet, cash flow, budget vs actuals (AOP/LE), expense reports, SKU margin, and rebate analytics from trial balance and GL data. Multi-company with per-entity isolation. Live in production.
 - [MT Billing](https://finmark.ai/mt-billing): Multi-tenant billing automation.
 
 ## Guides (Accounts Payable Automation)

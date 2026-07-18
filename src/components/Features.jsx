@@ -107,7 +107,7 @@ export default function Features() {
                 What FinMark.ai <span className="gradient-text">Ships Today</span>
               </h2>
               <p className="mt-5 max-w-2xl mx-auto text-lg text-gray-400">
-                Our first product is AI-powered amount payables automation. AI does the parts that need AI — invoice extraction. Rules and ERP integrations do the rest. Together they replace the manual AP work that consumes most of a finance team's week.
+                Our first product is AI-powered accounts payable automation. AI does the parts that need AI — invoice extraction. Rules and ERP integrations do the rest. Together they replace the manual AP work that consumes most of a finance team's week.
               </p>
             </>
           ) : (
@@ -136,7 +136,7 @@ export default function Features() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mt-5 max-w-2xl mx-auto text-lg text-gray-400"
               >
-                Our first product is AI-powered amount payables automation. AI does the parts that need AI — invoice extraction. Rules and ERP integrations do the rest. Together they replace the manual AP work that consumes most of a finance team's week.
+                Our first product is AI-powered accounts payable automation. AI does the parts that need AI — invoice extraction. Rules and ERP integrations do the rest. Together they replace the manual AP work that consumes most of a finance team's week.
               </motion.p>
             </>
           )}
