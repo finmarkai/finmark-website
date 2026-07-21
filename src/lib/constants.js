@@ -91,6 +91,78 @@ export const PRODUCTS = [
       ],
     },
   },
+  {
+    label: 'P&L Auto Track',
+    slug: 'pnl-auto-track',
+    to: '/pnl-auto-track',
+    description: 'A live P&L that updates as transactions post.',
+    badge: null,
+    features: [],
+    intro: {
+      metaTitle: 'P&L Auto Track — Live Profit & Loss Tracking | FinMark.ai',
+      metaDescription: 'A live P&L that updates as transactions post. See margin movement the day it happens instead of waiting for month-end close.',
+      h1: 'P&L Auto Track',
+      body: [
+        'Most finance teams see their P&L once a month, weeks after the decisions that shaped it were made. By the time margin slippage shows up in the month-end pack, it has been quietly compounding for thirty days.',
+        'P&L Auto Track keeps a live P&L that updates as transactions post. Margin movement shows up the day it happens — a price change, a cost spike, a product mix shift — so finance can flag it while there is still time to act, not explain it after the fact.',
+        'Built on the same data layer that powers our financial reporting product: your transactions flow in, classification happens automatically, and the P&L stays current without anyone rebuilding a spreadsheet.',
+      ],
+    },
+  },
+  {
+    label: 'RevRecog AI',
+    slug: 'revenue-recognition-automation',
+    to: '/revenue-recognition-automation',
+    description: 'Automated revenue recognition with a full audit trail.',
+    badge: null,
+    features: [],
+    intro: {
+      metaTitle: 'RevRecog AI — Revenue Recognition Automation | FinMark.ai',
+      metaDescription: 'Automates revenue recognition schedules across contracts and billing models, with a defensible audit trail for every entry.',
+      h1: 'RevRecog AI',
+      body: [
+        'Revenue recognition is where finance teams spend the most careful hours for the least visible output — building schedules contract by contract, adjusting them when billing changes, and defending every number when the auditors arrive.',
+        'RevRecog AI automates revenue recognition schedules across contracts and billing models. Schedules are generated from the contract terms, updated automatically as billing events land, and every recognised entry carries a defensible audit trail showing exactly why it was recognised, when, and under which rule.',
+        'The result is revenue numbers your auditors can trace end to end — without your finance team maintaining the spreadsheet machinery behind them.',
+      ],
+    },
+  },
+  {
+    label: 'UnitEcon Tracker',
+    slug: 'unit-economics-tracker',
+    to: '/unit-economics-tracker',
+    description: 'True unit economics at customer, product, and SKU level.',
+    badge: null,
+    features: [],
+    intro: {
+      metaTitle: 'UnitEcon Tracker — Unit Economics Software | FinMark.ai',
+      metaDescription: 'Track true unit economics — cost to serve, contribution margin, and payback — at customer, product, and SKU level.',
+      h1: 'UnitEcon Tracker',
+      body: [
+        'Company-level margins hide the truth. Inside every blended number are customers that make money and customers that quietly lose it, SKUs that carry the business and SKUs that drain it — and most finance teams cannot tell them apart without a week of spreadsheet archaeology.',
+        'UnitEcon Tracker computes true unit economics — cost to serve, contribution margin, and payback — at customer, product, and SKU level, from the transaction data you already have.',
+        'It turns "our margin is 18%" into "these twenty customers are below water and here is why" — the level of detail where pricing, sales, and product decisions actually get made.',
+      ],
+    },
+  },
+  {
+    label: 'Commission Engine AI',
+    slug: 'sales-commission-automation',
+    to: '/sales-commission-automation',
+    description: 'Sales commissions calculated from live deal data.',
+    badge: null,
+    features: [],
+    intro: {
+      metaTitle: 'Commission Engine AI — Sales Commission Automation | FinMark.ai',
+      metaDescription: 'Calculates, validates, and posts sales commissions from live deal and payment data — replacing spreadsheet cycles and payout disputes.',
+      h1: 'Commission Engine AI',
+      body: [
+        'Commission season at most companies means a spreadsheet marathon: finance rebuilds the calculations, sales disputes the numbers, and everyone loses days reconciling versions of the truth.',
+        'Commission Engine AI calculates, validates, and posts sales commissions from live deal and payment data. Plans are encoded once; every payout is computed against actual closed and collected revenue, validated against the plan rules, and posted with a clear trail from deal to payment to commission.',
+        'Sales sees exactly how their number was built, finance stops re-deriving it by hand, and disputes turn into a lookup instead of a negotiation.',
+      ],
+    },
+  },
 ]
 
 // Flat list of all feature links — derived from PRODUCTS.

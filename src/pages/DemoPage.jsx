@@ -18,6 +18,10 @@ const PRODUCT_OPTIONS = [
   { id: 'erp-audit', label: 'ERP Audit' },
   { id: 'fpa', label: 'FP&A' },
   { id: 'mt-billing', label: 'MT Billing' },
+  { id: 'pnl-auto-track', label: 'P&L Auto Track' },
+  { id: 'revrecog', label: 'RevRecog AI' },
+  { id: 'unitecon', label: 'UnitEcon Tracker' },
+  { id: 'commission-engine', label: 'Commission Engine AI' },
   { id: 'custom', label: 'Something else — tell us what you need' },
 ]
 
@@ -29,6 +33,13 @@ const PRODUCT_PARAM_MAP = {
   'erp-audit': 'ERP Audit',
   'fpa': 'FP&A',
   'mt-billing': 'MT Billing',
+  'pnl-auto-track': 'P&L Auto Track',
+  'revenue-recognition-automation': 'RevRecog AI',
+  'revrecog': 'RevRecog AI',
+  'unit-economics-tracker': 'UnitEcon Tracker',
+  'unitecon': 'UnitEcon Tracker',
+  'sales-commission-automation': 'Commission Engine AI',
+  'commission-engine': 'Commission Engine AI',
   'custom': null, // show checkboxes
 }
 
